@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Welcome </title>
+	<meta charset="UTF-8">
+	<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<link rel="stylesheet" href="main.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
+	<![endif]-->
+
+	<!--
+	<script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.0.0rc1.js"></script>
+  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery.flip.min.js"></script>
+
+
+<script type="text/javascript">
+//modal effect
+		$(document).ready(function(){
+			$('.openModal').click(
+				function(event){$('#popupOverlay').show();});
+			$('.openModal').click(
+				function(event){$('html').css("overflow", "hidden");});
+			$('.openModal').click(
+				function(event){$('#body_back').css("display", "none");});
+			$('#modalbox').click(
+				function(event){$('#modalbox-backToTop').css("display", "block");});
+			$('.openModal').click(
+				function(event){$('#modalbox').scrollTop(0);});
+			$("#modalbox").click(function(event){$('#popupOverlay').hide();});	
+			$('.closeBox').click(
+				function(event){$('#popupOverlay').hide();});
+			$('.closeBox').click(
+				function(event){$('html').css("overflow","visible"); });
+			$('#modalbox').click(
+				function(event){$('html').css("overflow","visible"); });
+			$('#modalbox').click(
+				function(event){$('#body_back').css("display", "none");});
+			$('#modalbox').click(
+				function(event){$('#modalbox-backToTop').css("display", "none");});
+			$('.popup-mainContainer,.popup-side_top,.popup-side_bottom,.popup-comment,.popup-side_middle').click(function(event){
+     			event.stopPropagation();
+ 			});
+//flip all effect			
+			//$('.showAllButton').click(
+			//	function(){$('.modelBox,.modelBox').fadeToggle(600);});
+			
+
+				var toggleState = true;
+				$('#flip_button').on("click", function() {
+				  if(toggleState) {
+				     $(".modelBox,.styleTitle,.style-category").fadeIn();
+				  } else {
+				    $(".modelBox").fadeOut();
+				  }
+				  toggleState = !toggleState;
+				});
+
+		
+
+				var toggleStateCategory = true;
+				$('#flip_button').on("click", function() {
+				  if(toggleStateCategory) {
+				     $(".style-category").fadeOut();
+				  } else {
+				     $(".style-category").fadeIn();
+				  }
+				  toggleStateCategory = !toggleStateCategory;
+				});
+
+	
+//flip effect 
+				var toggleStateSingle = true;
+				$('.button-flip').on("click", function() {
+				  if(toggleStateSingle) {
+				     $(this).next().next(".modelBox").fadeIn();
+				  } else {
+				    $(this).next().next(".modelBox").fadeOut();
+				  }
+				  toggleStateSingle = !toggleStateSingle;
+				});
+
+				var toggleStateSingleCategory = true;
+				$('.button-flip').on("click", function() {
+				  if(toggleStateSingleCategory) {
+				     $(this).next().next().next().next().children().children().next().children().next('.style-category').fadeOut();
+				  } else {
+				    $(this).next().next().next().next().children().children().next().children().next('.style-category').fadeIn();
+				  }
+				  toggleStateSingleCategory = !toggleStateSingleCategory;
+				});
+
+
+
+//hover effect for small and large contents			
+
+			$(".content-small,.content-large").hover(function(){
+  				$(this).children(".button-heart,.button-flip").fadeIn("fast");
+  					},function(){
+  					$(this).children(".button-heart,.button-flip").fadeOut("fast");
+				});
+
+//hover effect for sticky nav
+
+			$(".submenu-secondWrapper").hover(function(){
+  				$(this).children(".background_white.stickynavi-submenu-second").fadeIn("fast");
+  					},function(){
+  					$(this).children(".background_white.stickynavi-submenu-second").fadeOut("fast");
+				});
+			$(".stickynavi-submenu").children().children().hover(function(){
+  				$(this).children(".stickynavi-submenu-second").fadeIn("fast");
+  					},function(){
+  					$(this).children(".stickynavi-submenu-second").hide();
+				});
+			
+		});
+
+	
+
+
+$(document).ready(function(){
+//Check to see if the window is on top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() < 650) {
+			$('#body_back').slideUp();
+		} else {
+			$('#body_back').slideDown();
+		}
+	});
+	$("#modalbox").scroll(function(){
+		if ($(this).scrollTop() < 650) {
+			$('#modalbox-backToTop').slideUp();
+		} else {
+			$('#modalbox-backToTop').slideDown();
+		}
+	});
+
+
+
+//Click event to scroll to top
+	$('#modalbox-backToTop').click(function(){
+		$('#modalbox').animate({scrollTop : 0},800);
+		return false;});
+
+
+	$('#body_back').click(function(){$('html, body').animate({ scrollTop: 0 }, 800);	return false;});
+	
+	
+});
+
+
+//heart fillup
+$(document).ready(function(){
+	$(".button-heart").click(function(){$(this).children('.heart_filled').fadeToggle("fast");});
+
+	});
+
+$(document).ready(function(){
+	$(".button_grey_medium").click(function(){$(this).children(".mediumButton-leftside").children('.heart_filled').fadeToggle("fast");});
+	$(".button_grey_medium").click(function(){$(this).children(".mediumButton-leftside").children('heart_filled').children(span).css('color','white');});
+	});
+
+$(document).ready(function(){
+	$(".itemDetails-heart").click(function(){$(this).children().next(".heart_filled").fadeToggle("fast");});
+	
+	});
+
+//dropdown menu for sticky navi - issues: 1, stickynavi's background color needs to change after being clicked. 2, dropdown menu needs to be closed when users click area other than the dropdown menu
+	$(document).ready(function(){
+		$(".stickynavi-menu").click(function(){$(this).children('.stickynavi-submenu').fadeToggle("fast");});
+				
+
+		$(".stickynavi-menu").click(function() {
+
+        if( $(this).children(".stickynavi-submenu").is("display","block") ) {
+            $(this).children(".stickynavi-submenu").hide();
+        } else {
+            // if other menus are open remove open class and add closed
+            $(this).siblings().children(".stickynavi-submenu").is("display","block"); 
+            $(this).siblings().children(".stickynavi-submenu").hide();
+        }
+
+});
+		$('html').click(function(event){
+                 $('.stickynavi-submenu').hide();
+             });
+	
+		$('.stickynavi-menu,.stickynavi-submenu-second,.stickynavi-submenu').click(function(event){
+    			event.stopPropagation();
+			}	);	
+
+		});
+
+
+
+
+
+//stickynavi - fix position effect
+$(document).ready(function(){
+    $(window).scroll(function(){
+        var scrollTop = 50;
+        if($(window).scrollTop() >= scrollTop){
+            $('#stickynaviWrapper').css({
+                position : 'fixed',
+                top : '0',
+
+            });
+        }
+
+   
+      
+        if($(window).scrollTop() < scrollTop){
+            $('#stickynaviWrapper').removeAttr('style'); 
+        }
+    })
+})
+//stickynavi - search box appears 
+$(document).ready(function(){
+    $(window).scroll(function(){
+        var scrollTop = 50;
+        if($(window).scrollTop() >= scrollTop){
+            $('#stickynavi_searchBox').fadeIn("fast");
+        }
+
+   
+      
+        if($(window).scrollTop() < scrollTop){
+            $('#stickynavi_searchBox').fadeOut("fast"); 
+        }
+    })
+})
+
+//stickynavi - sign up box appears 
+
+$(document).ready(function(){
+    $(window).scroll(function(){
+        var scrollTop = 50;
+        if($(window).scrollTop() >= scrollTop){
+            $('#signupBox').fadeIn("fast");
+        }
+
+   
+      
+        if($(window).scrollTop() < scrollTop){
+            $('#signupBox').fadeOut("fast"); 
+        }
+    })
+})
+
+//modal box scrolls up   and fix position
+
+$(document).ready(function(){
+    $('#modalbox').scroll(function(){
+        var scrollTop = 30;
+
+        if($('#modalbox').scrollTop() >= scrollTop){
+            $('#mainContainer_header').css({
+                position : 'fixed',
+                top : '0',
+            });
+        };
+
+
+
+      
+        if($('#modalbox').scrollTop() < scrollTop){
+            $('#mainContainer_header').removeAttr('style'); 
+        };
+    });
+
+
+//change among three options - collage, model, people
+
+	$(".rectanglar-left").click(function(){
+		if( $(".content_model,.content_people").css("display","block") ) {
+            $(".content_model,.content_people").hide();
+            $(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
+        };
+		$(".content_collage").show();       
+		$(".rectanglar-left").addClass("currently_focus");
+ });
+
+	
+	$(".rectanglar-medium").click(function(){
+		if( $(".content_collage,.content_people").css("display","block") ) {
+            $(".content_collage,.content_people").hide();
+           $(".rectanglar-right,.rectanglar-left").removeClass("currently_focus");
+
+        };
+		$(".content_model").show();
+		$(".rectanglar-medium").addClass("currently_focus");
+      });
+	
+	$(".rectanglar-right").click(function(){
+		if( $(".content_model,.content_collage").css("display","block") ) {
+            $(".content_model,.content_collage").hide();};
+           $(".rectanglar-left,.rectanglar-medium").removeClass("currently_focus");
+
+		$(".content_people").show();       
+		$(".rectanglar-right").addClass("currently_focus");
+
+		 });
+
+});
+
+
+//direct contents to the modal box content
+//if collage contents are clicked, the collage will be shown in the modal box at first
+$(document).ready(function(){
+   	$(".collageBox,.styleTitle > .openModal").click(function(){
+			$(".rectanglar-left").addClass("currently_focus");
+        	$(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
+        	$(".content_model,.content_people").hide();    
+        	$(".content_collage").show();       
+ });
+
+
+	$(".modelBox").click(function(){
+			$(".rectanglar-medium").addClass("currently_focus");
+        	$(".rectanglar-left,.rectanglar-right").removeClass("currently_focus");
+        	$(".content_collage,.content_people").hide();    
+        	$(".content_model").show();       
+ });
+	$(".peopleBox").click(function(){
+			$(".rectanglar-right").addClass("currently_focus");
+        	$(".rectanglar-left,.rectanglar-medium").removeClass("currently_focus");
+        	$(".content_collage,.content_model").hide();    
+        	$(".content_people").show();       
+ });
+});
+
+
+
+</script>
+
+</head>
+<body>	
+	<div id="header" class="headerColor">
+		<div class="inner headerColor center">
+			<div class="inner-inside center" >
+				<div id="logo">
+					<a href="index.html">
+						<h1 id="logo_modi">Modi</h1>
+						<h1 id="logo_show">Show</h1>
+					</a>
+				</div>
+				<ul id="header-leftOptions">
+					<li class="firstChild">
+						<a href="index.html"><h2>FEED</h2></a>
+					</li>
+					<li>
+						<a class="currentPage" href="index.html"><h2>EXPLORE</h2> </a>
+					</li>					
+					<li>
+						<a href="#"><h2>SHOP</h2></a>
+						<ul class="submenu background_dark round_bottom">
+							<li>
+								<a href="#">New Items</a>
+							</li>
+							<li class="bottom_underscore">
+								<a href="#">On Sale</a>
+							</li>
+							<li class="submenu-list">
+								<a class="submenu-secondLevelParent" href="#">Clothing</a>
+								<div class="submenu-secondLevel">
+									<ul >
+										<li>
+											<a href="#">Dresses</a>
+										</li>
+										<li>
+											<a href="#">Skirts</a>
+										</li>
+										<li>
+											<a href="#">Tops</a>
+										</li>
+										<li>
+											<a href="#">Outwear</a>
+										</li>
+										<li>
+											<a href="#">Jeans</a>
+										</li>
+										<li>
+											<a href="#">Pants</a>
+										</li>
+										<li>
+											<a href="#">Shorts</a>
+										</li>
+									</ul>
+									<ul>
+										<li>
+											<a href="#">Jumpsuits & Rompers</a>
+										</li>
+										<li>
+											<a href="#">Intimates</a>
+										</li>
+										<li>
+											<a href="#">Swimwear</a>
+										</li>
+										<li>
+											<a href="#">Activewear</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li><a href="#">Bags</a></li>
+							<li><a href="#">Shoes</a></li>
+							<li><a href="#">Jewelry</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Beauty</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="tryon" href="tryon.html">
+							<ul>
+								<li class="basicWebLayout clothesIcon"></li>
+								<li><h2>TRY-ON</h2></li>
+							</ul>
+						</a>
+					</li>
+				</ul>
+				<form id="searchBox">
+					<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
+				</form>
+				<ul id="header-rightOptions">
+					<li>
+						<a href="#"><h2>ABOUT</h2></a>
+						<div class="aboutPage submenu background_dark round_bottom">
+							<div class="aboutPage-options">
+								<div>About</div>
+								<div class="column1">
+									<ul> 
+										<li><a href="#">What is ModiShow</a></li>
+										<li><a href="#">Rewards Program</a></li>
+										<li><a href="#">Partners</a></li>
+										<li><a href="#">Explore</a></li>
+									</ul>
+								</div>
+								<div class="column2">
+									<ul>
+										<li><a href="#">Language</a></li>
+										<li><a href="#">Privacy Policy</a></li>
+										<li><a href="#">Terms of Services</a></li>
+										<li><a href="#">Help</a></li>
+									</ul>
+								</div>					
+							</div>
+							<div class="aboutPage-follow "> 
+								<div>Contact Us</div>
+									<ul>
+										<li><a class="icon_descriptions" href="https://www.facebook.com/pages/Modishow/466201083428706?fref=ts">Facebook</li>
+										<li><img src="images/facebook.png" width="35px"/></a></li>
+									</ul>	
+									<ul>
+										<li><a class="icon_descriptions" href="#">Twitter</li>
+										<li><img src="images/twitter.png" width="35px"/></a></li>
+									</ul>	
+									<ul>
+										<li><a class="icon_descriptions" href="#">Pinterest</li>
+										<li><img src="images/pinterest.png" width="35px"/></a></li>
+									</ul>	
+									<ul>
+										<li><a class="icon_descriptions" href="#">LinkedIn</li>
+										<li><img src="images/linkedInLogo.png" width="35px"/></a></li>
+									</ul>	
+									<ul>
+										<li><a class="icon_descriptions" href="#">Blog</li>
+										<li><img src="images/blog.png" width="35px"/></a></li>
+									</ul>	
+									<ul>
+										<li><a class="icon_descriptions" href="#">E-mail</li>
+										<li><img src="images/email.png" width="35px"/></a></li>
+									</ul>	
+								
+							</div>
+							<div class="hooter">
+								&copy; 2013 - ModiShow corporation
+							</div>
+						</div>
+					</li>
+					<li class="lastChild">
+						<a href="#"><h2>SIGNUP / LOGIN</h2></a>
+						<ul class="userPage submenu background_dark round_bottom">
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Creations</a></li>
+							<li><a href="#">Magazines</a></li>
+							<li><a href="#">Likes</a></li>
+							<li><a href="#">Followings</a></li>
+							<li><a href="#">Followers</a></li>
+							<li><a href="#">Groups</a></li>
+							<li class="bottom_underscore"><a href="#">Find friends</a></li>
+							<li><a href="#">Setting</a></li>
+							<li><a href="#">Logout</a></li>
+						</ul>
+					</li>
+				</ul>					
+				<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
+						0
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="stickynaviWrapper" class="boxShadow">
+		<div id="stickynavi">
+			<ul class="stickynavi-left">
+				<li id="signupBox" class="stickynavi-menu">
+					<div class="stickynavi-parentWrapper">
+						<ul>
+							<li class="stickynavi-parent"><a href="#">+ Sign Up</a></li>	
+						</ul>
+					</div>
+				</li>
+				<li id="stickynavi-categoryBox" class="stickynavi-menu">
+					<div class="stickynavi-parentWrapper">
+						<ul>
+							<li class="stickynavi-parent">Featured</li>
+							<li class="parentArrow">
+								<span class="stickynavi-parentArrow parentArrow"></span>
+								<span class="stickynavi-parentArrow_hover parentArrow"></span>
+							</li>
+						</ul>
+					</div>
+					<ul class="stickynavi-submenu">
+						<span class="upwardArrow"></span>
+						<li class="topbox">Category</li>
+						<li >Featured</li>
+						<li>Everything</li>
+						<li>Feel Lucky</li>
+						<li>Celebrity</li>	
+						<div class="submenu-secondWrapper">
+							<div class="background_white boxShadow stickynavi-submenu-second"></div>			
+							<li>
+								Style<span class="rightArrow-white"></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<li>
+											Active
+										</li>
+										<li>
+											Basic
+										</li>
+										<li>
+											Business Casual
+										</li>
+										<li>
+											Bohemian
+										</li>
+										<li>
+											Casual
+										</li>
+										<li>
+											Classic
+										</li>
+										<li>
+											Comfortable
+										</li>
+										<li>
+											Cute
+										</li>
+									</ul>
+									<ul>
+										<li>
+											Elegant
+										</li>
+										<li>
+											Formal
+										</li>
+										<li>
+											Goth
+										</li>
+										<li>
+											Preppy
+										</li>
+										<li>
+											Punk
+										</li>
+										<li>
+											Runway
+										</li>
+										<li>
+											Sexy
+										</li>
+									</ul>
+									<ul>
+										<li>
+											Swimwear
+										</li>
+										<li>
+											Vintage
+										</li>
+									</ul>
+									<img src="images/category_style.png" style="position:absolute; bottom:0px; right:5px; width:40%;"/>
+								</div>
+							</li>
+							<li>
+								Occassion<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second ">
+									<ul>
+										<li>
+											Casual date
+										</li>
+										<li>
+											Classy date
+										</li>
+										<li>
+											Everyday
+										</li>
+										<li>
+											Formal events
+										</li>
+										</li>
+										<li>
+											Night out
+										</li>
+										<li>
+											Outdoor activities
+										</li>
+										<li>
+											Work
+										</li>
+									</ul> 
+									<img src="images/occassion.png" style="position:absolute; bottom:20px; right:25px; width:55%;"/>
+								</div>
+							</li>
+							<li>
+								Season<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second ">			
+									<ul>
+										<li>
+											Spring
+										</li>
+										<li>
+											Mid-Spring
+										</li>
+										<li>
+											Summer
+										</li>
+										<li>
+											Fall
+										</li>
+										<li>
+											Mid-Fall
+										</li>
+										<li>
+											Winter
+										</li>
+									</ul>
+									<img src="images/season.png" style="position:absolute; bottom:0px; right:0px;width:100%; "/>
+								</div>
+							</li>
+							<li>
+								Weather<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second ">
+									<ul>
+										<li>
+											Warm
+										</li>
+										<li>
+											Freezing
+										</li>
+										<li>
+											Cold
+										</li>
+										<li>
+											Raining
+										</li>
+										<li>
+											Hot
+										</li>
+										<li>
+											Snowing
+										</li>
+										<li>
+											Tropical
+										</li>
+									</ul>
+									<img src="images/weather.png" style="position:absolute; bottom:0px; right:25px;width:50%"/>
+								</div>
+							</li>
+						</div>
+					</ul>
+				</li>
+				<li  id="stickynavi-orderBox" class="OrderByBox stickynavi-menu">
+					<div class="stickynavi-parentWrapper">
+						<ul>
+							<li class="stickynavi-parent">Most Recent </li>
+							<li class="parentArrow">
+								<span class="stickynavi-parentArrow parentArrow"></span>
+								<span class="stickynavi-parentArrow_hover parentArrow"></span>					
+							</li>
+						</ul>
+					</div>
+					<ul class="stickynavi-submenu">
+						<span class="upwardArrow"></span>
+						<li class="topbox">Order</li>
+						<li class="time_submenu-secondLevel">
+							Most Recent
+						</li>
+						<li class="most_discussed">
+							Most discussed
+						</li>
+						<div class="submenu-secondWrapper ">
+							<div class="background_white stickynavi-submenu-second"></div>						
+							<li>
+								Most Viewed<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<li>All Time</li>
+										<li>Today</li>
+										<li>This week</li>
+										<li>This month</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								Most Popular<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<li>All Time</li>
+										<li>Today </li>
+										<li>This week</li>
+										<li>This month</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								Price<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<li>High to Low</li>
+										<li>Low to High</li>
+									</ul>
+								</div>
+							</li>
+						</div>
+					</ul>
+				</li>
+				<li id="stickynavi-filterBox" class="FilterByBox notFeatured stickynavi-menu ">
+					<div class="stickynavi-parentWrapper">
+						<ul>
+							<li class="stickynavi-parent">Filters</li>
+							<li class="parentArrow">
+								<span class="stickynavi-parentArrow parentArrow"></span>
+								<span class="stickynavi-parentArrow_hover parentArrow"></span>
+							</li>
+						</ul>	
+					</div>
+					<ul class="stickynavi-submenu">
+						<span class="upwardArrow"></span>
+						<li class="topbox">Choose Filters</li>
+						<div class="submenu-secondWrapper">
+							<div class="background_white stickynavi-submenu-second"></div>									
+							<li class="secondSubmenu_color">
+								Color<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<form>
+										<ul>
+											<label><li class="white colorBox"><input type="checkbox" value="white"/> White</li> </label>
+											<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>
+											<label><li class="grey colorBox"><input type="checkbox" value="grey"/> Grey</li></label>
+											<label><li class="brown colorBox"><input type="checkbox" value="brown"/> Brown</li> </label>
+											<label><li class="beige colorBox"><input type="checkbox" value="beige"/> Beige</li></label>
+											<label><li class="green colorBox"><input type="checkbox" value="green"/> Green </li></label>
+											<label><li class="blue colorBox"><input type="checkbox" value="blue"/> Blue</li></label>
+											<label><li class="purple colorBox"><input type="checkbox" value="purple"/> Purple</li></label>
+											<label><li class="yellow colorBox"><input type="checkbox" value="yellow"/> Yellow</li></label>
+											<label><li class="pink colorBox"><input type="checkbox" value="pink"/> Pink</li></label>
+											<label><li class="red colorBox"><input type="checkbox" value="red"/> Red</li></label>
+											<label><li class="orange colorBox"><input type="checkbox" value="orange"/> Orange</li></label>
+											<label><li class="silver colorBox"><input type="checkbox" value="silver"/> Silver </li></label>
+											<label><li class="gold colorBox"><input type="checkbox" value="gold"/> Gold</li></label>
+											<label><li class="others colorBox"><input type="checkbox" value="others"/> Others</li></label>
+										</ul>
+									</form>
+								</div>
+							</li>
+							<li>
+								Pattern<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<form>
+										<ul>
+											<label><li><input type="checkbox" value="plain"/> Plain</li></label>
+											<label><li><input type="checkbox" value="stripe"/> Stripe</li></label>
+											<label><li><input type="checkbox" value="check"/> Check</li></label>
+											<label><li><input type="checkbox" value="border"/> Border</li></label>
+											<label><li><input type="checkbox" value="dot"/> Dot</li></label>
+											<label><li><input type="checkbox" value="camouflage"/> Camouflage</li></label>
+										</ul>
+										<ul>
+											<label><li><input type="checkbox" value="embroidery"/> Embroidery, lace</li></label>
+											<label><li><input type="checkbox" value="animal"/> Animal </li></label>
+											<label><li><input type="checkbox" value="floral"/> Floral</li></label>
+											<label><li><input type="checkbox" value="patterned"/> Patterned all over print</li></label>
+											<label><li><input type="checkbox" value="print"/> Print(logos,etc.)</li></label>
+											<label><li><input type="checkbox" value="onePoint"/> One point</li></label>
+										</ul>
+									</form>
+								</div>
+							</li>
+							<li>
+								Material<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<form>
+										<ul>
+											<label><li><input type="checkbox" value="chino"/> Chino</li></label>
+											<label><li><input type="checkbox" value="cotton"/> Cotton</li></label>
+											<label><li><input type="checkbox" value="corduroy"/> Corduroy</li></label>
+											<label><li><input type="checkbox" value="wool"/> Wool series</li></label>
+											<label><li><input type="checkbox" value="line"/> Line series</li></label>
+											<label><li><input type="checkbox" value="nylon"/> Nylon series</li></label>
+										</ul>
+										<ul>
+											<label><li><input type="checkbox" value="sweat"/> Sweat</li></label>
+											<label><li><input type="checkbox" value="jersey"/> Jersey</li></label>
+											<label><li><input type="checkbox" value="stretch"/> Stretch</li></label>
+											<label><li><input type="checkbox" value="leather"/> Leather material</li></label>
+										</ul>
+									</form>
+								</div>
+							</li>
+							<li>
+								Price<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<form>								
+										<ul>
+											<label><li><input type="radio"/>
+												~ $50									
+											</li></label>
+
+											<label><li><input type="radio"/>
+												$51~ $100
+											</li></label>
+											<label><li><input type="radio"/>
+												$101 ~ $200
+											</li></label>
+											<label><li><input type="radio"/>
+												$201~ $300
+											</li></label>
+											<label><li><input type="radio"/>
+												$301~ $400
+											</li></label>
+											<label><li><input type="radio"/>
+												$401~ $500
+											</li></label>
+										</ul>
+										<ul>
+										
+											
+											<label><li><input type="radio"/>
+												$501~ $750
+											</li></label>
+											<label><li><input type="radio"/>
+												$751~ $1,000
+											</li></label>
+											<label><li><input type="radio"/>
+												$1001 ~
+											</li></label>
+										</ul>
+									</form>
+								</div>
+							</li>
+							<li>
+								Brand<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second sideScroll">
+									<form>							
+										<div class="sideScroll-wrapper">
+											<ul>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+											</ul>
+										</div>
+										<div class="sideScroll-wrapper">
+											<ul>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+											</ul>
+										</div>
+										<div class="sideScroll-wrapper">
+											<ul>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+											</ul>
+										</div>
+										<div class="sideScroll-wrapper">
+											<ul>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+											</ul>
+										</div>
+										<div class="sideScroll-wrapper">
+											<ul>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+												<label><li><input type="checkbox" value=""/> ABCD</li></label>
+											</ul>
+										</div>
+									</form>
+								</div>
+							</li>
+						</div>
+					</ul>
+				</li>
+				<li id="stickynavi-createBox" class="CreatedByBox notFeatured stickynavi-menu">
+					<div class="stickynavi-parentWrapper">
+						<ul>
+							<li class="stickynavi-parent">Creaters</li>
+							<li class="parentArrow">
+								<span class="stickynavi-parentArrow parentArrow"></span>
+								<span class="stickynavi-parentArrow_hover parentArrow"></span>
+							</li>
+						</ul>	
+					</div>
+					<ul id="creators" class="stickynavi-submenu">
+						<li class="topbox">Choose Creaters</li>
+						<span class="upwardArrow"></span>
+						<div class="submenu-secondWrapper">		
+							<div class="background_white stickynavi-submenu-second"></div>			
+							<li>
+								Age<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<label><li><input type="checkbox" value="17"/> Age: ~ 17 </li></label>
+										<label><li><input type="checkbox" value="18_21"/> Age:18 ~ 21 </li></label>
+										<label><li><input type="checkbox" value="22_25"/> Age:22 ~ 25 </li></label>
+										<label><li><input type="checkbox" value="26_30"/> Age:26 ~ 30 </li></label>
+										<label><li><input type="checkbox" value="31_40"/> Age:31 ~ 40 </li></label>
+										<label><li><input type="checkbox" value="41"/> Age:40 ~  </li></label>
+									</ul>
+								</div>
+							</li>
+							<li>
+								Hairstyle<span class="rightArrow-white  extra_space"></span>
+								<div class="stickynavi-submenu-second">
+									<img src="images/skin_color.png" style="height:100%;"/>
+								</div>
+							</li>
+							<li>
+								Skin Color<span class="rightArrow-white  extra_space"></span>
+								<div class="stickynavi-submenu-second">
+									<img src="images/skin_color.png" style="height:100%;"/>
+								</div>
+							</li>
+							<li>
+								Size<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<label><li><input type="checkbox" value="3"/> Size: ~ 3 (XS)</li></label>
+										<label><li><input type="checkbox" value="4_6"/> Size:4 ~ 6 (S)</li></label>
+										<label><li><input type="checkbox" value="7_9"/> Size:7 ~ 9 (M)</li></label>
+										<label><li><input type="checkbox" value="10_12"/> Size:10 ~ 12 (L)</li></label>
+										<label><li><input type="checkbox" value="13"/> Size:13 ~ (XL)</li></label>
+									</ul>
+								</div>
+							</li>
+							<li>
+								Height<span class="rightArrow-white "></span>
+								<div class="stickynavi-submenu-second">
+									<ul>
+										<label><li><input type="checkbox" value=""/>  ~ 4'11"(150cm)</li></label>
+										<label><li><input type="checkbox" value=""/> 4'11.4"151cm)  ~ 5'3"(160cm)</li></label>
+										<label><li><input type="checkbox" value=""/> 5'3.4"(161cm)~ 5'6.9"(170cm)</li></label>
+										<label><li><input type="checkbox" value=""/> 5'7.3"(171cm)~ 5'10.9"(180cm)</li></label>
+										<label><li><input type="checkbox" value=""/> 5'11.3"(181cm)~ 6'2.8"(190cm)</li></label>
+										<label><li><input type="checkbox" value=""/> 6'3.2"(191cm)~ </li></label>
+					
+										
+									</ul>
+								</div>
+							</li>
+							<li>
+								Body Type<span class="rightArrow-white  extra_space"></span>
+								<div class="stickynavi-submenu-second">
+									<!--<ul>
+										<li>Rectangle</li>
+										<li>Apple</li>
+										<li>Hourglass</li>
+										<li>Pear</li>
+										<li>Inverted Triangle</li>
+									</ul>-->
+									<img src="images/body_type_create.png" style="width:100%;"/>
+								</div>
+							</li>
+						</div>
+					</ul>
+				</li>
+				<li  id="stickynavi-locationBox" class="locationByBox notFeatured stickynavi-menu">
+					<div class="stickynavi-parentWrapper">
+						<ul>
+							<li class="stickynavi-parent">All Worldwide</li>
+							<li class="parentArrow">
+								<span class="stickynavi-parentArrow"></span>
+								<span class="stickynavi-parentArrow_hover"></span>
+							</li>						
+						</ul>
+					</div>
+					<ul class="stickynavi-submenu">
+						<span class="upwardArrow"></span>
+						<li class="topbox">Search Location</li>
+						<form>
+							<li>
+								<span>Country:</span>
+								<select> 
+									<option>--Select a Country--</option>
+									<option>USA</option>
+									<option>Japan</option>
+									<option>France</option>
+									<option>England</option>
+								</select>
+							</li>
+							<li>
+								<span>City:</span><input type="text"/>
+							</li>
+
+							<li>
+								<input type="submit" value="Search"/>
+							</li>
+						</form>
+					</ul>
+				</li>
+			</ul>
+			<ul class="stickynavi-right">		
+				<li class="showAllButton">
+					<div class="stickynavi-parentWrapper">
+						<div id="flip_button" class="round_strong pointer">
+							<span class="flipIcon"></span>						
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="stickynavi-parentWrapper">
+						<form id="stickynavi_searchBox">
+							<input class="round_weak" type="text" name="search_name" value="search..."/>
+						</form>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="popupOverlay">
+		<div id="transparentBackground">
+		</div>
+		<div id="modalbox">
+			<a class="closeBox modalbox-fixPosition round_weak background_gradientGrey">
+				<span class="close"></span>
+			</a>
+				<a id="modalbox-backToTop" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#popup">Back to Top
+				</a>	
+			<div  id="popup">
+				<div class="popup-mainContainer round_weak">
+					<div id="mainContainer_header">
+						<div class="button_blue_medium background_gradientDarkBlue round_medium pointer  ">
+							<ul>
+								<li class="basicWebLayout clothesIcon"></li>
+								<li>TRY-ON</li>
+							</ul>	
+						</div>
+						<div class="button_grey_medium background_gradientGrey round_medium pointer">
+							<div class="mediumButton-leftside">
+								<span class="heart_filled"></span>
+								<span class="heart_empty"></span>
+							</div>
+							<div class="mediumButton-rightside">
+								<span>
+									2000
+								</span>
+							</div>
+						</div>
+					</div>
+					<div id="mainContainer_content">
+						<div class="content-top">
+							<div class="button_rectanglar center round-little">
+								<div class="rectanglar-left">Collage</div>
+								<div class="rectanglar-medium">Model</div>
+								<div class="rectanglar-right">People</div>
+							</div>
+						</div>
+						<div class="content-middle">
+							<div>
+								<img class="large_outfit1 large_collage content_collage" />
+								<img class="content_model" src="images/model2.gif"/>
+								<img class="content_people" src="images/people1.gif"/>					
+							</div>
+						</div>	
+						<div class="content-bottom">
+							<div class="content-bottom-description">
+								<span>Other styles created by 
+									<a class="username color_lightBlue" href="#">
+										Sara Cook
+									</a>
+								</span>
+							</div>
+							
+							<div class="content-bottom-slider">
+								<div class="slider-left">
+									<span class="leftArrow-thin opaque_strong"></span>
+								</div>
+								<ul class="slider-middle">
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>							
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li class="slider-content">
+										<a href="#"><img src="images/outfit1.png"/></a>
+									</li>
+								</ul>
+								<div class="slider-right">
+									<span class="rightArrow-thin opaque_strong"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="popup-side_top round_weak">
+					<div class="side_top-profileBox">
+						<div class="profile-image">
+							<a href="#"><img class="round_circle" src="images/userPhoto.gif"/></a>
+						</div>
+						<div class="profile-name">
+							<a class="username" href="#">Sara Cook</a>
+							<div class="timeStamp">Created 8 weeks ago</div>	
+							<div class="followLink"><a class="color_lightBlue" href="#">Follow</a></div>				
+						</div>				
+					</div>	
+					<div class="side_top-titleBox">
+						<div class="title">"<span>Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff</span>"</div>
+						<span class="category_name">
+							<label>Category - 
+								<a class="category" href="#"> Sexy
+								</a>
+							</label> 
+						</span>
+						<div class="clear"></div>
+					</div>
+					
+					<ul class="side_top-dashboard">
+						<li class="dashboard-view">
+							<div>
+								<span class="view_icon"></span> 
+								<span class="dashboard-number">1300</span>
+							</div>
+						</li>
+						<li class="dashboard-comment">
+							<div>
+								<span class="comment_icon"></span>
+								<span class="dashboard-number">9</span>
+							</div>
+						</li>
+						<li class="dashboard-likes">
+							<div>
+								<span class="heart_empty"></span> 
+								<span class="dashboard-number">2000</span>
+							</div>
+						</li>
+					<!--<li class="numberOfPutIntoMagazines></li>-->
+					</ul>	
+				</div>
+				<div class="popup-side_middle round_weak">
+					<div>
+						<span class="side_middle-description">Liked by these people</span>
+					</div>
+					<ul class="side_middle-users round_little">
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+					</ul>
+				</div>
+				<div class="popup-side_bottom round_weak">
+					<div class="side_bottom-TotalCost">
+						<span class="round_weak">Total Cost : 
+							<a href="#" target="_"> 
+								$1168.55
+								<div class="round_medium">If you click it, you will be guided to all the stores</div>
+							</a>
+						</span>
+					</div>				
+					<div class="side_bottom-itemDetails">
+						<ul>
+							<li>
+								<div class="itemDetails-image">	
+									<a href="#">
+										<img src="images/item1.png"/>
+									</a>
+
+								</div>
+								<div class="itemDetails-description">
+									<div class="price">
+									$169
+									</div>
+									<span class="description">
+										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+									</span>
+									<span class="brand">
+										<a href="#">topshop.com</a>
+									</span>
+									<div class="itemDetails-heart">
+										<span class="heart_empty">
+											<span>1000</span>
+										</span>
+										<span class="heart_filled">
+											<span>1001</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+							<li>
+								<div class="itemDetails-image">	
+									<a href="">
+										<img src="images/item1.png"/>
+									</a>
+								</div>
+								<div class="itemDetails-description">
+									<div class="price">
+									$169
+									</div>
+									<span class="description">
+										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+									</span>
+									<span class="brand">
+										<a href="#">topshop.com</a>
+									</span>
+									<div class="itemDetails-heart">
+										<span class="heart_empty">
+											<span>1000</span>
+										</span>
+										<span class="heart_filled">
+											<span>1001</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+							<li>
+								<div class="itemDetails-image">	
+									<a href="">
+										<img src="images/item1.png"/>
+									</a>
+								</div>
+								<div class="itemDetails-description">
+									<div class="price">
+									$169
+									</div>
+									<span class="description">
+										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+									</span>
+									<span class="brand">
+										<a href="#">topshop.com</a>
+									</span>
+									<div class="itemDetails-heart">
+										<span class="heart_empty">
+											<span>1000</span>
+										</span>
+										<span class="heart_filled">
+											<span>1001</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="popup-comment round_weak">
+					<div class="comment-messageBox">
+						<img src="images/userPhoto.gif"/>
+						<textarea ></textarea>
+						<input type="button" value="Post"/>
+					</div>
+					<div class="comment-number">
+						<hr/>
+						<div>
+							<div class="numOfComments">9 Comments</div>
+						</div>
+					</div>
+					<div class="comment-others">
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  
+									<span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board"> Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>	
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>	
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue"  href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom clear"></div>
+			</div>
+		</div>
+	</div>		
+	<div id="SignLogin">
+	</div>
+	<div id="content">
+		<a id="body_back" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#header">Back to Top</a>
+		<div id="content-introduction">
+			<div class="slideshowWrapper">
+				<div class="slideshow round_little">
+					<div class="slideshow-menu">
+						<ul>
+							<li class="firstChild">Contest</li>
+							<li>2013 Summer<span class="rightArrow-white"></span></li>
+							<li>Weekly Contest<span class="rightArrow-white"></span></li>
+						</ul>
+						<ul>
+							<li class="firstChild">Trends</li>
+							<li>Long boots<span class="rightArrow-white"></span></li>
+							<li>Red shirts<span class="rightArrow-white"></span></li>
+						</ul>
+						<ul>
+							<li class="firstChild">Spotlight</li>
+							<li>Jen Choi<span class="rightArrow-white"></span></li>
+							<li>Katherine Low<span class="rightArrow-white"></span></li>
+						</ul>
+					</div>
+					<div class="slideshow-images">
+						<div class="leftArrow-circle" ></div>
+							<img src="images/slideshow_contest1.png"/>
+						<div class="rightArrow-circle"></div>
+					</div>
+				</div>
+				<div class="advertisement round_little"> 
+					<img src="images/advertisement.png" style="margin:15px 0px 0px 5px;"/>
+				</div>
+			</div>
+		</div>
+		<div id="content-wrapper">
+			<div class="wrapper">
+				<ul>
+					<li class="content-small firstChild">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>				
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-large firstChild">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-large">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-small firstChild">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-large firstChild">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-large">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-small firstChild">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-large firstChild">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-large">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-small firstChild">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-small">
+						<div class="button-heart">
+							<span class="heart_empty"><span>40000</span></span>
+							<span class="heart_filled"><span>40000</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside">
+								<img src="images/outfit1.png"/>
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">
+								<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="content-large firstChild">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="content-large">				
+						<div class="button-heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button-flip">
+							<span class="flipIcon-grey"></span>	
+							<span class="flipIcon"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" width="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="content-styleDetails">
+							<div class="styleDetails-wrapper">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist-name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="style-category" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="bottom"></div>
+			</div>	
+		</div>
+	</div>
+</body>
+</html>

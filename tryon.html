@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Try on</title>
+	<meta charset="UTF-8">
+	<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="tryon.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
+	<![endif]-->
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript">
+
+
+//heart fillup
+//hover effect on outfit generator
+$(document).ready(function(){
+$("#tryonContent-left").hover(function(){
+  				$(".showHover").fadeIn("fast");
+  					},function(){
+  					$(".showHover").fadeOut("fast");
+				});
+				});
+
+
+
+//coordinate generater
+
+$(document).ready(function(){
+		$(".categories_button").click(function(){
+				
+
+        if( $(".layertransparentBackground").is("display","block") ) {
+            $(".layertransparentBackground").hide();
+        } 
+        $(".categorytransparentBackground").fadeToggle("fast");});
+
+		$('html').click(function(event){
+                 $('.secondtransparentBackground').hide();
+             });
+	
+		$('.categories_button,.layer_button').click(function(event){
+    			event.stopPropagation();
+			}	);
+
+
+
+
+});
+
+$(document).ready(function(){
+		$(".layer_button,.virtualModel").click(function(){
+				
+
+        if( $(".categorytransparentBackground").is("display","block") ) {
+            $(".categorytransparentBackground").hide();
+        } 
+        $(".layertransparentBackground").fadeToggle("fast");});
+
+		$('html').click(function(event){
+                 $('.secondtransparentBackground').hide();
+             });
+	
+		$('.categories_button,.layer_button,.virtualModel').click(function(event){
+    			event.stopPropagation();
+			}	);	
+});
+
+
+
+	
+
+//item box upper content
+$(document).ready(function(){
+		$(".item_box_content_leftSide > li").click(function(){
+				
+        $(this).children().children(".firstDropdown").slideToggle(200);});
+
+		$('html').click(function(event){
+                 $('.firstDropdown').hide();
+             });
+	
+		$('.item_box_content_leftSide > li').click(function(event){
+    			event.stopPropagation();
+			}	);	
+});
+
+
+
+//item box lower content
+	$(document).ready(function() {                                       
+    $("#item_box_header ul li").click(
+        function() { 
+            $(this).addClass("currently_chosen");
+            $("#item_box_header > ul > li").not(this).removeClass("currently_chosen");
+            $(".selectedImages").hide();
+     	}); 
+
+     $(".itemList_myItems").click(
+        function() { 
+            $("#myItemList").show();
+            $(".item_box_content > div").not("#myItemList").hide();
+            $(".myItemsOverall > .overallIconWrapper").show();
+			$(".itemList > div > .overallIconWrapper").not(".myItemsOverall > .overallIconWrapper").hide();
+
+     	}); 
+
+     $(".itemList_clothing").click(
+        function() { 
+            $("#clothingItemList").show();
+            $(".item_box_content > div").not("#clothingItemList").hide();
+			$(".itemsOverall > .overallIconWrapper").show();
+			$(".itemList > div > .overallIconWrapper").not(".itemsOverall > .overallIconWrapper").hide();
+
+     	}); 
+     $(".itemList_model").click(
+        function() { 
+            $("#modelList").show();
+            $(".item_box_content > div").not("#modelList").hide();
+            $(".modelsOverall > .overallIconWrapper").show();
+			$(".itemList > div > .overallIconWrapper").not(".modelsOverall > .overallIconWrapper").hide();
+
+     	}); 
+     $(".itemList_background").click(
+        function() { 
+            $("#backgroundList").show();
+            $(".item_box_content > div").not("#backgroundList").hide();
+            $(".backgroundsOverall > .overallIconWrapper").show();
+			$(".itemList > div > .overallIconWrapper").not(".backgroundsOverall > .overallIconWrapper").hide();
+
+     	}); 
+     $(".itemList_Embelishment").click(
+        function() { 
+            $("#embelishmentList").show();
+            $(".item_box_content > div").not("#embelishmentList").hide();
+            $(".embelishmentsOverall > .overallIconWrapper").show();
+			$(".itemList > div > .overallIconWrapper").not(".embelishmentsOverall > .overallIconWrapper").hide();
+
+     	}); 
+});
+
+//items show up
+$(document).ready(function() {                                       
+    $(".overallIconWrapper > li").click(
+        function() { 
+            $(".selectedImages").show(); 
+            $(".overallIconWrapper").hide();
+     	}); 
+
+     $(".firstDropdown > ul > li").click(
+        function() { 
+            $(".selectedImages").show(); 
+            $(".overallIconWrapper").hide();
+     	}); 
+   
+});
+
+	</script>
+</head>
+<body>
+	<div id="header" class="headerColor">
+		<div id="logo" class="space">
+			<a href="index.html">
+				<h1 id="logo_modi">Modi</h1>
+				<h1 id="logo_show">Show</h1>
+			</a>
+		</div>
+		<ul id="header-leftOptions">
+			<li class="firstChild">
+				<a href="index.html"><h2>FEED</h2></a>
+			</li>
+			<li>
+				<a  href="index.html"><h2>EXPLORE</h2> </a>
+			</li>					
+			<li>
+				<a href="#"><h2>SHOP</h2></a>
+				<ul class="submenu background_dark round_bottom">
+					<li>
+						<a href="#">New Items</a>
+					</li>
+					<li class="bottom_underscore">
+						<a href="#">On Sale</a>
+					</li>
+					<li class="submenu-list">
+						<a class="submenu-secondLevelParent" href="#">Clothing</a>
+						<div class="submenu-secondLevel">
+							<ul >
+								<li>
+									<a href="#">Dresses</a>
+								</li>
+								<li>
+									<a href="#">Skirts</a>
+								</li>
+								<li>
+									<a href="#">Tops</a>
+								</li>
+								<li>
+									<a href="#">Outwear</a>
+								</li>
+								<li>
+									<a href="#">Jeans</a>
+								</li>
+								<li>
+									<a href="#">Pants</a>
+								</li>
+								<li>
+									<a href="#">Shorts</a>
+								</li>
+							</ul>
+							<ul>
+								<li>
+									<a href="#">Jumpsuits & Rompers</a>
+								</li>
+								<li>
+									<a href="#">Intimates</a>
+								</li>
+								<li>
+									<a href="#">Swimwear</a>
+								</li>
+								<li>
+									<a href="#">Activewear</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li><a href="#">Bags</a></li>
+					<li><a href="#">Shoes</a></li>
+					<li><a href="#">Jewelry</a></li>
+					<li><a href="#">Accessories</a></li>
+					<li><a href="#">Beauty</a></li>
+				</ul>
+			</li>
+			<li>
+				<a class="tryon"  href="tryon.html">
+					<ul>
+						<li class="basicWebLayout clothesIcon"></li>
+						<li class="currentPage"><h2>TRY-ON</h2></li>
+					</ul>
+				</a>
+			</li>
+		</ul>
+		<form id="searchBox">
+			<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
+		</form>
+		<ul id="header-rightOptions" class="space">
+			<li>
+				<a href="#"><h2>ABOUT</h2></a>
+				<div class="aboutPage submenu background_dark round_bottom">
+					<div class="aboutPage-options">
+						<div>About</div>
+						<div class="column1">
+							<ul> 
+								<li><a href="#">What is ModiShow</a></li>
+								<li><a href="#">Rewards Program</a></li>
+								<li><a href="#">Partners</a></li>
+								<li><a href="#">Explore</a></li>
+							</ul>
+						</div>
+						<div class="column2">
+							<ul>
+								<li><a href="#">Language</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Terms of Services</a></li>
+								<li><a href="#">Help</a></li>
+							</ul>
+						</div>					
+					</div>
+					<div class="aboutPage-follow "> 
+						<div>Contact Us</div>
+							<ul>
+								<li><a class="icon_descriptions" href="https://www.facebook.com/pages/Modishow/466201083428706?fref=ts">Facebook</li>
+								<li><img src="images/facebook.png" width="35px"/></a></li>
+							</ul>	
+							<ul>
+								<li><a class="icon_descriptions" href="#">Twitter</li>
+								<li><img src="images/twitter.png" width="35px"/></a></li>
+							</ul>	
+							<ul>
+								<li><a class="icon_descriptions" href="#">Pinterest</li>
+								<li><img src="images/pinterest.png" width="35px"/></a></li>
+							</ul>	
+							<ul>
+								<li><a class="icon_descriptions" href="#">LinkedIn</li>
+								<li><img src="images/linkedInLogo.png" width="35px"/></a></li>
+							</ul>	
+							<ul>
+								<li><a class="icon_descriptions" href="#">Blog</li>
+								<li><img src="images/blog.png" width="35px"/></a></li>
+							</ul>	
+							<ul>
+								<li><a class="icon_descriptions" href="#">E-mail</li>
+								<li><img src="images/email.png" width="35px"/></a></li>
+							</ul>	
+						
+					</div>
+					<div class="hooter">
+						&copy; 2013 - ModiShow corporation
+					</div>
+				</div>
+			</li>
+			<li class="lastChild">
+				<a href="#"><h2>SIGNUP / LOGIN</h2></a>
+				<ul class="userPage submenu background_dark round_bottom">
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Creations</a></li>
+					<li><a href="#">Magazines</a></li>
+					<li><a href="#">Likes</a></li>
+					<li><a href="#">Followings</a></li>
+					<li><a href="#">Followers</a></li>
+					<li><a href="#">Groups</a></li>
+					<li class="bottom_underscore"><a href="#">Find friends</a></li>
+					<li><a href="#">Setting</a></li>
+					<li><a href="#">Logout</a></li>
+				</ul>
+			</li>
+		</ul>					
+		<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
+				0
+		</div>
+	</div>
+	<div id="tryonContent">
+		<div id="tryonContent-left">
+			<img class="background" src="images/street.png"/>
+			<img class="virtualModel" src="images/modelOutfit1.png"/>
+			<div class="leftArrow-thick opaque_medium"></div>
+			<div class="rightArrow-thick opaque_medium"></div>
+			<div class="userPreference">
+				<div>
+					<span class="brokenHeart-empty"></span>
+					<span class="brokenHeart-filled"></span>
+				</div>
+				<div>
+					<span class="heart_empty"></span>
+					<span class="heart_filled"></span>
+				</div>
+			</div>
+			<div class="outfit_generater_leftSide shadow_header">
+				<ul>
+					<li class="publish_button white_words">Publish</li>
+					<li class="save_draft_button white_words">Save draft</li>
+					<li class="clear_button white_words">Clear</li>
+				</ul>
+			</div>
+			<div class="outfit_generater_rightSide">
+				<ul>
+					<li class="all categories_button shadow_header">
+						<div class="white_words">All categories</div>
+						<div>
+							<span class="generaterHeader_downArrow"></span>
+						</div>
+					</li>
+					<li class="layer_button shadow_header">
+						<div>
+							<span class="layer_item_icon"></span>
+						</div>
+						<div class="white_words">Layer</div>
+						<div>
+							<span class="generaterHeader_downArrow"></span>
+						</div>	
+
+					</li>
+					<li class="view_button shadow_header">
+						<div class="white_words">
+							View
+						</div>
+					</li>
+					<div class="secondtransparentBackground layertransparentBackground">
+							<ul>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+								<li class="layerOrders">
+									<div class="holdIconBox">
+										<div class="holdIcon">hold</div>
+									<div>
+									<div class="imageIconBox">
+										<a href="#"><img src="images/item1.png"/></a>
+										<div>
+										</div>	
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="heart_empty"></div>
+										<div class="heart_filled"></div>
+									<div>
+								</li>
+							</ul>
+					</div>
+					<div class="secondtransparentBackground categorytransparentBackground">
+							<ul>
+								<li>All categories</li>
+								<li>Featured</li>
+								<li>Feel lukcy</li>
+								<li>Celebity</li>
+								
+								<li>Style
+									<div class="secondLeveltransparentBackground styleOutfit">
+										<ul>
+											<li>Active</li>
+											<li>Basic</li>
+											<li>Business Causual</li>
+											<li>Bohemian</li>
+											<li>Casual</li>
+											<li>Classical</li>
+											<li>Comfortable</li>
+											<li>Cute</li>
+											<li>Elegant</li>
+											<li>Formal</li>
+											<li>Goth</li>
+											<li>Preppy</li>
+											<li>Punk</li>
+											<li>Runway</li>
+											<li>Runway</li>
+											<li>Sexy</li>
+											<li>Swimwear</li>
+											<li>Vintage</li>
+										</ul>
+									</div>
+								</li>
+								<li>Occassion
+									<div class="secondLeveltransparentBackground occassionOutfit">
+										<ul>
+											<li>Casual date</li>
+											<li>Classy date</li>
+											<li>Everyday</li>
+											<li>Formal events</li>
+											<li>Night out</li>
+											<li>Outdoor activities</li>
+											<li>Work</li>
+										</ul>
+									</div>
+								</li>
+								<li>Season
+									<div class="secondLeveltransparentBackground seasonOutfit">
+										<ul>
+											<li>Spring</li>
+											<li>Mid-Spring</li>
+											<li>Summer</li>
+											<li>Fall</li>
+											<li>Mid-Fall</li>
+											<li>Winter</li>
+										</ul>
+									</div>
+								</li>
+								<li>Weather
+									<div class="secondLeveltransparentBackground weahterOutfit">
+										<ul>
+											<li>Warm</li>
+											<li>Freezing</li>
+											<li>Cold</li>
+											<li>Raining</li>
+											<li>Hot</li>
+											<li>Snowing</li>
+											<li>Tropical</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div id="tryonContent-right">
+			<div id="item_box_header">
+				<ul>
+					<li class="itemList_myItems currently_chosen">My Items</li> 
+					<li class="itemList_clothing">Clothing & Accessories
+					</li>
+					<li class="itemList_model ">Models</li>
+					<li class="itemList_background ">Background</li>
+					<li class="itemList_Embelishment">Embelishment</li>
+				</ul>
+			</div>		
+			<div class="item_box_content">
+				<div id="myItemList">	
+					<ul class="item_box_content_leftSide">
+						<li class="firstList">
+							<div class="item_box_content_boxes">
+								Choose your items
+								<div class="rightSideSmallBoxes">
+								</div>
+								<div class="firstDropdown">
+									<ul>
+										<li>My likes</li>	
+										<li>My uploads</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="rightSideSmallBoxes searchKey">
+							</div>
+							<form>
+
+								<input class="keyword_box" type="text" name="Keyword" placeholder="Search by keywords"/>
+							</form>
+						</li>		
+					</ul>
+					<ul class="item_box_content_rightSide">
+						<li>
+							<div class="uploadPic">Upload</div>
+							<div class="rightSideSmallBoxes">
+							</div>
+						</li>
+						<li class="firstFloat firstChangeCiewBox">
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li class="secondBox secondChangeViewBox" >
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>
+											
+					</ul>
+				</div>
+				<div id="clothingItemList">
+					<ul class="item_box_content_leftSide">
+						<li class="firstList">
+							<div class="item_box_content_boxes">
+								Choose categories
+								<div class="rightSideSmallBoxes">
+								</div>
+								<div class="firstDropdown">
+									<ul>
+										<li>Dress</li>
+										<li>Skirts</li>
+										<li>Tops</li>
+										<li>Outwears</li>
+										<li>Jeans</li>
+										<li>Pants</li>
+										<li>Shorts</li>
+										<li>Jumpsuits & Rompers</li>
+										<li>Intimates</li>
+										<li>Swimwear</li>
+										<li>Activewear</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="rightSideSmallBoxes searchKey">
+							</div>
+							<form>
+
+								<input class="keyword_box" type="text" name="Keyword" placeholder="Search by keywords"/>
+							</form>
+						</li>
+						<li>
+							<div class="item_box_content_boxes filterOrder filter">
+								Filter
+								<div class="rightSideSmallBoxes">
+								</div>
+								<div class="firstDropdown">
+									<img class="hidden_images" src="images/item.png"/>	
+									<ul>			
+										<li>
+											Color
+											<div class="secondDropdown">	
+												<form>
+													<ul>
+														<label><li class="white colorBox"><input type="checkbox" value="white"/> White</li> </label>
+														<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>
+														<label><li class="grey colorBox"><input type="checkbox" value="grey"/> Grey</li></label>
+														<label><li class="brown colorBox"><input type="checkbox" value="brown"/> Brown</li> </label>
+														<label><li class="beige colorBox"><input type="checkbox" value="beige"/> Beige</li></label>
+														<label><li class="green colorBox"><input type="checkbox" value="green"/> Green </li></label>
+														<label><li class="blue colorBox"><input type="checkbox" value="blue"/> Blue</li></label>
+														<label><li class="purple colorBox"><input type="checkbox" value="purple"/> Purple</li></label>
+														<label><li class="yellow colorBox"><input type="checkbox" value="yellow"/> Yellow</li></label>
+														<label><li class="pink colorBox"><input type="checkbox" value="pink"/> Pink</li></label>
+														<label><li class="red colorBox"><input type="checkbox" value="red"/> Red</li></label>
+														<label><li class="orange colorBox"><input type="checkbox" value="orange"/> Orange</li></label>
+														<label><li class="silver colorBox"><input type="checkbox" value="silver"/> Silver </li></label>
+														<label><li class="gold colorBox"><input type="checkbox" value="gold"/> Gold</li></label>
+														<label><li class="others colorBox"><input type="checkbox" value="others"/> Others</li></label>
+													</ul>
+												</form>											
+											</div>									
+										</li>
+										<li>
+											Pattern
+											<div class="secondDropdown">
+												<form>
+													<ul>
+														<label><li><input type="checkbox" value="plain"/> Plain</li></label>
+														<label><li><input type="checkbox" value="stripe"/> Stripe</li></label>
+														<label><li><input type="checkbox" value="check"/> Check</li></label>
+														<label><li><input type="checkbox" value="border"/> Border</li></label>
+														<label><li><input type="checkbox" value="dot"/> Dot</li></label>
+														<label><li><input type="checkbox" value="camouflage"/> Camouflage</li></label>							
+														<label><li><input type="checkbox" value="embroidery"/> Embroidery, lace</li></label>
+														<label><li><input type="checkbox" value="animal"/> Animal </li></label>
+														<label><li><input type="checkbox" value="floral"/> Floral</li></label>
+														<label><li><input type="checkbox" value="patterned"/> Patterned all over print</li></label>
+														<label><li><input type="checkbox" value="print"/> Print(logos,etc.)</li></label>
+														<label><li><input type="checkbox" value="onePoint"/> One point</li></label>
+													</ul>
+												</form>
+											</div>
+										</li>
+										<li>
+											Material
+											<div class="secondDropdown">
+												<form>
+													<ul>
+														<label><li><input type="checkbox" value="chino"/> Chino</li></label>
+														<label><li><input type="checkbox" value="cotton"/> Cotton</li></label>
+														<label><li><input type="checkbox" value="corduroy"/> Corduroy</li></label>
+														<label><li><input type="checkbox" value="wool"/> Wool series</li></label>
+														<label><li><input type="checkbox" value="line"/> Line series</li></label>
+														<label><li><input type="checkbox" value="nylon"/> Nylon series</li></label>
+														<label><li><input type="checkbox" value="sweat"/> Sweat</li></label>
+														<label><li><input type="checkbox" value="jersey"/> Jersey</li></label>
+														<label><li><input type="checkbox" value="stretch"/> Stretch</li></label>
+														<label><li><input type="checkbox" value="leather"/> Leather material</li></label>
+													</ul>
+												</form>
+											</div>
+										</li>
+										<li>
+											Price
+											<div class="secondDropdown">						
+												<form>								
+													<ul>
+														<label><li><input type="radio"/>
+															~ $50									
+														</li></label>
+
+														<label><li><input type="radio"/>
+															$51~ $100
+														</li></label>
+														<label><li><input type="radio"/>
+															$101 ~ $200
+														</li></label>
+														<label><li><input type="radio"/>
+															$201~ $300
+														</li></label>
+														<label><li><input type="radio"/>
+															$301~ $400
+														</li></label>
+														<label><li><input type="radio"/>
+															$401~ $500
+														</li></label>
+														<label><li><input type="radio"/>
+															$501~ $750
+														</li></label>
+														<label><li><input type="radio"/>
+															$751~ $1,000
+														</li></label>
+														<label><li><input type="radio"/>
+															$1001 ~
+														</li></label>
+													</ul>
+												</form>
+											</div>
+										</li>
+										<li>
+											Brand
+											<div class="secondDropdown">			
+												<form>							
+													<ul>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>	
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+														<label><li><input type="checkbox" value=""/> ABCD</li></label>
+													</ul>
+												</form>
+											</div>	
+										</li>								
+									</ul>				
+								</div>
+							</div>
+						</li>	
+						<li>
+							<div class="item_box_content_boxes filterOrder">
+								Order
+								<div class="rightSideSmallBoxes">
+								</div>
+								<div class="firstDropdown">
+									<img class="hidden_images"src="images/item.png"/>
+									<ul>
+										<li>
+											Most Viewed	
+											<div class="secondDropdown">
+												<ul>
+													<li>All time</li>
+													<li>Today</li>
+													<li>This week</li>
+													<li>This month</li>							
+												</ul>							
+											</div>
+										</li>
+										<li >
+											Most Popular
+											<div class="secondDropdown">
+												<ul>
+													<li>All time</li>
+													<li>Today</li>
+													<li>This week</li>
+													<li>This month</li>							
+												</ul>							
+											</div>							
+										</li>
+										<li class="lastChildList">
+											Price
+											<div class="secondDropdown">
+												<ul>
+													<li>High to low</li>
+													<li>Low to high</li>
+												</ul>									
+											</div>
+										</li>								
+									</ul>									
+								</div>
+							</div>
+						</li>			
+					</ul>
+					<ul class="item_box_content_rightSide">					
+						<li class="firstFloat firstChangeCiewBox">
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li class="secondBox secondChangeViewBox" >
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="modelList">
+					<ul class="item_box_content_leftSide">
+						<li class="firstList">
+							<div class="item_box_content_boxes">
+								Choose models
+								<div class="rightSideSmallBoxes">
+								</div>
+								<div class="firstDropdown">
+									<ul>			
+										<li>
+											Skin Color									
+										</li>
+										<li>
+											Hair Style
+										</li>
+										<li>
+											Ethnicity
+										</li>										
+									</ul>
+									<div class="secondDropdown">
+										<ul class="skinColorBox">
+											<form>
+												<ul>
+													<label><li class="white colorBox"><input type="checkbox" value="white"/> White</li> </label>
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>	
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>	
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>	
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>	
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>	
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>	
+													<label><li class="black colorBox"><input type="checkbox" value="black"/> Black</li> </label>		
+												</ul>
+											</form>
+										</ul>
+										<ul class="hairstyleBox">				
+											<form>
+												<ul>
+													<label><li><input type="checkbox" value="plain"/> Plain</li></label>
+													<label><li><input type="checkbox" value="stripe"/> Stripe</li></label>
+												</ul>
+											</form>
+										</ul>
+										<ul class="ethnicityBox">
+											<form>
+												<ul>
+													<label><li><input type="checkbox" value="chino"/> Chino</li></label>
+													<label><li><input type="checkbox" value="cotton"/> Cotton</li></label>
+												</ul>
+											</form>
+										</ul>
+									</div>	
+								</div>
+							</div>
+						</li>	
+						<li>
+							<div class="rightSideSmallBoxes searchKey">
+							</div>
+							<form>
+
+								<input class="keyword_box" type="text" name="Keyword" placeholder="Search by keywords"/>
+							</form>
+						</li>
+					</ul>
+					<ul class="item_box_content_rightSide">
+						<li>
+							<div class="uploadPic">Upload</div>
+							<div class="rightSideSmallBoxes">
+							</div>
+						</li>
+						<li class="firstFloat firstChangeCiewBox">
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li class="secondBox secondChangeViewBox" >
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>
+											
+					</ul>
+				</div>
+				<div id="backgroundList">
+					<ul class="item_box_content_leftSide">
+					<li class="firstList">
+						<div class="item_box_content_boxes">
+							Choose theme
+							<div class="rightSideSmallBoxes">
+							</div>
+							<div class="firstDropdown">
+								<ul>
+									<li>Street</li>
+									<li>Beach</li>
+									<li>Indoor</li>
+									<li>Sightseeing</li>
+									<li>Countries</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="rightSideSmallBoxes searchKey">
+						</div>
+						<form>
+
+							<input class="keyword_box" type="text" name="Keyword" placeholder="Search by keywords"/>
+						</form>
+					</li>
+					</ul>
+					<ul class="item_box_content_rightSide">
+						<li>
+							<div class="uploadPic">Upload</div>
+							<div class="rightSideSmallBoxes">
+							</div>
+						</li>
+						<li class="firstFloat firstChangeCiewBox">
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li class="secondBox secondChangeViewBox" >
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>
+											
+					</ul>
+				</div>
+				<div id="embelishmentList">
+					<ul class="item_box_content_leftSide">
+						<li class="firstList">
+							<div class="item_box_content_boxes">
+								Choose categories
+								<div class="rightSideSmallBoxes">
+								</div>
+								<div class="firstDropdown">
+									<ul>
+										<li>Text</li>
+										<li>Frames & borders</li>
+										<li>Effects</li>							
+									</ul>
+								</div>
+							</div>
+						</li>		
+					</ul>
+					<ul class="item_box_content_rightSide">
+						<li class="firstFloat firstChangeCiewBox">
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li class="secondBox secondChangeViewBox" >
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="itemList">
+				<div class="myItemsOverall">
+					<ul class="overallIconWrapper">
+						<li>
+							<span class="overallIcons heart_filled"></span>
+							<span class="iconDescription">My likes</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">My uploads</span>
+						</li>
+					</ul>
+				</div>
+				<div class="itemsOverall">
+					<ul class="overallIconWrapper">
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Dress</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>		
+							<span class="iconDescription">Skirts</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Tops</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Outwears</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Jeans</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Pants</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Shorts</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Jumpsuits & Rompers</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Intimates</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Swimwear</span>
+						</li>
+						<li>
+							<span class="overallIcons "></span>
+							<span class="iconDescription">Activewear</span>
+						</li>
+					</ul>
+				</div>
+				<div class="modelsOverall">
+				</div>
+				<div class="backgroundsOverall">
+					<ul class="overallIconWrapper">
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">Street</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>		
+							<span class="iconDescription">Beach</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">Indoor</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">Nature</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">Cultural</span>
+						</li>
+					</ul>
+				</div>
+				<div class="embelishmentsOverall">
+					<ul class="overallIconWrapper">
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">Text</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>		
+							<span class="iconDescription">Frames & borders</span>
+						</li>
+						<li>
+							<span class="overallIcons"></span>
+							<span class="iconDescription">Effect</span>
+						</li>
+					</ul>					
+				</div>				
+			</div>
+			<div class="selectedImages">
+				<ul>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>		
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>
+					<li class="itemList_small_boxes"><img src="images/item.png"/></li>	
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
