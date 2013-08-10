@@ -23,8 +23,6 @@ body{
 	width:100%;
 	margin:20px auto;
 	min-width: 1145px;	
-
-
 }
 
 
@@ -45,95 +43,7 @@ body{
 }
 
 
-
-
-.background{
-	z-index:80;
-	height:100%;
-	position: absolute;
-	right:-9999px;
-	left:-9999px;
-	margin:0 auto;
-	
-	
-
-}
-
-.virtualModel{
-	z-index:100;
-	height:90%;
-	position: absolute;
-	top:8%;
-	right:0;
-	left:0;
-	margin:0 auto;
-
-}
-
-.white_words{
-	color:rgb(225,225,225);
-	font-size:1.1em;
-
-}
-
-.outfit_generater_leftSide > ul > li:hover,
-.outfit_generater_rightSide > ul > li:hover .white_words{
-	color:rgb(50,180,240);
-}
-
-.shadow_header{
-	display:block;
-	background-color:rgb(34,34,34);
-	opacity:0.8;
-	-moz-border-radius:5px ;
-	-webkit-border-radius:5px ;
-	border-radius:5px ;
-}
-
-.userPreference{
-	width:160px;
-	height:50px;
-	position: absolute;
-	bottom:50px;
-	right:20px;
-	z-index:110;
-}
-
-
-.userPreference > div{
-	background-color:rgb(34,34,34);
-	opacity:0.7;
-	width:50px;
-	height:50px;
-	border-radius:30px;
-	float:left;
-	margin-left:0.5em;
-	position: relative;	
-
-}
-
-.userPreference > div:hover{
-	opacity:1;	
-}
-
-
-
-.userPreference .white_words{
-	font-size:0.8em;
-	position: absolute;
-	bottom:2px;
-}
-
-.white_words.likeButton{
-	left:15px;
-}
-
-.white_words.dislikeButton{
-	left:12px;
-}
-
-
-.outfit_generater_leftSide{
+.tryonContent-header_left{
 	width:100px;
 	height:110px;
 	position: absolute;
@@ -143,14 +53,15 @@ body{
 }
 
 
-.outfit_generater_leftSide > ul > li{
+.tryonContent-header_left > ul > li{
 	text-align: left;
 	padding:11px 12px 4px;
 	cursor: pointer;
+	color:rgb(255,255,255);
 
 }
 
-.outfit_generater_rightSide{
+.tryonContent-header_right{
 	height:30px;
 	position: absolute;
 	top:20px;
@@ -158,90 +69,126 @@ body{
 	z-index:110;
 }
 
-.outfit_generater_rightSide > ul > li{
+.tryonContent-header_right > ul > li{
 	padding:5px 10px;
 	margin-left:5px;
 	float:left;
 	cursor: pointer;
+	color:rgb(255,255,255);
+
 }
 
-.secondtransparentBackground{
+.hide{
+	display:none;
+}
+
+/*--Element--*/
+/*model and background images*/
+.background{
+	z-index:80;
+	height:100%;
+	position: absolute;
+	right:-9999px;
+	left:-9999px;
+	margin:0 auto;
+}
+
+.virtualModel{
+	z-index:100;
+	height:90%;
+	position: absolute;
+	top:8%;
+
+}
+
+.openLayer{
+	width:26%;
+	max-width:160px;
+	height:85%;
+	z-index:111;
+	position: absolute;
+	top:10%;
+	right:48px;
+	cursor: pointer;
+}
+
+/*heart icons*/
+
+.userPreference div span{
+    margin-top:6px
+}
+
+
+
+
+
+.userPreference{
+	width:160px;
+	height:50px;
+	position: absolute;
+	bottom:50px;
+	right:-50px;
+	z-index:110;
+}
+
+
+.userPreference > div{
+	background-color:rgb(34,34,34);
+	width:50px;
+	height:50px;
+	border-radius:30px;
+	float:left;
+	margin-left:0.5em;
+	position: relative;	
+	display:block;
+	border:none;
+	box-shadow: none;
+
+}
+
+
+
+
+
+/*category hidden box*/
+
+.hiddenBox{
 	width:230px;
-	-moz-border-radius:4px ;
-	-webkit-border-radius:4px ;
-	border-radius:4px ;
 	position: absolute;
 	top:30px;
 	right:-13px;
-	display:none;
-
-		
+	display:none;	
 }
 
 
-
-.layertransparentBackground > ul {
-	overflow-y:auto;
-	overflow-x:hidden;
-	height:42em;
-	background-color: rgb(34,34,34);
-	opacity:0.9;
-
-
-}
-
-
-.layertransparentBackground > ul >li{
-	width:100%;
-	background-color:rgb(34,34,34);
-	opacity:0.5;
-	height:120px;
-	border-bottom:1px solid rgb(200,200,200);
-	position: relative;
-
-}
-
-.categorytransparentBackground{
+.button_category > .hiddenBox{
 	width:109px;
 	top:30px;
 	right:110px;
-	opacity: 0.95;
 }
 
-.categorytransparentBackground > ul{
-	width:100%;
-	background-color:rgb(0,0,0);
-	border-bottom:1px solid rgb(200,200,200);
-	position: relative;
-	border-radius: 5px;
-}
-
-.categorytransparentBackground > ul > li{
+.button_category > .hiddenBox > ul > li{
 	color:rgb(255,255,255);
 	padding:13px;
 	display:block;
 	cursor: pointer;
 }
 
-.categorytransparentBackground > ul > li:hover{
-	color:rgb(50,180,240);
-}
 
 
-.secondLeveltransparentBackground{
+.hiddenBox-submenu{
 	position: absolute;
 	top:0;
 	right:-128px;
 	height:344px;
 	width:140px;
-	background-color:rgb(0,0,0);
 	border-radius:5px;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 
 }
 
-.secondLeveltransparentBackground > ul{
+.hiddenBox-submenu > ul{
 	width:125px;
 	height:96%;
 	background-color: rgb(100,100,100);
@@ -252,16 +199,12 @@ body{
 
 }
 
-.secondLeveltransparentBackground > ul > li{
-	font-size:1em;
+.hiddenBox-submenu > ul > li{
 	padding:6px 0px 6px 6px;
 	color:rgb(255,255,255);
 	cursor: pointer;
 }
 
-.secondLeveltransparentBackground > ul > li:hover{
-	color:rgb(50,180,240);
-}
 
 .styleOutfit,
 .occassionOutfit,
@@ -270,17 +213,28 @@ body{
 	display:none;
 }
 
-
-.categorytransparentBackground > ul > li:hover > .secondLeveltransparentBackground{
-	display:block;
+/*layer hidden box*/
+.button_layer > .hiddenBox > ul{
+	overflow-y:auto;
+	overflow-x:hidden;
+	height:42em;
+	background-color: rgb(34,34,34);
 }
 
 
-.layertransparentBackground> ul >li:hover{
-	opacity:0.95;
+.layers{
+	width:100%;
+	height:120px;
+	position: relative;
+	opacity:0.9;
+	border-bottom:1px solid rgb(200,200,200);
+	border-top:1px solid rgb(200,200,200);
+
 }
 
-.layerOrders div{
+
+
+.layers div{
 	height:100%;
 	position: absolute;
 }
@@ -306,7 +260,7 @@ body{
 }
 
 .imageIconBox > a > img{
-	width:70%;
+	width:75%;
 	right:0;
 	left:0;
 	margin:15px auto;
@@ -316,22 +270,21 @@ body{
 
 .imageIconBox > div{
 	background-color: white;
-	width:99%;
-	height:90%;
+	width:90%;
+	height:80%;
 	position: absolute;
 	border-radius: 100px;
 	left:0;
 	right:0;
-	margin:6px auto;
+	margin:12px auto;
 	z-index:100;	
 }
 
 
 .itemDescriptionBox{
-	width:89px;
+	width:92px;
 	top:0;
-	left:110px;
-
+	left:105px;
 }
 
 .itemDescriptionBox > div{
@@ -339,58 +292,73 @@ body{
 }
 
 .titleOfProduct{
-	top:13px;
-	left:3px;
-	font-size:1.2em;
 	color:rgb(255,255,255);
+	top:10px;
+	left:0px;
+	font-size:1.2em;
 }
 
-.titleOfProduct > a:hover{
-	color:rgb(50,180,240);
+.titleOfProduct > a{
+	color:rgb(255,255,255);
 }
 
 
 .url{
 	font-family:Tahoma, Geneva, sans-serif;
 	top:35px;
-	left:3px;
+	left:0px;
 	font-size:0.8em;
 }
 
 .url > a{
 	color:rgb(191,255,255);
 }
+
+.price{
+	top:70px;
+	left:0px;
+	font-size:1.2em;
+	color:rgb(235,235,235);
+}
+
+.itemDescriptionBox > .itemHeart> .heart_empty,
+.itemDescriptionBox > .itemHeart> .heart_filled{
+	width:35px;
+	height:35px;
+	top:58px;
+	left:32px;
+	cursor: pointer;
+}
+
+
+/*--Effect--*/
+
+.tryonContent-header_left > ul > li:hover,
+.tryonContent-header_right > ul > li:hover,
+.button_category > .hiddenBox > ul > li:hover,
+.hiddenBox-submenu > ul > li:hover,
+.titleOfProduct > a:hover,
 .url > a:hover{
 	color:rgb(50,180,240);
 }
 
 
-.price{
-	font-family:Tahoma, Geneva, sans-serif;
-	top:75px;
-	left:3px;
-	font-size:1.2em;
-	color:rgb(235,235,235);
+.userPreference > div:hover,
+.userPreference > div:active{
+	background-color:rgb(34,34,34);
 }
 
-.itemDescriptionBox > .heart_empty{
-	width:35px;
-	height:35px;
-	top:65px;
-	right:-8px;
-	cursor: pointer;
+.button_category .hiddenBox ul li:hover .hiddenBox-submenu ul li{
+	display:block;
 }
 
 
-.categories_button div,
-.layer_button div{
-	float:left;
+.layers:hover{
+	opacity:1;
 }
 
 
-
-/*item list*/
-
+/*------------------CONTENT (Right)------------------*/
 #tryonContent-right{
 	position: relative;
 	float:left;
@@ -400,24 +368,21 @@ body{
 	background-color:rgb(255,255,255);
 	border:1px solid rgb(150,150,150);
 	margin-left:0.6em;
+	overflow:hidden;
 
 }
+/*------------------item list header------------------*/
+/*--Structure--*/
 
-/*item list header*/
-#item_box_header{
+#itembox_header{
 	width:100%;
 	height:25px;
 	border-bottom:1px solid rgb(186,186,186);
 	background-color:rgb(240,240,240);
-
-
 }
 
-
-
-#item_box_header ul li{
+#itembox_header ul li{
 	float:left;
-	font-size:1em;
 	color:rgb(135,135,135);
 	border-right:1px solid rgb(186,186,186);
 	text-align: center;
@@ -427,17 +392,16 @@ body{
 	padding-bottom:7px;
 }
 
-#item_box_header ul li:hover{
+#itembox_header ul li:hover{
 	color:rgb(80,80,80);
 }
 
-#item_box_header ul .currently_chosen{
+#itembox_header ul .currently_focus{
 	background-color:rgb(255,255,255);
 	color:rgb(80,80,80);
 	padding-bottom:8px;
 	margin-left:-1px;
 	border-left:1px solid rgb(156,156,156);
-
 }
 
 
@@ -453,7 +417,7 @@ body{
 	width:18%;
 }
 
-#item_box_header .itemList_Embelishment{
+#itembox_header .itemList_Embelishment{
 	width:21%;
 	height:14px;
 	border-right:none;
@@ -463,8 +427,9 @@ body{
 
 }
 
-/*item box inside - upper */
-.item_box_content{
+/*------------------item box inside - upper------------------*/
+/*--Structure--*/
+.itembox_subHeader{
 	background-color:rgb(255,255,255);
 	width:100%;
 	height:10%;
@@ -475,7 +440,7 @@ body{
 
 }
 
-.item_box_content_boxes{
+.subHeader-list{
 	width:11em;
 	height:1.5em;
 	border:1px solid rgb(200,200,200);
@@ -487,24 +452,24 @@ body{
 
 }
 
-.item_box_content_boxes.filterOrder{
+.subHeader-list.filterOrder{
 	width:5em;
 }
 
-.item_box_content_boxes.model{
+.subHeader-list.model{
 	width:11em;
 }
 
 
-.item_box_content_leftSide{
+.subHeader-left{
 	position: absolute;
 	bottom:20%;
 	width:100%;
 }
 
 
-/*item upper category boxes*/
-
+/*------------------item upper category boxes------------------*/
+/*--Structure--*/
 #clothingItemList,
 #modelList,
 #backgroundList,
@@ -513,7 +478,7 @@ body{
 }
 
 
-.item_box_content_leftSide > li{
+.subHeader-left > li{
 	float:left;
 	margin:0 0.5%;
 	color:rgb(140,140,140);
@@ -522,11 +487,11 @@ body{
 
 }
 
-.item_box_content > div > ul > li.firstList{
+.itembox_subHeader > div > ul > li.firstChild{
 	margin-left:2.5%;
 }
 
-.item_box_content > div > ul > li> form > input{
+.itembox_subHeader > div > ul > li> form > input{
 	color:rgb(140,140,140);
 	width:11.4em;
 	padding-left:5px;
@@ -536,7 +501,7 @@ body{
 	font-size:13px;
 }
 
-.rightSideSmallBoxes{
+.iconWrapper{
 	background-color:rgb(150,150,150);
 	width:24px;
 	height:24px;
@@ -546,11 +511,11 @@ body{
 	border-left:1px solid rgb(200,200,200);
 }
 
-.item_box_content_leftSide li .rightSideSmallBoxes.searchKey,
-.item_box_content_rightSide li .rightSideSmallBoxes{
+.subHeader-left li .iconWrapper.searchKey,
+.subHeader-right li .iconWrapper{
 	background-color:rgb(250,250,250);
 }
-.item_box_content_rightSide li .rightSideSmallBoxes{
+.subHeader-right li .iconWrapper{
 	width:15px;
 	right:5px;
 }
@@ -561,23 +526,19 @@ body{
 }
 
 
-.filterOrder .rightSideSmallBoxes{
+.filterOrder .iconWrapper{
 	background-color: rgb(230,230,230);
 }
 
-.item_box_content_leftSide > li:hover > div,
-.item_box_content_leftSide > li:hover > form > input{
-	border-color:rgb(120,120,120);
-}
 
 
-.item_box_content_rightSide{
+.subHeader-right{
 	position: absolute;
 	right:2%;
 	bottom:20%;
 	
 }
-.item_box_content_rightSide > li{
+.subHeader-right > li{
 	float:right;
 	margin-right:0.3em;
 	cursor: pointer;
@@ -586,8 +547,8 @@ body{
 
 
 
-
-
+/*--Element--*/
+/*subheader*/
 .changeView{
 	width:2.3em;
 	height:24px;
@@ -612,13 +573,7 @@ body{
 }
 
 
-.item_box_content_rightSide > li:hover div{
-	border-color:rgb(120,120,120);
-}
-
-
-
-.firstDropdown{
+.subHeader-submenu{
 	width:147px;
 	background-color: rgb(255,255,255);
 	border:1px solid rgb(200,200,200);
@@ -629,110 +584,114 @@ body{
 	display:none;
 
 }
-.firstDropdown ul li{
+.subHeader-submenu ul li{
 	color:rgb(140,140,140);
 	padding:8px 5px;
 }
 
-.firstDropdown ul .lastChildList{
+.subHeader-submenu ul .lastChildList{
 	padding-bottom:53px;
 }
 
-.filterOrder> .firstDropdown{
-	width:190px;
-	left:-30px;
+.filterOrder > .subHeader-submenu{
+	left:0;
 	top:30px;
 	border-radius:2px;
 	-webkit-border-radius:2px;
 	-moz-border-radius:2px;
+	width:180px;
 }
 
-.order > .firstDropdown{
-	height:138px;
+.order .subHeader-submenu{
+	height:138px;	
+	left:-20px;
 
 
 }
 
-.filter > .firstDropdown{
+.filter > .subHeader-submenu{
 	height:160px;
-
-}
-
-.firstDropdown ul li:hover{
-		color:rgb(50,180,240);
+	width:230px;
 
 }
 
 
-.secondDropdown{
-	width:90px;
+#modelList .pose{
+	width:100px;
+}
+
+#modelList .iconWrapper{
+	background-color: rgb(250,250,250);
+}
+
+#modelList .subHeader-submenu{
+	top:30px;
+	width:250px;
+	height:180px;
+}
+
+.submenu-second{
+	width:80px;
 	height:125px;
-	background-color: rgb(242,242,242);
+	background-color:rgb(140,140,140);
 	position: absolute;
-	right:5px;
 	top:5px;
+	right:5px;
 	border:1px solid rgb(200,200,200);
-	border-radius:3px;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
+	overflow-y:auto;
 	font-size:12px;
 	display:none;
 }
 
-.filter .secondDropdown{
-	height:148px;
-	width:110px;
-	overflow:auto;
-
-}
-
- .firstDropdown > ul > li:hover > .secondDropdown{
-	display: block;
-}
-
-
-.hidden_images{
-	position: absolute;
-	right:15px;
-	top:15px;
-}
-
-/*lower box content goes here*/
-
-	
-
-.overallIconWrapper{
-	display: none;
-}
-
-.myItemsOverall .overallIconWrapper{
+.firstChild.submenu-second{
 	display:block;
 }
 
-.myItems,
-.items,
-.models,
-.backgrounds,
-.embelishments{
-	display:none;
+.filter .submenu-second{
+	height:148px;
+	width:150px;
+
+}
+
+#modelList .submenu-second{
+	height:165px;
+	width:150px;
+	left:90px;
+}
+
+
+
+
+.submenu-second ul li{
+	font-size:12px;
+	color:rgb(255,255,255);
 }
 
 /*item box inside - for overall*/
-.itemList{
-	overflow-y: auto;
-	width:100%;
-	position: absolute;
-	top:18%;
-	bottom:0;
-	left:0;
+#myItemList .itemIconsWrapper{
+	display:block;
 }
-.overallIconWrapper{
+
+
+.itemIconsWrapper{
 	width:80%;
-	margin:2em auto;
-
+	margin:12em auto;
 }
 
-.overallIconWrapper > li{
+#myItemList .itemIconsWrapper{
+	width:430px;
+	margin-top:7em;
+}
+
+#myItemList .itemIconsWrapper  li{
+	margin-left:80px;
+}
+
+#clothingItemList .itemIconsWrapper{
+	margin:7em auto;
+}
+
+.itemIconsWrapper > li{
 	width:100px;
 	height:140px;
 	position: relative;
@@ -744,25 +703,18 @@ body{
 	cursor: pointer;
 }
 
-.overallIconWrapper > li:hover{
-	color:rgb(50,180,240);
-}
 
-.overallIcons{
+.itemIcon{
 	width:100%;
 	height: 100px;
 	position: absolute;
-	top:0;
-	left:0;
-	border:1px solid rgb(200,200,200);
-	border-radius:50px;
 }
 
-.overallIconWrapper > li:hover .overallIcons{
-	border-color:rgb(50,180,240);
+.itemIconsWrapper > li > .heart_filled{
+	display:block;
 }
 
-.iconDescription{
+.itemDescription{
 	position:absolute;
 	width:100%;
 	height:30px;
@@ -770,39 +722,39 @@ body{
 	left:0;
 }
 
-.myItemsOverall > .overallIconWrapper{
-	width:430px;
-	margin-top:7em;
+
+
+
+
+/*Effect*/
+
+.subHeader-submenu ul li:hover{
+		color:rgb(50,180,240);
+
+}
+.subHeader-left > li:hover > div,
+.subHeader-left > li:hover > form > input{
+	border-color:rgb(120,120,120);
 }
 
-.myItemsOverall > .overallIconWrapper > li {
-	margin-left:80px;
+.subHeader-submenu > ul > li:hover > .submenu-second{
+	display: block;
 }
 
-
-.backgroundsOverall > .overallIconWrapper{
-	width:490px;
-	margin-top:7em;
-} 
-
-
-.embelishmentsOverall > .overallIconWrapper{
-	width:360px;
-	margin-top:7em;
+.subHeader-right > li:hover div{
+	border-color:rgb(120,120,120);
 }
 
-.overallIconWrapper > li > .heart_filled{
-	display:block;
+.itemIconsWrapper li:hover span{
+	color: rgb(50,180,240);
 }
 
 
 
+/*--------------------Itembox inside-----------------------*/
 
 
-/*item box inside - actual items */
-
-
-.selectedImages{
+.itembox_items{
 	width:100%;
 	bottom:0;
 	position: absolute;
@@ -818,13 +770,13 @@ body{
 
 
 
-.selectedImages > ul{
+.itembox_items > ul{
 	height:93%;
 	width:98%;
 	margin:10px auto;
 }
 
-.selectedImages > ul > li{
+.itembox_items > ul > li{
 	float:left;
 	margin:3px;
 	border-radius:1px;
@@ -840,7 +792,7 @@ body{
 
 }
 
-.selectedImages > ul > li > img{
+.itembox_items > ul > li > img{
 	margin:0 auto;
 	height:100%;
 
