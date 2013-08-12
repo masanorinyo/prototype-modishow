@@ -15,8 +15,9 @@ body{
 
 }
 
-/*------------------CONTENT (left)------------------*/
-/*--STRUCTURE--*/
+/*------------------CONTENT -----------------*/
+/*--Structure--*/
+/*Style Creation*/
 #tryonContent{
 	position: relative;
 	height:86%;
@@ -26,9 +27,20 @@ body{
 
 }
 
+/*Collage Creation*/
+#tryonContent.tryon-collage{
+	min-height:400px;
+}
+#tryonContent.tryon-collage > #tryonContent-left{
+	width:60.3%;
+	background-color:white;
+}
+#tryonContent.tryon-collage > #tryonContent-right{
+	width:37%;
+}
 
 
-
+/*--left side--*/
 
 #tryonContent-left{
 	position: relative;
@@ -42,6 +54,8 @@ body{
 	border:1px solid rgb(150,150,150);
 	overflow: hidden;
 }
+
+
 
 
 .tryonContent-header_left{
@@ -418,6 +432,7 @@ body{
 	width:18%;
 }
 
+
 #itembox_header .itemList_Embelishment{
 	width:21%;
 	height:14px;
@@ -427,6 +442,11 @@ body{
 	top:0;
 
 }
+
+.tryon-collage > #tryonContent-right > #itembox_header > ul > li{
+	width:25%;
+}
+
 
 /*------------------item box inside - upper------------------*/
 /*--Structure--*/
@@ -443,7 +463,7 @@ body{
 
 .subHeader-list{
 	width:11em;
-	height:1.5em;
+	height:1.49em;
 	border:1px solid rgb(200,200,200);
 	background-color: rgb(255,255,255);
 	padding:4px 0px 0px 4px;
@@ -453,8 +473,9 @@ body{
 
 }
 
-#modelList .pose .subHeader-list{
-	width:10em;
+#modelList .pose .subHeader-list,
+#modelList .shape .subHeader-list{
+	width:8em;
 }
 
 
@@ -479,6 +500,9 @@ body{
 #clothingItemList,
 #modelList,
 #backgroundList,
+#embelishmentList,
+#beautyList,
+#peopleList,
 #embelishmentList{
 	display:none;
 }
@@ -494,8 +518,6 @@ body{
 }
 
 
-
-
 .itembox_subHeader > div > ul > .firstChild{
 	margin-left:2.5%;
 }
@@ -504,31 +526,32 @@ body{
 	color:rgb(140,140,140);
 	width:11.4em;
 	padding-left:5px;
-	height:24px;
+	height:23px;
 	border:1px solid rgb(200,200,200);
 	font-family:"Calisto MT";
 	font-size:13px;
 }
 
 .iconWrapper{
-	background-color:rgb(150,150,150);
+	background-color:rgb(250,250,250);
 	width:24px;
-	height:24px;
+	height:23px;
 	position: absolute;
 	top:1px;
+	bottom:1px;
 	right:1px;
 	border-left:1px solid rgb(200,200,200);
 }
 
-.subHeader-left li .iconWrapper.searchKey,
-.subHeader-right li .iconWrapper,
-.filterOrder .iconWrapper{
-	background-color:rgb(250,250,250);
+.firstChild .iconWrapper {
+	background-color:rgb(150,150,150);
 }
 .subHeader-right li .iconWrapper{
 	width:15px;
 	right:5px;
 }
+
+
 
 
 
@@ -560,7 +583,7 @@ body{
 
 .uploadPic{
 	width:5em;
-	height:20px;
+	height:1.53em;
 	color:rgb(140,140,140);
 	border:1px solid rgb(200,200,200);
 	background-color: rgb(255,254,255);
@@ -589,9 +612,6 @@ body{
 	padding:8px 5px;
 }
 
-.subHeader-submenu ul .lastChildList{
-	padding-bottom:53px;
-}
 
 .filterOrder > .subHeader-submenu{
 	left:0;
@@ -616,10 +636,6 @@ body{
 }
 
 
-
-#modelList .iconWrapper{
-	background-color: rgb(250,250,250);
-}
 
 #modelList .subHeader-submenu{
 	top:30px;
@@ -664,61 +680,6 @@ body{
 	color:rgb(255,255,255);
 }
 
-/*item box inside - for overall*/
-#myItemList .itemIconsWrapper{
-	display:block;
-}
-
-
-.itemIconsWrapper{
-	width:80%;
-	margin:12em auto;
-}
-
-#myItemList .itemIconsWrapper{
-	width:430px;
-	margin-top:7em;
-}
-
-#myItemList .itemIconsWrapper  li{
-	margin-left:80px;
-}
-
-#clothingItemList .itemIconsWrapper{
-	margin:7em auto;
-}
-
-.itemIconsWrapper > li{
-	width:100px;
-	height:140px;
-	position: relative;
-	float:left;
-	text-align: center;
-	font-size:15px;
-	color:rgb(140,140,140);
-	margin:8px 0px 0px 20px;
-	cursor: pointer;
-}
-
-
-.itemIcon{
-	width:100%;
-	height: 100px;
-	position: absolute;
-}
-
-.itemIconsWrapper > li > .heart_filled{
-	display:block;
-}
-
-.itemDescription{
-	position:absolute;
-	width:100%;
-	height:30px;
-	bottom:0;
-	left:0;
-}
-
 
 
 
@@ -742,62 +703,129 @@ body{
 	border-color:rgb(120,120,120);
 }
 
-.itemIconsWrapper li:hover span{
-	color: rgb(50,180,240);
-}
 
 
 
 /*--------------------Itembox inside-----------------------*/
 
-
-.itembox_items{
-	width:100%;
+.itemBox > ul{
+	top:17%;
 	bottom:0;
+	right:1%;
+	left:2.5%;
+	margin:auto;
 	position: absolute;
-	overflow-x:hidden;
 	overflow-y:auto;
-	display: none;
-	top:15%;
-	bottom:0;
-	right:0;
-	left:0;
+	overflow-x:hidden;
+
 
 }
-
-
-
-.itembox_items > ul{
-	height:93%;
-	width:98%;
-	margin:10px auto;
+#myItemImages .itemIconsWrapper,
+#itemImages .itemIconsWrapper{
+	display:block;
 }
 
-.itembox_items > ul > li{
+.itemBox-images,.itemIconsWrapper{
+	display:none;
+}
+
+.itemBox > .itemBox-images > li{
 	float:left;
-	margin:3px;
+	margin:0px 0px 3px 3px;
 	border-radius:1px;
 	-webkit-border-radius:1px;
 	-moz-border-radius:1px;
-	width:91.5px;
-	height:91.5px;
+	width:18.4%;
+	height:18.4%;
 	background-color:rgb(255,255,255);
 	border:1px solid rgb(230,230,230);
-	
-	
-	
-
 }
 
-.itembox_items > ul > li > img{
+.itemBox > .itemBox-images > li > img{
 	margin:0 auto;
 	height:100%;
-
 }
 
 
 
 
+#myItemImages .itemIconsWrapper,
+#embelishmentImages .itemIconsWrapper{
+	width:500px;
+	position: absolute;
+	left:29%;
+	top:150px;	
+}
+
+#embelishmentImages .itemIconsWrapper{
+	left:21%;
+}
+
+
+
+.tryon-collage #embelishmentImages .itemIconsWrapper{
+	margin-top:0;
+	width:100%;	
+	left:10px;
+	top:100px;	
+}
+
+
+
+#backgroundImages .itemIconsWrapper{
+	width:500px;
+	margin-top:4em;
+}
+
+
+.itemIconsWrapper > li{
+	width:22%;
+	height:130px;
+	position: relative;
+	float:left;
+	text-align: center;
+	font-size:15px;
+	color:rgb(140,140,140);
+	margin:10px 0px 30px 9px;
+	cursor: pointer;
+}
+
+#myItemImages .itemIconsWrapper  li{
+	margin-right:40px;
+}
+#clothingImages .itemIconsWrapper  li{
+	margin:10px 0px 20px 9px;
+}
+
+
+.itemIcon{
+	width:100%;
+	height: 100px;
+	position: absolute;
+}
+
+.itemIconsWrapper > li > .heart_filled{
+	display:block;
+}
+
+.itemDescription{
+	position:absolute;
+	width:100%;
+	height:30px;
+	bottom:0;
+	left:0;
+}
+
+
+.itemIconsWrapper li:hover span{
+	color: rgb(50,180,240);
+}
+
+/*--Effect--*/
+
+.itemBox > .itemBox-images > li:hover{
+	border-color:	rgb(50,180,240);
+}
 
 /*--------------------------Popup content--------------------------*/
 #popupOverlay{
@@ -826,6 +854,10 @@ body{
 #createCollage{
 	height:280px;
 	display:none;
+}
+
+#publish_collage{
+	height:170px;
 }
 
 #publish{
@@ -861,6 +893,8 @@ body{
 .button_large.background-weak{
 	right:90px;
 }
+
+
 
 .button_large > a{
 	font-size:5.5em;
@@ -934,12 +968,42 @@ body{
 	left:75px;	
 	color:rgb(255,255,255);
 	background-color:rgb(50,180,240);
-
 }
+
+
+
 .button_medium.cancel{
 	left:180px;
 	color:rgb(170,170,170);
 }
+
+#publish_collage .button_medium.publish{
+	left:30px;
+}
+#publish_collage .button_medium.cancel{
+	left:120px;	
+}
+
+.sns{
+	color:rgb(255,255,255);
+	padding:5px 10px;
+	background-color:rgb(210,210,210);
+
+}
+.sns:hover{
+	background-color:rgb(60,190,250);
+}
+
+.button_medium.sns_facebook{
+	right:155px;
+}
+.button_medium.sns_twitter{
+	right:90px;
+}
+.button_medium.sns_pinterest{
+	right:15px;
+}
+
 .button_medium.cancel:hover{
 	color:rgb(0,0,0);
 }
@@ -948,13 +1012,16 @@ body{
 	background-color:rgb(80,110,150);
 }
 
+.popup_confirmation > .label{
+	position: absolute;
+	right:125px;
+	bottom:60px;
+	color:rgb(210,210,210);
+}
 
 
-/*-------------------------Collage Creation----------------------------*/
-#tryonContent.tryon-collage > #tryonContent-left{
-	width:60.3%;
-	background-color:white;
-}
-#tryonContent.tryon-collage > #tryonContent-right{
-	width:37%;
-}
+
+
+
+
+

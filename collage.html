@@ -18,55 +18,20 @@
 	<script type="text/javascript">
 
 
-//heart fillup
-//hover effect on outfit generator
-$(document).ready(function(){
-	$("#tryonContent-left").hover(function(){
-  				$(".hide").fadeIn("fast");
-  					},function(){
-  					$(".hide").fadeOut("fast");
-				});
-	
-
-});		
-
-
-
 //coordinate generater - appears & disappears
 
 $(document).ready(function(){
-		$(".button_category,.button_layer").click(function(){
-         if( $(this).children(".hiddenBox").is("display","block") ) {
-            $(this).children(".hiddenBox").hide();
-        } else {
-            // if other menus are open remove open class and add closed
-            $(this).siblings().children(".hiddenBox").is("display","block"); 
-            $(this).siblings().children(".hiddenBox").hide();
+		$(".button_layer").click(function(){
         
-    }
- 
-        $(this).children(".hiddenBox").fadeToggle("fast");});
-
-		$(".openLayer").click(function(){
-         if( $(".button_layer > .hiddenBox").is("display","block") ) {
-            $(".button_layer > .hiddenBox").hide();
-        } else {
-            // if other menus are open remove open class and add closed
-            $(".button_category > .hiddenBox").is("display","block"); 
-            $(".button_category > .hiddenBox").hide();   
-    }
         $(".button_layer > .hiddenBox").fadeToggle("fast");});
 		$('html').click(function(event){
                  $('.hiddenBox').hide();
              });
-		$('.button_category,.button_layer,.openLayer,.hiddenBox').click(function(event){
+		$('.button_layer,.hiddenBox').click(function(event){
     			event.stopPropagation();
 			}	);
 });
-
-
 	
-
 //item box upper content
 $(document).ready(function(){
 		$(".subHeader-left > li").click(function(){
@@ -95,9 +60,6 @@ $(document).ready(function(){
 
    	});
 		
-
-
-
 		$('.subHeader-left > li').click(function(event){
     			event.stopPropagation();
 			}	);	
@@ -118,64 +80,52 @@ $(document).ready(function(){
         function() { 
             $(this).addClass("currently_focus");
             $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
-            $(".itembox_items").hide();
+            $(".itemBox-images").hide();
      	}); 
 
-     $(".itemList_myItems").click(
+     $(".itemList_items").click(
         function() { 
-            $("#myItemList").show();
-            $(".itembox_subHeader > div").not("#myItemList").hide();
-            $("#myItemList > div > .itemIconsWrapper").show();
+            $("#itemList,#itemImages > .itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#itemList,#itemImages > .itemIconsWrapper").hide();
 		
 
      	}); 
 
-     $(".itemList_clothing").click(
+     $(".itemList_beauty").click(
         function() { 
-            $("#clothingItemList").show();
-            $(".itembox_subHeader > div").not("#clothingItemList").hide();
-			$("#clothingItemList  > div > .itemIconsWrapper").show();
+            $("#beautyList,#beautyImages > .itemBox-images").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#beautyList,#beautyImages > .itemIconsWrapper").hide();
 		
 
      	}); 
-     $(".itemList_model").click(
+     $(".itemList_people").click(
         function() { 
-            $("#modelList").show();
-            $(".itembox_subHeader > div").not("#modelList").hide();
-            $("#modelList >  div > .itemIconsWrapper").show();
+            $("#peopleList,#peopleImages > .itemBox-images").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#peopleList,#peopleImages > .itemIconsWrapper").hide();
 		
 
      	}); 
-     $(".itemList_background").click(
+    $(".itemList_Embelishment").click(
         function() { 
-            $("#backgroundList").show();
-            $(".itembox_subHeader > div").not("#backgroundList").hide();
-            $("#backgroundList > div >.itemIconsWrapper").show();
-		
-
-     	}); 
-     $(".itemList_Embelishment").click(
-        function() { 
-            $("#embelishmentList").show();
-            $(".itembox_subHeader > div").not("#embelishmentList").hide();
-            $("#embelishmentList >  div >.itemIconsWrapper").show();
-			
-
+            $("#embelishmentList,#embelishmentImages > .itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#embelishmentList,#embelishmentImages > .itemIconsWrapper").hide();
      	}); 
 });
 
-//items show up
-$(document).ready(function() {                                       
-    $(".itemIconsWrapper > li").click(
+//items show up exactly the same as try on
+$(document).ready(function() {               
+		$(".itemBox > .itemIconsWrapper > li, .subHeader-submenu > ul > li").click(
         function() { 
-            $(".itembox_items").show(); 
-            $(".itemIconsWrapper").hide();
-     	}); 
-
-     $(".subHeader-submenu > ul > li").click(
+             $(".itemBox > .itemIconsWrapper").hide();
+     	});                         
+       $("#itemImages > .itemIconsWrapper > li, #itemList .subHeader-submenu > ul > li").click(
         function() { 
-            $(".itembox_items").show(); 
-            $(".itemIconsWrapper").hide();
+            $("#itemImages > .itemBox-images").show(); 
+     	});
+   
+    	$("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .subHeader-submenu > ul > li").click(
+        function() { 
+            $("#embelishmentImages > .itemBox-images").show(); 
      	}); 
    
 });
@@ -185,6 +135,30 @@ $(document).ready(function(){
 	$(".button-heart").click(function(){$(this).children('.heart_filled').fadeToggle("fast");});
 
 	$(".itemHeart").click(function(){$(this).children('.heart_filled').fadeToggle("fast");});
+
+
+//modal effect - exactly the same as index one
+
+	$('.button_publish').click(
+				function(event){$('#popupOverlay').fadeIn("fast");});
+			$("#modalbox").click(function(event){
+					$('#popupOverlay').hide();
+					$('#createCollage').hide();
+					$('#publish').fadeIn("fast");
+		});	
+			$('.close,.button_medium.cancel').click(
+				function(event){$('#popupOverlay').hide();});
+			$('.button_publish,.popup_confirmation').click(function(event){
+     			event.stopPropagation();
+ 			});
+
+ 	$('.button_medium.publish').click(
+				function(event){
+					$('#createCollage').fadeIn();
+					$('#publish').hide();
+				});
+			
+
 
 	});
 
@@ -201,13 +175,13 @@ $(document).ready(function(){
 		</div>
 		<ul id="header-leftOptions">
 			<li class="firstChild">
-				<a href="index.html"><h2>FEED</h2></a>
+				<a href="feed.html"><h2>FEED</h2></a>
 			</li>
 			<li>
 				<a  href="index.html"><h2>EXPLORE</h2> </a>
 			</li>					
 			<li>
-				<a href="#"><h2>SHOP</h2></a>
+				<a href="shop-overall.html"><h2>SHOP</h2></a>
 				<ul class="submenu background_dark round_bottom">
 					<li>
 						<a href="#">New Items</a>
@@ -278,7 +252,7 @@ $(document).ready(function(){
 		</form>
 		<ul id="header-rightOptions" class="space">
 			<li>
-				<a href="#"><h2>ABOUT</h2></a>
+				<a href="about.html"><h2>ABOUT</h2></a>
 				<div class="aboutPage submenu background_dark round_bottom">
 					<div class="aboutPage-options">
 						<div>About</div>
@@ -333,7 +307,7 @@ $(document).ready(function(){
 				</div>
 			</li>
 			<li class="lastChild">
-				<a href="#"><h2>SIGNUP / LOGIN</h2></a>
+				<a href="signin.html"><h2>SIGNUP / LOGIN</h2></a>
 				<ul class="userPage submenu background_dark round_bottom">
 					<li><a href="#">Profile</a></li>
 					<li><a href="#">Creations</a></li>
@@ -352,6 +326,23 @@ $(document).ready(function(){
 				0
 		</div>
 	</div>
+	<div id="popupOverlay">
+		<div id="transparentBackground">
+		</div>
+		<div id="modalbox">
+			<div id="publish_collage"  class="popup_confirmation">
+				<span class="close opaque_strong"></span>
+				<div class="popup_confirmation-header"><span>Publish</span></div>
+				<a href="index.html"><div class="button_medium publish">Publish</div></a>
+				<div class="button_medium cancel"><span>Cancel</span></div>
+				<span class="label">Share with friends</span>
+				<div class="button_medium sns_facebook sns"><span>Facebook</span></div>
+				<div class="button_medium sns_twitter sns"><span>Twitter</span></div>
+				<div class="button_medium sns_pinterest sns"><span>Pinterest</span></div>
+			</div>
+
+		</div>
+	</div>	
 	<div id="tryonContent" class="tryon-collage">
 		<div id="tryonContent-left">
 			<div class="background_grid"></div>
@@ -374,22 +365,151 @@ $(document).ready(function(){
 					</li>
 					<li id="back" class="background_shadow round_medium opaque_weak ">Back
 					</li>
+					<li class="button_layer background_shadow round_medium opaque_weak">
+						<div>
+							<span class="layer_item_icon"></span>
+						</div>
+						<div class="font_info">i</div>
+						<div>
+							<span class="generaterHeader_downArrow"></span>
+						</div>	
+						<div class="hiddenBox round_medium">
+							<ul class="opaque_weak">
+								<li class="layers">								
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+								<li class="layers">
+
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+								<li class="layers">
+
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+								<li class="layers">
+
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+								<li class="layers">
+
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+								<li class="layers">
+
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+								<li class="layers">
+
+									<div class="imageIconBox">
+										<a href="#">
+											<img src="images/item1.png"/>
+										</a>		
+									<div>
+									<div class="itemDescriptionBox">
+										<div class="titleOfProduct"><a href="#">Skirt</a></div>
+										<div class="url"><a href="#"> topshop.com</a></div>									
+										<div class="price">$30</div>
+										<div class="itemHeart">
+											<div class="heart_empty"></div>
+											<div class="heart_filled"></div>
+										</div>
+									<div>
+								</li>
+							</ul>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
 		<div id="tryonContent-right">
 			<div id="itembox_header">
 				<ul>
-					<li class="itemList_myItems currently_focus">My Items</li> 
-					<li class="itemList_clothing">Clothing & Accessories
-					</li>
-					<li class="itemList_model ">Models</li>
-					<li class="itemList_background ">Background</li>
+					<li class="itemList_items currently_focus">Items</li> 
+					<li class="itemList_beauty">Beauty</li>
+					<li class="itemList_people">People</li>
 					<li class="itemList_Embelishment">Embelishment</li>
 				</ul>
 			</div>		
 			<div class="itembox_subHeader">
-				<div id="myItemList">	
+				<div id="itemList">	
 					<ul class="subHeader-left">
 						<li class="firstChild">
 							<div class="subHeader-list">
@@ -398,26 +518,19 @@ $(document).ready(function(){
 								</div>
 								<div class="subHeader-submenu">
 									<ul>
-										<li>My likes</li>	
-										<li>My uploads</li>
+										<li>item A</li>	
+										<li>item B</li>
+										<li>item C</li>
+										<li>item D</li>
+										<li>item E</li>
+										<li>item F</li>
+										<li>item G</li>
 									</ul>
 								</div>
 							</div>
-						</li>
-						<li>
-							<div class="iconWrapper searchKey">
-							</div>
-							<form>
-								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
-							</form>
-						</li>		
+						</li>					
 					</ul>
-					<ul class="subHeader-right">
-						<li>
-							<div class="uploadPic">Upload</div>
-							<div class="iconWrapper">
-							</div>
-						</li>
+					<ul class="subHeader-right">					
 						<li>
 							<div class="changeView">
 								<span class="smallerBox"></span>
@@ -427,197 +540,17 @@ $(document).ready(function(){
 							<div class="changeView">
 								<span class="biggerBox"></span>
 							</div>
-						</li>				
+						</li>
 					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon heart_filled"></span>
-								<span class="itemDescription">My likes</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">My uploads</span>
-							</li>
-						</ul>
-					</div>
 				</div>
-				<div id="clothingItemList">
+				<div id="beautyList">
 					<ul class="subHeader-left">
 						<li class="firstChild">
-							<div class="subHeader-list">
-								Choose categories
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>
-										<li>Dress</li>
-										<li>Skirts</li>
-										<li>Tops</li>
-										<li>Outwears</li>
-										<li>Jeans</li>
-										<li>Pants</li>
-										<li>Shorts</li>
-										<li>Jumpsuits & Rompers</li>
-										<li>Intimates</li>
-										<li>Swimwear</li>
-										<li>Activewear</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li>
 							<div class="iconWrapper searchKey">
 							</div>
 							<form>
 								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
 							</form>
-						</li>
-						<li class="filterOrderWrapper">
-							<div class="subHeader-list filterOrder filter">
-								Filter
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>			
-										<li>
-											Color
-											<div class="submenu-second firstChild">	
-												<form>
-													<ul>
-														<label><li><input type="checkbox" value="white"/> White</li> </label>
-														<label><li><input type="checkbox" value="black"/> Black</li> </label>
-														<label><li><input type="checkbox" value="grey"/> Grey</li></label>
-														<label><li><input type="checkbox" value="brown"/> Brown</li> </label>
-														<label><li><input type="checkbox" value="beige"/> Beige</li></label>
-														<label><li><input type="checkbox" value="green"/> Green </li></label>
-														<label><li><input type="checkbox" value="blue"/> Blue</li></label>
-														<label><li ><input type="checkbox" value="purple"/> Purple</li></label>
-														<label><li ><input type="checkbox" value="yellow"/> Yellow</li></label>
-														<label><li><input type="checkbox" value="pink"/> Pink</li></label>
-														<label><li><input type="checkbox" value="red"/> Red</li></label>
-														<label><li ><input type="checkbox" value="orange"/> Orange</li></label>
-														<label><li> <input type="checkbox" value="silver"/> Silver </li></label>
-														<label><li><input type="checkbox" value="gold"/> Gold</li></label>
-														<label><li ><input type="checkbox" value="others"/> Others</li></label>
-													</ul>
-												</form>											
-											</div>									
-										</li>
-										<li>
-											Pattern
-											<div class="submenu-second">
-												<form>
-													<ul>
-														<label><li><input type="checkbox" value="plain"/> Plain</li></label>
-														<label><li><input type="checkbox" value="stripe"/> Stripe</li></label>
-														<label><li><input type="checkbox" value="check"/> Check</li></label>
-														<label><li><input type="checkbox" value="border"/> Border</li></label>
-														<label><li><input type="checkbox" value="dot"/> Dot</li></label>
-														<label><li><input type="checkbox" value="camouflage"/> Camouflage</li></label>							
-														<label><li><input type="checkbox" value="embroidery"/> Embroidery, lace</li></label>
-														<label><li><input type="checkbox" value="animal"/> Animal </li></label>
-														<label><li><input type="checkbox" value="floral"/> Floral</li></label>
-														<label><li><input type="checkbox" value="patterned"/> Patterned all over print</li></label>
-														<label><li><input type="checkbox" value="print"/> Print(logos,etc.)</li></label>
-														<label><li><input type="checkbox" value="onePoint"/> One point</li></label>
-													</ul>
-												</form>
-											</div>
-										</li>
-										<li>
-											Material
-											<div class="submenu-second">
-												<form>
-													<ul>
-														<label><li><input type="checkbox" value="chino"/> Chino</li></label>
-														<label><li><input type="checkbox" value="cotton"/> Cotton</li></label>
-														<label><li><input type="checkbox" value="corduroy"/> Corduroy</li></label>
-														<label><li><input type="checkbox" value="wool"/> Wool series</li></label>
-														<label><li><input type="checkbox" value="line"/> Line series</li></label>
-														<label><li><input type="checkbox" value="nylon"/> Nylon series</li></label>
-														<label><li><input type="checkbox" value="sweat"/> Sweat</li></label>
-														<label><li><input type="checkbox" value="jersey"/> Jersey</li></label>
-														<label><li><input type="checkbox" value="stretch"/> Stretch</li></label>
-														<label><li><input type="checkbox" value="leather"/> Leather material</li></label>
-													</ul>
-												</form>
-											</div>
-										</li>
-										<li>
-											Price
-											<div class="submenu-second">						
-												<form>								
-													<ul>
-														<label><li><input type="radio"/>
-															~ $50									
-														</li></label>
-
-														<label><li><input type="radio"/>
-															$51~ $100
-														</li></label>
-														<label><li><input type="radio"/>
-															$101 ~ $200
-														</li></label>
-														<label><li><input type="radio"/>
-															$201~ $300
-														</li></label>
-														<label><li><input type="radio"/>
-															$301~ $400
-														</li></label>
-														<label><li><input type="radio"/>
-															$401~ $500
-														</li></label>
-														<label><li><input type="radio"/>
-															$501~ $750
-														</li></label>
-														<label><li><input type="radio"/>
-															$751~ $1,000
-														</li></label>
-														<label><li><input type="radio"/>
-															$1001 ~
-														</li></label>
-													</ul>
-												</form>
-											</div>
-										</li>
-										<li>
-											Brand
-											<div class="submenu-second">			
-												<form>							
-													<ul>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>	
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-														<label><li><input type="checkbox" value=""/> ABCD</li></label>
-													</ul>
-												</form>
-											</div>	
-										</li>								
-									</ul>				
-								</div>
-							</div>
 						</li>	
 						<li class="filterOrderWrapper">
 							<div class="subHeader-list filterOrder order">
@@ -627,7 +560,7 @@ $(document).ready(function(){
 								<div class="subHeader-submenu">
 									<ul>
 										<li>
-											Most Viewed	
+											Most Used	
 											<div class="submenu-second firstChild">
 												<ul>
 													<li>All time</li>
@@ -660,7 +593,8 @@ $(document).ready(function(){
 									</ul>									
 								</div>
 							</div>
-						</li>			
+						</li>	
+						
 					</ul>
 					<ul class="subHeader-right">					
 						<li>
@@ -674,296 +608,62 @@ $(document).ready(function(){
 							</div>
 						</li>
 					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Dress</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>		
-								<span class="itemDescription">Skirts</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Tops</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Outwears</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Jeans</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Pants</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Shorts</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Jumpsuits & Rompers</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Intimates</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Swimwear</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Activewear</span>
-							</li>
-						</ul>
-					</div>
 				</div>
-				<div id="modelList">
+				<div id="peopleList">
 					<ul class="subHeader-left">
 						<li class="firstChild">
-							<div class="subHeader-list">
-								Choose models
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>			
-										<li>
-											Skin Color	
-											<div class="submenu-second firstChild">	
-												<form>
-													<ul>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Light
-															</li>
-														</label>
-													</ul>
-												</form>											
-											</div>									
-										</li>								
-										</li>
-										<li>
-											Hair Style
-											<div class="submenu-second">	
-												<form>
-													<ul>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Long
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Very long
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Short
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Afro
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Pony tail
-															</li>
-														</label>
-													</ul>
-												</form>											
-											</div>	
-										</li>
-										<li>
-											Ethnicity
-											<div class="submenu-second">	
-												<form>
-													<ul>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Asian
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																African-American 
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Caucasian
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Hispanic
-															</li>
-														</label>
-														<label>
-															<li>
-																<input type="checkbox" value=""/> 
-																Indian
-															</li>
-														</label>
-													</ul>
-												</form>											
-											</div>	
-										</li>
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li class="pose">
-							<div class="subHeader-list">
-								Pose
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>			
-										<li class="firstChild">
-											Pose A <span class="modePose-A">test</span>
-										</li>	
-										<li>
-											Pose A <span class="modePose-A"></span>
-										</li>	
-										<li>
-											Pose A <span class="modePose-A"></span>
-										</li>	
-										<li>
-											Pose A <span class="modePose-A"></span>
-										</li>	
-									</ul>
-								</div>
-							</div>
-						</li>
-						<li>
 							<div class="iconWrapper searchKey">
 							</div>
 							<form>
-
 								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
 							</form>
 						</li>
-					</ul>
-					<ul class="subHeader-right">
-											
-					</ul>
-					<div>
-					</div>
-				</div>
-				<div id="backgroundList">
-					<ul class="subHeader-left">
-					<li class="firstChild">
-						<div class="subHeader-list">
-							Choose theme
-							<div class="iconWrapper">
+						<li class="filterOrderWrapper">
+							<div class="subHeader-list filterOrder order">
+								Order
+								<div class="iconWrapper">
+								</div>
+								<div class="subHeader-submenu">
+									<ul>
+										<li>
+											Most used	
+											<div class="submenu-second firstChild">
+												<ul>
+													<li>All time</li>
+													<li>Today</li>
+													<li>This week</li>
+													<li>This month</li>							
+												</ul>							
+											</div>
+										</li>
+										<li >
+											Most Popular
+											<div class="submenu-second">
+												<ul>
+													<li>All time</li>
+													<li>Today</li>
+													<li>This week</li>
+													<li>This month</li>							
+												</ul>							
+											</div>							
+										</li>							
+									</ul>									
+								</div>
 							</div>
-							<div class="subHeader-submenu">
-								<ul>
-									<li>Street</li>
-									<li>Beach</li>
-									<li>Indoor</li>
-									<li>Sightseeing</li>
-									<li>Countries</li>
-								</ul>
+						</li>	
+					</ul>
+					<ul class="subHeader-right">					
+						<li>
+							<div class="changeView">
+								<span class="smallerBox"></span>
 							</div>
-						</div>
-					</li>
-					<li>
-						<div class="iconWrapper searchKey">
-						</div>
-						<form>
-
-							<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
-						</form>
-					</li>
+						</li>
+						<li>
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>
 					</ul>
-					<ul class="subHeader-right">
-											
-					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Street</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>		
-								<span class="itemDescription">Beach</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Indoor</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Nature</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Cultural</span>
-							</li>
-						</ul>
-					</div>
 				</div>
 				<div id="embelishmentList">
 					<ul class="subHeader-left">
@@ -976,34 +676,71 @@ $(document).ready(function(){
 									<ul>
 										<li>Text</li>
 										<li>Frames & borders</li>
-										<li>Effects</li>	
+										<li>Effects</li>
+										<li>Colors</li>	
+										<li>Backgrounds</li>
+										<li>Articles</li>
+										<li>Patterns</li>
+										<li>Others</li>
 									</ul>
 								</div>
 							</div>
 						</li>		
 					</ul>
-					<ul class="subHeader-right">
+					<ul class="subHeader-right">						
+						<li>
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li>
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>				
 					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Text</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>		
-								<span class="itemDescription">Frames & borders</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Effect</span>
-							</li>
-						</ul>					
-					</div>	
 				</div>
 			</div>
-			<div class="itembox_items">
-				<ul>
+			<div id="itemImages" class="itemBox">
+				<ul class="itemIconsWrapper">
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item A</span>
+					</li>
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item B</span>
+					</li>
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item C</span>
+					</li>
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item D</span>
+					</li>
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item E</span>
+					</li>
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item F</span>
+					</li>
+					<li>
+						<span class="itemIcon"><img src=""/></span>
+						<span class="itemDescription">Item G</span>
+					</li>
+				</ul>
+				<ul class="itemBox-images">					
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>	
+				</ul>
+			</div>
+			<div id="beautyImages" class="itemBox">
+				<ul class="itemBox-images">
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
@@ -1062,10 +799,50 @@ $(document).ready(function(){
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
+				</ul>
+			</div>
+			<div id="peopleImages" class="itemBox">
+				<ul class="itemBox-images">
 					<li class="items-wrapper"><img src="images/item.png"/></li>
+				</ul>
+			</div>
+			<div id="embelishmentImages" class="itemBox">
+				<ul class="itemIconsWrapper">
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Text</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>		
+						<span class="itemDescription">Frames & borders</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Effect</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Colors</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Backgrounds</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Articles</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Patterns</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Others</span>
+					</li>
+				</ul>					
+				<ul class="itemBox-images">		
 					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>		
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>

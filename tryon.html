@@ -29,11 +29,11 @@ $(document).ready(function(){
 	//modal effect - exactly the same as index one
 
 	$('.button_publish').click(
-				function(event){$('#popupOverlay').show();});
+				function(event){$('#popupOverlay').fadeIn("fast");});
 			$("#modalbox").click(function(event){
 					$('#popupOverlay').hide();
 					$('#createCollage').hide();
-					$('#publish').show();
+					$('#publish').fadeIn("fast");
 		});	
 			$('.close,.button_medium.cancel').click(
 				function(event){$('#popupOverlay').hide();});
@@ -43,7 +43,7 @@ $(document).ready(function(){
 
  	$('.button_medium.publish').click(
 				function(event){
-					$('#createCollage').show();
+					$('#createCollage').fadeIn();
 					$('#publish').hide();
 				});
 			
@@ -131,71 +131,69 @@ $(document).ready(function(){
 });
 
 
-//item box lower content
+//item box subheader content
 	$(document).ready(function() {                                       
     $("#itembox_header ul li").click(
         function() { 
             $(this).addClass("currently_focus");
             $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
-            $(".itembox_items").hide();
+            $(".itemBox-images").hide();
      	}); 
 
      $(".itemList_myItems").click(
         function() { 
-            $("#myItemList").show();
-            $(".itembox_subHeader > div").not("#myItemList").hide();
-            $("#myItemList > div > .itemIconsWrapper").show();
-		
-
+            $("#myItemList,#myItemImages > .itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#myItemList,#myItemImages > .itemIconsWrapper").hide();
      	}); 
 
      $(".itemList_clothing").click(
         function() { 
-            $("#clothingItemList").show();
-            $(".itembox_subHeader > div").not("#clothingItemList").hide();
-			$("#clothingItemList  > div > .itemIconsWrapper").show();
-		
-
+            $("#clothingItemList,#clothingImages >.itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#clothingItemList,#clothingImages > .itemIconsWrapper").hide();
      	}); 
      $(".itemList_model").click(
         function() { 
-            $("#modelList").show();
-            $(".itembox_subHeader > div").not("#modelList").hide();
-            $("#modelList >  div > .itemIconsWrapper").show();
-		
-
+            $("#modelList,#modelImages > .itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#modelList,#modelImages > .itemIconsWrapper").hide();
      	}); 
      $(".itemList_background").click(
         function() { 
-            $("#backgroundList").show();
-            $(".itembox_subHeader > div").not("#backgroundList").hide();
-            $("#backgroundList > div >.itemIconsWrapper").show();
-		
-
+            $("#backgroundList,#backgroundImages > .itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#backgroundList,#backgroundImages > .itemIconsWrapper").hide();		
      	}); 
      $(".itemList_Embelishment").click(
         function() { 
-            $("#embelishmentList").show();
-            $(".itembox_subHeader > div").not("#embelishmentList").hide();
-            $("#embelishmentList >  div >.itemIconsWrapper").show();
-			
-
+            $("#embelishmentList,#embelishmentImages > .itemIconsWrapper").show();
+            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#embelishmentList,#embelishmentImages > .itemIconsWrapper").hide();
      	}); 
 });
 
 //items show up
-$(document).ready(function() {                                       
-    $(".itemIconsWrapper > li").click(
+$(document).ready(function() { 
+ 	$(".itemBox > .itemIconsWrapper > li, .subHeader-submenu > ul > li").click(
         function() { 
-            $(".itembox_items").show(); 
-            $(".itemIconsWrapper").hide();
-     	}); 
-
-     $(".subHeader-submenu > ul > li").click(
+             $(".itemBox > .itemIconsWrapper").hide();
+     	});                                     
+    $("#myItemImages > .itemIconsWrapper > li, #myItemList .subHeader-submenu > ul > li").click(
         function() { 
-            $(".itembox_items").show(); 
-            $(".itemIconsWrapper").hide();
+            $("#myItemImages > .itemBox-images").show(); 
+     	});
+    $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .subHeader-submenu > ul > li").click(
+        function() { 
+            $("#clothingImages > .itemBox-images").show(); 
      	}); 
+    $("#modelImages > .itemIconsWrapper > li").click(
+        function() { 
+            $("#modelImages > .itemBox-images").show(); 
+     	}); 
+    $("#backgroundImages > .itemIconsWrapper > li,#backgroundList .subHeader-submenu > ul > li").click(
+        function() { 
+            $("#backgroundImages > .itemBox-images").show(); 
+     	}); 
+    $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .subHeader-submenu > ul > li").click(
+        function() { 
+            $("#embelishmentImages > .itemBox-images").show(); 
+     	});   	
    
 });
 
@@ -220,13 +218,13 @@ $(document).ready(function(){
 		</div>
 		<ul id="header-leftOptions">
 			<li class="firstChild">
-				<a href="index.html"><h2>FEED</h2></a>
+				<a href="feed.html"><h2>FEED</h2></a>
 			</li>
 			<li>
 				<a  href="index.html"><h2>EXPLORE</h2> </a>
 			</li>					
 			<li>
-				<a href="#"><h2>SHOP</h2></a>
+				<a href="shop-overall.html"><h2>SHOP</h2></a>
 				<ul class="submenu background_dark round_bottom">
 					<li>
 						<a href="#">New Items</a>
@@ -297,7 +295,7 @@ $(document).ready(function(){
 		</form>
 		<ul id="header-rightOptions" class="space">
 			<li>
-				<a href="#"><h2>ABOUT</h2></a>
+				<a href="about.html"><h2>ABOUT</h2></a>
 				<div class="aboutPage submenu background_dark round_bottom">
 					<div class="aboutPage-options">
 						<div>About</div>
@@ -352,7 +350,7 @@ $(document).ready(function(){
 				</div>
 			</li>
 			<li class="lastChild">
-				<a href="#"><h2>SIGNUP / LOGIN</h2></a>
+				<a href="signin.html"><h2>SIGNUP / LOGIN</h2></a>
 				<ul class="userPage submenu background_dark round_bottom">
 					<li><a href="#">Profile</a></li>
 					<li><a href="#">Creations</a></li>
@@ -777,18 +775,6 @@ $(document).ready(function(){
 							</div>
 						</li>				
 					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon heart_filled"></span>
-								<span class="itemDescription">My likes</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">My uploads</span>
-							</li>
-						</ul>
-					</div>
 				</div>
 				<div id="clothingItemList">
 					<ul class="subHeader-left">
@@ -813,13 +799,6 @@ $(document).ready(function(){
 									</ul>
 								</div>
 							</div>
-						</li>
-						<li>
-							<div class="iconWrapper searchKey">
-							</div>
-							<form>
-								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
-							</form>
 						</li>
 						<li class="filterOrderWrapper">
 							<div class="subHeader-list filterOrder filter">
@@ -1008,7 +987,14 @@ $(document).ready(function(){
 									</ul>									
 								</div>
 							</div>
-						</li>			
+						</li>	
+						<li>
+							<div class="iconWrapper searchKey">
+							</div>
+							<form>
+								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
+							</form>
+						</li>
 					</ul>
 					<ul class="subHeader-right">					
 						<li>
@@ -1021,55 +1007,7 @@ $(document).ready(function(){
 								<span class="biggerBox"></span>
 							</div>
 						</li>
-					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Dress</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>		
-								<span class="itemDescription">Skirts</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Tops</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Outwears</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Jeans</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Pants</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Shorts</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Jumpsuits & Rompers</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Intimates</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Swimwear</span>
-							</li>
-							<li>
-								<span class="itemIcon "></span>
-								<span class="itemDescription">Activewear</span>
-							</li>
-						</ul>
-					</div>
+					</ul>					
 				</div>
 				<div id="modelList">
 					<ul class="subHeader-left">
@@ -1220,24 +1158,24 @@ $(document).ready(function(){
 								</div>
 							</div>
 						</li>
-						<li class="pose">
+						<li class="shape">
 							<div class="subHeader-list">
-								Pose
+								shape
 								<div class="iconWrapper">
 								</div>
 								<div class="subHeader-submenu">
 									<ul>			
 										<li class="firstChild">
-											Pose A <span class="modePose-A">test</span>
+											shape A <span class="modelShape-A">test</span>
 										</li>	
 										<li>
-											Pose A <span class="modePose-A"></span>
+											shape A <span class="modelShape-A"></span>
 										</li>	
 										<li>
-											Pose A <span class="modePose-A"></span>
+											shape A <span class="modelShape-A"></span>
 										</li>	
 										<li>
-											Pose A <span class="modePose-A"></span>
+											shape A <span class="modelShape-A"></span>
 										</li>	
 									</ul>
 								</div>
@@ -1252,66 +1190,58 @@ $(document).ready(function(){
 							</form>
 						</li>
 					</ul>
-					<ul class="subHeader-right">
-											
+					<ul class="subHeader-right">						
+						<li>
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li>
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>				
 					</ul>
-					<div>
-					</div>
 				</div>
 				<div id="backgroundList">
 					<ul class="subHeader-left">
-					<li class="firstChild">
-						<div class="subHeader-list">
-							Choose theme
-							<div class="iconWrapper">
+						<li class="firstChild">
+							<div class="subHeader-list">
+								Choose theme
+								<div class="iconWrapper">
+								</div>
+								<div class="subHeader-submenu">
+									<ul>
+										<li>Street</li>
+										<li>Beach</li>
+										<li>Indoor</li>
+										<li>Sightseeing</li>
+										<li>Countries</li>
+									</ul>
+								</div>
 							</div>
-							<div class="subHeader-submenu">
-								<ul>
-									<li>Street</li>
-									<li>Beach</li>
-									<li>Indoor</li>
-									<li>Sightseeing</li>
-									<li>Countries</li>
-								</ul>
+						</li>
+						<li>
+							<div class="iconWrapper searchKey">
 							</div>
-						</div>
-					</li>
-					<li>
-						<div class="iconWrapper searchKey">
-						</div>
-						<form>
+							<form>
 
-							<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
-						</form>
-					</li>
+								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
+							</form>
+						</li>
 					</ul>
-					<ul class="subHeader-right">
-											
+					<ul class="subHeader-right">						
+						<li>
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li>
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>				
 					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Street</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>		
-								<span class="itemDescription">Beach</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Indoor</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Nature</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Cultural</span>
-							</li>
-						</ul>
-					</div>
 				</div>
 				<div id="embelishmentList">
 					<ul class="subHeader-left">
@@ -1330,28 +1260,86 @@ $(document).ready(function(){
 							</div>
 						</li>		
 					</ul>
-					<ul class="subHeader-right">
+					<ul class="subHeader-right">						
+						<li>
+							<div class="changeView">
+								<span class="smallerBox"></span>
+							</div>
+						</li>
+						<li>
+							<div class="changeView">
+								<span class="biggerBox"></span>
+							</div>
+						</li>				
 					</ul>
-					<div>
-						<ul class="itemIconsWrapper">
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Text</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>		
-								<span class="itemDescription">Frames & borders</span>
-							</li>
-							<li>
-								<span class="itemIcon"></span>
-								<span class="itemDescription">Effect</span>
-							</li>
-						</ul>					
-					</div>	
 				</div>
 			</div>
-			<div class="itembox_items">
-				<ul>
+			<div id="myItemImages" class="itemBox">	
+				<ul class="itemIconsWrapper">
+					<li>
+						<span class="itemIcon heart_filled"></span>
+						<span class="itemDescription">My likes</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">My uploads</span>
+					</li>
+				</ul>
+				<ul class="itemBox-images">					
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>	
+				</ul>
+			</div>
+			<div id="clothingImages" class="itemBox">
+				<ul class="itemIconsWrapper">
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Dress</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>		
+						<span class="itemDescription">Skirts</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Tops</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Outwears</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Jeans</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Pants</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Shorts</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Jumpsuits & Rompers</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Intimates</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Swimwear</span>
+					</li>
+					<li>
+						<span class="itemIcon "></span>
+						<span class="itemDescription">Activewear</span>
+					</li>
+				</ul>
+				<ul  class="itemBox-images">
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
@@ -1413,7 +1401,80 @@ $(document).ready(function(){
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>		
+					<li class="items-wrapper"><img src="images/item.png"/></li>	
+				</ul>
+			</div>
+			<div id="modelImages" class="itemBox">
+				<ul class="itemIconsWrapper">
+					<li>	
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Natasha Little</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Mai</span>
+					</li>
+				</ul>
+				<ul  class="itemBox-images">
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+				</ul>
+			</div>
+			<div id="backgroundImages" class="itemBox">
+				<ul class="itemIconsWrapper">
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Street</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>		
+						<span class="itemDescription">Beach</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Indoor</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Nature</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Cultural</span>
+					</li>
+				</ul>
+				<ul  class="itemBox-images">		
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>
+					<li class="items-wrapper"><img src="images/item.png"/></li>	
+				</ul>
+			</div>
+			<div id="embelishmentImages" class="itemBox">
+				<ul class="itemIconsWrapper">
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Text</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>		
+						<span class="itemDescription">Frames & borders</span>
+					</li>
+					<li>
+						<span class="itemIcon"></span>
+						<span class="itemDescription">Effect</span>
+					</li>
+				</ul>					
+				<ul  class="itemBox-images">
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
 					<li class="items-wrapper"><img src="images/item.png"/></li>
