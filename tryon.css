@@ -545,6 +545,8 @@ body{
 
 .firstChild .iconWrapper {
 	background-color:rgb(150,150,150);
+	height:24px;
+
 }
 .subHeader-right li .iconWrapper{
 	width:15px;
@@ -736,6 +738,7 @@ body{
 	-webkit-border-radius:1px;
 	-moz-border-radius:1px;
 	width:18.4%;
+	max-width:120px;
 	height:18.4%;
 	background-color:rgb(255,255,255);
 	border:1px solid rgb(230,230,230);
@@ -753,12 +756,13 @@ body{
 #embelishmentImages .itemIconsWrapper{
 	width:500px;
 	position: absolute;
-	left:29%;
-	top:150px;	
+	left:25%;
+	top:30%;	
 }
 
 #embelishmentImages .itemIconsWrapper{
-	left:21%;
+	left:16%;
+
 }
 
 
@@ -786,7 +790,7 @@ body{
 	text-align: center;
 	font-size:15px;
 	color:rgb(140,140,140);
-	margin:10px 0px 30px 9px;
+	margin:10px 0px 20px 30px;
 	cursor: pointer;
 }
 
@@ -806,6 +810,8 @@ body{
 
 .itemIconsWrapper > li > .heart_filled{
 	display:block;
+	width:100px;
+	height:100px
 }
 
 .itemDescription{
@@ -887,11 +893,22 @@ body{
 }
 
 .button_large.background-strong{
-	left:90px;
+	left:60px;
 }
 
 .button_large.background-weak{
-	right:90px;
+	width:200px;
+	top:157px;
+	right:10px;
+	font-size:0.4em;
+}
+
+#createCollage > span{
+	position: absolute;
+	top:160px;
+	left:230px;
+	font-size:2em;
+	color:rgb(200,200,200);
 }
 
 

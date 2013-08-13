@@ -14,199 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
 	<![endif]-->
 	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-
-	<script type="text/javascript">
-
-
-//heart fillup
-//hover effect on outfit generator
-$(document).ready(function(){
-	$("#tryonContent-left").hover(function(){
-  				$(".hide").fadeIn("fast");
-  					},function(){
-  					$(".hide").fadeOut("fast");
-				});
-	//modal effect - exactly the same as index one
-
-	$('.button_publish').click(
-				function(event){$('#popupOverlay').fadeIn("fast");});
-			$("#modalbox").click(function(event){
-					$('#popupOverlay').hide();
-					$('#createCollage').hide();
-					$('#publish').fadeIn("fast");
-		});	
-			$('.close,.button_medium.cancel').click(
-				function(event){$('#popupOverlay').hide();});
-			$('.button_publish,.popup_confirmation').click(function(event){
-     			event.stopPropagation();
- 			});
-
- 	$('.button_medium.publish').click(
-				function(event){
-					$('#createCollage').fadeIn();
-					$('#publish').hide();
-				});
-			
- 			});
-
-		
-
-//coordinate generater - appears & disappears
-
-$(document).ready(function(){
-		$(".button_category,.button_layer").click(function(){
-         if( $(this).children(".hiddenBox").is("display","block") ) {
-            $(this).children(".hiddenBox").hide();
-        } else {
-            // if other menus are open remove open class and add closed
-            $(this).siblings().children(".hiddenBox").is("display","block"); 
-            $(this).siblings().children(".hiddenBox").hide();
-        
-    }
- 
-        $(this).children(".hiddenBox").fadeToggle("fast");});
-
-		$(".openLayer").click(function(){
-         if( $(".button_layer > .hiddenBox").is("display","block") ) {
-            $(".button_layer > .hiddenBox").hide();
-        } else {
-            // if other menus are open remove open class and add closed
-            $(".button_category > .hiddenBox").is("display","block"); 
-            $(".button_category > .hiddenBox").hide();   
-    }
-        $(".button_layer > .hiddenBox").fadeToggle("fast");});
-		$('html').click(function(event){
-                 $('.hiddenBox').hide();
-             });
-		$('.button_category,.button_layer,.openLayer,.hiddenBox').click(function(event){
-    			event.stopPropagation();
-			}	);
-});
-
-
-	
-
-//item box upper content
-$(document).ready(function(){
-		$(".subHeader-left > li").click(function(){
-				
-        $(this).children().children(".subHeader-submenu").slideToggle(200);});
-
-		$('html').click(function(event){
-                 $('.subHeader-submenu').hide();
-             });
-	
-		$(".filterOrderWrapper").click(function(){
-         if( $(this).children().children(".subHeader-submenu").is("display","block") ) {
-            $(this).children().children(".subHeader-submenu").hide();
-        } else {
-            // if other menus are open remove open class and add closed
-            $(this).siblings().children().children(".subHeader-submenu").is("display","block"); 
-            $(this).siblings().children().children(".subHeader-submenu").hide();
-                        $(".firstChild > div > .subHeader-submenu").hide();
-
-   		 }
-	});
-		$(".firstChild > div > .subHeader-submenu").click(function(){
-         if( $(this).siblings().children().children(".subHeader-submenu").is("display","block") ) {
-            $(this).siblings().children().children(".subHeader-submenu").hide();
-        } 
-
-   	});
-		
-
-
-
-		$('.subHeader-left > li').click(function(event){
-    			event.stopPropagation();
-			}	);	
-});
-
-//category box - second dropdown
-$(document).ready(function(){
-		$(".parent-submenu").hover(function(){
-				
-        $(this).children(".hiddenBox-submenu").fadeIn(100)},function(){
-    	$(this).children(".hiddenBox-submenu").fadeOut(100);});
-});
-
-
-//item box subheader content
-	$(document).ready(function() {                                       
-    $("#itembox_header ul li").click(
-        function() { 
-            $(this).addClass("currently_focus");
-            $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
-            $(".itemBox-images").hide();
-     	}); 
-
-     $(".itemList_myItems").click(
-        function() { 
-            $("#myItemList,#myItemImages > .itemIconsWrapper").show();
-            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#myItemList,#myItemImages > .itemIconsWrapper").hide();
-     	}); 
-
-     $(".itemList_clothing").click(
-        function() { 
-            $("#clothingItemList,#clothingImages >.itemIconsWrapper").show();
-            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#clothingItemList,#clothingImages > .itemIconsWrapper").hide();
-     	}); 
-     $(".itemList_model").click(
-        function() { 
-            $("#modelList,#modelImages > .itemIconsWrapper").show();
-            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#modelList,#modelImages > .itemIconsWrapper").hide();
-     	}); 
-     $(".itemList_background").click(
-        function() { 
-            $("#backgroundList,#backgroundImages > .itemIconsWrapper").show();
-            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#backgroundList,#backgroundImages > .itemIconsWrapper").hide();		
-     	}); 
-     $(".itemList_Embelishment").click(
-        function() { 
-            $("#embelishmentList,#embelishmentImages > .itemIconsWrapper").show();
-            $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#embelishmentList,#embelishmentImages > .itemIconsWrapper").hide();
-     	}); 
-});
-
-//items show up
-$(document).ready(function() { 
- 	$(".itemBox > .itemIconsWrapper > li, .subHeader-submenu > ul > li").click(
-        function() { 
-             $(".itemBox > .itemIconsWrapper").hide();
-     	});                                     
-    $("#myItemImages > .itemIconsWrapper > li, #myItemList .subHeader-submenu > ul > li").click(
-        function() { 
-            $("#myItemImages > .itemBox-images").show(); 
-     	});
-    $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .subHeader-submenu > ul > li").click(
-        function() { 
-            $("#clothingImages > .itemBox-images").show(); 
-     	}); 
-    $("#modelImages > .itemIconsWrapper > li").click(
-        function() { 
-            $("#modelImages > .itemBox-images").show(); 
-     	}); 
-    $("#backgroundImages > .itemIconsWrapper > li,#backgroundList .subHeader-submenu > ul > li").click(
-        function() { 
-            $("#backgroundImages > .itemBox-images").show(); 
-     	}); 
-    $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .subHeader-submenu > ul > li").click(
-        function() { 
-            $("#embelishmentImages > .itemBox-images").show(); 
-     	});   	
-   
-});
-
-//heart fillup -- exactly the same as index 
-$(document).ready(function(){
-	$(".button-heart").click(function(){$(this).children('.heart_filled').fadeToggle("fast");});
-
-	$(".itemHeart").click(function(){$(this).children('.heart_filled').fadeToggle("fast");});
-
-	});
-
-
-	</script>
+	<script type="text/javascript" src="external.js"></script>
 </head>
 <body>
 	<div id="header" class="headerColor">
@@ -453,7 +261,7 @@ $(document).ready(function(){
 					<span>
 						Description: 
 					</span>
-					<textarea placeholder=""></textarea>
+					<textarea placeholder="400 words left"></textarea>
 				</div>
 				<div class="button_medium publish"><span>Publish</span></div>
 				<div class="button_medium cancel"><span>Cancel</span></div>
@@ -463,7 +271,8 @@ $(document).ready(function(){
 					<span>Create a collage for this style?</span>
 				</div>
 				<div class="button_large background-strong round_weak"><a href="collage.html">YES</a></div>
-				<div class="button_large background-weak round_weak"><a href="index.html">NO</a></div>			
+				<span>or</span>
+				<div class="button_large background-weak round_weak"><a href="index.html">Maybe later</a></div>			
 			</div>			
 		</div>
 	</div>	

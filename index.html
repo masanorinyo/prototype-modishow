@@ -18,327 +18,8 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.0.0rc1.js"></script>
   	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
 <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="jquery.flip.min.js"></script>
+<script type="text/javascript" src="external.js"></script>
 
-
-<script type="text/javascript">
-//modal effect
-		$(document).ready(function(){
-			$('.openModal').click(
-				function(event){$('#popupOverlay').show();});
-			$('.openModal').click(
-				function(event){$('html').css("overflow", "hidden");});
-			$('.openModal').click(
-				function(event){$('#body_back').css("display", "none");});
-			$('#modalbox').click(
-				function(event){$('#modalbox-backToTop').css("display", "block");});
-			$('.openModal').click(
-				function(event){$('#modalbox').scrollTop(0);});
-			$("#modalbox").click(function(event){$('#popupOverlay').hide();});	
-			$('.closeBox').click(
-				function(event){$('#popupOverlay').hide();});
-			$('.closeBox').click(
-				function(event){$('html').css("overflow","visible"); });
-			$('#modalbox').click(
-				function(event){$('html').css("overflow","visible"); });
-			$('#modalbox').click(
-				function(event){$('#body_back').css("display", "none");});
-			$('#modalbox').click(
-				function(event){$('#modalbox-backToTop').css("display", "none");});
-			$('.popup-mainContainer,.popup-side_top,.popup-side_bottom,.popup-comment,.popup-side_middle').click(function(event){
-     			event.stopPropagation();
- 			});
-//flip all effect			
-			//$('.showAllButton').click(
-			//	function(){$('.modelBox,.modelBox').fadeToggle(600);});
-			
-
-				var toggleState = true;
-				$('#flip_button').on("click", function() {
-				  if(toggleState) {
-				     $(".modelBox,.styleTitle,.style-category").fadeIn();
-				  } else {
-				    $(".modelBox").fadeOut();
-				  }
-				  toggleState = !toggleState;
-				});
-
-		
-
-				var toggleStateCategory = true;
-				$('#flip_button').on("click", function() {
-				  if(toggleStateCategory) {
-				     $(".style-category").fadeOut();
-				  } else {
-				     $(".style-category").fadeIn();
-				  }
-				  toggleStateCategory = !toggleStateCategory;
-				});
-
-	
-//flip effect 
-				var toggleStateSingle = true;
-				$('.button-flip').on("click", function() {
-				  if(toggleStateSingle) {
-				     $(this).next().next(".modelBox").fadeIn();
-				  } else {
-				    $(this).next().next(".modelBox").fadeOut();
-				  }
-				  toggleStateSingle = !toggleStateSingle;
-				});
-
-				var toggleStateSingleCategory = true;
-				$('.button-flip').on("click", function() {
-				  if(toggleStateSingleCategory) {
-				     $(this).next().next().next().next().children().children().next().children().next('.style-category').fadeOut();
-				  } else {
-				    $(this).next().next().next().next().children().children().next().children().next('.style-category').fadeIn();
-				  }
-				  toggleStateSingleCategory = !toggleStateSingleCategory;
-				});
-
-
-
-//hover effect for small and large contents			
-
-			$(".content-small,.content-large").hover(function(){
-  				$(this).children(".button-heart,.button-flip").fadeIn("fast");
-  					},function(){
-  					$(this).children(".button-heart,.button-flip").fadeOut("fast");
-				});
-
-//hover effect for sticky nav
-
-			$(".submenu-secondWrapper").hover(function(){
-  				$(this).children(".background_white.stickynavi-submenu-second").fadeIn("fast");
-  					},function(){
-  					$(this).children(".background_white.stickynavi-submenu-second").fadeOut("fast");
-				});
-			$(".stickynavi-submenu").children().children().hover(function(){
-  				$(this).children(".stickynavi-submenu-second").fadeIn("fast");
-  					},function(){
-  					$(this).children(".stickynavi-submenu-second").hide();
-				});
-			
-		});
-
-	
-
-
-$(document).ready(function(){
-//Check to see if the window is on top if not then display button
-	$(window).scroll(function(){
-		if ($(this).scrollTop() < 650) {
-			$('#body_back').slideUp();
-		} else {
-			$('#body_back').slideDown();
-		}
-	});
-	$("#modalbox").scroll(function(){
-		if ($(this).scrollTop() < 650) {
-			$('#modalbox-backToTop').slideUp();
-		} else {
-			$('#modalbox-backToTop').slideDown();
-		}
-	});
-
-
-
-//Click event to scroll to top
-	$('#modalbox-backToTop').click(function(){
-		$('#modalbox').animate({scrollTop : 0},800);
-		return false;});
-
-
-	$('#body_back').click(function(){$('html, body').animate({ scrollTop: 0 }, 800);	return false;});
-	
-	
-});
-
-
-//heart fillup
-$(document).ready(function(){
-	$(".button-heart").click(function(){$(this).children('.heart_filled').fadeToggle("fast");});
-
-	});
-
-$(document).ready(function(){
-	$(".button_grey_medium").click(function(){$(this).children(".mediumButton-leftside").children('.heart_filled').fadeToggle("fast");});
-	$(".button_grey_medium").click(function(){$(this).children(".mediumButton-leftside").children('heart_filled').children(span).css('color','white');});
-	});
-
-$(document).ready(function(){
-	$(".itemDetails-heart").click(function(){$(this).children().next(".heart_filled").fadeToggle("fast");});
-	
-	});
-
-//dropdown menu for sticky navi - issues: 1, stickynavi's background color needs to change after being clicked. 2, dropdown menu needs to be closed when users click area other than the dropdown menu
-	$(document).ready(function(){
-		$(".stickynavi-menu").click(function(){$(this).children('.stickynavi-submenu').fadeToggle("fast");});
-				
-
-		$(".stickynavi-menu").click(function() {
-
-        if( $(this).children(".stickynavi-submenu").is("display","block") ) {
-            $(this).children(".stickynavi-submenu").hide();
-        } else {
-            // if other menus are open remove open class and add closed
-            $(this).siblings().children(".stickynavi-submenu").is("display","block"); 
-            $(this).siblings().children(".stickynavi-submenu").hide();
-        }
-
-});
-		$('html').click(function(event){
-                 $('.stickynavi-submenu').hide();
-             });
-	
-		$('.stickynavi-menu,.stickynavi-submenu-second,.stickynavi-submenu').click(function(event){
-    			event.stopPropagation();
-			}	);	
-
-		});
-
-
-
-
-
-//stickynavi - fix position effect
-$(document).ready(function(){
-    $(window).scroll(function(){
-        var scrollTop = 50;
-        if($(window).scrollTop() >= scrollTop){
-            $('#stickynaviWrapper').css({
-                position : 'fixed',
-                top : '0',
-
-            });
-        }
-
-   
-      
-        if($(window).scrollTop() < scrollTop){
-            $('#stickynaviWrapper').removeAttr('style'); 
-        }
-    })
-})
-//stickynavi - search box appears 
-$(document).ready(function(){
-    $(window).scroll(function(){
-        var scrollTop = 50;
-        if($(window).scrollTop() >= scrollTop){
-            $('#stickynavi_searchBox').fadeIn("fast");
-        }
-
-   
-      
-        if($(window).scrollTop() < scrollTop){
-            $('#stickynavi_searchBox').fadeOut("fast"); 
-        }
-    })
-})
-
-//stickynavi - sign up box appears 
-
-$(document).ready(function(){
-    $(window).scroll(function(){
-        var scrollTop = 50;
-        if($(window).scrollTop() >= scrollTop){
-            $('#signupBox').fadeIn("fast");
-        }
-
-   
-      
-        if($(window).scrollTop() < scrollTop){
-            $('#signupBox').fadeOut("fast"); 
-        }
-    })
-})
-
-//modal box scrolls up   and fix position
-
-$(document).ready(function(){
-    $('#modalbox').scroll(function(){
-        var scrollTop = 30;
-
-        if($('#modalbox').scrollTop() >= scrollTop){
-            $('#mainContainer_header').css({
-                position : 'fixed',
-                top : '0',
-            });
-        };
-
-
-
-      
-        if($('#modalbox').scrollTop() < scrollTop){
-            $('#mainContainer_header').removeAttr('style'); 
-        };
-    });
-
-
-//change among three options - collage, model, people
-
-	$(".rectanglar-left").click(function(){
-		if( $(".content_model,.content_people").css("display","block") ) {
-            $(".content_model,.content_people").hide();
-            $(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
-        };
-		$(".content_collage").show();       
-		$(".rectanglar-left").addClass("currently_focus");
- });
-
-	
-	$(".rectanglar-medium").click(function(){
-		if( $(".content_collage,.content_people").css("display","block") ) {
-            $(".content_collage,.content_people").hide();
-           $(".rectanglar-right,.rectanglar-left").removeClass("currently_focus");
-
-        };
-		$(".content_model").show();
-		$(".rectanglar-medium").addClass("currently_focus");
-      });
-	
-	$(".rectanglar-right").click(function(){
-		if( $(".content_model,.content_collage").css("display","block") ) {
-            $(".content_model,.content_collage").hide();};
-           $(".rectanglar-left,.rectanglar-medium").removeClass("currently_focus");
-
-		$(".content_people").show();       
-		$(".rectanglar-right").addClass("currently_focus");
-
-		 });
-
-});
-
-
-//direct contents to the modal box content
-//if collage contents are clicked, the collage will be shown in the modal box at first
-$(document).ready(function(){
-   	$(".collageBox,.styleTitle > .openModal").click(function(){
-			$(".rectanglar-left").addClass("currently_focus");
-        	$(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
-        	$(".content_model,.content_people").hide();    
-        	$(".content_collage").show();       
- });
-
-
-	$(".modelBox").click(function(){
-			$(".rectanglar-medium").addClass("currently_focus");
-        	$(".rectanglar-left,.rectanglar-right").removeClass("currently_focus");
-        	$(".content_collage,.content_people").hide();    
-        	$(".content_model").show();       
- });
-	$(".peopleBox").click(function(){
-			$(".rectanglar-right").addClass("currently_focus");
-        	$(".rectanglar-left,.rectanglar-medium").removeClass("currently_focus");
-        	$(".content_collage,.content_model").hide();    
-        	$(".content_people").show();       
- });
-});
-
-
-
-</script>
 
 </head>
 <body>	
@@ -1072,10 +753,12 @@ $(document).ready(function(){
 				<div class="popup-mainContainer round_weak">
 					<div id="mainContainer_header">
 						<div class="button_blue_medium background_gradientDarkBlue round_medium pointer  ">
-							<ul>
-								<li class="basicWebLayout clothesIcon"></li>
-								<li>TRY-ON</li>
-							</ul>	
+							<a href="tryon.html">
+								<ul>
+									<li class="basicWebLayout clothesIcon"></li>
+									<li>TRY ON</li>
+								</ul>
+							</a>	
 						</div>
 						<div class="button_grey_medium background_gradientGrey round_medium pointer">
 							<div class="mediumButton-leftside">
@@ -1171,7 +854,22 @@ $(document).ready(function(){
 						</div>				
 					</div>	
 					<div class="side_top-titleBox">
-						<div class="title">"<span>Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff Love simple stuff</span>"</div>
+						<div class="title">"<span>Love simple stuff</span>"</div>
+						<div class="description">
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+														I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							
+
+						</div>
 						<span class="category_name">
 							<label>Category - 
 								<a class="category" href="#"> Sexy
@@ -1509,8 +1207,6 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>		
-	<div id="SignLogin">
-	</div>
 	<div id="content">
 		<a id="body_back" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#header">Back to Top</a>
 		<div id="content-introduction">
