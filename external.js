@@ -516,3 +516,20 @@ $(document).ready(function() {
  	});
 });
 
+
+
+
+
+
+
+
+//********************Shop html********************//
+$(document).ready(function(){
+	$(".topSellingBox li").hover(function(){			
+	    $(this).children(".hiddenBox").slideToggle(250)},function(){
+		$(this).children(".hiddenBox").slideToggle(250);
+	});
+	$('.topSellingBox li').click(function(event){
+		event.stopPropagation();
+	});
+});

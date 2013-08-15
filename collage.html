@@ -1,719 +1,790 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Try on</title>
-	<meta charset="UTF-8">
-	<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="IE=9" />
-	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="tryon.css">
+	<head>
+		<title>Try On - ModiShow</title>
+		<meta charset="UTF-8">
+		<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="tryon.css">
+		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="external.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
-	<![endif]-->
-	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="external.js"></script>
-
-
-
-
-</head>
-<body>
-	<div id="header" class="headerColor">
-		<div id="logo" class="space">
-			<a href="index.html">
-				<h1 id="logo_modi">Modi</h1>
-				<h1 id="logo_show">Show</h1>
-			</a>
-		</div>
-		<ul id="header-leftOptions">
-			<li class="firstChild">
-				<a href="feed.html"><h2>FEED</h2></a>
-			</li>
-			<li>
-				<a  href="index.html"><h2>EXPLORE</h2> </a>
-			</li>					
-			<li>
-				<a href="shop-overall.html"><h2>SHOP</h2></a>
-				<ul class="submenu background_dark round_bottom">
-					<li>
-						<a href="#">New Items</a>
-					</li>
-					<li class="bottom_underscore">
-						<a href="#">On Sale</a>
-					</li>
-					<li class="submenu-list">
-						<a class="submenu-secondLevelParent" href="#">Clothing</a>
-						<div class="submenu-secondLevel">
-							<ul >
-								<li>
-									<a href="#">Dresses</a>
-								</li>
-								<li>
-									<a href="#">Skirts</a>
-								</li>
-								<li>
-									<a href="#">Tops</a>
-								</li>
-								<li>
-									<a href="#">Outwear</a>
-								</li>
-								<li>
-									<a href="#">Jeans</a>
-								</li>
-								<li>
-									<a href="#">Pants</a>
-								</li>
-								<li>
-									<a href="#">Shorts</a>
-								</li>
-							</ul>
-							<ul>
-								<li>
-									<a href="#">Jumpsuits & Rompers</a>
-								</li>
-								<li>
-									<a href="#">Intimates</a>
-								</li>
-								<li>
-									<a href="#">Swimwear</a>
-								</li>
-								<li>
-									<a href="#">Activewear</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">Bags</a></li>
-					<li><a href="#">Shoes</a></li>
-					<li><a href="#">Jewelry</a></li>
-					<li><a href="#">Accessories</a></li>
-					<li><a href="#">Beauty</a></li>
-				</ul>
-			</li>
-			<li>
-				<a class="tryon"  href="tryon.html">
-					<ul>
-						<li class="basicWebLayout clothesIcon"></li>
-						<li class="currentPage"><h2>TRY-ON</h2></li>
-					</ul>
+			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
+		<![endif]-->
+	</head>
+	<body>
+		<div id="header" class="headerColor">
+			<div id="logo" class="space">
+				<a href="index.html">
+					<h1 id="logo_modi">Modi</h1>
+					<h1 id="logo_show">Show</h1>
 				</a>
-			</li>
-		</ul>
-		<form id="searchBox">
-			<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
-		</form>
-		<ul id="header-rightOptions" class="space">
-			<li>
-				<a href="about.html"><h2>ABOUT</h2></a>
-				<div class="aboutPage submenu background_dark round_bottom">
-					<div class="aboutPage-options">
-						<div>About</div>
-						<div class="column1">
-							<ul> 
-								<li><a href="#">What is ModiShow</a></li>
-								<li><a href="#">Rewards Program</a></li>
-								<li><a href="#">Partners</a></li>
-								<li><a href="#">Explore</a></li>
-							</ul>
+			</div>
+			<ul id="header-leftOptions">
+				<li class="firstChild">
+					<a href="feed.html"><h2>FEED</h2></a>
+				</li>
+				<li>
+					<a  href="index.html"><h2>EXPLORE</h2> </a>
+				</li>					
+				<li>
+					<a href="shop.html"><h2>SHOP</h2></a>
+					<ul class="submenu background_dark round_bottom">
+						<li>
+							<a href="#">New Items</a>
+						</li>
+						<li class="bottom_underscore">
+							<a href="#">On Sale</a>
+						</li>
+						<li class="submenu-list clothing">
+							<a class="submenu-secondLevelParent" href="#">Clothing</a>
+							<div class="submenu-secondLevel">
+								<ul>
+									<li>
+										<a href="#">Dresses</a>
+									</li>
+									<li>
+										<a href="#">Skirts</a>
+									</li>
+									<li>
+										<a href="#">Tops</a>
+									</li>
+									<li>
+										<a href="#">Outwear</a>
+									</li>
+									<li>
+										<a href="#">Jeans</a>
+									</li>
+									<li>
+										<a href="#">Pants</a>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<a href="#">Shorts</a>
+									</li>
+									<li>
+										<a href="#">Jumpsuits &amp; Rompers</a>
+									</li>
+									<li>
+										<a href="#">Intimates</a>
+									</li>
+									<li>
+										<a href="#">Swimwear</a>
+									</li>
+									<li>
+										<a href="#">Activewear</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="submenu-list shoes">
+							<a class="submenu-secondLevelParent" href="#">Shoes</a>
+							<div class="submenu-secondLevel">
+								<ul>
+									<li>
+										<a href="#">Boots</a>
+									</li>
+									<li>
+										<a href="#">Sandles</a>
+									</li>
+									<li>
+										<a href="#">Sneaker</a>
+									</li>
+									<li>
+										<a href="#">Moccasins</a>
+									</li>
+									<li>
+										<a href="#">Socks &amp; Legwear</a>
+									</li>
+									<li>
+										<a href="#">All shoes</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="submenu-list accessories">
+							<a class="submenu-secondLevelParent" href="#">Accessories</a>
+							<div class="submenu-secondLevel">
+								<ul >
+									<li>
+										<a href="#">Jewelry</a>
+									</li>
+									<li>
+										<a href="#">Bags</a>
+									</li>
+									<li>
+										<a href="#">Cases covers</a>
+									</li>
+									<li>
+										<a href="#">Belts</a>
+									</li>
+									<li>
+										<a href="#">Hats</a>
+									</li>
+									<li>
+										<a href="#">Sunglasses</a>
+									</li>
+								</ul>
+								<ul>	
+									<li>
+										<a href="#">Hair &amp; Beauty</a>
+									</li>
+									<li>
+										<a href="#">Scarves Ponchos</a>
+									</li>
+									<li>
+										<a href="#">Socks &amp; Legwear</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li class="submenu-list beauty">
+							<a class="submenu-secondLevelParent" href="#">Beauty</a>
+							<div class="submenu-secondLevel">
+								<ul >
+									<li>
+										<a href="#">Makeup</a>
+									</li>
+									<li>
+										<a href="#">Skincare</a>
+									</li>
+									<li>
+										<a href="#">Fragance</a>
+									</li>
+									<li>
+										<a href="#">Nail Polish</a>
+									</li>								
+								</ul>
+							</div>							
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="tryon"  href="tryon.html">
+						<ul>
+							<li class="basicWebLayout clothesIcon"></li>
+							<li class="currentPage"><h2>TRY-ON</h2></li>
+						</ul>
+					</a>
+				</li>
+			</ul>
+			<form id="searchBox">
+				<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
+			</form>
+			<ul id="header-rightOptions" class="space">
+				<li>
+					<a href="about.html"><h2>ABOUT</h2></a>
+					<div class="aboutPage submenu background_dark round_bottom">
+						<div class="aboutPage-options">
+							<div>About</div>
+							<div class="column1">
+								<ul> 
+									<li><a href="#">What is ModiShow</a></li>
+									<li><a href="#">Rewards Program</a></li>
+									<li><a href="#">Partners</a></li>
+									<li><a href="#">Explore</a></li>
+								</ul>
+							</div>
+							<div class="column2">
+								<ul>
+									<li><a href="#">Language</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Terms of Services</a></li>
+									<li><a href="#">Help</a></li>
+								</ul>
+							</div>					
 						</div>
-						<div class="column2">
-							<ul>
-								<li><a href="#">Language</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms of Services</a></li>
-								<li><a href="#">Help</a></li>
-							</ul>
-						</div>					
-					</div>
-					<div class="aboutPage-follow "> 
-						<div>Contact Us</div>
-							<ul>
-								<li><a class="icon_descriptions" href="https://www.facebook.com/pages/Modishow/466201083428706?fref=ts">Facebook</li>
-								<li><img src="images/facebook.png" width="35px"/></a></li>
-							</ul>	
-							<ul>
-								<li><a class="icon_descriptions" href="#">Twitter</li>
-								<li><img src="images/twitter.png" width="35px"/></a></li>
-							</ul>	
-							<ul>
-								<li><a class="icon_descriptions" href="#">Pinterest</li>
-								<li><img src="images/pinterest.png" width="35px"/></a></li>
-							</ul>	
-							<ul>
-								<li><a class="icon_descriptions" href="#">LinkedIn</li>
-								<li><img src="images/linkedInLogo.png" width="35px"/></a></li>
-							</ul>	
-							<ul>
-								<li><a class="icon_descriptions" href="#">Blog</li>
-								<li><img src="images/blog.png" width="35px"/></a></li>
-							</ul>	
-							<ul>
-								<li><a class="icon_descriptions" href="#">E-mail</li>
-								<li><img src="images/email.png" width="35px"/></a></li>
-							</ul>	
-						
-					</div>
-					<div class="hooter">
-						&copy; 2013 - ModiShow corporation
-					</div>
-				</div>
-			</li>
-			<li class="lastChild">
-				<a href="signin.html"><h2>SIGNUP / LOGIN</h2></a>
-				<ul class="userPage submenu background_dark round_bottom">
-					<li><a href="#">Profile</a></li>
-					<li><a href="#">Creations</a></li>
-					<li><a href="#">Magazines</a></li>
-					<li><a href="#">Likes</a></li>
-					<li><a href="#">Followings</a></li>
-					<li><a href="#">Followers</a></li>
-					<li><a href="#">Groups</a></li>
-					<li class="bottom_underscore"><a href="#">Find friends</a></li>
-					<li><a href="#">Setting</a></li>
-					<li><a href="#">Logout</a></li>
-				</ul>
-			</li>
-		</ul>					
-		<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
-				0
-		</div>
-	</div>
-	<div id="popupOverlay">
-		<div id="transparentBackground">
-		</div>
-		<div id="modalbox">
-			<div id="publish_collage"  class="popup_confirmation">
-				<span class="close opaque_strong"></span>
-				<div class="popup_confirmation-header"><span>Publish</span></div>
-				<a href="index.html"><div class="button_medium publish">Publish</div></a>
-				<div class="button_medium cancel"><span>Cancel</span></div>
-				<span class="label">Share with friends</span>
-				<div class="button_medium sns_facebook sns"><span>Facebook</span></div>
-				<div class="button_medium sns_twitter sns"><span>Twitter</span></div>
-				<div class="button_medium sns_pinterest sns"><span>Pinterest</span></div>
-			</div>
-
-		</div>
-	</div>	
-	<div id="tryonContent" class="tryon-collage">
-		<div id="tryonContent-left">
-			<div class="background_grid"></div>
-			<div class="tryonContent-header_left background_shadow opaque_weak round_medium">
-				<ul>
-					<li class="button_publish">Publish</li>
-					<li class="button_saveDraft">Save draft</li>
-					<li class="button_clear ">Clear</li>
-				</ul>
-			</div>
-			<div class="tryonContent-header_right">
-				<ul>
-					<li id="clone" class="background_shadow round_medium opaque_weak ">Clone
-					</li>
-					<li id="mirror" class="background_shadow round_medium opaque_weak ">Mirror
-					</li>
-					<li id="rotate" class="background_shadow round_medium opaque_weak ">Rotate
-					</li>
-					<li id="front" class="background_shadow round_medium opaque_weak ">Front
-					</li>
-					<li id="back" class="background_shadow round_medium opaque_weak ">Back
-					</li>
-					<li class="button_layer background_shadow round_medium opaque_weak">
-						<div>
-							<span class="layer_item_icon"></span>
+						<div class="aboutPage-follow "> 
+							<div>Contact Us</div>
+								<ul>
+									<li><a class="icon_descriptions" href="https://www.facebook.com/pages/Modishow/466201083428706?fref=ts">Facebook</li>
+									<li><img src="images/facebook.png" width="35px"/></a></li>
+								</ul>	
+								<ul>
+									<li><a class="icon_descriptions" href="#">Twitter</li>
+									<li><img src="images/twitter.png" width="35px"/></a></li>
+								</ul>	
+								<ul>
+									<li><a class="icon_descriptions" href="#">Pinterest</li>
+									<li><img src="images/pinterest.png" width="35px"/></a></li>
+								</ul>	
+								<ul>
+									<li><a class="icon_descriptions" href="#">LinkedIn</li>
+									<li><img src="images/linkedInLogo.png" width="35px"/></a></li>
+								</ul>	
+								<ul>
+									<li><a class="icon_descriptions" href="#">Blog</li>
+									<li><img src="images/blog.png" width="35px"/></a></li>
+								</ul>	
+								<ul>
+									<li><a class="icon_descriptions" href="#">E-mail</li>
+									<li><img src="images/email.png" width="35px"/></a></li>
+								</ul>	
+							
 						</div>
-						<div class="font_info">i</div>
-						<div>
-							<span class="generaterHeader_downArrow"></span>
-						</div>	
-						<div class="hiddenBox round_medium">
-							<ul class="opaque_weak">
-								<li class="layers">								
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-								<li class="layers">
-
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-								<li class="layers">
-
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-								<li class="layers">
-
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-								<li class="layers">
-
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-								<li class="layers">
-
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-								<li class="layers">
-
-									<div class="imageIconBox">
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>		
-									<div>
-									<div class="itemDescriptionBox">
-										<div class="titleOfProduct"><a href="#">Skirt</a></div>
-										<div class="url"><a href="#"> topshop.com</a></div>									
-										<div class="price">$30</div>
-										<div class="itemHeart">
-											<div class="heart_empty"></div>
-											<div class="heart_filled"></div>
-										</div>
-									<div>
-								</li>
-							</ul>
+						<div class="hooter">
+							&copy; 2013 - ModiShow corporation
 						</div>
-					</li>
-				</ul>
+					</div>
+				</li>
+				<li class="lastChild">
+					<a href="signin.html"><h2>SIGNUP / LOGIN</h2></a>
+					<ul class="userPage submenu background_dark round_bottom">
+						<li><a href="#">Profile</a></li>
+						<li><a href="#">Creations</a></li>
+						<li><a href="#">Magazines</a></li>
+						<li><a href="#">Likes</a></li>
+						<li><a href="#">Followings</a></li>
+						<li><a href="#">Followers</a></li>
+						<li><a href="#">Groups</a></li>
+						<li class="bottom_underscore"><a href="#">Find friends</a></li>
+						<li><a href="#">Setting</a></li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+				</li>
+			</ul>					
+			<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
+					0
 			</div>
 		</div>
-		<div id="tryonContent-right">
-			<div id="itembox_header">
-				<ul>
-					<li class="itemList_items currently_focus">Items</li> 
-					<li class="itemList_beauty">Beauty</li>
-					<li class="itemList_people">People</li>
-					<li class="itemList_Embelishment">Embelishment</li>
-				</ul>
-			</div>		
-			<div class="itembox_subHeader">
-				<div id="itemList">	
-					<ul class="subHeader-left">
-						<li class="firstChild">
-							<div class="subHeader-list">
-								Choose your items
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>
-										<li>item A</li>	
-										<li>item B</li>
-										<li>item C</li>
-										<li>item D</li>
-										<li>item E</li>
-										<li>item F</li>
-										<li>item G</li>
-									</ul>
-								</div>
-							</div>
-						</li>					
-					</ul>
-					<ul class="subHeader-right">					
-						<li>
-							<div class="changeView">
-								<span class="smallerBox"></span>
-							</div>
-						</li>
-						<li>
-							<div class="changeView">
-								<span class="biggerBox"></span>
-							</div>
-						</li>
+		<div id="popupOverlay">
+			<div id="transparentBackground">
+			</div>
+			<div id="modalbox">
+				<div id="publish_collage"  class="popup_confirmation">
+					<span class="close opaque_strong"></span>
+					<div class="popup_confirmation-header"><span>Publish</span></div>
+					<a href="index.html"><div class="button_medium publish">Publish</div></a>
+					<div class="button_medium cancel"><span>Cancel</span></div>
+					<span class="label">Share with friends</span>
+					<div class="button_medium sns_facebook sns"><span>Facebook</span></div>
+					<div class="button_medium sns_twitter sns"><span>Twitter</span></div>
+					<div class="button_medium sns_pinterest sns"><span>Pinterest</span></div>
+				</div>
+
+			</div>
+		</div>	
+		<div id="tryonContent" class="tryon-collage">
+			<div id="tryonContent-left">
+				<div class="background_grid"></div>
+				<div class="tryonContent-header_left background_shadow opaque_weak round_medium">
+					<ul>
+						<li class="button_publish">Publish</li>
+						<li class="button_saveDraft">Save draft</li>
+						<li class="button_clear ">Clear</li>
 					</ul>
 				</div>
-				<div id="beautyList">
-					<ul class="subHeader-left">
-						<li class="firstChild">
-							<div class="iconWrapper searchKey">
+				<div class="tryonContent-header_right">
+					<ul>
+						<li id="clone" class="background_shadow round_medium opaque_weak ">Clone
+						</li>
+						<li id="mirror" class="background_shadow round_medium opaque_weak ">Mirror
+						</li>
+						<li id="rotate" class="background_shadow round_medium opaque_weak ">Rotate
+						</li>
+						<li id="front" class="background_shadow round_medium opaque_weak ">Front
+						</li>
+						<li id="back" class="background_shadow round_medium opaque_weak ">Back
+						</li>
+						<li class="button_layer background_shadow round_medium opaque_weak">
+							<div>
+								<span class="layer_item_icon"></span>
 							</div>
-							<form>
-								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
-							</form>
-						</li>	
-						<li class="filterOrderWrapper">
-							<div class="subHeader-list filterOrder order">
-								Order
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>
-										<li>
-											Most Used	
-											<div class="submenu-second firstChild">
-												<ul>
-													<li>All time</li>
-													<li>Today</li>
-													<li>This week</li>
-													<li>This month</li>							
-												</ul>							
+							<div class="font_info">i</div>
+							<div>
+								<span class="generaterHeader_downArrow"></span>
+							</div>	
+							<div class="hiddenBox round_medium">
+								<ul class="opaque_weak">
+									<li class="layers">								
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
 											</div>
-										</li>
-										<li >
-											Most Popular
-											<div class="submenu-second">
-												<ul>
-													<li>All time</li>
-													<li>Today</li>
-													<li>This week</li>
-													<li>This month</li>							
-												</ul>							
-											</div>							
-										</li>
-										<li class="lastChildList">
-											Price
-											<div class="submenu-second">
-												<ul>
-													<li>High to low</li>
-													<li>Low to high</li>
-												</ul>									
+										<div>
+									</li>
+									<li class="layers">
+
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
 											</div>
-										</li>								
-									</ul>									
-								</div>
-							</div>
-						</li>	
-						
-					</ul>
-					<ul class="subHeader-right">					
-						<li>
-							<div class="changeView">
-								<span class="smallerBox"></span>
-							</div>
-						</li>
-						<li>
-							<div class="changeView">
-								<span class="biggerBox"></span>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div id="peopleList">
-					<ul class="subHeader-left">
-						<li class="firstChild">
-							<div class="iconWrapper searchKey">
-							</div>
-							<form>
-								<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
-							</form>
-						</li>
-						<li class="filterOrderWrapper">
-							<div class="subHeader-list filterOrder order">
-								Order
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>
-										<li>
-											Most used	
-											<div class="submenu-second firstChild">
-												<ul>
-													<li>All time</li>
-													<li>Today</li>
-													<li>This week</li>
-													<li>This month</li>							
-												</ul>							
+										<div>
+									</li>
+									<li class="layers">
+
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
 											</div>
-										</li>
-										<li >
-											Most Popular
-											<div class="submenu-second">
-												<ul>
-													<li>All time</li>
-													<li>Today</li>
-													<li>This week</li>
-													<li>This month</li>							
-												</ul>							
-											</div>							
-										</li>							
-									</ul>									
-								</div>
-							</div>
-						</li>	
-					</ul>
-					<ul class="subHeader-right">					
-						<li>
-							<div class="changeView">
-								<span class="smallerBox"></span>
-							</div>
-						</li>
-						<li>
-							<div class="changeView">
-								<span class="biggerBox"></span>
+										<div>
+									</li>
+									<li class="layers">
+
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
+											</div>
+										<div>
+									</li>
+									<li class="layers">
+
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
+											</div>
+										<div>
+									</li>
+									<li class="layers">
+
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
+											</div>
+										<div>
+									</li>
+									<li class="layers">
+
+										<div class="imageIconBox">
+											<a href="#">
+												<img src="images/item1.png"/>
+											</a>		
+										<div>
+										<div class="itemDescriptionBox">
+											<div class="titleOfProduct"><a href="#">Skirt</a></div>
+											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="price">$30</div>
+											<div class="itemHeart">
+												<div class="heart_empty"></div>
+												<div class="heart_filled"></div>
+											</div>
+										<div>
+									</li>
+								</ul>
 							</div>
 						</li>
 					</ul>
 				</div>
-				<div id="embelishmentList">
-					<ul class="subHeader-left">
-						<li class="firstChild">
-							<div class="subHeader-list">
-								Choose categories
-								<div class="iconWrapper">
-								</div>
-								<div class="subHeader-submenu">
-									<ul>
-										<li>Text</li>
-										<li>Frames & borders</li>
-										<li>Effects</li>
-										<li>Colors</li>	
-										<li>Backgrounds</li>
-										<li>Articles</li>
-										<li>Patterns</li>
-										<li>Others</li>
-									</ul>
-								</div>
-							</div>
-						</li>		
+			</div>
+			<div id="tryonContent-right">
+				<div id="itembox_header">
+					<ul>
+						<li class="itemList_items currently_focus">Items</li> 
+						<li class="itemList_beauty">Beauty</li>
+						<li class="itemList_people">People</li>
+						<li class="itemList_Embelishment">Embelishment</li>
 					</ul>
-					<ul class="subHeader-right">						
+				</div>		
+				<div class="itembox_subHeader">
+					<div id="itemList">	
+						<ul class="subHeader-left">
+							<li class="firstChild">
+								<div class="subHeader-list">
+									Choose your items
+									<div class="iconWrapper">
+									</div>
+									<div class="subHeader-submenu">
+										<ul>
+											<li>item A</li>	
+											<li>item B</li>
+											<li>item C</li>
+											<li>item D</li>
+											<li>item E</li>
+											<li>item F</li>
+											<li>item G</li>
+										</ul>
+									</div>
+								</div>
+							</li>					
+						</ul>
+						<ul class="subHeader-right">					
+							<li>
+								<div class="changeView">
+									<span class="smallerBox"></span>
+								</div>
+							</li>
+							<li>
+								<div class="changeView">
+									<span class="biggerBox"></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div id="beautyList">
+						<ul class="subHeader-left">
+							<li class="firstChild">
+								<div class="iconWrapper searchKey">
+								</div>
+								<form>
+									<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
+								</form>
+							</li>	
+							<li class="filterOrderWrapper">
+								<div class="subHeader-list filterOrder order">
+									Order
+									<div class="iconWrapper">
+									</div>
+									<div class="subHeader-submenu">
+										<ul>
+											<li>
+												Most Used	
+												<div class="submenu-second firstChild">
+													<ul>
+														<li>All time</li>
+														<li>Today</li>
+														<li>This week</li>
+														<li>This month</li>							
+													</ul>							
+												</div>
+											</li>
+											<li >
+												Most Popular
+												<div class="submenu-second">
+													<ul>
+														<li>All time</li>
+														<li>Today</li>
+														<li>This week</li>
+														<li>This month</li>							
+													</ul>							
+												</div>							
+											</li>
+											<li class="lastChildList">
+												Price
+												<div class="submenu-second">
+													<ul>
+														<li>High to low</li>
+														<li>Low to high</li>
+													</ul>									
+												</div>
+											</li>								
+										</ul>									
+									</div>
+								</div>
+							</li>	
+							
+						</ul>
+						<ul class="subHeader-right">					
+							<li>
+								<div class="changeView">
+									<span class="smallerBox"></span>
+								</div>
+							</li>
+							<li>
+								<div class="changeView">
+									<span class="biggerBox"></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div id="peopleList">
+						<ul class="subHeader-left">
+							<li class="firstChild">
+								<div class="iconWrapper searchKey">
+								</div>
+								<form>
+									<input class="keyword" type="text" name="Keyword" placeholder="Search by keywords"/>
+								</form>
+							</li>
+							<li class="filterOrderWrapper">
+								<div class="subHeader-list filterOrder order">
+									Order
+									<div class="iconWrapper">
+									</div>
+									<div class="subHeader-submenu">
+										<ul>
+											<li>
+												Most used	
+												<div class="submenu-second firstChild">
+													<ul>
+														<li>All time</li>
+														<li>Today</li>
+														<li>This week</li>
+														<li>This month</li>							
+													</ul>							
+												</div>
+											</li>
+											<li >
+												Most Popular
+												<div class="submenu-second">
+													<ul>
+														<li>All time</li>
+														<li>Today</li>
+														<li>This week</li>
+														<li>This month</li>							
+													</ul>							
+												</div>							
+											</li>							
+										</ul>									
+									</div>
+								</div>
+							</li>	
+						</ul>
+						<ul class="subHeader-right">					
+							<li>
+								<div class="changeView">
+									<span class="smallerBox"></span>
+								</div>
+							</li>
+							<li>
+								<div class="changeView">
+									<span class="biggerBox"></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div id="embelishmentList">
+						<ul class="subHeader-left">
+							<li class="firstChild">
+								<div class="subHeader-list">
+									Choose categories
+									<div class="iconWrapper">
+									</div>
+									<div class="subHeader-submenu">
+										<ul>
+											<li>Text</li>
+											<li>Frames & borders</li>
+											<li>Effects</li>
+											<li>Colors</li>	
+											<li>Backgrounds</li>
+											<li>Articles</li>
+											<li>Patterns</li>
+											<li>Others</li>
+										</ul>
+									</div>
+								</div>
+							</li>		
+						</ul>
+						<ul class="subHeader-right">						
+							<li>
+								<div class="changeView">
+									<span class="smallerBox"></span>
+								</div>
+							</li>
+							<li>
+								<div class="changeView">
+									<span class="biggerBox"></span>
+								</div>
+							</li>				
+						</ul>
+					</div>
+				</div>
+				<div id="itemImages" class="itemBox">
+					<ul class="itemIconsWrapper">
 						<li>
-							<div class="changeView">
-								<span class="smallerBox"></span>
-							</div>
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item A</span>
 						</li>
 						<li>
-							<div class="changeView">
-								<span class="biggerBox"></span>
-							</div>
-						</li>				
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item B</span>
+						</li>
+						<li>
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item C</span>
+						</li>
+						<li>
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item D</span>
+						</li>
+						<li>
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item E</span>
+						</li>
+						<li>
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item F</span>
+						</li>
+						<li>
+							<span class="itemIcon"><img src=""/></span>
+							<span class="itemDescription">Item G</span>
+						</li>
+					</ul>
+					<ul class="itemBox-images">					
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>	
 					</ul>
 				</div>
-			</div>
-			<div id="itemImages" class="itemBox">
-				<ul class="itemIconsWrapper">
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item A</span>
-					</li>
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item B</span>
-					</li>
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item C</span>
-					</li>
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item D</span>
-					</li>
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item E</span>
-					</li>
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item F</span>
-					</li>
-					<li>
-						<span class="itemIcon"><img src=""/></span>
-						<span class="itemDescription">Item G</span>
-					</li>
-				</ul>
-				<ul class="itemBox-images">					
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>	
-				</ul>
-			</div>
-			<div id="beautyImages" class="itemBox">
-				<ul class="itemBox-images">
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-				</ul>
-			</div>
-			<div id="peopleImages" class="itemBox">
-				<ul class="itemBox-images">
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-				</ul>
-			</div>
-			<div id="embelishmentImages" class="itemBox">
-				<ul class="itemIconsWrapper">
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Text</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>		
-						<span class="itemDescription">Frames & borders</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Effect</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Colors</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Backgrounds</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Articles</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Patterns</span>
-					</li>
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">Others</span>
-					</li>
-				</ul>					
-				<ul class="itemBox-images">		
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>
-					<li class="items-wrapper"><img src="images/item.png"/></li>	
-				</ul>
+				<div id="beautyImages" class="itemBox">
+					<ul class="itemBox-images">
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+					</ul>
+				</div>
+				<div id="peopleImages" class="itemBox">
+					<ul class="itemBox-images">
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+					</ul>
+				</div>
+				<div id="embelishmentImages" class="itemBox">
+					<ul class="itemIconsWrapper">
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Text</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>		
+							<span class="itemDescription">Frames & borders</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Effect</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Colors</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Backgrounds</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Articles</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Patterns</span>
+						</li>
+						<li>
+							<span class="itemIcon"></span>
+							<span class="itemDescription">Others</span>
+						</li>
+					</ul>					
+					<ul class="itemBox-images">		
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>
+						<li class="items-wrapper"><img src="images/item.png"/></li>	
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
+		<div id="footer"></div>
+	</body>
 </html>

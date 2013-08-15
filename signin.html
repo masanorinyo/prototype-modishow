@@ -1,199 +1,270 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Welcome </title>
-	<meta charset="UTF-8">
-	<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="IE=9" />
-	<link rel="stylesheet" href="main.css">
+		<title>Register - ModiShow</title>
+		<meta charset="UTF-8">
+		<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="signin.css">
+		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="external.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
+		<![endif]-->
 
-		<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
-	<![endif]-->
-
-	<!--
-	<script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.0.0rc1.js"></script>
-  	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
-<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="external.js"></script>
-
-</head>
-<body>	
-	<div id="header" class="headerColor">
-		<div class="inner headerColor center">
-			<div class="inner-inside center" >
-				<div id="logo">
-					<a href="index.html">
-						<h1 id="logo_modi">Modi</h1>
-						<h1 id="logo_show">Show</h1>
-					</a>
-				</div>
-				<ul id="header-leftOptions">
-					<li class="firstChild">
-						<a href="feed.html"><h2>FEED</h2></a>
-					</li>
-					<li>
-						<a href="index.html"><h2>EXPLORE</h2> </a>
-					</li>					
-					<li>
-						<a href="shopall-overall.html"><h2>SHOP</h2></a>
-						<ul class="submenu background_dark round_bottom">
-							<li>
-								<a href="#">New Items</a>
-							</li>
-							<li class="bottom_underscore">
-								<a href="#">On Sale</a>
-							</li>
-							<li class="submenu-list">
-								<a class="submenu-secondLevelParent" href="#">Clothing</a>
-								<div class="submenu-secondLevel">
-									<ul >
-										<li>
-											<a href="#">Dresses</a>
-										</li>
-										<li>
-											<a href="#">Skirts</a>
-										</li>
-										<li>
-											<a href="#">Tops</a>
-										</li>
-										<li>
-											<a href="#">Outwear</a>
-										</li>
-										<li>
-											<a href="#">Jeans</a>
-										</li>
-										<li>
-											<a href="#">Pants</a>
-										</li>
-										<li>
-											<a href="#">Shorts</a>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											<a href="#">Jumpsuits & Rompers</a>
-										</li>
-										<li>
-											<a href="#">Intimates</a>
-										</li>
-										<li>
-											<a href="#">Swimwear</a>
-										</li>
-										<li>
-											<a href="#">Activewear</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li><a href="#">Bags</a></li>
-							<li><a href="#">Shoes</a></li>
-							<li><a href="#">Jewelry</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Beauty</a></li>
-						</ul>
-					</li>
-					<li>
-						<a class="tryon" href="tryon.html">
-							<ul>
-								<li class="basicWebLayout clothesIcon"></li>
-								<li><h2>TRY-ON</h2></li>
-							</ul>
+	</head>
+	<body>	
+		<div id="header" class="headerColor">
+			<div class="inner headerColor center">
+				<div class="inner-inside center" >
+					<div id="logo">
+						<a href="index.html">
+							<h1 id="logo_modi">Modi</h1>
+							<h1 id="logo_show">Show</h1>
 						</a>
-					</li>
-				</ul>
-				<form id="searchBox">
-					<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
-				</form>
-				<ul id="header-rightOptions">
-					<li>
-						<a href="about.html"><h2>ABOUT</h2></a>
-						<div class="aboutPage submenu background_dark round_bottom">
-							<div class="aboutPage-options">
-								<div>About</div>
-								<div class="column1">
-									<ul> 
-										<li><a href="#">What is ModiShow</a></li>
-										<li><a href="#">Rewards Program</a></li>
-										<li><a href="#">Partners</a></li>
-										<li><a href="#">Explore</a></li>
-									</ul>
+					</div>
+					<ul id="header-leftOptions">
+						<li class="firstChild">
+							<a href="feed.html"><h2>FEED</h2></a>
+						</li>
+						<li>
+							<a href="index.html"><h2>EXPLORE</h2> </a>
+						</li>					
+						<li>
+							<a href="shop.html"><h2>SHOP</h2></a>
+							<ul class="submenu background_dark round_bottom">
+								<li>
+									<a href="#">New Items</a>
+								</li>
+								<li class="bottom_underscore">
+									<a href="#">On Sale</a>
+								</li>
+								<li class="submenu-list clothing">
+									<a class="submenu-secondLevelParent" href="#">Clothing</a>
+									<div class="submenu-secondLevel">
+										<ul>
+											<li>
+												<a href="#">Dresses</a>
+											</li>
+											<li>
+												<a href="#">Skirts</a>
+											</li>
+											<li>
+												<a href="#">Tops</a>
+											</li>
+											<li>
+												<a href="#">Outwear</a>
+											</li>
+											<li>
+												<a href="#">Jeans</a>
+											</li>
+											<li>
+												<a href="#">Pants</a>
+											</li>
+										</ul>
+										<ul>
+											<li>
+												<a href="#">Shorts</a>
+											</li>
+											<li>
+												<a href="#">Jumpsuits &amp; Rompers</a>
+											</li>
+											<li>
+												<a href="#">Intimates</a>
+											</li>
+											<li>
+												<a href="#">Swimwear</a>
+											</li>
+											<li>
+												<a href="#">Activewear</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="submenu-list shoes">
+									<a class="submenu-secondLevelParent" href="#">Shoes</a>
+									<div class="submenu-secondLevel">
+										<ul>
+											<li>
+												<a href="#">Boots</a>
+											</li>
+											<li>
+												<a href="#">Sandles</a>
+											</li>
+											<li>
+												<a href="#">Sneaker</a>
+											</li>
+											<li>
+												<a href="#">Moccasins</a>
+											</li>
+											<li>
+												<a href="#">Socks &amp; Legwear</a>
+											</li>
+											<li>
+												<a href="#">All shoes</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="submenu-list accessories">
+									<a class="submenu-secondLevelParent" href="#">Accessories</a>
+									<div class="submenu-secondLevel">
+										<ul >
+											<li>
+												<a href="#">Jewelry</a>
+											</li>
+											<li>
+												<a href="#">Bags</a>
+											</li>
+											<li>
+												<a href="#">Cases covers</a>
+											</li>
+											<li>
+												<a href="#">Belts</a>
+											</li>
+											<li>
+												<a href="#">Hats</a>
+											</li>
+											<li>
+												<a href="#">Sunglasses</a>
+											</li>
+										</ul>
+										<ul>	
+											<li>
+												<a href="#">Hair &amp; Beauty</a>
+											</li>
+											<li>
+												<a href="#">Scarves Ponchos</a>
+											</li>
+											<li>
+												<a href="#">Socks &amp; Legwear</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="submenu-list beauty">
+									<a class="submenu-secondLevelParent" href="#">Beauty</a>
+									<div class="submenu-secondLevel">
+										<ul >
+											<li>
+												<a href="#">Makeup</a>
+											</li>
+											<li>
+												<a href="#">Skincare</a>
+											</li>
+											<li>
+												<a href="#">Fragance</a>
+											</li>
+											<li>
+												<a href="#">Nail Polish</a>
+											</li>								
+										</ul>
+									</div>							
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a class="tryon" href="tryon.html">
+								<ul>
+									<li class="basicWebLayout clothesIcon"></li>
+									<li><h2>TRY-ON</h2></li>
+								</ul>
+							</a>
+						</li>
+					</ul>
+					<form id="searchBox">
+						<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
+					</form>
+					<ul id="header-rightOptions">
+						<li>
+							<a href="about.html"><h2>ABOUT</h2></a>
+							<div class="aboutPage submenu background_dark round_bottom">
+								<div class="aboutPage-options">
+									<div>About</div>
+									<div class="column1">
+										<ul> 
+											<li><a href="#">What is ModiShow</a></li>
+											<li><a href="#">Rewards Program</a></li>
+											<li><a href="#">Partners</a></li>
+											<li><a href="#">Explore</a></li>
+										</ul>
+									</div>
+									<div class="column2">
+										<ul>
+											<li><a href="#">Language</a></li>
+											<li><a href="#">Privacy Policy</a></li>
+											<li><a href="#">Terms of Services</a></li>
+											<li><a href="#">Help</a></li>
+										</ul>
+									</div>					
 								</div>
-								<div class="column2">
-									<ul>
-										<li><a href="#">Language</a></li>
-										<li><a href="#">Privacy Policy</a></li>
-										<li><a href="#">Terms of Services</a></li>
-										<li><a href="#">Help</a></li>
-									</ul>
-								</div>					
+								<div class="aboutPage-follow "> 
+									<div>Contact Us</div>
+										<ul>
+											<li><a class="icon_descriptions" href="https://www.facebook.com/pages/Modishow/466201083428706?fref=ts">Facebook</li>
+											<li><img src="images/facebook.png" width="35px"/></a></li>
+										</ul>	
+										<ul>
+											<li><a class="icon_descriptions" href="#">Twitter</li>
+											<li><img src="images/twitter.png" width="35px"/></a></li>
+										</ul>	
+										<ul>
+											<li><a class="icon_descriptions" href="#">Pinterest</li>
+											<li><img src="images/pinterest.png" width="35px"/></a></li>
+										</ul>	
+										<ul>
+											<li><a class="icon_descriptions" href="#">LinkedIn</li>
+											<li><img src="images/linkedInLogo.png" width="35px"/></a></li>
+										</ul>	
+										<ul>
+											<li><a class="icon_descriptions" href="#">Blog</li>
+											<li><img src="images/blog.png" width="35px"/></a></li>
+										</ul>	
+										<ul>
+											<li><a class="icon_descriptions" href="#">E-mail</li>
+											<li><img src="images/email.png" width="35px"/></a></li>
+										</ul>	
+									
+								</div>
+								<div class="hooter">
+									&copy; 2013 - ModiShow corporation
+								</div>
 							</div>
-							<div class="aboutPage-follow "> 
-								<div>Contact Us</div>
-									<ul>
-										<li><a class="icon_descriptions" href="https://www.facebook.com/pages/Modishow/466201083428706?fref=ts">Facebook</li>
-										<li><img src="images/facebook.png" width="35px"/></a></li>
-									</ul>	
-									<ul>
-										<li><a class="icon_descriptions" href="#">Twitter</li>
-										<li><img src="images/twitter.png" width="35px"/></a></li>
-									</ul>	
-									<ul>
-										<li><a class="icon_descriptions" href="#">Pinterest</li>
-										<li><img src="images/pinterest.png" width="35px"/></a></li>
-									</ul>	
-									<ul>
-										<li><a class="icon_descriptions" href="#">LinkedIn</li>
-										<li><img src="images/linkedInLogo.png" width="35px"/></a></li>
-									</ul>	
-									<ul>
-										<li><a class="icon_descriptions" href="#">Blog</li>
-										<li><img src="images/blog.png" width="35px"/></a></li>
-									</ul>	
-									<ul>
-										<li><a class="icon_descriptions" href="#">E-mail</li>
-										<li><img src="images/email.png" width="35px"/></a></li>
-									</ul>	
-								
-							</div>
-							<div class="hooter">
-								&copy; 2013 - ModiShow corporation
-							</div>
-						</div>
-					</li>
-					<li class="lastChild">
-						<a class="currentPage" href="signin.html"><h2>SIGNUP / LOGIN</h2></a>
-						<ul class="userPage submenu background_dark round_bottom">
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Creations</a></li>
-							<li><a href="#">Magazines</a></li>
-							<li><a href="#">Likes</a></li>
-							<li><a href="#">Followings</a></li>
-							<li><a href="#">Followers</a></li>
-							<li><a href="#">Groups</a></li>
-							<li class="bottom_underscore"><a href="#">Find friends</a></li>
-							<li><a href="#">Setting</a></li>
-							<li><a href="#">Logout</a></li>
-						</ul>
-					</li>
-				</ul>					
-				<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
-						0
+						</li>
+						<li class="lastChild">
+							<a class="currentPage" href="signin.html"><h2>SIGNUP / LOGIN</h2></a>
+							<ul class="userPage submenu background_dark round_bottom">
+								<li><a href="#">Profile</a></li>
+								<li><a href="#">Creations</a></li>
+								<li><a href="#">Magazines</a></li>
+								<li><a href="#">Likes</a></li>
+								<li><a href="#">Followings</a></li>
+								<li><a href="#">Followers</a></li>
+								<li><a href="#">Groups</a></li>
+								<li class="bottom_underscore"><a href="#">Find friends</a></li>
+								<li><a href="#">Setting</a></li>
+								<li><a href="#">Logout</a></li>
+							</ul>
+						</li>
+					</ul>					
+					<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
+							0
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="content">
-		<a id="body_back" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#header">Back to Top</a>
-		<div id="content-wrapper">
-			<div class="wrapper">
-				
-			</div>	
+		<div id="content">
+			<a id="body_back" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#header">Back to Top</a>
+			<div id="content-wrapper">
+				<div class="wrapper">
+					
+				</div>	
+			</div>
 		</div>
-	</div>
-</body>
+		<div id="footer"></div>
+	</body>
 </html>
