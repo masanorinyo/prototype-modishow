@@ -522,14 +522,29 @@ $(document).ready(function() {
 
 
 
-
 //********************Shop html********************//
+//--Top selling item hover effect--//
 $(document).ready(function(){
 	$(".topSellingBox li").hover(function(){			
-	    $(this).children(".hiddenBox").slideToggle(250)},function(){
-		$(this).children(".hiddenBox").slideToggle(250);
+	    $(this).children(".hiddenBox").slideToggle(130)},function(){
+		$(this).children(".hiddenBox").slideToggle(130);
 	});
 	$('.topSellingBox li').click(function(event){
+		event.stopPropagation();
+	});
+});
+
+//--Side menu toggle--//
+
+$(document).ready(function(){
+	$(".sideMenu > ul > li").not(".titleHeader").click(function(){
+		var currentDropdown = $(this).children(".submenu-secondLevel")
+
+		$(currentDropdown).slideToggle(200);
+		$(".submenu-secondLevel").not(currentDropdown).slideUp("fast");		
+
+	});
+	$('.submenu-secondLevel').click(function(event){
 		event.stopPropagation();
 	});
 });

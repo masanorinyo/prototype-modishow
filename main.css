@@ -176,9 +176,25 @@ li{
 	background-image: linear-gradient(to bottom, #4b546a, #2c354b);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#4b546a, endColorstr=#2c354b);
 }
 
-.background_shadow{
-	background-color:rgb(40,40,40);
-}
+.background_shadow{background-color:rgb(40,40,40);}
+.white{background-color: white;}
+.black{background-color: black;}
+.grey{background-color: grey;}
+.brown{background-color: brown;}
+.beige{background-color: beige;}
+.green{background-color: green;}
+.blue{background-color: blue;}
+.purple{background-color: purple;}
+.yellow{background-color: yellow;}
+.pink{background-color: pink;}
+.red{background-color: red;}
+.orange{background-color: orange;}
+.silver{background-color: silver;}
+.gold{background-color: gold;}
+.other{
+	background:url("images/color-other.png") top left no-repeat;
+	background-size: 100%;
+ }
 
 
 /*--box effect--*/
@@ -639,7 +655,7 @@ li{
 
 /*--second level submenu--*/
 
-.submenu-secondLevel{	
+#header .submenu-secondLevel{	
 	position:absolute;
 	left:-9999px;
 	margin-left:0px;
