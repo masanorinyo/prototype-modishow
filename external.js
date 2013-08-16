@@ -16,10 +16,10 @@ $(document).ready(function(){
 	$(".button-heart").click(function(){
 		$(this).children('.heart_filled').fadeToggle("fast");
 	});
-	$(".button_grey_medium").click(function(){
+	$(".button_grey_medium,.button-heart-item").click(function(){
 		$(this).children(".mediumButton-leftside").children('.heart_filled').fadeToggle("fast");
 	});
-	$(".button_grey_medium").click(function(){
+	$(".button_grey_medium,.button-heart-item").click(function(){
 		$(this).children(".mediumButton-leftside").children('heart_filled').children(span).css('color','white');
 	});
 	$(".itemDetails-heart").click(function(){
@@ -46,7 +46,7 @@ $(document).ready(function(){
 	$('.openModal').click(function(event){
 		$('#popupOverlay').show();
 	});
-	$('.openModal').click(function(event){
+	$('.openModal,.zoom').click(function(event){
 		$('html').css("overflow", "hidden");
 	});
 	$('.openModal').click(function(event){
@@ -173,7 +173,7 @@ $(document).ready(function(){
 //---------------------Contents ---------------------//
 //--hover effect for contents--//
 $(document).ready(function(){
-	$(".content-small,.content-large").hover(function(){
+	$(".content-small,.content-large,.items > li").hover(function(){
 		$(this).children(".button-heart,.button-flip").fadeIn("fast");},function(){
 		$(this).children(".button-heart,.button-flip").fadeOut("fast");
 	});
@@ -548,3 +548,57 @@ $(document).ready(function(){
 		event.stopPropagation();
 	});
 });
+
+//--hover effect for contents--//
+$(document).ready(function(){
+	$(".items > li").hover(function(){
+		$(this).children(".zoom,.button-tryon,.button-heart-item").fadeIn("fast");},function(){
+		$(this).children(".zoom,.button-tryon,.button-heart-item").fadeOut("fast");
+		$(this).children().children(".popupBox").fadeOut("fast");
+	});
+	$(".button-tryon").click(function(){
+		$(this).children(".popupBox").fadeToggle("fast");
+	});
+	$('.popup_confirmation,.cancel,html').click(function(){
+		$(".popupBox").hide();
+	});
+	$('.button-tryon,.popupBox').click(function(event){
+		event.stopPropagation();
+	});
+
+});
+
+//--quick look modalbox--//
+$(document).ready(function(){
+	$('.zoom').click(function(event){
+		$('#popupOverlay').fadeIn("fast");
+	});
+
+	$("#modalbox").click(function(event){
+			$('#popupOverlay').hide();
+		});	
+
+	$('.close,.button_medium.cancel').click(function(event){
+		$('#popupOverlay').hide();});
+
+	$('.popup_confirmation').click(function(event){
+		event.stopPropagation();
+	});
+});
+
+
+//---change tabs for quick look --//
+$(document).ready(function(){
+	$('.itemDetails-tabs > ul > li').click(function(event){
+		var currentBox = $(this).children("div");
+		var currentTab = $(this).children("span");
+		$(currentBox).show();
+		$(currentTab).addClass("current");
+		$(".itemDetails-tabs > ul > li > span").not(currentTab).removeClass('current');
+		$(".itemDetails-tabs > ul > li > div").not(currentBox).hide();
+	});
+
+});
+
+
+	

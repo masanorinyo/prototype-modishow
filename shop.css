@@ -9,6 +9,7 @@ body{
 
 .itemWrapper{
 	width:97%;
+	min-height:800px;
 	max-width:1516px;
 	min-width:1089px;
 	margin:15px auto;
@@ -42,6 +43,7 @@ body{
 	background-color: rgb(255,255,255);
 	border:2px solid rgb(230,230,230);
 	overflow-x:hidden;
+
 }
 
 .scrollable_y{
@@ -51,11 +53,12 @@ body{
 }
 
 /*--Element--*/
-.sideNavi .sideMenu ul li{
+.sideNavi .sideMenu > ul > li{
 	padding:5px 0px 5px 15px;
 	width:70%;
 	color:rgb(130,130,130);
 	cursor: pointer;
+
 
 }
 
@@ -64,6 +67,7 @@ body{
 	color:rgb(70,90,100);
 	padding:10px 0px 10px 15px;
 	width:100%;
+	overflow: auto;
 	font-style:italic;
 	font-family:georgia;
 	cursor: default;
@@ -81,16 +85,60 @@ body{
 	border-width: 2px;
 }
 
+.titleHeader > ul{
+	width:100%;
+	margin-top:10px;
+}
+.sideMenu .titleHeader > ul > li{
+	float:left;
+	position: relative;
+	border:1px solid rgb(220,230,240);
+	background-color: rgb(250,253,255);
+	padding:3px 5px;
+	margin:0px 3px 5px 0px;
+	min-width:30px;
+	max-width:158px;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	cursor: pointer;
+}
 
+.titleHeader .filter{
+	text-align: right;
+	color:rgb(160,160,160);
+	margin-left:10px;
+}
+
+.titleHeader .close{
+	float:left;
+	left:4px;
+	top:0px;
+	background-size:100%;
+	width:7px;	
+	opacity:0.6;
+}
 .sideNavi .sideMenu ul li .submenu-secondLevel ul li{
 	padding:0px 10px 4px 2px;
 	width:167px;
 	color:rgb(180,180,180);
+
 }
 
 
-.sideNavi .sideMenu ul li .submenu-secondLevel ul{
+.sideMenu ul li .submenu-secondLevel ul{
 	margin-bottom:5px;
+	list-style:disc inside;
+
+}
+.bottom .sideMenu .submenu-secondLevel ul{
+	list-style-type:circle;
+}
+.bottom .sideMenu .submenu-secondLevel  form ul{
+	list-style:none;
+}
+.bottom .sideMenu .bottomBox ul{
+	list-style-type:square;
 }
 
 
@@ -122,10 +170,14 @@ body{
 	color:rgb(70,90,100);
 }
 
-.sideNavi .sideMenu ul li .submenu-secondLevel ul li:hover{
+.sideNavi .sideMenu ul li .submenu-secondLevel ul li:hover,
+.titleHeader > ul > li:hover span{
 	color:rgb(50,180,240);
+	opacity:1;
 
 }
+
+
 
 /*---------------------ContentBox------------------------*/
 /*--Structure--*/
@@ -201,7 +253,7 @@ body{
 	margin:10px auto;
 }
 
-.topSellingBox li .hiddenBox{
+.topSellingBox li .popupBox{
 	width:100%;
 	height:20px;
 	position: absolute;
@@ -211,23 +263,9 @@ body{
 	background-color:rgb(130,130,130);	
 }
 
-.topSellingBox li .hiddenBox.large{
+.topSellingBox li .popupBox.large{
 	height:40px;
 }
-
-.hiddenBox span{
-	position: absolute;
-	right:0;
-	left:0;
-	top:0px;
-	color:rgb(240,240,240);
-	text-align: center;
-	font-family: georgia;
-	font-style: italic;
-	font-size:1.4em;
-}
-
-
 
 .bottom.clear{
 	height:40px;
@@ -241,4 +279,427 @@ body{
 
 
 /*---------------------ContentBox after choosing items------------------------*/
-/**/
+/*--Stucture--*/
+.promotion,
+.topSellingBox{
+	display: none;
+}
+
+.contentBox .items > li{
+	width:235px;
+	height:320px;
+	float:left;
+	margin:0px 0px 50px 15px;
+	position: relative;
+}
+.contentBox .items .itemDetails-image{
+	border:2px solid rgb(240,240,240);
+	background-color: rgb(255,255,255);
+	height:250px;
+	width:100%;
+	margin:0;
+}
+
+.contentBox .items .itemDetails-image img{
+	height:100%;
+	margin:0 auto;
+}
+
+.shop .itemDetails-description{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:60px;
+}
+
+.shop .itemDetails-description > .description{
+	position: relative;
+	
+}
+.items .itemDetails-description .price{
+	position: absolute;
+	bottom:6px;
+	left:185px;
+	font-size:1.1em;
+}
+
+.shop .itemDetails-description .url{
+	position: absolute;
+	bottom:7px;
+	left:5px;
+}
+.url > a{
+	color:rgb(100,170,180);
+}
+
+
+
+.shop .zoom,
+.shop .button-tryon,
+.shop .button-heart-item{
+	position: absolute;
+	bottom:68px;
+	right:176px;
+	text-align: center;
+	z-index:110;
+	padding:1px 5px;
+	display: none;
+	cursor: pointer;
+	background-color: rgb(240,240,240);
+
+}
+
+.shop .zoom:hover span,
+.shop .button-tryon:hover > span,
+.shop .button-heart-item:hover span{
+	color:rgb(50,180,240);
+
+}
+
+.shop .zoom{	
+	background-color: rgb(232,240,240);
+}
+
+.shop  .button-heart-item{
+	right:60px;
+	width:50px;
+	height:17px;
+}
+
+.shop  .button-tryon{
+	right:-2px;
+	width:50px;
+	height:17px;
+
+}
+
+.button-heart-item .mediumButton-leftside{
+	position: absolute;
+	left:5px;
+	top:-1px;
+}
+
+.button-heart-item .mediumButton-rightside{
+	right:5px;
+	position: absolute;
+	top:1px;
+}
+
+.button-heart-item  span{
+	width:18px;
+	height:18px;
+	font-size:0.8em;
+	color:rgb(100,100,100);
+}
+
+
+
+.zoom span{	
+	font-size:0.8em;
+	color:rgb(100,150,150);
+
+}
+
+
+.button-tryon > .right{
+	color:rgb(150,150,150);
+	font-size:0.8em;
+	position: absolute;
+	right:6px;
+	top:3px;
+}
+
+.button-tryon .popupBox{
+	position: absolute;
+	top:25px;
+	right:-30px;
+	width:140px;
+	height:70px;
+	background-color: rgb(230,230,230);
+	z-index:10000;
+	display:none;
+	cursor: default;
+
+}
+
+.button-tryon .popupBox > span{
+	position: absolute;
+	top:7px;
+	left:10px;
+	line-height: 130%;
+	text-align: left;
+	font-family: georgia;
+	font-style: italic;
+	font-size:1em;
+	color:rgb(150,150,150);	
+}
+
+
+.popupBox div span,
+.popupBox div a{
+	position: absolute;
+	bottom:5px;
+	right:55px;
+	color:rgb(140,170,190);
+	cursor: pointer;
+
+
+}
+
+.popupBox div span{
+	right:15px;
+}
+
+
+
+
+
+.popupBox div span:hover,
+.popupBox div a:hover{
+	color:rgb(50,180,240);
+}
+
+/*--Effect--*/
+.url > a:hover{
+	color:rgb(50,180,240);
+}
+
+/*---------------------Quick look box------------------------*/
+/*--Structure--*/
+#popupOverlay.shop{
+	display:block;
+}
+
+.shop .popup_confirmation{
+	width:650px;
+	height:500px;
+	background-color: rgb(255,255,255);
+	margin:80px auto;
+	position: relative;
+}
+
+.popup_confirmation > .subHeader{
+	width:100%;
+	height:30px;
+	border-bottom:1px dotted rgb(200,200,200);
+	position: relative;
+}
+
+.shop .popup_confirmation div .close{
+	left:625px;
+	background-size: 100%;
+	height:15px;
+	width:15px;
+	top:9px;
+	cursor: pointer;
+}
+
+.shop #modalbox .leftSideBox,
+.shop #modalbox .rightSideBox{
+	float:left;
+	position: relative;
+	height:470px;
+	width:50%;
+}
+
+.shop #modalbox .rightSideBox{
+	float:right;
+}
+
+
+.popup_confirmation .itemBox{
+	width:300px;
+	height:350px;
+	margin:0 auto;
+}
+
+.popup_confirmation .itemBox-related{
+	width:240px;
+	height:85px;
+	margin:0 auto;
+}
+
+.itemBox .pic-frame{
+	position: absolute;
+	top:30px;
+	left:0;
+	right:14px;
+	margin:0 auto;
+	height:85%;
+	width:85%;
+	background-size: 100%;
+	z-index:10;
+}
+
+.pic-frame-inside{
+	width:260px;
+	height:295px;
+	background-color: rgb(250,250,250);
+	position: absolute;
+	top:30px;
+	left:30px;
+	z-index:100;
+	overflow:hidden;
+}
+
+.popup_confirmation img{
+	height:100%;
+	margin:0 auto;
+	z-index:15;
+}
+
+.popup_confirmation .itemBox img{
+	position: absolute;
+	top:10px;
+	height:93%;
+	left:0;
+	right:0;
+	margin:0 auto;
+	z-index:30;
+}
+
+.shop .sideScroll-wrapper > ul >li{
+	float:left;
+	margin-left:2px;
+	height:99%;
+	cursor: pointer;
+}
+
+
+
+.popup_confirmation .itemBox-related span{
+	height:40px;
+	width:20px;
+	background-size: 100% 100%;
+	position: absolute;
+	bottom:55px;
+	cursor: pointer;
+	z-index:100;
+
+}
+
+.popup_confirmation .rightArrow-thick{
+	right:25px;
+}
+.popup_confirmation .leftArrow-thick{
+	left:25px;
+}
+
+.rightSideBox .itemDetails-description{
+	top:40px;
+}
+
+.rightSideBox .itemDetails-description .description > .title{
+	position: relative;
+	max-height:124px;
+	width:300px;
+	overflow:hidden;
+	font-size:1.5em;
+	float: left;
+	margin-bottom: 25px
+}
+.rightSideBox .itemDetails-description .url{
+	position: relative;
+	font-size:1.2em;
+	margin:0;
+	text-align: left;
+}
+
+.rightSideBox .buy{
+	height:20px;
+	padding:4px;
+	width:285px;
+	background-color: rgb(130,180,230);
+	margin-top:5px;
+}
+
+.rightSideBox .buy:hover{
+	background-color: rgb(150,200,250);
+}
+
+.rightSideBox .buy{
+	color:rgb(255,255,255);
+	position: relative;
+}
+
+.buy span{
+	position: absolute;
+	left:10px;
+	top:6px;
+}
+
+
+.subHeader .button-heart-item,
+.subHeader .button-tryon{
+	display:block;
+	left:30px;
+	top:5px;
+	height:19px;
+}
+
+.subHeader .button-tryon{
+	left:100px;
+}
+
+.itemDetails-tabs{
+	height:250px;
+	width:100%;
+	margin-top:15px;
+}
+.itemDetails-tabs > hr{
+	width:90%;
+	margin:0;
+
+}
+.itemDetails-tabs > ul{
+	width:70%;
+}
+
+.itemDetails-tabs > ul > li{
+	float:left;
+	padding:5px;
+	margin-right:5px;
+	cursor: pointer;
+}
+
+.itemDetails-tabs > ul > li > span{
+	text-align: center;
+	color:rgb(150,150,150);
+}
+
+.itemDetails-tabs > ul > li > div{
+	position: absolute;
+	height:215px;
+	width:295px;	
+	left:0;
+	overflow: auto;
+}
+
+.itemDetails-tabs > ul > li > div > p{
+	margin:10px 0px;
+	color:rgb(80,80,80);
+}
+
+.itemDetails-tabs > ul > .second div,
+.itemDetails-tabs > ul > .third div{
+	display:none;
+}
+
+
+
+.itemDetails-tabs > ul > .second div ul{
+	margin:10px;
+}
+.itemDetails-tabs > ul > .second div ul li{
+	float:left;
+	padding:10px;
+	margin:2px;
+	border:1px solid rgb(200,200,200);
+	color:rgb(140,140,140);
+}
+
+.itemDetails-tabs .current{
+	color:rgb(50,180,240);
+}
+
