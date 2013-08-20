@@ -14,6 +14,9 @@
 
 			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
 		<![endif]-->
+		<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.js"></script>
 	</head>
 	<body>	
 		<div id="header" class="headerColor">
@@ -87,21 +90,17 @@
 									<a class="submenu-secondLevelParent" href="#">Shoes</a>
 									<div class="submenu-secondLevel">
 										<ul>
-											<li>
-												<a href="#">Boots</a>
-											</li>
-											<li>
-												<a href="#">Sandles</a>
-											</li>
-											<li>
-												<a href="#">Sneaker</a>
-											</li>
-											<li>
-												<a href="#">Moccasins</a>
-											</li>
-											<li>
-												<a href="#">Socks &amp; Legwear</a>
-											</li>
+											<li><a href="#">Boots</a></li>
+											<li><a href="#">Clogs</a></li>
+											<li><a href="#">Flats</a></li>
+											<li><a href="#">Oxford</a></li>
+											<li><a href="#">Pumps</a></li>
+											<li><a href="#">Sandles</a></li>
+										</ul>
+										<ul>
+											<li><a href="#">Sneakers</a></li>
+											<li><a href="#">Moccasines</a></li>
+											<li><a href="#">Loafers &amp; Moccasins</a></li>
 										</ul>
 									</div>
 								</li>
@@ -283,18 +282,124 @@
 									<span class="child">Clothing</span>
 									<div class="submenu-secondLevel">
 										<ul>
-											<li><span>All clothing</li>
-											<li><span>Dresses</span></li>
-											<li><span>Skirt</span></li>
-											<li><span>Tops</span></li>
-											<li><span>Outwear</span></li>
-											<li><span>Jeans</span></li>
-											<li><span>Pants</span></li>
-											<li><span>Shorts</span></li>
-											<li><span>Jumpsuits Rompers</span></li>
-											<li><span>Intimates</span></li>
-											<li><span>Swimwear</span></li>
-											<li><span>Activewear</span></li>
+											<li><span>All clothing</span></li>
+											<li>
+												<span>Dresses</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Day</li>
+														<li>Cocktail</li>
+														<li>Gowns</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Skirt</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Mini</li>
+														<li>Knee Length</li>
+														<li>Long</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Tops</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Blouses</li>
+														<li>Cardigans</li>
+														<li>Sweaters</li>
+														<li>Sweatshirts &amp; Hoodies</li>
+														<li>Tanks</li>
+														<li>T-shirts</li>
+														<li>Tunics</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Outwear</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Coat</li>
+														<li>Jacket</li>
+														<li>Vests</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Jeans</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Bootcut</li>
+														<li>Boyish</li>
+														<li>Flared</li>
+														<li>Skinny</li>
+														<li>Straight Leg</li>
+														<li>Wide leg</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Pants</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Capri &amp; Cropped</li>
+														<li>Leggigs</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Shorts</span>
+											</li>
+											<li>
+												<span>Jumpsuits Rompers</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Jumpsuits</li>
+														<li>Rompers</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Intimates</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Bras</li>
+														<li>Camisoles</li>
+														<li>Chemises</li>
+														<li>Hosiery</li>
+														<li>Sleepwear</li>
+														<li>Panties &amp; Thongs</li>
+														<li>Robes</li>
+														<li><span>Socks &amp; Legwear</span></li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Swimwear</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Bikinis</li>
+														<li>One piece</li>
+														<li>Cover-ups</li>
+													</ul>
+												</div>
+											</li>
+											<li>
+												<span>Activewear</span>
+												<div class="submenu-thirdLevel">
+													<ul>
+														<li>Jackets</li>
+														<li>Pants</li>
+														<li>Shorts</li>
+														<li>Skirts</li>
+														<li>Shorts Bras</li>
+														<li>Tank Tops</li>
+														<li>Tops</li>
+													</ul>
+												</div>
+											</li>
 										</ul>
 									</div>
 								</li>
@@ -303,11 +408,15 @@
 									<div class="submenu-secondLevel">
 										<ul>
 											<li><span>All Shoes</span></li>
+											<li><span>Clogs</span></li>
+											<li><span>Flats</span></li>
+											<li><span>Loafers & Moccasins</span></li>
+											<li><span>Oxford</span></li>
+											<li><span>Pumps</span></li>
 											<li><span>Boots</span></li>
 											<li><span>Sandles</span></li>
 											<li><span>Sneakers</span></li>
 											<li><span>Moccasines</span></li>
-											<li><span>Socks & Legwear</span></li>
 										</ul>
 									</div>
 								</li>
@@ -349,11 +458,6 @@
 								<li class="titleHeader bottom_underscore">
 									<span>Refine</span>
 									<ul>
-										<li><span class="filter">all printed document whatever</span><span class="close"></span></li>
-										<li><span class="filter">all printed</span><span class="close"></span></li>
-										<li><span class="filter">all printed</span><span class="close"></span></li>
-										<li><span class="filter">all printed</span><span class="close"></span></li>
-										<li><span class="filter">all printed</span><span class="close"></span></li>
 									</ul>
 								</li>
 								<li class="firstChild">
@@ -362,71 +466,71 @@
 											<ul>
 												<label>
 													<li class="colorBox">
-														White
+														<span>White</span>
 														<div class="white"></div>
 													</li> 
 												</label>
 												<label>
 													<li class="colorBox">
-														Black
+														<span>Black</span>
 														<div class="black"></div>
 													</li> 
 												</label>
 												<label>
 													<li class="colorBox">
 														
-														Grey
+														<span>Grey</span>
 														<div class="grey"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
-														Brown
+														<span>Brown</span>
 														<div class="brown"></div>
 													</li> 
 												</label>
 												<label>
 													<li class="colorBox">
-														Beige
+														<span>Beige</span>
 														<div class="beige"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
-														Green
+														<span>Green</span>
 														<div class="green"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
 														
-														Blue
+														<span>Blue</span>
 														<div class="blue"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
-														 Purple
+														 <span>Purple</span>
 														<div class="purple"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
-														 Yellow
+														 <span>Yellow</span>
 														<div class="yellow"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
 														
-														Pink
+														<span>Pink</span>
 														<div class="pink"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
 														
-														Red
+														<span>Red</span>
 														<div class="red"></div>
 													</li>
 												</label>
@@ -438,20 +542,20 @@
 												</label>
 												<label>
 													<li class="colorBox">
-														Silver
+														<span>Silver</span>
 														<div class="silver"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
 														 
-														Gold
+														<span>Gold</span>
 														<div class="gold"></div>
 													</li>
 												</label>
 												<label>
 													<li class="colorBox">
-														Others
+														<span>Others</span>
 														<div class="other"></div>
 													</li>
 												</label>
@@ -465,62 +569,62 @@
 										<ul>
 											<label>
 												<li>
-													Plain
-												</li>
-												</label>
-											<label>
-												<li>
-													 Stripe
-												</li>
-												</label>
-											<label>
-												<li>
-													 Check
-												</li>
-												</label>
-											<label>
-												<li>
-													 Border
-												</li>
-												</label>
-											<label>
-												<li>
-													 Dot
-												</li>
-												</label>
-											<label>
-												<li>
-													 Camouflage
+													<span>Plain</span>
 												</li>
 											</label>
 											<label>
 												<li>
-													 Embroidery, lace
-												</li>
-											</label>
-											<label>
-												<li>
-													Animal 
+													 <span>Stripe</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													 Floral
+													 <span>Check</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Patterned all over print
+													 <span>Border</span>
+												</li>
+												</label>
+											<label>
+												<li>
+													 <span>Dot</span>
+												</li>
+												</label>
+											<label>
+												<li>
+													 <span>Camouflage</span>
 												</li>
 											</label>
 											<label>
 												<li>
-													 Print(logos,etc.)
+													 <span>Embroidery, lace</span>
 												</li>
 											</label>
 											<label>
 												<li>
-													 Onepoint
+													<span>Animal </span>
+												</li>
+												</label>
+											<label>
+												<li>
+													 <span>Floral</span>
+												</li>
+												</label>
+											<label>
+												<li>
+													<span>Patterned all over print</span>
+												</li>
+											</label>
+											<label>
+												<li>
+													 <span>Print(logos,etc.)</span>
+												</li>
+											</label>
+											<label>
+												<li>
+													 <span>Onepoint</span>
 												</li>
 											</label>
 										</ul>
@@ -532,118 +636,55 @@
 										<ul>
 											<label>
 												<li>
-													Chino
+													<span>Chino</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Cotton
+													<span>Cotton</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Corduroy
+													<span>Corduroy</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Wool series
+													<span>Wool series</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Line series
+													<span>Line series</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Nylon series
+													<span>Nylon series</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Sweat
+													<span>Sweat</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Jersey
+													<span>Jersey</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													 Stretch
+													<span> Stretch</span>
 												</li>
 												</label>
 											<label>
 												<li>
-													Leather material
+													<span>Leather material</span>
 												</li>
 											</label>
 										</ul>
-									</div>
-								</li>
-								<li>
-									<span>Price</span>
-									<div class="submenu-secondLevel">
-										<form>
-											<ul>
-												<label>
-													<li>
-														<input type="radio"/>
-														~ $50	
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$51~ $100
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$101 ~ $200
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$201~ $300
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$301~ $400
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$401~ $500
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$501~ $750
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$751~ $1,000
-													</li>
-												</label>
-												<label>
-													<li>
-														<input type="radio"/>
-														$1001 ~
-													</li>
-												</label>
-											</ul>
-										</form>
 									</div>
 								</li>
 								<li>
@@ -652,122 +693,103 @@
 										<ul>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												<span> ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												<span> ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												<span> ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												<span> ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												<span> ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												<span> ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 											<label>
 												<li>
-												 ABCD	
+												 <span>ABCD	</span>
 												</li>
 											</label>
 										</ul>
 									</div>	
 								</li>
 								<li class="lastChild">
-									<span>Sort By</span>
-									<div class="submenu-secondLevel bottomBox">	
-										<ul>
-											<li>
-												<span>
-													Most popular
-												</span>
-											</li>
-											<li>
-												<span>
-													Most viewed
-												</span>
-											</li>
-											<li>
-												<span>
-													Price - low to high
-												</span>
-											</li>
-											<li>
-												<span>
-													Price - high to low
-												</span>
-											</li>
-										</ul>
+									<span>Price</span>
+
+									<div class="submenu-secondLevel slider_wrapper">
+										<input type="text" id="amount" />
+										<div id="slider"></div>
 									</div>
 								</li>
 							</ul>
@@ -793,121 +815,154 @@
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Dress</span>
+									<span>Dress</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Skirt</span>
+									<span>Skirt</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Tops</span>
+									<span>Tops</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Outwear</spa>
+									<span>Outwear</spa>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Jeans</span>
-								</div>
-								
-							</li>
-							<li>
-								<img class="item" src="images/item1.png"/>
-								<div class="popupBox">
-									<span>In Pants</span>
+									<span>Jeans</span>
 								</div>
 								
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Shorts</span>
+									<span>Pants</span>
+								</div>
+								
+							</li>
+							<li>
+								<img class="item" src="images/item1.png"/>
+								<div class="popupBox">
+									<span>Shorts</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox large">
-									<span>In Jumpsuits & Rumpers</span>
+									<span>Jumpsuits & Rumpers</span>
 								</div>
 								
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Intimates</span>
+									<span>Intimates</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Swimwear</span>
+									<span>Swimwear</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Activewear</span>
+									<span>Activewear</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Shoes</span>
+									<span>Shoes</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Accessories</span>
+									<span>Accessories</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Bags</span>
+									<span>Bags</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Jewelry</span>
+									<span>Jewelry</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Makeup</span>
+									<span>Makeup</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Skincare</span>
+									<span>Skincare</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Fragrance</span>
+									<span>Fragrance</span>
 								</div>
 							</li>
 							<li>
 								<img class="item" src="images/item1.png"/>
 								<div class="popupBox">
-									<span>In Nail Polish</span>
+									<span>Nail Polish</span>
 								</div>
 							</li>
 						</ul>
+						<div class="item-guides">
+							<ul>
+								<li class="firstChild">
+									<span class="test"></span>
+								</li>
+								<li>
+									<span>-</span>
+								</li>
+								<li class="lastChild">
+									<span>Sort By:</span>
+									<form class="selectBox">	<div class="styled_select">
+											<select>
+												<option>
+													Relevance
+												</option>
+												<option>
+													Most popular
+												</option>
+												<option>
+													Most viewed
+												</option>
+												<option>
+													Price - low to high
+												</option>						
+												<option>
+													Price - high to low
+												</option>
+											</select>
+										</div>
+									</form>
+								</li>
+							</ul>
+						</div>
 						<ul class="items">
 							<li>
 								<div class="button-tryon">
@@ -942,7 +997,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -985,7 +1040,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1028,7 +1083,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1071,7 +1126,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1114,7 +1169,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1157,7 +1212,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1200,7 +1255,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1243,7 +1298,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1286,7 +1341,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1329,7 +1384,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1372,7 +1427,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1415,7 +1470,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169
@@ -1458,7 +1513,7 @@
 								</a>
 								<div class="itemDetails-description">
 									<span class="description">
-										<a href="#">MASCARA IN THERE AND BLACK BY LOUISE</a>
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
 									</span>
 									<div class="price">
 									$169

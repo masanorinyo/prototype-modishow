@@ -64,7 +64,7 @@ $(document).ready(function(){
 	$('.closeBox').click(function(event){
 		$('#popupOverlay').hide();
 	});
-	$('.closeBox').click(function(event){
+	$('.closeBox,.close').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
 	$('#modalbox').click(function(event){
@@ -526,8 +526,8 @@ $(document).ready(function() {
 //--Top selling item hover effect--//
 $(document).ready(function(){
 	$(".topSellingBox li").hover(function(){			
-	    $(this).children(".hiddenBox").slideToggle(130)},function(){
-		$(this).children(".hiddenBox").slideToggle(130);
+	    $(this).children(".popupBox").slideToggle(130)},function(){
+		$(this).children(".popupBox").slideToggle(130);
 	});
 	$('.topSellingBox li').click(function(event){
 		event.stopPropagation();
@@ -540,8 +540,8 @@ $(document).ready(function(){
 	$(".sideMenu > ul > li").not(".titleHeader").click(function(){
 		var currentDropdown = $(this).children(".submenu-secondLevel")
 
-		$(currentDropdown).slideToggle(200);
-		$(".submenu-secondLevel").not(currentDropdown).slideUp("fast");		
+		$(currentDropdown).slideToggle(350);
+		$(".submenu-secondLevel").not(currentDropdown).slideUp(350);		
 
 	});
 	$('.submenu-secondLevel').click(function(event){
@@ -600,5 +600,64 @@ $(document).ready(function(){
 
 });
 
+//--side bar selected items--//
+$(document).ready(function(){
+	$('.top > .sideMenu > ul > li,.middle > .sideMenu > ul > li > div > ul > li').not('.titleHeader').click(function(event){
+		var $selected = $(this).children("span");
+		$(".promotion,.topSellingBox").hide();
+		$selected.not('.titleHeader > span').addClass('current');
+		$("span").not($selected).removeClass('current');
+		$(".contentBox .items,.bottom > .sideMenu,.item-guides").show();
 
+		var $select_clone = $selected.clone().removeClass('current');
+		$(".item-guides > ul > .firstChild > span").html($select_clone.html());
+
+	});
+});
+
+//--remove and add class for filters--//
+$(document).ready(function(){
 	
+	$('.submenu-secondLevel > ul > label').click(function(event){
+		var $filter_element = $(this).children().children('span').addClass('filter').clone();
+		var closeBox = "<span class='close'></span>";
+		var $filter = $filter_element.append(closeBox);
+
+		$filter.appendTo('.filters > ul > .titleHeader > ul').wrap('<li class="filtering"></li>');
+
+	});
+
+
+	$('.submenu-secondLevel > form > ul > label').click(function(event){
+		var $filter_element = $(this).children().children('span').addClass('filter');
+		var closeBox = "<span class='close'></span>";
+		var $filter = $filter_element.append(closeBox);
+
+		$filter.appendTo('.filters > ul > .titleHeader > ul').wrap('<li class="filtering"></li>');
+
+	});
+
+
+
+	$('.titleHeader > ul').on('click','.filtering', function(){
+		$(this).remove();
+	});
+});
+
+//--price range--//
+$(document).ready(function(){
+	$( "#slider").slider({
+		range: true,
+		min: 0,
+		max: 1000,
+		values: [ 0, 1000 ],
+		slide: function( event, ui ) {
+			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		}
+	});
+	$( "#amount" ).val( "$" + $( "#slider" ).slider( "values", 0 ) +
+		" - $" + $( "#slider").slider( "values", 1 ) 
+	);
+	$("#slider").children("div").css("background","rgb(130,140,150)");
+});
+
