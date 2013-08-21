@@ -29,6 +29,8 @@ body{
 	display:none;
 }
 
+
+
 .sideNavi .sideMenu{
 	width:100%;
 	overflow-y: auto;
@@ -74,6 +76,8 @@ body{
 	font-style:italic;
 	font-family:georgia;
 	cursor: default;
+		position: relative;
+
 }
 
 .sideNavi .sideMenu ul .firstChild{
@@ -246,11 +250,28 @@ body{
 	height:50px;
 }
 
+.sideMenu .submenu-thirdLevel{
+	display:none;
+}
 
+.sideMenu .submenu-thirdLevel ul li{
+	list-style-type:circle;
+}
+
+.deleteAll{
+	font-size: 0.8em;
+	font-style:normal;
+	right:30px;
+	top:12px;
+	color:rgb(140,140,140);
+	cursor: pointer;
+	display:none;
+}
 
 
 /*--Effect--*/
-.sideNavi .sideMenu ul li:hover{
+.sideNavi .sideMenu ul li:hover,
+.deleteAll:hover{
 	color:rgb(50,180,240);
 }
 .sideNavi .sideMenu ul .titleHeader:hover{
@@ -263,6 +284,7 @@ body{
 	opacity:1;
 
 }
+
 
 
 
@@ -432,7 +454,7 @@ body{
 .shop .itemDetails-description .url{
 	position: absolute;
 	bottom:7px;
-	left:5px;
+	left:0px;
 }
 .url > a{
 	color:rgb(100,170,180);
@@ -806,6 +828,7 @@ body{
 	color:rgb(140,140,140);
 }
 
+#current,
 .current{
 	color:rgb(50,180,240);
 }

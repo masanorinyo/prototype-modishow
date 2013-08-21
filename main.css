@@ -118,6 +118,12 @@ li{
 .bottom{height:100px;}
 .pointer{cursor:pointer;}
 .default{cursor:default;}
+.top-right{
+	position: absolute;
+	top:0;
+	right:0;
+}
+
 /*--font--*/
 .font_info{
 	font-family:"Monotype Corsiva";

@@ -529,10 +529,38 @@ $(document).ready(function(){
 	    $(this).children(".popupBox").slideToggle(130)},function(){
 		$(this).children(".popupBox").slideToggle(130);
 	});
-	$('.topSellingBox li').click(function(event){
-		event.stopPropagation();
+});
+
+
+//--Top selling jump direclty to the items--//
+$(document).ready(function(){
+	$(".topSellingBox li").click(function(){			
+	    $(".promotion,.topSellingBox").hide();
+		$(".contentBox .items,.bottom > .sideMenu,.item-guides").show();
+		$('html, body').scrollTop("#header");
+
+		var $category_name = $(this).children(".popupBox").children('span').clone();
+
+		$(".item-guides > ul > .firstChild > .main").html($category_name.html());
+
+		var $category_overall = $(this).attr("class").split(' ')[0];
+		var $category_each = $(this).attr("class").split(' ')[1];
+		var $selected = $(".sideMenu > ul > li > div." + $category_overall);
+		
+		$('.middle .submenu-secondLevel > ul > li.' + $category_each).children("span").addClass('current');
+
+		$('.selectBox > div > select[name="sort"]').val("popular");
+
+		$selected.show();
+			
+		$(".sideMenu > ul > li .submenu-secondLevel").not($selected).hide();		
+
+
+
 	});
 });
+
+
 
 //--Side menu toggle--//
 
@@ -541,10 +569,24 @@ $(document).ready(function(){
 		var currentDropdown = $(this).children(".submenu-secondLevel")
 
 		$(currentDropdown).slideToggle(350);
-		$(".submenu-secondLevel").not(currentDropdown).slideUp(350);		
+		$(".sideMenu > ul > li .submenu-secondLevel").not(currentDropdown).slideUp(350);		
 
 	});
 	$('.submenu-secondLevel').click(function(event){
+		event.stopPropagation();
+	});
+});
+
+//--Side menu third level dropdown--//
+$(document).ready(function(){
+	$(".sideMenu .submenu-secondLevel > ul > li").click(function(){
+		var currentDropdown = $(this).children(".submenu-thirdLevel")
+
+		$(currentDropdown).slideToggle(350);
+		$(".submenu-thirdLevel").not(currentDropdown).slideUp(350);		
+
+	});
+	$('.submenu-thirdLevel').click(function(event){
 		event.stopPropagation();
 	});
 });
@@ -593,26 +635,43 @@ $(document).ready(function(){
 		var currentBox = $(this).children("div");
 		var currentTab = $(this).children("span");
 		$(currentBox).show();
-		$(currentTab).addClass("current");
-		$(".itemDetails-tabs > ul > li > span").not(currentTab).removeClass('current');
+		$(currentTab).attr("id","current");
+		$(".itemDetails-tabs > ul > li > span").not(currentTab).removeAttr('id',"");
 		$(".itemDetails-tabs > ul > li > div").not(currentBox).hide();
 	});
 
 });
 
 //--side bar selected items--//
-$(document).ready(function(){
-	$('.top > .sideMenu > ul > li,.middle > .sideMenu > ul > li > div > ul > li').not('.titleHeader').click(function(event){
+$(document).ready(function(event){
+	$('.top > .sideMenu > ul > li,.middle .submenu-secondLevel > ul > li').not('.titleHeader').click(function(event){
 		var $selected = $(this).children("span");
 		$(".promotion,.topSellingBox").hide();
 		$selected.not('.titleHeader > span').addClass('current');
 		$("span").not($selected).removeClass('current');
 		$(".contentBox .items,.bottom > .sideMenu,.item-guides").show();
 
+
 		var $select_clone = $selected.clone().removeClass('current');
-		$(".item-guides > ul > .firstChild > span").html($select_clone.html());
+		$(".item-guides > ul > .firstChild > .main").html($select_clone.html());
+
+
+		if($('.item-guides > ul > .firstChild > .sub').text().length > 0){
+			$(".item-guides > ul > .firstChild > .sub").empty();			
+		};
+	});
+
+	$('.middle .submenu-thirdLevel > ul > li').click(function(event){
+
+		var $selected = $(this).children("span");
+		$selected.not('.titleHeader > span').addClass('current');
+		$(".submenu-thirdLevel > ul > li > span").not($selected).removeClass('current');
+
+		var $select_clone = $selected.clone().prepend(' > ').removeClass('current');
+		$(".item-guides > ul > .firstChild > .sub").html($select_clone.html());
 
 	});
+
 });
 
 //--remove and add class for filters--//
@@ -622,22 +681,45 @@ $(document).ready(function(){
 		var $filter_element = $(this).children().children('span').addClass('filter').clone();
 		var closeBox = "<span class='close'></span>";
 		var $filter = $filter_element.append(closeBox);
+		var $id = $filter.attr('id');
+	
+		$(".deleteAll").show();
 
-		$filter.appendTo('.filters > ul > .titleHeader > ul').wrap('<li class="filtering"></li>');
+		var arrayIDS = $(".titleHeader > ul > li > span[id]").map(function() {
+		 return this.id; }).get();
 
-	});
+		$.each(arrayIDS,function(){
+			if(this == $id){
+				$(".titleHeader > ul > li > span#" + this).parents(".filtering").remove();
+			};
+		});
+
+		$filter.appendTo('.filters > ul > .titleHeader > ul').wrap('<li class="filtering"></li>');		
+
+
+	});	
+
 
 
 	$('.submenu-secondLevel > form > ul > label').click(function(event){
 		var $filter_element = $(this).children().children('span').addClass('filter');
 		var closeBox = "<span class='close'></span>";
-		var $filter = $filter_element.append(closeBox);
-
+		var $filter = $filter_element.append(closeBox);		
+		alert("Your book is overdue.");
 		$filter.appendTo('.filters > ul > .titleHeader > ul').wrap('<li class="filtering"></li>');
+
+
+
+
+    
 
 	});
 
-
+	$('.deleteAll').click(function(){
+		$(".titleHeader > ul > .filtering").remove();
+		$(this).hide();
+	});
+	
 
 	$('.titleHeader > ul').on('click','.filtering', function(){
 		$(this).remove();
