@@ -438,7 +438,7 @@ li{
 }
 /*------------------HEADER------------------*/
 /*--Structure--*/
-.headerColor{
+.themeColor{
 	background-image:-moz-linear-gradient(50% 0% -90deg,rgb(55,58,70) 0%,rgb(55,58,70) 5%,rgb(55,58,70) 46%,rgb(34,35,44) 98%,rgb(34,35,44) 100%); 
 	background-image:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0, rgb(55,58,70)),color-stop(0.05, rgb(55,58,70)),color-stop(0.46, rgb(55,58,70)),color-stop(0.98, rgb(34,35,44)),color-stop(1, rgb(34,35,44)));
 	background-image:-webkit-linear-gradient(-90deg,rgb(55,58,70) 0%,rgb(55,58,70) 5%,rgb(55,58,70) 46%,rgb(34,35,44) 98%,rgb(34,35,44) 100%);
@@ -601,69 +601,6 @@ li{
 	float:none;
 }
 
-/*--3.5.2 About menu--*/
-
-.aboutPage{
-	width:250px;
-	height:360px;
-	text-align: center;
-}
-
-.aboutPage-follow > div,
-.aboutPage-options > div{
-	font-size:1.2em;
-	font-weight: bold;
-	color:#97a8b8;
-	padding:10px 0px 8px 0px;
-}
-
-.aboutPage-options{
-	width:100%;
-	height:145px;
-	border-bottom:1px solid #666d78;
-}
-
-.aboutPage-follow{
-	width:100%;
-	height:185px;
-
-}
-
-.aboutPage-follow ul{
-	display:inline-block;
-	padding:2px 5px 2px 5px;
-	margin:2px 5px 2px 5px;
-}
-
-.aboutPage-follow ul li img{
-	margin:0 auto;
-}
-
-.column1{
-	float:left;
-}
-
-.column2{
-	float:right;
-}
-
-.aboutPage-options > .column1,
-.aboutPage-options > .column2{
-	font-size:1em;
-	text-align:left;
-	padding-top:0px;
-	margin-top:0px;
-}
-
-.column1 > ul > li{
-	padding:5px 12px 5px 15px;
-	margin:0px 0px 0px 0px;
-}
-
-.column2 > ul > li{
-	padding:5px 17px 5px 11px;
-	margin:0px 0px 0px 0px;
-}
 
 .hooter{
 	width:100%;
@@ -739,7 +676,7 @@ li{
 	top:-133px;
 }
 
-#header-leftOptions li ul .submenu-list.accessories:hover .submenu-secondLevel{
+#header-leftOptions li ul .submenu-list.allAccessories:hover .submenu-secondLevel{
 	top:-176px;
 }
 
@@ -751,15 +688,6 @@ li{
 	background-color:#181e24;
 }
 
-#header-rightOptions li:hover .aboutPage{
-	left:-176px;
-}
-
-#header-rightOptions li .aboutPage .aboutPage-follow  ul:hover .icon_descriptions{
-	color: rgb(221,500,221);
-	text-decoration:none;
-
-}
 
 
 
@@ -901,8 +829,16 @@ li{
 	top:-10px;
 	left:35px;
 	z-index:-1;
-	
+}
 
+#body_back > .upwardArrow{
+	z-index:9997;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	background-size:10px;
 }
 
 
@@ -1316,10 +1252,7 @@ li{
 .modalbox-fixPosition{
 	position:fixed;
 	text-align: center;
-	border:1px solid #999493;
 	font-size:1.2em;
-	z-index:4000;
-	text-align: center;
 	padding:10px 5px 10px 5px;
 
 
@@ -1327,16 +1260,25 @@ li{
 
 /*--Element(overall)--*/
 
-.backToTop{
+
+.backToTop,.about_button{
 	
-	width:50px;
-	height:40px;
-	right:30px;
-	bottom:-3px;
+	width:25px;
+	height:15px;
+	right:15px;
+	bottom:50px;
 	display:none;
-	z-index:99999999;
+	z-index:9997;
+	color:rgb(200,200,200);
+	cursor: pointer;\
+	font-size:1.2em;
+	font-family:"Calisto MT";
+}
 
-
+.about_button{
+	bottom:10px;
+	display: block;
+	z-index:9999;
 }
 
 
@@ -1350,14 +1292,10 @@ li{
 	text-align: center;
 	z-index:99999999;
 	cursor: pointer;
+	border:1px solid rgb(160,160,160);
 }
 
 /*--Effect(overall)--*/
-a.backToTop:link,
-a.backToTop:visited{
-	color:#6b6665;
-}
-a.backToTop:hover,
 .closeBox:hover{
 	background-color: #d9dddd; background-image: -webkit-gradient(linear, left top, left bottom, from(#d9dddd), to(#c6c3c3));
 	background-image: -webkit-linear-gradient(top, #d9dddd, #c6c3c3);
@@ -2510,12 +2448,77 @@ a.backToTop:hover,
 	width:100%;
 	min-width:1110px;
 	border-top:2px solid rgb(180,180,180);
-	background-color: rgb(250,250,250);
-	display:none;
+	position: fixed;
+	bottom:0;
+	display: none;
+	z-index:9998;
+
 }
 
 
+#footer > div {
+	width:800px;
+	position: absolute;
+	right:0;
+	left:0;
+	margin: 20px auto;
 
+}
+
+#footer > div > ul{
+	width:20%;
+	height:80%;
+	margin-left:10px;
+
+}
+
+
+#footer > div > ul,
+#footer > div > #connect li{
+	float:left;
+}
+
+#footer > div > ul > li{
+	margin:5px;
+}
+
+#footer .subheader{
+	font-size: 1.2em;
+	color:rgb(255,255,255);
+	font-family: georgia;
+	font-style: italic;
+}
+
+#footer a{
+	color:rgb(200,200,200);
+}
+
+#footer #connect{
+	position: absolute;
+	right:100px;
+	width:170px;
+}
+
+#connect > li{
+	margin:0px 12px 12px;
+}
+
+#footer img{
+	width:25px;
+}
+
+#footer .lastChild{
+	width:50%;
+	position: absolute;
+	bottom:5px;
+	text-align: center;
+	color:rgb(170,170,170);
+}
+
+/*--effect--*/
+#footer a:hover{
+	color:rgb(255,255,255);
+}
 
 /*------------------FORMS------------------*/
 
