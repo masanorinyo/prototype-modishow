@@ -406,27 +406,26 @@
 }
 
 
-.contentBox .items > li{
+#shop .items > li{
 	width:235px;
 	height:320px;
 	float:left;
 	margin:0px 0px 50px 15px;
 	position: relative;
 }
-.contentBox .items .itemDetails-image{
+#shop .items .itemDetails-image{
 	border:2px solid rgb(240,240,240);
 	background-color: rgb(255,255,255);
 	height:250px;
 	width:100%;
 	margin:0;
 }
-
-.contentBox .items .itemDetails-image img{
+.items .itemDetails-image img{
 	height:100%;
 	margin:0 auto;
 }
 
-.shop .itemDetails-description{
+#shop .itemDetails-description{
 	position:absolute;
 	bottom:0;
 	left:0;
@@ -434,7 +433,7 @@
 	height:60px;
 }
 
-.shop .itemDetails-description > .description{
+#shop .itemDetails-description > .description{
 	position: relative;
 	
 }
@@ -482,7 +481,7 @@
 
 }
 
-.shop .zoom{	
+#shop .zoom{	
 	background-color: rgb(232,240,240);
 }
 
@@ -589,6 +588,11 @@
 /*--Effect--*/
 .url > a:hover{
 	color:rgb(50,180,240);
+}
+
+#shop .items > li:hover .itemDetails-image,
+#shopItem .items > li:hover .itemDetails-image{
+	border-color:rgb(210,210,210);
 }
 
 /*---------------------Quick look box------------------------*/
@@ -713,7 +717,7 @@
 }
 
 .rightSideBox .itemDetails-description{
-	top:40px;
+	top:20px;
 }
 
 .rightSideBox .itemDetails-description .description > .title{
@@ -846,16 +850,14 @@
 }
 
 /*------------------------------------ShopItem------------------------------------*/
-/*--item top--*/
 /*Structure*/
 #shopItem{
 	background-color:rgb(235,235,235);
 }
 
 #shopItem .content{
-	width:91%;
-	min-width: 1100px;
-	margin:15px auto;
+	width:1108px;
+	margin:0 auto;
 
 }
 
@@ -871,14 +873,13 @@
 	min-height:500px;
 }
 
-#shopItem .content .bottom{
-	border-top:5px solid rgb(34,34,34);
-}
-/*---Top---*/
+
+/*---Top subheader content---*/
 #shopItem .top .subHeader{
 	position: absolute;
-	width:90.94%;
-	min-width: 1076px;
+	width:82%;
+	min-width: 1050px;
+	max-width: 1150px;
 	background-color: rgb(255,255,255);
 	top:63px;
 	height:40px;
@@ -886,181 +887,308 @@
 	right:0;
 	left:0;
 	margin:0 auto;
-	z-index:9999;
+	z-index:999;
 }
 
-#shopItem .button-tryon,
-#shopItem .button-heart-item{
+#shopItem .subHeader .button-tryon,
+#shopItem .subHeader .button-heart-item{
 	display: block;
 	top:7px;
 	width:65px;
 	height:25px;
 }
 
-#shopItem .icon_tryon{
+#shopItem .subHeader .icon_tryon{
 	top:6px;
 	left:5px;
 }
-#shopItem .button-tryon .right{
+#shopItem .subHeader .button-tryon .right{
 	top:5px;
 	right:6px;
 	font-size:1em;
 }
 
-#shopItem .button-heart-item .mediumButton-leftside{
+#shopItem .subHeader .button-heart-item .mediumButton-leftside{
 	top:2px;
 }
-#shopItem .button-heart-item .mediumButton-rightside{
+#shopItem .subHeader .button-heart-item .mediumButton-rightside{
 	top:5px;
 	left:25px;
 	font-size:1.1em;
 
 }
 
-#shopItem .button-heart-item{
+#shopItem .subHeader .button-heart-item{
 	left:110px;
 }
 
 /*---Bottom---*/
 #shopItem .bottom .subHeader{
-	width:100%;
-	background-color:rgb(136,136,136);
+	width:90%;
+	background-color:rgb(230,230,230);
 	height:37px;
-	border-bottom:5px solid rgb(170,170,170);
+	border-bottom:5px solid rgb(230,230,230);
+	margin:30px auto;
+	z-index:9999;
 }
 
 #shopItem .bottom .subHeader ul{
 	width:80%;
 	margin:0 auto;
 	text-align: center;
+
 }
 
-#shopItem .bottom .subHeader ul > li{
+#shopItem .bottom .subHeader ul li{
 	display: inline-block;
-	padding:12px 15px 6px;
+	padding:14px 15px 10px;
 	width:150px;
-	height:100%;
 	text-align: center;
 	cursor: pointer;
 }
 
-.currentList{
-	border-bottom: 5px solid rgb(131,204,198);
+
+
+#shopItem .bottom .subHeader ul  li .blue-color{
+	color:rgb(50,180,240);
 }
 
-#shopItem .bottom .subHeader ul  li > span{
+#shopItem .bottom .subHeader ul  li  span{
 	font-family:Thonburi;
 	font-size:14px;
-	color:rgb(255,255,255);
-	text-align:left;
+	color:rgb(155,155,155);
+}
+
+#shopItem .bottom .subHeader ul  li:hover span{
+	color:rgb(50,180,240);
 }
 
 
-
+/*-----*/
 #shopItem .leftSideBox,
 #shopItem .rightSideBox{
 	position: relative;
 	float:left;
+	top:15px;
 	margin-top:41px;
-	width:55%;
-	height:100%;
+	width:52%;
+	height:500px;
 }
 
 #shopItem .rightSideBox{
 	float:right;
-	width:45%;
-
+	width:48%;
+	left:-10px;
 }
 
 
-#shopItem .itemBox{
+#shopItem .leftSideBox .itemBox{
 	position: relative;
-	height:370px;
 	width:100%;
 }
 
 
-
-#shopItem .itemBox .pic-frame{
-	margin:0 auto;
-	width:525px;
-	height:372px;
-	background-size: 100% 100%;
-	z-index:10;
-}
-#shopItem .itemBox .pic-frame-inside{
-	height:350px;
-	width:500px;
-	left:0;
+#shopItem .leftSideBox .itemBox .pic-frame-inside{
+	height:420px;
+	width:350px;
+	left:100px;
 	right:0;
 	margin:0 auto;
 	background-color: rgb(255,255,255);
-	border:none;
-
 }
 
-#shopItem .itemBox-related{
-	width:450px;
-	height:120px;
-	margin:30px auto;
+#shopItem .leftSideBox .itemBox .pic-frame-inside img{
+	margin:10px;
+}
+
+#shopItem .leftSideBox .itemBox-related{
+	position: absolute;
+	width:70px;
+	left:90px;
+	top:40px;
+	z-index:988;
 	
 }
-#shopItem .itemBox-related img{
-	height: 100%;
+
+#shopItem .leftSideBox .itemBox-related img,
+#shopItem .leftSideBox .itemBox-related div{
+	width: 100%;
+	position: absolute;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+	margin:auto;
 }
 
+#shopItem .leftSideBox .itemBox-related li{
+	border:1px solid rgb(240,240,240);
+	height:80px;
+	margin-bottom:5px;
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+}
+
+#shopItem .leftSideBox .itemBox-related .lastChild > div{
+	width:45px;
+	height:45px;
+	margin-top:15px;
+	background-color: rgb(240,240,240);
+	position:relative;
+}
+#shopItem .leftSideBox .itemBox-related .lastChild:hover div{
+	background-color: rgb(50,180,240);
+}
+#shopItem .leftSideBox .itemBox-related .lastChild:hover span{
+	color:rgb(255,255,255);
+}
+
+#shopItem .leftSideBox .itemBox-related .lastChild span{
+	font-size:1em;
+	color:rgb(200,200,200);
+	position: absolute;
+	top:12px;
+	left:0;
+	right:0;
+
+}
 
 /*--right side--*/
-#shopItem .itemDetails-description{
+#shopItem .rightSideBox .itemDetails-description{
 	position:absolute;
 	bottom:0;
 	left:0;
-	top:15px;
-	width:100%;
-	height:100%;
-	margin:0;
+	top:25px;
+	width:95%;
+	height:440px;
 
 }
 
-#shopItem .itemDetails-description .price{
+#shopItem .rightSideBox  .itemDetails-description .price{
 	font-size:1.2em;
 }
 
-#shopItem .itemDetails-description .url{
+#shopItem .rightSideBox  .itemDetails-description .url{
 	margin-bottom:15px;	
 	font-size:1.4em;
 }
 
 
-#shopItem .description > .title{
+#shopItem .rightSideBox  .description > .title{
 	max-height:76px;
 	width:90%;
 }
 
-#shopItem .rightSideBox .buy{
+#shopItem .rightSideBox .rightSideBox .buy{
 	width:89%;
 }
 
-#shopItem .itemDetails-tabs > ul > li > div{
+
+#shopItem .rightSideBox  .itemDetails-tabs > ul > li > div{
 	position: absolute;
-	height:290px;
+	height:220px;
 	width:90%;	
 	left:0;
 	overflow: auto;
+	cursor: default;
 }
 
-/*Bottom*/
-#shopItem .bottom .inside ul{
+/*-----------Bottom-----------*/
+/*--More Items like this--*/
+#shopItem .bottom .SimilarItems
+/*#shopItem .bottom .creation,
+#shopItem .bottom .comment*/{
+	display:none;
+}
+
+#shopItem .bottom .inside{
+	position: relative;
 	width:90%;
-	margin:30px auto;
-	text-align:center;
-	
+	margin:0 auto;
+
 }
+
 #shopItem .bottom .inside .hidden{
-	margin-top:150px;
-}
-
-#shopItem .bottom .inside  .hidden span{
+	position: absolute;
+	right:0;
+	left:0;
+	top:100px;
 	font-size:3em;
+	color:rgb(150,150,150);
+	text-align:center;
+	display:none;
+}
+
+#shopItem .items{
+	margin:0 auto;
+}
+
+#shopItem .items > li{
+	width:29%;
+	height:360px;
+	position: relative;
+	float:left;
+	margin:30px 20px;
+}
+
+
+
+#shopItem .items .itemDetails-image{
+	width:100%;
+	position: relative;
+	height:300px;
+	border:2px solid rgb(240,240,240);
+	background-color: rgb(255,255,255);
 
 }
+
+
+#shopItem li .itemDetails-description{
+	position: relative;
+	width:100%;
+	height:13%;
+}
+
+#shopItem .bottom .items li .itemDetails-description .description{
+	position: absolute;
+	top:10px;
+	left:5px;
+	width:100%;
+	height:20px;
+	overflow: hidden;
+} 
+
+#shopItem .bottom .itemDetails-description .description a{
+	font-size:1.1em;
+}
+
+#shopItem .bottom .inside .button-tryon,
+#shopItem .bottom .inside .button-heart-item{
+	right:0px;
+	bottom:60px;
+}
+
+#shopItem .bottom .inside .button-tryon{
+	right:65px;
+}
+
+#shopItem .items > li .itemDetails-description .price{
+	bottom:-5px;
+	left:260px;
+
+}
+
+#shopItem .items > li .itemDetails-description .url{
+	position: absolute;
+	bottom:-5px;
+	left:5px;
+}
+
+#shopItem .itemDetails-description .url a{
+	font-size:1.2em;
+}
+
+/*--More Items like this--*/
+
+
