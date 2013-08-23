@@ -603,7 +603,7 @@ $(document).ready(function(){
 
 	});
 
-	$(".sideMenu .submenu-thirdLevel > ul > li").click(function(){
+	$(".sideMenu .submenu-thirdLevel > ul > li,.top .sideMenu > ul > li").click(function(){
 		$('.selectBox > div > select[name="sort"]').val("relevance").trigger('change');
 	});
 
@@ -776,6 +776,25 @@ $(document).ready(function(){
             $('#shopItem .top .subHeader').removeAttr('style'); 
         }
     })
+});
+
+
+//*---shopItem bottom change tab---*//
+
+$(document).ready(function(){
+	$('#similarItems').click(function(event){
+		$("#shopItem .bottom .similarItems").show();
+		$("#shopItem .inside > div").not(".similarItems").hide();
+	});
+	$('#creation').click(function(event){
+		$("#shopItem .bottom .creation").show();
+		$("#shopItem .inside > div").not(".creation").hide();
+	});
+	$('#comment').click(function(event){
+		$("#shopItem .bottom .comment").show();
+		$("#shopItem .inside > div").not(".comment").hide();
+	});
+
 });
 
 

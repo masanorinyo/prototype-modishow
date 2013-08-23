@@ -1949,15 +1949,16 @@ li{
 	margin:6px 0px 0px 5px;
 }
 
-.comment-messageBox > textarea{
+.comment-messageBox textarea{
 	width:71%;
 	height:65px;
 	position:absolute;
 	top:35px;
 	left:123px;
+	border-color:rgb(200,200,210);
 
 }
-.comment-messageBox > input{
+.comment-messageBox input{
 	position:absolute;
 	top:110px;
 	left:123px;
@@ -2450,6 +2451,7 @@ li{
 	border-top:1px solid rgb(230,230,230);
 	background-color: rgb(250,250,250);
 	text-align: center;
+	display: none;
 }
 
 #subFooter span{

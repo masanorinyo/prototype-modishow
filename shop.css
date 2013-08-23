@@ -805,6 +805,7 @@
 	width:295px;	
 	left:0;
 	overflow: auto;
+	margin-top:10px;
 }
 
 .itemDetails-tabs > ul > li > div > p{
@@ -828,6 +829,7 @@
 	margin:2px;
 	border:1px solid rgb(200,200,200);
 	color:rgb(140,140,140);
+
 }
 
 #current,
@@ -877,15 +879,13 @@
 /*---Top subheader content---*/
 #shopItem .top .subHeader{
 	position: absolute;
-	width:82%;
-	min-width: 1050px;
-	max-width: 1150px;
+	width:1000px;
 	background-color: rgb(255,255,255);
 	top:63px;
 	height:40px;
 	border-bottom:1px dashed rgb(221,221,221);
 	right:0;
-	left:0;
+	left:-1px;
 	margin:0 auto;
 	z-index:999;
 }
@@ -1090,15 +1090,15 @@
 	height:220px;
 	width:90%;	
 	left:0;
+	margin-top:10px;
 	overflow: auto;
 	cursor: default;
 }
 
 /*-----------Bottom-----------*/
 /*--More Items like this--*/
-#shopItem .bottom .SimilarItems
-/*#shopItem .bottom .creation,
-#shopItem .bottom .comment*/{
+#shopItem .bottom .creation,
+#shopItem .bottom .comment{
 	display:none;
 }
 
@@ -1189,6 +1189,28 @@
 	font-size:1.2em;
 }
 
-/*--More Items like this--*/
+/*--creation--*/
+
+#shopItem .wrapper > ul > li{
+	margin:30px 13px;
+}
+
+/*--comment--*/
+#shopItem .comment > div{
+	width:90%;
+	margin:30px auto;
+	background-color: rgb(253,253,253);
+	border:1px solid rgb(240,240,240);
+
+}
 
 
+#shopItem .comment-messageBox{
+	width:81%;
+	margin:0 auto 40px;
+	border-bottom:1px solid rgb(240,240,240);
+}
+
+#shopItem .comment .comment-others{
+	width:80%;
+}
