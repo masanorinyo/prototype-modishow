@@ -857,21 +857,27 @@
 	background-color:rgb(235,235,235);
 }
 
-#shopItem .content{
+#shopItem .content,
+#signin .content{
 	width:1108px;
 	margin:0 auto;
-
 }
 
 #shopItem .content .top,
-#shopItem .content .bottom{
+#shopItem .content .bottom,
+#signin .content .bottom{
 	width:100%;
 	float:left;
 	background-color: rgb(255,255,255);
 	height:auto;
 }
 
-#shopItem .content .bottom{
+#signin .content .bottom{
+	border:1px solid rgb(221,221,221);
+}
+
+#shopItem .content .bottom,
+#signin .content .bottom{
 	min-height:500px;
 }
 
@@ -923,43 +929,58 @@
 }
 
 /*---Bottom---*/
-#shopItem .bottom .subHeader{
+#shopItem .bottom .subHeader,
+#signin .bottom .subHeader{
 	width:90%;
 	background-color:rgb(230,230,230);
 	height:37px;
 	border-bottom:5px solid rgb(230,230,230);
 	margin:30px auto;
-	z-index:9999;
+	z-index:999;
+	position: relative;
 }
 
 #shopItem .bottom .subHeader ul{
 	width:80%;
 	margin:0 auto;
 	text-align: center;
-
 }
 
-#shopItem .bottom .subHeader ul li{
+#signin .bottom .subHeader ul{
+	display:inline-block;
+}
+
+#signin .bottom .subHeader .rightSide{
+	position: absolute;
+	right:0;
+}
+
+
+#shopItem .bottom .subHeader ul li,
+#signin .bottom .subHeader ul li{
 	display: inline-block;
-	padding:14px 15px 10px;
-	width:150px;
+	padding:14px 25px 10px;
 	text-align: center;
 	cursor: pointer;
 }
 
 
 
-#shopItem .bottom .subHeader ul  li .blue-color{
+
+#shopItem .bottom .subHeader ul  li .blue-color,
+#signin .bottom .subHeader ul  li .blue-color{
 	color:rgb(50,180,240);
 }
 
-#shopItem .bottom .subHeader ul  li  span{
+#shopItem .bottom .subHeader ul  li  span,
+#signin .bottom .subHeader ul  li  span{
 	font-family:Thonburi;
 	font-size:14px;
 	color:rgb(155,155,155);
 }
 
-#shopItem .bottom .subHeader ul  li:hover span{
+#shopItem .bottom .subHeader ul  li:hover span,
+#signin .bottom .subHeader ul  li:hover span{
 	color:rgb(50,180,240);
 }
 
@@ -1098,18 +1119,22 @@
 /*-----------Bottom-----------*/
 /*--More Items like this--*/
 #shopItem .bottom .creation,
-#shopItem .bottom .comment{
+#shopItem .bottom .comment,
+#signin .bottom .creation,
+#signin .bottom .comment{
 	display:none;
 }
 
-#shopItem .bottom .inside{
+#shopItem .bottom .inside,
+#signin .bottom .inside{
 	position: relative;
 	width:90%;
 	margin:0 auto;
 
 }
 
-#shopItem .bottom .inside .hidden{
+#shopItem .bottom .inside .hidden,
+#signin .bottom .inside .hidden{
 	position: absolute;
 	right:0;
 	left:0;
@@ -1120,11 +1145,13 @@
 	display:none;
 }
 
-#shopItem .items{
+#shopItem .items,
+#signin .items{
 	margin:0 auto;
 }
 
-#shopItem .items > li{
+#shopItem .items > li,
+#signin .items > li{
 	width:29%;
 	height:360px;
 	position: relative;
@@ -1134,7 +1161,8 @@
 
 
 
-#shopItem .items .itemDetails-image{
+#shopItem .items .itemDetails-image,
+#signin .items .itemDetails-image{
 	width:100%;
 	position: relative;
 	height:300px;
@@ -1144,13 +1172,15 @@
 }
 
 
-#shopItem li .itemDetails-description{
+#shopItem li .itemDetails-description,
+#signin li .itemDetails-description{
 	position: relative;
 	width:100%;
 	height:13%;
 }
 
-#shopItem .bottom .items li .itemDetails-description .description{
+#shopItem .bottom .items li .itemDetails-description .description,
+#signin .bottom .items li .itemDetails-description .description{
 	position: absolute;
 	top:10px;
 	left:5px;
@@ -1159,58 +1189,283 @@
 	overflow: hidden;
 } 
 
-#shopItem .bottom .itemDetails-description .description a{
+#shopItem .bottom .itemDetails-description .description a,
+#signin .bottom .itemDetails-description .description a{
 	font-size:1.1em;
 }
 
 #shopItem .bottom .inside .button-tryon,
-#shopItem .bottom .inside .button-heart-item{
+#shopItem .bottom .inside .button-heart-item,
+#signin .bottom .inside .button-tryon,
+#signin .bottom .inside .button-heart-item{
 	right:0px;
 	bottom:60px;
 }
 
-#shopItem .bottom .inside .button-tryon{
+#shopItem .bottom .inside .button-tryon,
+#signin .bottom .inside .button-tryon{
 	right:65px;
 }
 
-#shopItem .items > li .itemDetails-description .price{
+#shopItem .items > li .itemDetails-description .price,
+#signin .items > li .itemDetails-description .price{
 	bottom:-5px;
 	left:260px;
 
 }
 
-#shopItem .items > li .itemDetails-description .url{
+#shopItem .items > li .itemDetails-description .url,
+#signin .items > li .itemDetails-description .url{
 	position: absolute;
 	bottom:-5px;
 	left:5px;
 }
 
-#shopItem .itemDetails-description .url a{
+#shopItem .itemDetails-description .url a,
+#signin .itemDetails-description .url a{
 	font-size:1.2em;
 }
 
 /*--creation--*/
 
-#shopItem .wrapper > ul > li{
+#shopItem .wrapper > ul > li,
+#signin .wrapper > ul > li{
 	margin:30px 13px;
 }
 
 /*--comment--*/
-#shopItem .comment > div{
+#shopItem .comment > div,
+#signin .comment > div{
 	width:90%;
 	margin:30px auto;
 	background-color: rgb(253,253,253);
 	border:1px solid rgb(240,240,240);
-
 }
 
 
-#shopItem .comment-messageBox{
+#shopItem .comment-messageBox,
+#signin .comment-messageBox{
 	width:81%;
 	margin:0 auto 40px;
 	border-bottom:1px solid rgb(240,240,240);
 }
 
-#shopItem .comment .comment-others{
+#shopItem .comment .comment-others,
+#signin .comment .comment-others{
 	width:80%;
 }
+
+
+/*----------------------user profile------------------------*/
+#signin .top{
+	margin:0 auto;
+	width:1050px;
+}
+
+#signin .top > div{
+	background-color:rgb(255,255,255);
+	height:100%;
+	float:left;	border:1px solid rgb(221,221,221);
+	min-height:225px;
+	margin:15px 0px;
+}
+
+#signin .top > .leftSide{
+	width:77%;
+}
+
+#signin .top > .rightSide{
+	width:21%;
+	margin-left:10px;
+}
+
+#signin .leftSide > div{
+	float:left;
+}
+
+#signin .userProfile{
+	width:30%;
+	height:100%;
+	position: relative;
+}
+
+#signin .userProfile img{
+	height:155px;
+	margin:30px;
+	border:5px solid rgb(221,221,221);
+}
+
+#signin .leftSide > .rightSide{
+	width:70%;
+	height:100%;
+	margin:0;
+	position: relative;
+}
+#signin .leftSide > .rightSide .userInformation > ul > li{
+	float:left;
+	margin:25px 10px;
+}
+
+#signin .userInformation li{
+	color:rgb(83,83,83);
+	font-family:"Calisto MT";
+	font-size:26px;
+}
+
+
+#signin .leftSide > .rightSide .userInformation .location{
+	font-family:"American Typewriter";
+	font-size:15px;
+	line-height: 220%;
+	margin-left:50px;
+	position: relative;
+}
+
+#signin .userInformation .location_icon{
+	width:17px;
+	height:29px;
+	position: absolute;
+	top:0;
+	left:-30px;
+}
+
+#signin .userInformation .joinDate{
+	font-size:11px;
+	line-height: 300%;
+	color:rgb(68,68,68);
+}
+
+#signin .leftSide > .rightSide .introduction{
+	position: relative;
+}
+
+#signin .leftSide > .rightSide .introduction p{
+	margin:25px 15px;
+	width:480px;
+	font-size:13px;
+	color:rgb(85,85,85);
+	min-height:75px;
+	overflow: hidden;
+	position: relative;
+
+}
+
+#signin .leftSide > .rightSide .introduction .more{
+	position: absolute;
+	right:80px;
+	bottom:-18px;
+}
+
+#signin .leftSide > .rightSide .lastChild .leftSide li{
+	float:left;
+	margin:0 0 15px 10px;
+	position: relative;
+	background-color:rgb(238,238,238);
+	color:rgb(152,152,152);
+	font-size:11px;
+	padding:5px 20px;
+	cursor: pointer;
+}
+
+#signin .leftSide > .rightSide .right-bottom{
+	position: absolute;
+	right:25px;
+	bottom:20px;
+}
+
+#signin .leftSide > .rightSide .right-bottom li{
+	float:left;
+	font-size:13px;
+	color:rgb(85,85,85);
+	cursor: pointer;
+}
+
+#signin .top > .rightSide{
+	position: relative;
+}
+
+#signin .top >  .rightSide > .award{
+	margin:25px 0px 40px 60px;
+	width:80%;
+	position: relative;
+}
+
+#signin .top >  .rightSide > .award > li{
+	position: relative;
+	margin-top:15px;
+}
+
+#signin .top >  .rightSide .award .middle{
+	font-size:0.9em;
+	color:rgb(100,100,100);
+}
+
+
+#signin .top >  .rightSide .award_icon{
+	position: absolute;
+	top:-10px;
+	left:-30px;
+}
+
+
+#signin .rightSide .more{
+	position: absolute;
+	bottom:-20px;
+	right:55px;
+	color:rgb(180,180,190);
+	font-size: 0.8em;
+
+
+
+}
+
+#signin .top >  .rightSide > .dashboard{
+	width:75%;
+	margin:10px auto;
+}
+
+#signin .top >  .rightSide > ul > li > div{
+	margin:10px 0px;
+	position: relative;
+	border-bottom:1px solid rgb(220,220,220);
+}
+
+#signin .top >  .rightSide .heart_empty{
+	right:auto;
+	width:19px;
+	height:19px;
+	left:25px;
+	top:-5px;
+	background-size: 100%;
+}
+
+#signin .top >  .rightSide .follow_icon{
+	width:30px;
+	height:30px;
+	position: absolute;
+	top:-8px;
+	left:20px;
+}
+
+#signin .top >  .rightSide .dashboard span{
+	font-size:1.0em;
+	color:rgb(119,119,119);
+}
+
+#signin .top >  .rightSide .dashboard-number{
+	margin-left:60px;
+
+}
+
+#signin .top >  .rightSide .lastChild{
+	margin-left:10px; 	
+}
+
+
+#signin .top >  .rightSide .icon{
+	position: absolute;
+	left:25px;
+	top:0px;
+}
+
+

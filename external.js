@@ -753,9 +753,9 @@ $(document).ready(function(){
 
 //--current--//
 $(document).ready(function(){
-	$("#shopItem .bottom .subHeader > ul > li").click(function() { 
+	$(".bottom .subHeader > ul > li").click(function() { 
         $(this).children("span").addClass("blue-color");
-        $("#shopItem .bottom .subHeader > ul > li > span").not($(this).children("span")).removeClass("blue-color");
+        $(".bottom .subHeader > ul > li > span").not($(this).children("span")).removeClass("blue-color");
  	}); 
 });
 
@@ -783,16 +783,36 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	$('#similarItems').click(function(event){
-		$("#shopItem .bottom .similarItems").show();
-		$("#shopItem .inside > div").not(".similarItems").hide();
+		$(".bottom .similarItems").show();
+		$(".inside > div").not(".similarItems").hide();
 	});
 	$('#creation').click(function(event){
-		$("#shopItem .bottom .creation").show();
-		$("#shopItem .inside > div").not(".creation").hide();
+		$(".bottom .creation").show();
+		$(".inside > div").not(".creation").hide();
 	});
 	$('#comment').click(function(event){
-		$("#shopItem .bottom .comment").show();
-		$("#shopItem .inside > div").not(".comment").hide();
+		$(".bottom .comment").show();
+		$(".inside > div").not(".comment").hide();
+	});
+	$('#all').click(function(event){
+		$(".bottom .overall").show();
+		$(".inside > div").not(".overall").hide();
+	});
+	$('#likes').click(function(event){
+		$(".bottom .likes").show();
+		$(".inside > div").not(".likes").hide();
+	});
+	$('#following').click(function(event){
+		$(".bottom .following").show();
+		$(".inside > div").not(".following").hide();
+	});
+	$('#follower').click(function(event){
+		$(".bottom .follower").show();
+		$(".inside > div").not(".follower").hide();
+	});
+	$('#setting').click(function(event){
+		$(".bottom .setting").show();
+		$(".inside > div").not(".setting").hide();
 	});
 
 });

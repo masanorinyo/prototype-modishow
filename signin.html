@@ -6,7 +6,8 @@
 		<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="signin.css">
+		<link rel="stylesheet" href="shop.css">
+
 		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="external.js"></script>
 		<!--[if lt IE 9]>
@@ -196,12 +197,9 @@
 							<ul class="userPage submenu background_dark round_bottom">
 								<li><a href="#">Profile</a></li>
 								<li><a href="#">Creations</a></li>
-								<li><a href="#">Magazines</a></li>
 								<li><a href="#">Likes</a></li>
 								<li><a href="#">Followings</a></li>
-								<li><a href="#">Followers</a></li>
-								<li><a href="#">Groups</a></li>
-								<li class="bottom_underscore"><a href="#">Find friends</a></li>
+								<li class="bottom_underscore"><a href="#">Followers</a></li>
 								<li><a href="#">Setting</a></li>
 								<li><a href="#">Logout</a></li>
 							</ul>
@@ -213,15 +211,718 @@
 				</div>
 			</div>
 		</div>
+		<div class="content round_weak">
+			<a id="body_back" class="backToTop modalbox-fixPosition round_circle background_shadow opaque_strong" href="#header"><span class="upwardArrow"></span></a>
+			<span id="about" class="about_button modalbox-fixPosition round_circle background_shadow opaque_strong">i</span>
+			<div class="top">
+				<div class="leftSide round_medium">
+					<div class="userProfile">
+						<img class="round_circle" src="images/userPhoto.gif"/>
+					</div>
+					<div class="rightSide">
+						<div class="userInformation">
+							<ul>
+								<li class="userName">
+									Masanori Sen
+								</li>
+								<li class="location">
+									<span class="location_icon">
+										
+									</span>
+									U.S.
+								</li>
+								<li class="joinDate">
+									- Join 10 days ago
+								</li>
+							</ul>
+						</div>
+						
+						<div class="introduction clear">
+							<p>
+								“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.” - Alexander 
 
-		<div id="content">
-			<a id="body_back" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#header"><span class="upwardArrow"></span></a>
-			<div id="content-wrapper">
-				<div class="wrapper">
-					
-				</div>	
+							</p>
+							<span class="more pointer">See More</span>
+						</div>
+						<div class="right-bottom">
+							<ul>
+								<li class="twitter">
+									<a href="#">
+										<img src="images/twitter.png" style="width:20px"/>
+									</a>
+								</li>
+								<li class="facebook">
+									<a href="#">
+										<img src="images/facebook.png" style="width:20px; margin:0 5px;" />
+									</a>
+								</li>
+								<li class="url"><a href-"#">- modishow.com</a></li>
+							</ul>
+						</div>
+						<div class="lastChild">
+							<ul class="leftSide">
+								<li class="follow round_medium">Follow</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="rightSide round_medium">
+					<ul class="award">
+						<li>
+							<span class="award_icon"></span>
+							<span class="middle"> Most viewed in this week </span>
+							<span class="more pointer">See More</span>
+						</li>
+					</ul>
+					<ul class="dashboard">
+						<li>
+							<div>
+								<span class="view_icon icon"></span> 
+								<span class="dashboard-number">1300
+								</span>
+								<span class="lastChild"> View
+								</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="heart_empty"></span> 
+								<span class="dashboard-number">2000</span>
+								<span class="lastChild" > Likes </span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="comment_icon icon"></span>
+								<span class="dashboard-number">9</span>
+								<span class="lastChild"> Discuss
+								</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="follow_icon"></span>
+								<span class="dashboard-number">9</span>
+								<span class="lastChild"> Followings
+								</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="follow_icon"></span>
+								<span class="dashboard-number">9</span>
+								<span class="lastChild">
+									Followers
+								</span>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
+			<div class="bottom round_medium">
+				<div class="subHeader">
+					<ul>
+						<li id="all">	
+							<span class="blue-color">All</span>
+						</li>
+						<li id="creation">
+							<span class="number">11111 </span>
+							<span>Creations</span>
+						</li>
+						<li id="likes">
+							<span class="number">11111 </span>
+							<span>Likes</span>
+						</li>
+						<li id="following">
+							<span class="number">111111 </span>
+							<span>followings</span>
+						</li>
+						<li id="follower">
+							<span class="number">11111 </span>
+							<span>followers</span>
+						</li>
+						
+					</ul>
+					<ul class="rightSide ">
+						<li id="comment">
+							<span>Discussion</span>
+						</li>
+						<li id="setting">
+							<span>Setting</span>
+						</li>
+					</ul>
+				</div>
+				<div class="inside">
+					<span class="hidden">No Items</span>
+					<div class="overall">
+					</div>
+					<div class="likes">
+					</div>
+					<div class="followre">
+					</div>
+					<div class="following">
+					</div>
+					<div class="setting">
+					</div>
+					<div class="creation wrapper">
+						<ul>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="content-small">
+								<div class="button-heart">
+									<span class="heart_empty"><span>40000</span></span>
+									<span class="heart_filled"><span>40000</span></span>						
+								</div>
+								<div class="button-flip">
+									<span class="flipIcon-grey"></span>	
+									<span class="flipIcon"></span>				
+								</div>
+								<div class="collageBox openModal">
+									<div class="collageBox-inside">
+										<img src="images/outfit1.png"/>
+									</div>
+								</div>
+								<div class="modelBox openModal">
+									<img src="images/model1.png"/>
+								</div>
+								<div class="peopleBox openModal">
+								</div>
+								<div class="content-styleDetails">
+									<div class="styleDetails-wrapper">
+										<div class="styleTitle "><span class="openModal"> Beauty of Simplicity</span></div>
+										<div class="styleInfo">
+											<a class="artist-name" href="#">
+												By 
+												<span>
+													Kaori Kuniyoshi 
+												</span>
+											</a>
+											<a class="style-category" href="#">
+												Category
+												<span>
+												 - Sexy
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>	
+					</div>
+					<div class="comment">
+						<div class="round_weak">
+							<div class="comment-messageBox">
+								<img src="images/userPhoto.gif"/>
+								<form>
+									<textarea ></textarea>
+									<input type="button" value="Post"/>
+								</form>
+							</div>
+							<div class="comment-others">
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  
+											<span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board"> Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>	
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>	
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue"  href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+								<div class="others-commentWrapper">
+									<a href="#">
+										<img src="images/userPhoto.gif"/>
+									</a>
+									<ul>
+										<li>
+											<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										</li>
+									</ul>
+									<div class="message_board">Best Idea
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div id="subFooter" class="clear"><span>Loading...</span></div>
+		</div>	
 		<div id="footer" class="themeColor"> 
 			<div>
 				<ul>
@@ -312,5 +1013,6 @@
 			<div class="clear lastChild">
 				<span>&copy; 2013 - ModiShow corporation</span>
 			</div>
-		</div>	</body>
+		</div>	
+	</body>
 </html>

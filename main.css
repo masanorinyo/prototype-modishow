@@ -242,9 +242,10 @@ li{
 }
 
 .round_circle{
-	border-radius: 100px;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	
 }
 
 
@@ -1724,8 +1725,29 @@ li{
 	left:-45px;
 }
 
+.follow_icon{
+	background:url("images/followIcon.png") top left no-repeat; 
+	background-size: 100% 80%;
+	background-position:50% 50%; 
+	z-index:101;
+	left:0px;
+	top:0px;
+	opacity: 0.3;
+}
 
-.dashboard-comment > div > .comment_icon{
+.award_icon{
+	background:url("images/award-icon.png") top left no-repeat; 
+	background-size: 100% 80%;
+	background-position:50% 50%;
+	width:20px;
+	height:35px;
+	z-index:101;
+	left:0px;
+	top:0px;
+
+}
+
+.comment_icon{
 	background:url("images/comment_icon.png") top left no-repeat; 
 	background-size: 70% 70%;
 	background-position:50% 50%; 
@@ -1734,8 +1756,17 @@ li{
 	top:9px;
 }
 
-.dashboard-view > div > .view_icon{
+.view_icon{
 	background:url("images/view_icon.png") top left no-repeat; 
+	background-size: 100% 80%;
+	background-position:50% 50%;
+	z-index:101;
+	left:10px;
+	top:8px;
+}
+
+.location_icon{
+	background:url("images/locationIcon.png") top left no-repeat; 
 	background-size: 100% 80%;
 	background-position:50% 50%;
 	z-index:101;
@@ -2582,6 +2613,6 @@ li{
 	color:rgb(255,255,255);
 }
 
-/*------------------FORMS------------------*/
+/*------------------Profile page------------------*/
 
 
