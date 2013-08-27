@@ -156,7 +156,7 @@ $(document).ready(function(){
 //--direct contents to the modal box content--//
 //if collage contents are clicked, the collage will be shown in the modal box at first//
 $(document).ready(function(){
-   	$(".collageBox,.styleTitle > .openModal,.medium_boxes .openModal").click(function(){
+   	$(".collageBox,.styleTitle > .openModal,.medium_boxes .openModal,.follow .openModal").click(function(){
 		$(".rectanglar-left").addClass("currently_focus");
     	$(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
     	$(".content_model,.content_people").hide();    
@@ -821,20 +821,34 @@ $(document).ready(function(){
 //**********feed navi current*********//
 $(document).ready(function(){
 	$("#feed_navi ul li").click(function() { 
-        $(this).addClass("current");
+                $(this).addClass("current");
         $("#feed_navi ul li").not(this).removeClass("current");
  	}); 
 });
 
 
+
+//********* expand text/content************//
 $(document).ready(function(){
 	$(".moreText").click(function() { 
+        if($("#signin .introduction p").hasClass("expandable")){
+            $(this).text("Show Less");
+        }else {
+            $(this).text("Show More");
+        }
         $("#signin .introduction p").toggleClass("expandable");
+        
  	}); 
 });
 
 $(document).ready(function(){
 	$(".moreAward").click(function() { 
+		 if($("#signin .rightSide .hidden").is(":visible")){
+            $(this).text("Show more");
+        }else {
+            $(this).text("Show less");
+        }
+
         $("#signin .rightSide .hidden").fadeToggle("fast");
  	}); 
 });

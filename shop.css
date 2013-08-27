@@ -1173,7 +1173,7 @@
 
 
 #shopItem li .itemDetails-description,
-#signin li .itemDetails-description{
+#signin .rightSideBox .itemDetails-description{
 	position: relative;
 	width:100%;
 	height:13%;
@@ -1488,3 +1488,112 @@
 	display:block;
 }
 
+
+
+#signin .follow > div{
+	width:983px;
+	height:266px;
+	margin:20px auto;
+}
+
+#signin .follow > div > div{
+float:left;
+}
+
+#signin .follow > div > .leftSide,
+#signin .follow > div >.rightSide{
+  width:23.1%;
+  height:100%;
+  margin-right:3px;
+  border:1px solid rgb(200,200,200);
+  position: relative;
+}
+
+#signin .follow > div >.rightSide{
+  width:75.8%;
+  height:100%
+}
+
+#signin .follow > div > .leftSide ul .firstChild{
+	height:42px;
+	width:100%;
+	position: relative;
+}	
+
+#signin .follow > div > .leftSide .userName{
+	position: absolute;
+	top:12px;
+	left:10px;
+	font-family:"Calisto MT";
+	font-size:1.5em;
+	font-weight:bold;
+	color:rgb(102,102,102);
+}
+
+#signin .follow > div > .leftSide ul .lastChild{
+	width:100%;
+	height:225px;
+	overflow:hidden;
+}
+
+#signin .follow > div > .leftSide ul .lastChild img{
+	width:100%;
+	margin:0 auto;
+}
+
+#signin .follow > div > .leftSide .hidden{
+	width:100%;
+	height:50px;
+	display: block;
+	top:auto;
+	bottom:-1px;
+	background-color: rgb(100,100,100);
+}
+
+#signin .follow > div > .leftSide .hidden span{
+	display:none;
+	font-size: 0.5em;
+	margin:12px;
+	color:rgb(240,240,240);
+}
+
+#signin .follow > div > .leftSide .hidden .unfollow{
+	display:block;
+}
+
+#signin .follow > div > .rightSide ul{
+	height:100%;
+}
+
+#signin .follow > div > .rightSide ul li{
+    float:left;
+	height:100%;
+	width:33.3%;
+    position:relative;
+    cursor: pointer;
+}
+
+#signin .follow > div > .rightSide ul li img{
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	margin:auto;
+	width:100%;
+}
+
+#signin .follow > div > .rightSide > span{
+	z-index:1000;
+	left:5px;
+	display: none;
+}
+
+#signin .follow > div > .rightSide > .rightArrow-circle{
+	right:5px;
+	left:auto;
+}
+
+#signin .follow > div > .rightSide:hover > span{
+	display: block;
+}
