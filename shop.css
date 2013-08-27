@@ -622,15 +622,15 @@
 	cursor: pointer;
 }
 
-.shop #modalbox .leftSideBox,
-.shop #modalbox .rightSideBox{
+.shop #modalbox-quick .leftSideBox,
+.shop #modalbox-quick .rightSideBox{
 	float:left;
 	position: relative;
 	height:470px;
 	width:50%;
 }
 
-.shop #modalbox .rightSideBox{
+.shop #modalbox-quick .rightSideBox{
 	float:right;
 }
 
@@ -1128,7 +1128,7 @@
 #shopItem .bottom .inside,
 #signin .bottom .inside{
 	position: relative;
-	width:90%;
+	width:1030px;
 	margin:0 auto;
 
 }
@@ -1231,6 +1231,11 @@
 #shopItem .wrapper > ul > li,
 #signin .wrapper > ul > li{
 	margin:30px 13px;
+}
+
+#signin .creation > ul{
+	width:97%;
+	margin:0 auto;
 }
 
 /*--comment--*/
@@ -1345,15 +1350,21 @@
 	font-size:13px;
 	color:rgb(85,85,85);
 	min-height:75px;
-	overflow: hidden;
 	position: relative;
 
 }
 
-#signin .leftSide > .rightSide .introduction .more{
+.expandable{
+	overflow: hidden;
+	height:75px;
+}
+
+#signin .leftSide > .rightSide .introduction .moreText{
 	position: absolute;
 	right:80px;
 	bottom:-18px;
+		color:rgb(180,180,190);
+
 }
 
 #signin .leftSide > .rightSide .lastChild .leftSide li{
@@ -1408,15 +1419,16 @@
 }
 
 
-#signin .rightSide .more{
+#signin .rightSide .moreAward{
 	position: absolute;
-	bottom:-20px;
-	right:55px;
+	bottom:160px;
+	right:25px;
 	color:rgb(180,180,190);
 	font-size: 0.8em;
+}
 
-
-
+#signin .rightSide .hidden{
+	display:none;
 }
 
 #signin .top >  .rightSide > .dashboard{
@@ -1434,7 +1446,7 @@
 	right:auto;
 	width:19px;
 	height:19px;
-	left:25px;
+	left:20px;
 	top:-5px;
 	background-size: 100%;
 }
@@ -1444,7 +1456,7 @@
 	height:30px;
 	position: absolute;
 	top:-8px;
-	left:20px;
+	left:15px;
 }
 
 #signin .top >  .rightSide .dashboard span{
@@ -1464,8 +1476,15 @@
 
 #signin .top >  .rightSide .icon{
 	position: absolute;
-	left:25px;
+	left:20px;
 	top:0px;
 }
 
+#signin .inside > div{
+	display:none;
+}
+
+#signin .inside > .overall{
+	display:block;
+}
 

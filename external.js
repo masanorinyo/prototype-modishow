@@ -52,7 +52,7 @@ $(document).ready(function(){
 	$('.openModal').click(function(event){
 		$('#body_back').css("display", "none");
 	});
-	$('#modalbox').click(function(event){
+	$('#modalbox,#modalbox-quick').click(function(event){
 		$('#modalbox-backToTop').css("display", "block");
 	});
 	$('.openModal').click(function(event){
@@ -67,7 +67,7 @@ $(document).ready(function(){
 	$('.closeBox,.close').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
-	$('#modalbox').click(function(event){
+	$('#modalbox,#modalbox-quick').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
 	$('#modalbox').click(function(event){
@@ -156,7 +156,7 @@ $(document).ready(function(){
 //--direct contents to the modal box content--//
 //if collage contents are clicked, the collage will be shown in the modal box at first//
 $(document).ready(function(){
-   	$(".collageBox,.styleTitle > .openModal").click(function(){
+   	$(".collageBox,.styleTitle > .openModal,.medium_boxes .openModal").click(function(){
 		$(".rectanglar-left").addClass("currently_focus");
     	$(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
     	$(".content_model,.content_people").hide();    
@@ -180,7 +180,7 @@ $(document).ready(function(){
 //---------------------Contents ---------------------//
 //--hover effect for contents--//
 $(document).ready(function(){
-	$(".content-small,.content-large,.items > li").hover(function(){
+	$(".content-small,.content-large,.items > li,.large_boxes,#feed_content > div > div > ul > li").hover(function(){
 		$(this).children(".button-heart,.button-flip").fadeIn("fast");},function(){
 		$(this).children(".button-heart,.button-flip").fadeOut("fast");
 	});
@@ -634,15 +634,15 @@ $(document).ready(function(){
 //--quick look modalbox--//
 $(document).ready(function(){
 	$('.zoom').click(function(event){
-		$('#popupOverlay').fadeIn("fast");
+		$('#quickView').fadeIn("fast");
 	});
 
-	$("#modalbox").click(function(event){
-			$('#popupOverlay').hide();
+	$("#modalbox-quick").click(function(event){
+			$('#quickView').hide();
 		});	
 
 	$('.close,.button_medium.cancel').click(function(event){
-		$('#popupOverlay').hide();});
+		$('#quickView').hide();});
 
 	$('.popup_confirmation').click(function(event){
 		event.stopPropagation();
@@ -818,6 +818,28 @@ $(document).ready(function(){
 });
 
 
+//**********feed navi current*********//
+$(document).ready(function(){
+	$("#feed_navi ul li").click(function() { 
+        $(this).addClass("current");
+        $("#feed_navi ul li").not(this).removeClass("current");
+ 	}); 
+});
+
+
+$(document).ready(function(){
+	$(".moreText").click(function() { 
+        $("#signin .introduction p").toggleClass("expandable");
+ 	}); 
+});
+
+$(document).ready(function(){
+	$(".moreAward").click(function() { 
+        $("#signin .rightSide .hidden").fadeToggle("fast");
+ 	}); 
+});
+
+
 //--------------------------Jquery UI-------------------------------------//
 //--price range--//
 $(document).ready(function(){
@@ -835,4 +857,5 @@ $(document).ready(function(){
 	);
 	$("#slider").children("div").css("background","rgb(130,140,150)");
 });
+
 
