@@ -857,6 +857,7 @@
 	background-color:rgb(235,235,235);
 }
 
+
 #shopItem .content,
 #signin .content{
 	width:1108px;
@@ -868,6 +869,7 @@
 #signin .content .bottom{
 	width:100%;
 	float:left;
+	padding-bottom:100px;
 	background-color: rgb(255,255,255);
 	height:auto;
 }
@@ -1168,7 +1170,6 @@
 	height:300px;
 	border:2px solid rgb(240,240,240);
 	background-color: rgb(255,255,255);
-
 }
 
 
@@ -1596,4 +1597,129 @@ float:left;
 
 #signin .follow > div > .rightSide:hover > span{
 	display: block;
+}
+
+
+
+#signin .setting > form > div{
+	width:636px;
+	height:430px;
+	background-color: rgb(248,248,248);
+	border:1px solid rgb(210,210,210);
+	margin:0 auto 20px;
+}
+
+
+#signin .setting > form > div .sub-header{
+	background-color: rgb(225,225,225);
+	box-shadow:0px 1px 1px rgb(150,150,150);
+	height:44px;
+	position: relative;
+}
+
+#signin .setting > form .sub-header span{
+	position: absolute;
+	top:13px;
+	left:78px;
+	right:0;
+	font-family:"Calisto MT";
+	font-size:1.6em;
+	color:rgb(100,100,100);
+
+}
+
+#signin .setting > form > div ul{
+	height:100%;
+}
+
+#signin .setting > form > div > ul > li{
+		height:12.6%;
+		position: relative;
+		border-bottom:1px solid rgb(230,230,230);
+}
+
+#signin .setting > form > .personal > ul > li{
+	height:16.5%;
+}
+
+#signin .setting > form > div > ul > .lastChild{
+	border:none;
+}
+
+#signin .setting .setting-wrapper ul li span,
+#signin .setting .setting-wrapper input[type="text"],
+#signin .setting .setting-wrapper input[type="password"],
+#signin .setting .setting-wrapper select{
+	position: absolute;
+	left:80px;
+	top:20px;
+	font-family:"Calisto MT";
+	font-size:1.3em;
+	color:rgb(102,102,102);
+}
+
+#signin .setting .setting-wrapper input[type="text"],
+#signin .setting .setting-wrapper input[type="password"],
+#signin .setting .setting-wrapper select{
+	right:70px;
+	left:auto;
+	width:330px;
+	height:21px;
+	padding:4px;
+	border:1px solid rgb(200,200,200);
+	top:13px;
+}
+
+#signin .setting .setting-wrapper select{
+	top:18px;
+	height:25px;
+	width:344px;
+}
+
+#signin .setting .setting-wrapper label{
+	float:right;
+	margin:20px 73px 20px 0px;
+}
+
+#signin .setting > form > .personal{
+	height:300px;
+}
+
+#signin .setting > form > .confirmation{
+	height:70px;
+	position: relative;
+	background-color: rgb(230,230,230);
+
+}
+
+#signin .setting button{
+	 -webkit-appearance: none;
+    height: 30px;
+    width:100px;
+	background-color:rgb(255,255,255);    
+	color:rgb(155,155,155);
+	box-shadow:2px 2px 1px rgb(200,200,200);
+	border:1px solid rgb(230,230,230);
+    font-size: 1.2em;
+    cursor: pointer;
+    position: absolute;
+    top:20px;
+    left:70px;
+}
+
+#signin .setting button:hover,
+#signin .setting button:active{
+	box-shadow:none;
+}
+
+#signin .setting #cancel{
+	left:auto;
+	right:200px;
+}
+#signin .setting #confirm{
+	left:auto;
+	right:70px;
+	border:none;
+	color:rgb(255,255,255);
+	background-color: rgb(50,180,240);
 }
