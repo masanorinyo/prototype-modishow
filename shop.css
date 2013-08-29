@@ -597,7 +597,7 @@
 
 /*---------------------Quick look box------------------------*/
 /*--Structure--*/
-.shop .popup_confirmation{
+#quickView .popup-box{
 	width:650px;
 	height:500px;
 	background-color: rgb(255,255,255);
@@ -605,7 +605,7 @@
 	position: relative;
 }
 
-.popup_confirmation > .subHeader,
+#quickView  .popup-box > .subHeader,
 .shopItem > .subHeader{
 	width:100%;
 	height:30px;
@@ -613,7 +613,7 @@
 	position: relative;
 }
 
-.shop .popup_confirmation div .close{
+#quickView  .popup-box div .close{
 	left:625px;
 	background-size: 100%;
 	height:15px;
@@ -622,26 +622,26 @@
 	cursor: pointer;
 }
 
-.shop #modalbox-quick .leftSideBox,
-.shop #modalbox-quick .rightSideBox{
+#modalbox-quick .leftSideBox,
+#modalbox-quick .rightSideBox{
 	float:left;
 	position: relative;
 	height:470px;
 	width:50%;
 }
 
-.shop #modalbox-quick .rightSideBox{
+#modalbox-quick .rightSideBox{
 	float:right;
 }
 
 
-.popup_confirmation .itemBox{
+#quickView  .popup-box .itemBox{
 	width:300px;
 	height:350px;
 	margin:0 auto;
 }
 
-.popup_confirmation .itemBox-related{
+#quickView  .popup-box .itemBox-related{
 	width:240px;
 	height:85px;
 	margin:0 auto;
@@ -671,7 +671,7 @@
 	border: 1px solid rgb(245,245,245);
 }
 
-.popup_confirmation .sideScroll-wrapper img{
+#quickView  .popup-box .sideScroll-wrapper img{
 	height:100%;
 	margin:0 auto;
 	z-index:15;
@@ -698,7 +698,7 @@
 
 
 
-.popup_confirmation .itemBox-related span{
+#quickView  .popup-box .itemBox-related span{
 	height:40px;
 	width:20px;
 	background-size: 100% 100%;
@@ -709,10 +709,10 @@
 
 }
 
-.popup_confirmation .rightArrow-thick{
+#quickView  .popup-box .rightArrow-thick{
 	right:25px;
 }
-.popup_confirmation .leftArrow-thick{
+#quickView  .popup-box .leftArrow-thick{
 	left:25px;
 }
 
@@ -851,6 +851,15 @@
 	position: relative;
 }
 
+
+#setting #footer,
+#register #footer{
+	height:50px;
+	display:block;
+	position: relative;
+	margin-top:40px;
+}
+
 /*------------------------------------ShopItem------------------------------------*/
 /*Structure*/
 #shopItem{
@@ -942,20 +951,16 @@
 	position: relative;
 }
 
-#shopItem .bottom .subHeader ul{
+#shopItem .bottom .subHeader ul,
+#signin .bottom .subHeader ul{
 	width:80%;
 	margin:0 auto;
 	text-align: center;
 }
-
 #signin .bottom .subHeader ul{
-	display:inline-block;
+	width:95%;
 }
 
-#signin .bottom .subHeader .rightSide{
-	position: absolute;
-	right:0;
-}
 
 
 #shopItem .bottom .subHeader ul li,
@@ -1244,8 +1249,8 @@
 #signin .comment > div{
 	width:90%;
 	margin:30px auto;
-	background-color: rgb(253,253,253);
-	border:1px solid rgb(240,240,240);
+	background-color: rgb(250,250,250);
+	border:1px solid rgb(220,220,220);
 }
 
 
@@ -1253,7 +1258,7 @@
 #signin .comment-messageBox{
 	width:81%;
 	margin:0 auto 40px;
-	border-bottom:1px solid rgb(240,240,240);
+	border-bottom:1px solid rgb(220,220,220);
 }
 
 #shopItem .comment .comment-others,
@@ -1295,10 +1300,50 @@
 	position: relative;
 }
 
-#signin .userProfile img{
+#signin .userProfile > div{
 	height:155px;
+	width:155px;
 	margin:30px;
+}
+
+#signin .userProfile img{
+	height:100%;
 	border:5px solid rgb(221,221,221);
+}
+
+#signin .userProfile > div > div{
+	width:100px;
+	height:25px;
+	background-color: rgb(240,240,240);
+	position: absolute;
+	bottom:60px;
+	left:60px;
+	text-align: center;
+	cursor: pointer;
+	display:none;
+
+}
+
+#signin .userProfile span{
+	position: absolute;
+	right:0;
+	left:0;
+	margin:5px auto;
+	font-size: 1em;
+	color:rgb(152,152,152);
+}
+
+#signin .userProfile > div:hover div{
+	display: block
+}
+
+#signin .userProfile > div > div:hover{
+		background-color: rgb(50,180,240);
+
+}
+
+#signin .userProfile > div > div:hover span{
+	color:rgb(255,255,255);
 }
 
 #signin .leftSide > .rightSide{
@@ -1341,6 +1386,18 @@
 	color:rgb(68,68,68);
 }
 
+#signin .userInformation .editIcon{
+	background:url("images/editIcon.png") top left no-repeat; 
+	background-size:65%;
+	background-position: 50% 50%;
+	width:20px;
+	height:20px;
+	position: absolute;
+	top:30px;
+	right:28px;
+}
+
+
 #signin .leftSide > .rightSide .introduction{
 	position: relative;
 }
@@ -1360,7 +1417,7 @@
 	height:75px;
 }
 
-#signin .leftSide > .rightSide .introduction .moreText{
+.moreText{
 	position: absolute;
 	right:80px;
 	bottom:-18px;
@@ -1368,11 +1425,15 @@
 
 }
 
+.moreText:hover{
+	color:rgb(50,180,240);
+}
+
 #signin .leftSide > .rightSide .lastChild .leftSide li{
 	float:left;
 	margin:0 0 15px 10px;
 	position: relative;
-	background-color:rgb(238,238,238);
+	border:1px solid rgb(220,220,220);
 	color:rgb(152,152,152);
 	font-size:11px;
 	padding:5px 20px;
@@ -1428,6 +1489,11 @@
 	font-size: 0.8em;
 }
 
+#signin .rightSide .moreAward:hover{
+	color: rgb(50,180,240);
+
+}
+
 #signin .rightSide .hidden{
 	display:none;
 }
@@ -1459,6 +1525,8 @@
 	top:-8px;
 	left:15px;
 }
+
+
 
 #signin .top >  .rightSide .dashboard span{
 	font-size:1.0em;
@@ -1545,20 +1613,24 @@ float:left;
 #signin .follow > div > .leftSide .hidden{
 	width:100%;
 	height:50px;
-	display: block;
+	display: none;
 	top:auto;
 	bottom:-1px;
 	background-color: rgb(100,100,100);
 }
 
 #signin .follow > div > .leftSide .hidden span{
-	display:none;
 	font-size: 0.5em;
-	margin:12px;
+	position: absolute;
+	right:0;
+	left:0;
+	top:12px;
+	margin:auto;
 	color:rgb(240,240,240);
 }
 
-#signin .follow > div > .leftSide .hidden .unfollow{
+
+#signin .follow > div .leftSide ul:hover .hidden{
 	display:block;
 }
 
@@ -1601,23 +1673,28 @@ float:left;
 
 
 
-#signin .setting > form > div{
+.setting > form{
+	margin-top:50px;
+}
+
+.setting > form > div{
 	width:636px;
 	height:430px;
 	background-color: rgb(248,248,248);
 	border:1px solid rgb(210,210,210);
 	margin:0 auto 20px;
+	box-shadow: 0 0 3px rgb(120,120,120);
 }
 
 
-#signin .setting > form > div .sub-header{
+.setting > form > div .sub-header{
 	background-color: rgb(225,225,225);
 	box-shadow:0px 1px 1px rgb(150,150,150);
 	height:44px;
 	position: relative;
 }
 
-#signin .setting > form .sub-header span{
+.setting > form .sub-header span{
 	position: absolute;
 	top:13px;
 	left:78px;
@@ -1628,28 +1705,30 @@ float:left;
 
 }
 
-#signin .setting > form > div ul{
+
+.setting > form > div ul{
 	height:100%;
 }
 
-#signin .setting > form > div > ul > li{
+.setting > form > div > ul > li{
 		height:12.6%;
 		position: relative;
 		border-bottom:1px solid rgb(230,230,230);
 }
 
-#signin .setting > form > .personal > ul > li{
+.setting > form > .personal > ul > li{
 	height:16.5%;
 }
 
-#signin .setting > form > div > ul > .lastChild{
+.setting > form > div > ul > .lastChild{
 	border:none;
 }
 
-#signin .setting .setting-wrapper ul li span,
-#signin .setting .setting-wrapper input[type="text"],
-#signin .setting .setting-wrapper input[type="password"],
-#signin .setting .setting-wrapper select{
+
+.setting .setting-wrapper ul li span,
+.setting .setting-wrapper input[type="text"],
+.setting .setting-wrapper input[type="password"],
+.setting .setting-wrapper select{
 	position: absolute;
 	left:80px;
 	top:20px;
@@ -1658,9 +1737,9 @@ float:left;
 	color:rgb(102,102,102);
 }
 
-#signin .setting .setting-wrapper input[type="text"],
-#signin .setting .setting-wrapper input[type="password"],
-#signin .setting .setting-wrapper select{
+.setting .setting-wrapper input[type="text"],
+.setting .setting-wrapper input[type="password"],
+.setting .setting-wrapper select{
 	right:70px;
 	left:auto;
 	width:330px;
@@ -1670,35 +1749,69 @@ float:left;
 	top:13px;
 }
 
-#signin .setting .setting-wrapper select{
+#register .setting-wrapper ul li .legalStatement{
+	font-size:0.9em;
+	margin:10px 0px 0px 40px;
+}
+
+#register .setting-wrapper ul li .legalStatement a{
+	color:rgb(0,0,0);
+	font-weight: bold;
+}
+
+#register .confirmation > div{
+	position: absolute;
+	bottom:20px;
+	padding:2px 10px;
+	left:80px;
+	cursor: pointer;
+}
+
+#register .confirmation > div > span{
+	color:rgb(50,180,240);
+	font-size:1.5em;
+}
+
+#register .confirmation > div:hover{
+	background-color:rgb(50,180,240);
+}
+
+#register .confirmation > div:hover span{
+	color:rgb(255,255,255);
+}
+
+#login{
+	display:none;
+}
+
+.setting .setting-wrapper select{
 	top:18px;
 	height:25px;
 	width:344px;
 }
 
-#signin .setting .setting-wrapper label{
+.setting .setting-wrapper label{
 	float:right;
 	margin:20px 73px 20px 0px;
 }
 
-#signin .setting > form > .personal{
+.setting > form > .personal{
 	height:300px;
 }
 
-#signin .setting > form > .confirmation{
+.setting > form > .confirmation{
 	height:70px;
 	position: relative;
 	background-color: rgb(230,230,230);
 
 }
 
-#signin .setting button{
+.setting button{
 	 -webkit-appearance: none;
     height: 30px;
     width:100px;
 	background-color:rgb(255,255,255);    
 	color:rgb(155,155,155);
-	box-shadow:2px 2px 1px rgb(200,200,200);
 	border:1px solid rgb(230,230,230);
     font-size: 1.2em;
     cursor: pointer;
@@ -1707,19 +1820,157 @@ float:left;
     left:70px;
 }
 
-#signin .setting button:hover,
-#signin .setting button:active{
-	box-shadow:none;
+.setting button:hover,
+.setting button:active{
+	border-color:	rgb(50,180,240);
 }
 
-#signin .setting #cancel{
+.setting #confirm:hover,
+.setting #confirm:active{
+	background-color:rgb(80,110,150);
+}
+
+.setting #cancel{
 	left:auto;
 	right:200px;
 }
-#signin .setting #confirm{
+.setting #confirm{
 	left:auto;
 	right:70px;
 	border:none;
 	color:rgb(255,255,255);
 	background-color: rgb(50,180,240);
 }
+
+/*--Edit profile and picture*/
+#changePic .popup-box{
+	height:160px;
+}
+
+
+#changePic .popup-box .inside{
+	width:80%;
+	height:50%;
+	margin:30px auto;
+}
+
+#changePic .popup-box form{
+	border:1px solid rgb(200,200,200);
+	 font-size: 1em;
+}
+
+
+
+#changePic .popup-box form{
+	border:1px solid rgb(200,200,200);
+	 font-size: 1em;
+	 height:30px;
+}
+
+
+#changePic .popup-box form{
+	border:1px solid rgb(200,200,200);
+	 font-size: 1em;
+	 height:30px;
+}
+
+#changePic .popup-box input[type="file"]{
+	padding:7px;
+}
+
+#signin .profile > form > div{
+	width:90%;
+	margin:20px auto;
+	
+}
+
+#signin .profile > form > div > ul > li{
+	margin:25px;
+}
+
+#signin .profile > form > div span{
+	font-size:1.5em;
+	color:rgb(140,140,140);
+}
+
+#signin .profile > form > div input{
+	width:70%;
+	height:20px;
+	padding:4px;
+	font-size: 1.3em;
+	margin-left:20px;
+	float:right;
+	color:rgb(100,100,100);
+
+}
+
+#signin .profile > form > div textarea{
+	height:200px;
+	width:70%;
+	border-color:rgb(200,200,200);
+	float:right;
+	padding:5px;
+	color:rgb(100,100,100);
+	font-size:1.1em;
+}
+
+#signin .profile > form > .confirmation{
+	height:73px;
+	width:100%;
+}
+
+#signin .profile > form > .confirmation > div{
+	float:left;
+	margin:40px 0 44px 40px;
+	font-size:0.9em;
+	color:rgb(150,150,150);
+}
+
+#signin .profile > form > .confirmation #confirm{
+	margin-right:50px;
+}
+
+#signin .profile > form > .confirmation button{
+	float:right;
+	margin:30px 10px;
+	 -webkit-appearance: none;
+    height: 30px;
+	background-color:rgb(255,255,255);    
+	color:rgb(155,155,155);
+	border:1px solid rgb(230,230,230);
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#signin .profile > form > .confirmation #confirm{
+	background-color: rgb(50,180,240);
+	color:rgb(255,255,255);
+}
+
+#signin .profile > form > .confirmation #confirm:hover,
+#signin .profile > form > .confirmation #confirm:active{
+	background-color:rgb(80,110,150);
+}
+
+#signin .profile form button:hover,
+#signin .profile form button:active{
+	border-color:	rgb(50,180,240);
+}
+
+}
+
+#signin .profile > form > .confirmation > div a{
+	font-size:1.3em;
+}
+
+#signin .profile > form > .confirmation > div a:hover{
+	color:rgb(50,180,240);
+}
+
+/*--Effect--*/
+#signin .lastChild .leftSide .follow.round_medium:hover{
+	background-color: rgb(50,180,240);
+	color:rgb(255,255,255);
+}
+
+#signin .follow .hidden:hover

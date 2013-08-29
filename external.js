@@ -46,13 +46,13 @@ $(document).ready(function(){
 	$('.openModal').click(function(event){
 		$('#popupOverlay').show();
 	});
-	$('.openModal,.zoom').click(function(event){
+	$('.openModal,.zoom,.editIcon,.userProfile > div > div').click(function(event){
 		$('html').css("overflow", "hidden");
 	});
 	$('.openModal').click(function(event){
 		$('#body_back').css("display", "none");
 	});
-	$('#modalbox,#modalbox-quick').click(function(event){
+	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic').click(function(event){
 		$('#modalbox-backToTop').css("display", "block");
 	});
 	$('.openModal').click(function(event){
@@ -67,7 +67,7 @@ $(document).ready(function(){
 	$('.closeBox,.close').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
-	$('#modalbox,#modalbox-quick').click(function(event){
+	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
 	$('#modalbox').click(function(event){
@@ -385,20 +385,20 @@ $(document).ready(function(){
 
 	$("#modalbox").click(function(event){
 			$('#popupOverlay').hide();
-			$('#createCollage').hide();
-			$('#publish').fadeIn("fast");
+			$('.createCollage').hide();
+			$('.publishes').fadeIn("fast");
 		});	
 
 	$('.close,.button_medium.cancel').click(function(event){
 		$('#popupOverlay').hide();});
 
-	$('.button_publish,.popup_confirmation').click(function(event){
+	$('.button_publish,.popup-box').click(function(event){
 		event.stopPropagation();
 	});
 
  	$('.button_medium.publish').click(function(event){
-		$('#createCollage').fadeIn();
-		$('#publish').hide();
+		$('.createCollage').fadeIn();
+		$('.publishes').hide();
 	});
 });
 
@@ -622,7 +622,7 @@ $(document).ready(function(){
 	$(".button-tryon").click(function(){
 		$(this).children(".popupBox").fadeToggle("fast");
 	});
-	$('.popup_confirmation,.cancel,html').click(function(){
+	$('.popup-box,.cancel,html').click(function(){
 		$(".popupBox").hide();
 	});
 	$('.button-tryon,.popupBox').click(function(event){
@@ -631,20 +631,26 @@ $(document).ready(function(){
 
 });
 
-//--quick look modalbox--//
+//--Sign in page  modalboxes--//
 $(document).ready(function(){
 	$('.zoom').click(function(event){
 		$('#quickView').fadeIn("fast");
 	});
+	$('.userProfile > div > div').click(function(event){
+		$('#changePic').fadeIn("fast");
+	});
+	$('.editIcon').click(function(event){
+		$('#editProfile').fadeIn("fast");
+	});
 
-	$("#modalbox-quick").click(function(event){
-			$('#quickView').hide();
+	$("#modalbox-quick,#modalbox-editProfile,#modalbox-changePic").click(function(event){
+			$('#quickView,#editProfile,#changePic').hide();
 		});	
 
 	$('.close,.button_medium.cancel').click(function(event){
-		$('#quickView').hide();});
+		$('#quickView,#editProfile,#changePic').hide();});
 
-	$('.popup_confirmation').click(function(event){
+	$('.popup-box').click(function(event){
 		event.stopPropagation();
 	});
 });
@@ -851,6 +857,15 @@ $(document).ready(function(){
 
         $("#signin .rightSide .hidden").fadeToggle("fast");
  	}); 
+});
+
+
+//--login--//
+$(document).ready(function(){
+	$(".login").click(function(){
+		$("#signup").fadeOut("fast");
+		$("#login").fadeIn("slow");
+	});
 });
 
 

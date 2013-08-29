@@ -1,5 +1,6 @@
 
-body{
+#tryclothes,
+#collage{
 	background-color: rgb(255,255,255);
 }
 
@@ -319,18 +320,18 @@ body{
 }
 
 
-.url{
+.tryonPage .url{
 	font-family:Tahoma, Geneva, sans-serif;
 	top:35px;
 	left:0px;
 	font-size:0.8em;
 }
 
-.url > a{
+.tryonPage .url > a{
 	color:rgb(191,255,255);
 }
 
-.price{
+.tryonPage .price{
 	top:70px;
 	left:0px;
 	font-size:1.2em;
@@ -354,7 +355,7 @@ body{
 .button_category > .hiddenBox > ul > li:hover,
 .hiddenBox-submenu > ul > li:hover,
 .titleOfProduct > a:hover,
-.url > a:hover{
+.tryonPage .url > a:hover{
 	color:rgb(50,180,240);
 }
 
@@ -835,11 +836,9 @@ body{
 }
 
 /*--------------------------Popup content--------------------------*/
-#popupOverlay{
-	display: none;
-}
 
-.popup_confirmation{
+
+.popup-box{
 	height:430px;
 	width:500px;
 	margin:120px auto;
@@ -848,7 +847,7 @@ body{
 	position: relative;
 }
 
-.popup_confirmation .close{
+ .popup-box .close{
 	left:440px;
 	top:10px;
 	width:50px;
@@ -858,26 +857,24 @@ body{
 }
 
 
-#createCollage{
+.createCollage{
 	height:280px;
 	display:none;
 }
 
-#publish_collage{
+.publish_collage{
 	height:170px;
 }
 
-#publish{
-	display:block;
-}
 
-.popup_confirmation-header{
+.popup-box-header{
 	width:100%;
 	height:70px;
-	background-color:rgb(250,250,255);
+	background-color: rgb(250,250,250);
+	border-bottom:1px solid rgb(220,220,220);
 }
-.popup_confirmation-header > span{
-	color:rgb(100,110,120);
+.popup-box-header > span{
+	color:rgb(150,150,150);
 	font-size:2em;
 	font-style:italic;
 	text-align:left;
@@ -904,7 +901,7 @@ body{
 	font-size:0.4em;
 }
 
-#createCollage > span{
+.createCollage > span{
 	position: absolute;
 	top:160px;
 	left:230px;
@@ -932,9 +929,9 @@ body{
 	height:30px;
 }
 
-.popup_confirmation > .title_box,
-.popup_confirmation > .category_box,
-.popup_confirmation > .description_box{
+.popup-box > .title_box,
+.popup-box > .category_box,
+.popup-box > .description_box{
 	width:70%;
 	height:40px;
 	margin:20px auto;
@@ -943,27 +940,27 @@ body{
 	color:rgb(120,120,120);
 }
 
-.popup_confirmation .required{
+.popup-box .required{
 	color:rgb(255,100,100);
 }
 
-.popup_confirmation > .description_box{
+.popup-box > .description_box{
 	margin-top:40px;
 }
 
 
-.popup_confirmation > .title_box input,
-.popup_confirmation > .category_box select{
+.popup-box > .title_box input,
+.popup-box > .category_box select{
 	width:100%;
 	height:20px;
 } 
 
-.popup_confirmation > .description_box span{
+.popup-box > .description_box span{
 	position: absolute;
 	top:2px;
 	left:2px;
 }
-.popup_confirmation > .description_box textarea{
+.popup-box > .description_box textarea{
 	position: absolute;
 	top:30px;
 	left:2px;
@@ -995,10 +992,11 @@ body{
 	color:rgb(170,170,170);
 }
 
-#publish_collage .button_medium.publish{
+.publish_collage .button_medium.publish{
 	left:30px;
 }
-#publish_collage .button_medium.cancel{
+
+.publish_collage .button_medium.cancel{
 	left:120px;	
 }
 
@@ -1030,7 +1028,7 @@ body{
 	background-color:rgb(80,110,150);
 }
 
-.popup_confirmation > .label{
+.popup-box > .label{
 	position: absolute;
 	right:125px;
 	bottom:60px;

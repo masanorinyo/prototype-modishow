@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>About - ModiShow </title>
+		<title>Register - ModiShow</title>
 		<meta charset="UTF-8">
 		<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="about.css">
+		<link rel="stylesheet" href="shop.css">
+
 		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="external.js"></script>
 		<!--[if lt IE 9]>
@@ -14,8 +15,9 @@
 
 			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
 		<![endif]-->
+
 	</head>
-	<body id="about">	
+	<body id="register">	
 		<div id="header" class="themeColor">
 			<div class="inner themeColor center">
 				<div class="inner-inside center" >
@@ -187,20 +189,9 @@
 					</form>
 					<ul id="header-rightOptions">
 						<li class="lastChild">
-							<a href="signin.html">
-								<img src="images/userPhoto.gif" />
-								<h2>masanorinyo1243</h2>		
-								<span class="downArrow opaque_strong"></span>
+							<a class="currentPage" href="signin.html">
+								Sign up / Log in
 							</a>
-							<ul class="userPage submenu background_dark round_bottom">
-								<li><a href="#">Profile</a></li>
-								<li><a href="#">Creations</a></li>
-								<li><a href="#">Likes</a></li>
-								<li><a href="#">Followings</a></li>
-								<li><a href="#">Followers</a></li><li class="bottom_underscore"><a href="#">Message</a></li>
-								<li><a href="#">Setting</a></li>
-								<li><a href="#">Logout</a></li>
-							</ul>
 						</li>
 					</ul>					
 					<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
@@ -209,104 +200,100 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="content">
-			<a id="body_back" class="backToTop modalbox-fixPosition round_weak background_gradientGrey" href="#header"><span class="upwardArrow"></span></a>
-			<div id="content-wrapper">
-				<div class="wrapper">
-					
-				</div>	
-			</div>
+		<div id="signup" class="setting">
+			<form>
+				<div class="setting-wrapper">
+					<div class="sub-header ">
+						<span>Account Information</span>
+					</div>
+					<ul>
+						<li>
+							<span>Name: </span>
+							<input id="name" type="text" name="name"/>
+						</li>
+						<li>
+							<span>E-mail Address: </span>
+							<input id="email" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+						</li>
+						<li>
+							<span>Password:</span>
+							<input id="newPassword" type="password" placeholder="Enter your new password"/>
+						</li>
+						<li>
+							<input id="verifiedPassword" type="password" placeholder="Re-type your new password"/>
+						</li>
+						<li>
+							<span>Country:</span>
+							<select id="country">
+								<option>
+									United States
+								</option>
+							</select>
+						</li>
+						<li>
+							<span>Gender:</span>
+							<label>
+								<input type="radio" name="sex" value="Unspecified"> Unspecified
+							</label>
+							<label>
+								<input type="radio" name="sex" value="female"/> Female
+							</label>
+							<label>
+								<input type="radio" name="sex" value="male"  checked="checked"/> Male
+							</label>
+						</li>
+						<li class="lastChild">
+							<span class="legalStatement">
+								By creating an account, I accept ModiShow's <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.
+							</span>
+						</li>
+					</ul>
+				</div>
+				<div class="confirmation">
+					<div class="login round_weak">
+						<span>Log In</span>
+					</div>
+					<button id="cancel" class="round_weak" type="submit" name="cancel">
+						Cancel
+					</button>
+					<button id="confirm" class="round_weak" type="submit" name="confirm">
+						Confirm
+					</button>
+				</div>
+			</form>
+		</div>
+		<div id="login" class="setting">
+			<form>
+				<div class="setting-wrapper">
+					<div class="sub-header ">
+						<span>Log in</span>
+					</div>
+					<ul>
+						<li>
+							<span>E-mail Address: </span>
+							<input id="email" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+						</li>
+						<li class="lastChild">
+							<span>Password:</span>
+							<input id="password" type="password" placeholder="Enter your new password"/>
+						</li>
+					</ul>
+				</div>
+				<div class="confirmation">
+					<div class="round_weak">
+						<span>Forgot your password</span></br>
+						<span>Signup</span>
+					</div>
+					<button id="confirm" class="round_weak" type="submit" name="confirm">
+						Login
+					</button>
+				</div>
+			</form>
 		</div>
 		<div id="footer" class="themeColor"> 
-			<div>
-				<ul>
-					<li class="subheader">
-						Company
-					</li>
-					<li><a href="#">What is ModiShow</a></li>
-					<li><a href="#">Rewards Program</a></li>
-					<li><a href="#">Partners</a></li>
-					<li><a href="#">Explore</a></li>
-				</ul>
-				<ul>
-					<li class="subheader">
-						Partner
-					</li>
-					<li><a href="#">Brands &amp; Retailers</a></li>
-					<li><a href="#">Bloggers</a></li>					
-				</ul>
-				<ul>
-					<li class="subheader">
-						Policies
-					</li>
-					<li><a href="#">Language</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Terms of Services</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-				<ul id="connect">
-					<li class=" subheader">
-						Connect with us
-					</li>
-					<li class="clear">
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/facebook.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>					
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/twitter.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/pinterest.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/linkedInLogo.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/blog.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/email.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-				</ul>
-			</div>
 			<div class="clear lastChild">
 				<span>&copy; 2013 - ModiShow corporation</span>
 			</div>
-		</div>	</body>
+		</div>	
+	</body>
 </html>
