@@ -15,15 +15,15 @@
 			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
 		<![endif]-->
 	</head>
-	<body id="tryclothes" class="tryonPage">
-		<div id="header" class="themeColor">
+	<body id="tryclothes" class="tryonPage background_white">
+		<div id="header" class="background_themeColor">
 			<div id="logo" class="space">
 				<a href="index.html">
 					<h1 id="logo_modi">Modi</h1>
 					<h1 id="logo_show">Show</h1>
 				</a>
 			</div>
-			<ul id="header-leftOptions">
+			<ul id="header_leftOptions">
 				<li class="firstChild">
 					<a href="feed.html"><h2>FEED</h2></a>
 				</li>
@@ -36,12 +36,12 @@
 						<li>
 							<a href="#">New Items</a>
 						</li>
-						<li class="bottom_underscore">
+						<li class="underscore">
 							<a href="#">On Sale</a>
 						</li>
-						<li class="submenu-list clothing">
-							<a class="submenu-secondLevelParent" href="#">Clothing</a>
-							<div class="submenu-secondLevel">
+						<li class="submenu_list clothing">
+							<a class="submenu_second_parent" href="#">Clothing</a>
+							<div class="submenu_second">
 								<ul>
 									<li>
 										<a href="#">Dresses</a>
@@ -81,9 +81,9 @@
 								</ul>
 							</div>
 						</li>
-						<li class="submenu-list shoes">
-							<a class="submenu-secondLevelParent" href="#">Shoes</a>
-							<div class="submenu-secondLevel">
+						<li class="submenu_list list_shoes">
+							<a class="submenu_second_parent" href="#">Shoes</a>
+							<div class="submenu_second">
 								<ul>
 									<li><a href="#">Boots</a></li>
 									<li><a href="#">Clogs</a></li>
@@ -99,9 +99,9 @@
 								</ul>
 							</div>
 						</li>
-						<li class="submenu-list allAccessories">
-							<a class="submenu-secondLevelParent" href="#">Accessories</a>
-							<div class="submenu-secondLevel">
+						<li class="submenu_list list_accessories">
+							<a class="submenu_second_parent" href="#">Accessories</a>
+							<div class="submenu_second">
 								<ul >
 									<li>
 										<a href="#">Jewelry</a>
@@ -135,9 +135,9 @@
 								</ul>
 							</div>
 						</li>
-						<li class="submenu-list beauty">
-							<a class="submenu-secondLevelParent" href="#">Beauty</a>
-							<div class="submenu-secondLevel">
+						<li class="submenu_list list_beauty">
+							<a class="submenu_second_parent" href="#">Beauty</a>
+							<div class="submenu_second">
 								<ul>
 									<li>
 										<a href="#">Makeup</a>
@@ -174,7 +174,7 @@
 				<li>
 					<a class="tryon"  href="tryon.html">
 						<ul>
-							<li class="basicWebLayout clothesIcon"></li>
+							<li class="basicWebLayout icon_clothes"></li>
 							<li class="currentPage"><h2>TRY-ON</h2></li>
 						</ul>
 					</a>
@@ -183,20 +183,20 @@
 			<form id="searchBox">
 				<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
 			</form>
-			<ul id="header-rightOptions" class="space">
+			<ul id="header_rightOptions" class="space">
 				<li class="lastChild">
 					<a href="signin.html">
 						<img class="round_circle" src="images/userPhoto.gif" />
 						<h2>masanorinyo1243</h2>		
 						<span class="downArrow opaque_strong"></span>
 					</a>
-					<ul class="userPage submenu background_dark round_bottom">
+					<ul class="userProfile_list submenu background_dark round_bottom">
 						<li><a href="#">Profile</a></li>
 						<li><a href="#">Creations</a></li>
 						<li><a href="#">Likes</a></li>
 						<li><a href="#">Followings</a></li>
-						<li><a href="#">Followers</a></li><li class="bottom_underscore"><a href="#">Message</a></li>
-						<li><a href="#">Setting</a></li>
+						<li><a href="#">Followers</a></li><li class="underscore"><a href="#">Message</a></li>
+						<li><a href="setting.html">Setting</a></li>
 						<li><a href="#">Logout</a></li>
 					</ul>
 				</li>
@@ -205,120 +205,19 @@
 					0
 			</div>
 		</div>
-		<div id="popupOverlay">
-			<div id="transparentBackground">
-			</div>
-			<div id="modalbox">
-				<div class="popup-box publishes">
-					<span class="close opaque_strong"></span>
-					<div class="popup-box-header">
-						<span>Tell us more about the style</span>
-					</div>
-					<div class="title_box">
-						<span>
-							Title:<span class="required">*</span>
-						</span>
-						<form>
-							<input type="text"/>
-						</form>
-					</div>
-					<div class="category_box">
-						<span>
-							Category:<span class="required">*</span>
-						</span>
-						<form class="firstChild">
-							<select>
-								<option>Please choose a category</option>
-								<option>Style</option>
-								<option>Occassion</option>
-								<option>Season</option>
-								<option>Weather</option>
-							</select>
-						</form>
-						<form class="middleChild">
-							<select>
-							</select>
-						</form>
-						<form class="lastChild">
-							<select class="style_select">
-								<option>Active</option>
-								<option>Basic</option>
-								<option>Business Casual</option>
-								<option>Bohemian</option>
-								<option>Casual</option>
-								<option>Classic</option>
-								<option>Comfortable</option>
-								<option>Celebrity</option>					<option>Cute</option>
-								<option>Elegant</option>
-								<option>Formal</option>
-								<option>Goth</option>
-								<option>Preppy</option>
-								<option>Punk</option>
-								<option>Runway</option>
-								<option>Sexy</option>
-								<option>Swimwear</option>
-								<option>Vintage</option>
-							</select>
-							<select class="occassion_select">
-								<option>Casual date</option>
-								<option>Classy date</option>
-								<option>Everyday</option>
-								<option>Formal events</option>
-								<option>Night out</option>
-								<option>Outdoor activities</option>
-								<option>Work</option>						
-							</select>
-							<select class="season_select">
-								<option>Spring</option>
-								<option>Mid-Spring</option>
-								<option>Summer</option>
-								<option>Fall</option>
-								<option>Mid-Fall</option>
-								<option>Winters</option>
-							</select>
-							<select class="weather_select">
-								<option>Warm</option>
-								<option>Freezing</option>
-								<option>Cold</option>
-								<option>Raining</option>
-								<option>Hot</option>
-								<option>Snowing</option>
-								<option>Tropical</option>
-							</select>
-						</form>
-					</div>
-					<div class="description_box">
-						<span>
-							Description: 
-						</span>
-						<textarea placeholder="400 words left"></textarea>
-					</div>
-					<div class="button_medium publish"><span>Publish</span></div>
-					<div class="button_medium cancel"><span>Cancel</span></div>
-				</div>
-				<div class="popup-box createCollage">
-					<div class="popup-box-header">
-						<span>Create a collage for this style?</span>
-					</div>
-					<div class="button_large background-strong round_weak"><a href="collage.html">YES</a></div>
-					<span>or</span>
-					<div class="button_large background-weak round_weak"><a href="index.html">Maybe later</a></div>			
-				</div>			
-			</div>
-		</div>	
 		<div id="tryonContent">
-			<div id="tryonContent-left">
-				<img class="background" src="images/street.png"/>
+			<div id="tryonContent-left" class="background_black floatLeft overflowHidden">
+				<img class="backgroundImage" src="images/street.png"/>
 				<img class="virtualModel center" src="images/modelOutfit1.png"/>
 				<div class="openLayer center"></div><!--click the virtual model to see item info-->
-				<div class="leftArrow-thick opaque_strong pointer hide"></div>
-				<div class="rightArrow-thick opaque_strong pointer hide"></div>
+				<div class="leftArrow_subSlideshow_two opaque_strong pointer hide"></div>
+				<div class="rightArrow_subSlideshow_two opaque_strong pointer hide"></div>
 				<div class="userPreference hide">
-					<div class="opaque_medium button-heart">
+					<div class="opaque_medium button_heart">
 						<span class="brokenHeart-empty"></span>
 						<span class="brokenHeart-filled"></span>
 					</div>
-					<div class="opaque_medium button-heart">
+					<div class="opaque_medium button_heart">
 						<span class="heart_empty"></span>
 						<span class="heart_filled"></span>
 					</div>
@@ -335,7 +234,7 @@
 						<li class="button_category background_shadow round_medium opaque_weak ">
 							<div>All categories</div>
 							<div>
-								<span class="stickynavi-parentArrow"></span>
+								<span class="stickynavi_listArrow"></span>
 							</div>
 							<div class="hiddenBox background_shadow round_medium">
 								<ul class="opaque_weak">
@@ -343,7 +242,7 @@
 									<li>Featured</li>
 									<li>Random</li>
 									<li class="parent-submenu">Style
-										<div class="hiddenBox-submenu background_shadow styleOutfit">
+										<div class="hiddenBox-submenu round_medium  background_shadow styleOutfit">
 											<ul>
 												<li>Active</li>
 												<li>Basic</li>
@@ -1343,5 +1242,106 @@
 				</div>
 			</div>
 		</div>
+		<div id="popup_overlay">
+			<div id="transparentBackground">
+			</div>
+			<div id="modalbox">
+				<div class="popup-box publishes">
+					<span class="icon_close opaque_strong"></span>
+					<div class="popup-box-header">
+						<span>Tell us more about the style</span>
+					</div>
+					<div class="title_box">
+						<span>
+							Title:<span class="required">*</span>
+						</span>
+						<form>
+							<input type="text"/>
+						</form>
+					</div>
+					<div class="category_box">
+						<span>
+							Category:<span class="required">*</span>
+						</span>
+						<form class="firstChild">
+							<select>
+								<option>Please choose a category</option>
+								<option>Style</option>
+								<option>Occassion</option>
+								<option>Season</option>
+								<option>Weather</option>
+							</select>
+						</form>
+						<form class="middleChild">
+							<select>
+							</select>
+						</form>
+						<form class="lastChild">
+							<select class="style_select">
+								<option>Active</option>
+								<option>Basic</option>
+								<option>Business Casual</option>
+								<option>Bohemian</option>
+								<option>Casual</option>
+								<option>Classic</option>
+								<option>Comfortable</option>
+								<option>Celebrity</option>					<option>Cute</option>
+								<option>Elegant</option>
+								<option>Formal</option>
+								<option>Goth</option>
+								<option>Preppy</option>
+								<option>Punk</option>
+								<option>Runway</option>
+								<option>Sexy</option>
+								<option>Swimwear</option>
+								<option>Vintage</option>
+							</select>
+							<select class="occassion_select">
+								<option>Casual date</option>
+								<option>Classy date</option>
+								<option>Everyday</option>
+								<option>Formal events</option>
+								<option>Night out</option>
+								<option>Outdoor activities</option>
+								<option>Work</option>						
+							</select>
+							<select class="season_select">
+								<option>Spring</option>
+								<option>Mid-Spring</option>
+								<option>Summer</option>
+								<option>Fall</option>
+								<option>Mid-Fall</option>
+								<option>Winters</option>
+							</select>
+							<select class="weather_select">
+								<option>Warm</option>
+								<option>Freezing</option>
+								<option>Cold</option>
+								<option>Raining</option>
+								<option>Hot</option>
+								<option>Snowing</option>
+								<option>Tropical</option>
+							</select>
+						</form>
+					</div>
+					<div class="description_box">
+						<span>
+							Description: 
+						</span>
+						<textarea placeholder="400 words left"></textarea>
+					</div>
+					<div class="button_medium publish"><span>Publish</span></div>
+					<div class="button_medium cancel"><span>Cancel</span></div>
+				</div>
+				<div class="popup-box createCollage">
+					<div class="popup-box-header">
+						<span>Create a collage for this style?</span>
+					</div>
+					<div class="button_large background-strong round_weak"><a href="collage.html">YES</a></div>
+					<span>or</span>
+					<div class="button_large background-weak round_weak"><a href="index.html">Maybe later</a></div>			
+				</div>			
+			</div>
+		</div>	
 	</body>
 </html>

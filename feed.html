@@ -16,8 +16,8 @@
 		<![endif]-->
 	</head>
 	<body id="feed">	
-		<div id="header" class="themeColor">
-			<div class="inner themeColor center">
+		<div id="header" class="background_themeColor">
+			<div class="inner background_themeColor center">
 				<div class="inner-inside center" >
 					<div id="logo">
 						<a href="index.html">
@@ -25,7 +25,7 @@
 							<h1 id="logo_show">Show</h1>
 						</a>
 					</div>
-					<ul id="header-leftOptions">
+					<ul id="header_leftOptions">
 						<li class="firstChild">
 							<a class="currentPage" href="feed.html"><h2>FEED</h2></a>
 						</li>
@@ -38,12 +38,12 @@
 								<li>
 									<a href="#">New Items</a>
 								</li>
-								<li class="bottom_underscore">
+								<li class="underscore">
 									<a href="#">On Sale</a>
 								</li>
-								<li class="submenu-list clothing">
-									<a class="submenu-secondLevelParent" href="#">Clothing</a>
-									<div class="submenu-secondLevel">
+								<li class="submenu_list clothing">
+									<a class="submenu_second_parent" href="#">Clothing</a>
+									<div class="submenu_second">
 										<ul>
 											<li>
 												<a href="#">Dresses</a>
@@ -83,9 +83,9 @@
 										</ul>
 									</div>
 								</li>
-								<li class="submenu-list shoes">
-									<a class="submenu-secondLevelParent" href="#">Shoes</a>
-									<div class="submenu-secondLevel">
+								<li class="submenu_list list_shoes">
+									<a class="submenu_second_parent" href="#">Shoes</a>
+									<div class="submenu_second">
 										<ul>
 											<li><a href="#">Boots</a></li>
 											<li><a href="#">Clogs</a></li>
@@ -101,9 +101,9 @@
 										</ul>
 									</div>
 								</li>
-								<li class="submenu-list allAccessories">
-									<a class="submenu-secondLevelParent" href="#">Accessories</a>
-									<div class="submenu-secondLevel">
+								<li class="submenu_list list_accessories">
+									<a class="submenu_second_parent" href="#">Accessories</a>
+									<div class="submenu_second">
 										<ul >
 											<li>
 												<a href="#">Jewelry</a>
@@ -137,9 +137,9 @@
 										</ul>
 									</div>
 								</li>
-								<li class="submenu-list beauty">
-									<a class="submenu-secondLevelParent" href="#">Beauty</a>
-									<div class="submenu-secondLevel">
+								<li class="submenu_list list_beauty">
+									<a class="submenu_second_parent" href="#">Beauty</a>
+									<div class="submenu_second">
 										<ul >
 											<li>
 												<a href="#">Makeup</a>
@@ -176,7 +176,7 @@
 						<li>
 							<a class="tryon" href="tryon.html">
 								<ul>
-									<li class="basicWebLayout clothesIcon"></li>
+									<li class="basicWebLayout icon_clothes"></li>
 									<li><h2>TRY-ON</h2></li>
 								</ul>
 							</a>
@@ -185,20 +185,20 @@
 					<form id="searchBox">
 						<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
 					</form>
-					<ul id="header-rightOptions">
+					<ul id="header_rightOptions">
 						<li class="lastChild">
 							<a href="signin.html">
 								<img class="round_circle" src="images/userPhoto.gif" />
 								<h2>masanorinyo1243</h2>		
 								<span class="downArrow opaque_strong"></span>
 							</a>
-							<ul class="userPage submenu background_dark round_bottom">
+							<ul class="userProfile_list submenu background_dark round_bottom">
 								<li><a href="#">Profile</a></li>
 								<li><a href="#">Creations</a></li>
 								<li><a href="#">Likes</a></li>
 								<li><a href="#">Followings</a></li>
-								<li><a href="#">Followers</a></li><li class="bottom_underscore"><a href="#">Message</a></li>
-								<li><a href="#">Setting</a></li>
+								<li><a href="#">Followers</a></li><li class="underscore"><a href="#">Message</a></li>
+								<li><a href="setting.html">Setting</a></li>
 								<li><a href="#">Logout</a></li>
 							</ul>
 						</li>
@@ -209,480 +209,1401 @@
 				</div>
 			</div>
 		</div>
-		<div id="popupOverlay">
-			<div id="transparentBackground">
+		<div id="content">
+			<a id="scrollToTop" class="backToTop modalbox-fixPosition round_circle background_shadow opaque_strong" href="#header"><span class="upwardArrow"></span></a>
+			<span id="about" class="button_about modalbox-fixPosition round_circle background_shadow opaque_strong">i</span>
+			<div id="feed_navi">
+				<ul class="center">
+					<li class="current">
+						Overall
+					</li>
+					<li>
+						Likes
+					</li>
+					<li>
+						Creations
+					</li>
+				</ul>
 			</div>
-			<div id="modalbox">
-				<a class="closeBox modalbox-fixPosition round_weak background_gradientGrey">
-					<span class="close"></span>
-				</a>
-				<div  id="popup">
-					<div class="popup-mainContainer round_weak">
-						<div id="mainContainer_header">
-							<div class="button_blue_medium background_gradientDarkBlue round_medium pointer  ">
-								<a href="tryon.html">
-									<ul>
-										<li class="basicWebLayout clothesIcon"></li>
-										<li>TRY ON</li>
-									</ul>
-								</a>	
-							</div>
-							<div class="button_grey_medium background_gradientGrey round_medium pointer">
-								<div class="mediumButton-leftside">
-									<span class="heart_filled"></span>
-									<span class="heart_empty"></span>
+			<div id="feed_content">
+				<div class="clear left">
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
 								</div>
-								<div class="mediumButton-rightside">
-									<span>
-										2000
-									</span>
-								</div>
-							</div>
-						</div>
-						<div id="mainContainer_content">
-							<div class="content-top">
-								<div class="button_rectanglar center round-little">
-									<div class="rectanglar-left">Collage</div>
-									<div class="rectanglar-medium">Model</div>
-									<div class="rectanglar-right">People</div>
-								</div>
-							</div>
-							<div class="content-middle">
-								<div>
-									<img class="large_outfit1 large_collage content_collage" />
-									<img class="content_model" src="images/model2.gif"/>
-									<img class="content_people" src="images/people1.gif"/>					
-								</div>
-							</div>	
-							<div class="content-bottom">
-								<div class="content-bottom-description">
-									<span>Other styles created by 
-										<a class="username color_lightBlue" href="#">
-											Sara Cook
-										</a>
-									</span>
-								</div>
-								
-								<div class="content-bottom-slider">
-									<div class="slider-left">
-										<span class="leftArrow-thin opaque_strong"></span>
-									</div>
-									<ul class="slider-middle">
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>							
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>					
-										</li>
-										<li>
-											<a href="#"><img src="images/outfit1.png"/></a>
-										</li>
-									</ul>
-									<div class="slider-right">
-										<span class="rightArrow-thin opaque_strong"></span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="popup-side_top round_weak">
-						<div class="side_top-profileBox">
-							<div class="profile-image">
-								<a href="#"><img class="round_circle" src="images/userPhoto.gif"/></a>
-							</div>
-							<div class="profile-name">
-								<a class="username" href="#">Sara Cook</a>
-								<div class="timeStamp">Created 8 weeks ago</div>	
-								<div class="followLink"><a class="color_lightBlue" href="#">Follow</a></div>				
-							</div>				
-						</div>	
-						<div class="side_top-titleBox">
-							<div class="title">"<span>Love simple stuff</span>"</div>
-							<div class="description">
-								<p>I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
-															I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
-
-								I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
-
-								I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
-
-								I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
-
-								I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.</p>
-
-								
-
-							</div>
-							<span class="category_name">
-								<label>Category - 
-									<a class="category" href="#"> Sexy
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
 									</a>
-								</label> 
-							</span>
-							<div class="clear"></div>
-						</div>
-						
-						<ul class="side_top-dashboard">
-							<li class="dashboard-view">
-								<div>
-									<span class="view_icon"></span> 
-									<span class="dashboard-number">1300</span>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
 								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
 							</li>
-							<li class="dashboard-comment">
-								<div>
-									<span class="comment_icon"></span>
-									<span class="dashboard-number">9</span>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
 								</div>
-							</li>
-							<li class="dashboard-likes">
-								<div>
-									<span class="heart_empty"></span> 
-									<span class="dashboard-number">2000</span>
-								</div>
-							</li>
-						<!--<li class="numberOfPutIntoMagazines></li>-->
-						</ul>	
-					</div>
-					<div class="popup-side_middle round_weak">
-						<div>
-							<span class="side_middle-description">Liked by these people</span>
-						</div>
-						<ul class="side_middle-users round_little">
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
-							</li>
-							<li>
-								<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
 							</li>
 						</ul>
 					</div>
-					<div class="popup-side_bottom round_weak">
-						<div class="side_bottom-TotalCost">
-							<span class="round_weak">Total Cost : 
-								<a href="#" target="_"> 
-									$1168.55
-									<div class="round_medium">If you click it, you will be guided to all the stores</div>
-								</a>
-							</span>
-						</div>				
-						<div class="side_bottom-itemDetails">
-							<ul>
-								<li>
-									<div class="itemDetails-image">	
-										<a href="#">
-											<img src="images/item1.png"/>
-										</a>
-
-									</div>
-									<div class="itemDetails-description">
-										<div class="price">
-										$169
-										</div>
-										<span class="description">
-											<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
-										</span>
-										<span class="brand">
-											<a href="#">topshop.com</a>
-										</span>
-										<div class="itemDetails-heart">
-											<span class="heart_empty">
-												<span>1000</span>
-											</span>
-											<span class="heart_filled">
-												<span>1001</span>
-											</span>
-										</div>
-										
-									</div>
-								</li>
-								<li>
-									<div class="itemDetails-image">	
-										<a href="">
-											<img src="images/item1.png"/>
-										</a>
-									</div>
-									<div class="itemDetails-description">
-										<div class="price">
-										$169
-										</div>
-										<span class="description">
-											<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
-										</span>
-										<span class="brand">
-											<a href="#">topshop.com</a>
-										</span>
-										<div class="itemDetails-heart">
-											<span class="heart_empty">
-												<span>1000</span>
-											</span>
-											<span class="heart_filled">
-												<span>1001</span>
-											</span>
-										</div>
-										
-									</div>
-								</li>
-								<li>
-									<div class="itemDetails-image">	
-										<a href="">
-											<img src="images/item1.png"/>
-										</a>
-									</div>
-									<div class="itemDetails-description">
-										<div class="price">
-										$169
-										</div>
-										<span class="description">
-											<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
-										</span>
-										<span class="brand">
-											<a href="#">topshop.com</a>
-										</span>
-										<div class="itemDetails-heart">
-											<span class="heart_empty">
-												<span>1000</span>
-											</span>
-											<span class="heart_filled">
-												<span>1001</span>
-											</span>
-										</div>
-										
-									</div>
-								</li>
-							</ul>
-						</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
 					</div>
-					<div class="popup-comment round_weak">
-						<div class="comment-messageBox">
-							<img src="images/userPhoto.gif"/>
-							<form>
-								<textarea ></textarea>
-								<input type="button" value="Post"/>
-							</form>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="large_boxes">
+						<div class="button_heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
 						</div>
-						<div class="comment-number">
-							<hr/>
-							<div>
-								<div class="numOfComments">9 Comments</div>
+						<div class="button_flip">
+							<span class="icon_flip_grey"></span>	
+							<span class="icon_flip_dark"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
 							</div>
 						</div>
-						<div class="comment-others">
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  
-										<span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board"> Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea
+						<div class="modelBox openModal">
+							<img src="images/model1.png" height="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="descriptionBox_wrapper">
+							<div class="descriptionBox">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
 								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>	
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>	
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue"  href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
-								</div>
-							</div>
-							<div class="others-commentWrapper">
-								<a href="#">
-									<img src="images/userPhoto.gif"/>
-								</a>
-								<ul>
-									<li>
-										<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
-									</li>
-								</ul>
-								<div class="message_board">Best Idea
+								<div class="styleInfo">
+									<a class="artist_name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="styleCategory" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="bottom clear"></div>
+				</div>
+				<div class="clear right">
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="large_boxes">
+						<div class="button_heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button_flip">
+							<span class="icon_flip_grey"></span>	
+							<span class="icon_flip_dark"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" height="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="descriptionBox_wrapper">
+							<div class="descriptionBox">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist_name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="styleCategory" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear left">
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear right">
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="large_boxes">
+						<div class="button_heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button_flip">
+							<span class="icon_flip_grey"></span>	
+							<span class="icon_flip_dark"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" height="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="descriptionBox_wrapper">
+							<div class="descriptionBox">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist_name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="styleCategory" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="large_boxes">
+						<div class="button_heart">
+							<span class="heart_empty"><span>40</span></span>
+							<span class="heart_filled"><span>40</span></span>						
+						</div>
+						<div class="button_flip">
+							<span class="icon_flip_grey"></span>	
+							<span class="icon_flip_dark"></span>							
+						</div>
+						<div class="collageBox openModal">
+							<div class="collageBox-inside ">
+								<img src="images/outfit2.png">
+							</div>
+						</div>
+						<div class="modelBox openModal">
+							<img src="images/model1.png" height="100%"/>
+						</div>
+						<div class="peopleBox openModal">
+						</div>
+						<div class="descriptionBox_wrapper">
+							<div class="descriptionBox">			
+								<div class="styleTitle">
+									<span class="openModal"> Beauty of Simplicity</span>
+								</div>
+								<div class="styleInfo">
+									<a class="artist_name" href="#">
+										By 
+										<span>
+											Kaori Kuniyoshi 
+										</span>
+									</a>
+									<a class="styleCategory" href="#">
+										Category
+										<span>
+										 - Sexy
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear left">
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="medium_boxes">	
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="openModal" src="images/outfit1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear right">
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="small_boxes">
+						<ul>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+							<li>
+								<div class="button_heart">
+									<span class="heart_empty"><span>40</span></span>
+									<span class="heart_filled"><span>40</span></span>		
+								</div>
+								<img class="zoom" src="images/item1.png"/>
+								<span>Liked by
+									<a class="user" href="#">Natasha
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
+	<div id="popup_overlay">
+		<div id="transparentBackground">
+		</div>
+		<div id="modalbox">
+			<a class="closeBox modalbox-fixPosition round_weak background_gradientGrey">
+				<span class="icon_close"></span>
+			</a>
+			<div  id="popup">
+				<div class="popup-mainContainer round_weak preventClose_modalBox background_white">
+					<div id="mainContainer_header">
+						<div class="button_tryon_medium background_gradientDarkBlue round_medium pointer  ">
+							<a href="tryon.html">
+								<ul>
+									<li class="basicWebLayout icon_clothes"></li>
+									<li>TRY ON</li>
+								</ul>
+							</a>	
+						</div>
+						<div class="button_heart_medium background_gradientGrey round_medium pointer">
+							<div class="mediumButton-leftside">
+								<span class="heart_filled"></span>
+								<span class="heart_empty"></span>
+							</div>
+							<div class="mediumButton-rightside">
+								<span>
+									2000
+								</span>
+							</div>
+						</div>
+					</div>
+					<div id="mainContainer_content">
+						<div class="content-top">
+							<div class="button_rectanglar center round-little">
+								<div class="rectanglar-left">Collage</div>
+								<div class="rectanglar-medium">Model</div>
+								<div class="rectanglar-right">People</div>
+							</div>
+						</div>
+						<div class="content-middle">
+							<div>
+								<img class="large_outfit1 large_collage content_collage" />
+								<img class="content_model" src="images/model2.gif"/>
+								<img class="content_people" src="images/people1.gif"/>					
+							</div>
+						</div>	
+						<div class="content-bottom">
+							<div class="content_description-bottom">
+								<span>Other styles created by 
+									<a class="username color_lightBlue" href="#">
+										Sara Cook
+									</a>
+								</span>
+							</div>
+							
+							<div class="content-bottom_slider">
+								<div class="slider_arrow_wrapper floatLeft">
+									<span class="leftArrow_subSlideshow_one opaque_strong"></span>
+								</div>
+								<ul class="slider-middle">
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>							
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>					
+									</li>
+									<li>
+										<a href="#"><img src="images/outfit1.png"/></a>
+									</li>
+								</ul>
+								<div class="slider_arrow_wrapper floatRight">
+									<span class="rightArrow_subSlideshow_one opaque_strong"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="popup-side-top round_weak preventClose_modalBox background_white">
+					<div class="profileBox">
+						<div class="profile_image">
+							<a href="#"><img class="round_circle" src="images/userPhoto.gif"/></a>
+						</div>
+						<div class="profile_name">
+							<a class="username" href="#">Sara Cook</a>
+							<div class="timeStamp">Created 8 weeks ago</div>	
+							<div class="followLink"><a class="color_lightBlue" href="#">Follow</a></div>				
+						</div>				
+					</div>	
+					<div class="titleBox">
+						<div class="title">"<span>Love simple stuff</span>"</div>
+						<div class="description">
+							<p>I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+														I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.
+
+							I usually wear simple stuff. I am a minimalistic person. Call me a mini bucket.</p>
+
+							
+
+						</div>
+						<span class="category_name">
+							<label>Category - 
+								<a class="category" href="#"> Sexy
+								</a>
+							</label> 
+						</span>
+						<div class="clear"></div>
+					</div>
+					
+					<ul class="dashboard">
+						<li class="dashboard-view">
+							<div>
+								<span class="view_icon"></span> 
+								<span class="dashboard-number">1300</span>
+							</div>
+						</li>
+						<li class="dashboard-comment">
+							<div>
+								<span class="comment_icon"></span>
+								<span class="dashboard-number">9</span>
+							</div>
+						</li>
+						<li class="dashboard-likes">
+							<div>
+								<span class="heart_empty"></span> 
+								<span class="dashboard-number">2000</span>
+							</div>
+						</li>
+					<!--<li class="numberOfPutIntoMagazines></li>-->
+					</ul>	
+				</div>
+				<div class="popup-side_middle round_weak preventClose_modalBox background_white">
+					<div>
+						<span class="side_middle-description">Liked by these people</span>
+					</div>
+					<ul class="side_middle-users round_little">
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+						<li>
+							<a href="#"><img class="otherUsers" src="images/userPhoto.gif"/></a>
+						</li>
+					</ul>
+				</div>
+				<div class="popup-side_bottom round_weak preventClose_modalBox background_white">
+					<div class="side_bottom-TotalCost">
+						<span class="round_weak">Total Cost : 
+							<a href="#" target="_"> 
+								$1168.55
+								<div class="round_medium">If you click it, you will be guided to all the stores</div>
+							</a>
+						</span>
+					</div>				
+					<div class="side_bottom-itemDetails">
+						<ul>
+							<li>
+								<div class="itemDetails-image">	
+									<a href="#">
+										<img src="images/item1.png"/>
+									</a>
+
+								</div>
+								<div class="itemDetails-description">
+									<div class="price">
+									$169
+									</div>
+									<span class="description">
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
+									</span>
+									<span class="brand">
+										<a href="#">topshop.com</a>
+									</span>
+									<div class="itemDetails-heart">
+										<span class="heart_empty">
+											<span>1000</span>
+										</span>
+										<span class="heart_filled">
+											<span>1001</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+							<li>
+								<div class="itemDetails-image">	
+									<a href="">
+										<img src="images/item1.png"/>
+									</a>
+								</div>
+								<div class="itemDetails-description">
+									<div class="price">
+									$169
+									</div>
+									<span class="description">
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
+									</span>
+									<span class="brand">
+										<a href="#">topshop.com</a>
+									</span>
+									<div class="itemDetails-heart">
+										<span class="heart_empty">
+											<span>1000</span>
+										</span>
+										<span class="heart_filled">
+											<span>1001</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+							<li>
+								<div class="itemDetails-image">	
+									<a href="">
+										<img src="images/item1.png"/>
+									</a>
+								</div>
+								<div class="itemDetails-description">
+									<div class="price">
+									$169
+									</div>
+									<span class="description">
+										<a href="shopItem.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
+									</span>
+									<span class="brand">
+										<a href="#">topshop.com</a>
+									</span>
+									<div class="itemDetails-heart">
+										<span class="heart_empty">
+											<span>1000</span>
+										</span>
+										<span class="heart_filled">
+											<span>1001</span>
+										</span>
+									</div>
+									
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="popup-comment round_weak preventClose_modalBox background_white">
+					<div class="comment-messageBox">
+						<img src="images/userPhoto.gif"/>
+						<form>
+							<textarea ></textarea>
+							<input type="button" value="Post"/>
+						</form>
+					</div>
+					<div class="comment-number">
+						<hr/>
+						<div>
+							<div class="numOfComments font_calistro italic strong background_white">9 Comments</div>
+						</div>
+					</div>
+					<div class="comment-others">
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  
+									<span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board"> Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best IdeaBest Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>	
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>	
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue"  href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+						<div class="others-commentWrapper">
+							<a href="#">
+								<img src="images/userPhoto.gif"/>
+							</a>
+							<ul>
+								<li>
+									<a class="color_lightBlue" href="#">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+								</li>
+							</ul>
+							<div class="message_board">Best Idea
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom clear"></div>
+			</div>
+		</div>
+	</div>	
 		<div id="quickView" class="shop">
 			<div id="transparentBackground">
 			</div>
 			<div id="modalbox-quick">
 				<div class="popup-box">
 					<div class="subHeader">
-						<div class="button-heart-item   pointer">
+						<div class="button_heart-item   pointer">
 							<div class="mediumButton-leftside">
 								<span class="heart_filled"></span>
 								<span class="heart_empty"></span>
@@ -704,19 +1625,19 @@
 								</div>
 							</div>
 						</div>
-						<span class="close opaque_strong"></span>
+						<span class="icon_close opaque_strong"></span>
 					</div>
 					<div class="leftSideBox">
 						<div class="itemBox">
-							<span class="pic-frame"></span>
-							<div class="pic-frame-inside">
+							<span class="picFrame"></span>
+							<div class="picFrame-inside">
 								<img src="images/item3.jpg"/>
 							</div>
 						</div>
 						<div class="itemBox-related sideScroll">
-							<span class="rightArrow-thick opaque_strong"></span>
-							<span class="leftArrow-thick opaque_strong"></span>
-							<div class="sideScroll-wrapper">
+							<span class="rightArrow_subSlideshow_two opaque_strong"></span>
+							<span class="leftArrow_subSlideshow_two opaque_strong"></span>
+							<div class="sideScroll_wrapper">
 								<ul>
 									<li><img src="images/item1.png"/></li>
 									<li><img src="images/item1.png"/></li>
@@ -786,929 +1707,8 @@
 					</div>
 				</div>			
 			</div>
-		</div>		
-		<div id="content">
-			<a id="body_back" class="backToTop modalbox-fixPosition round_circle background_shadow opaque_strong" href="#header"><span class="upwardArrow"></span></a>
-			<span id="about" class="about_button modalbox-fixPosition round_circle background_shadow opaque_strong">i</span>
-			<div id="feed_navi">
-				<ul>
-					<li class="current">
-						Overall
-					</li>
-					<li>
-						Likes
-					</li>
-					<li>
-						Creations
-					</li>
-				</ul>
-			</div>
-			<div id="feed_content">
-				<div class="clear left">
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="large_boxes">
-						<div class="button-heart">
-							<span class="heart_empty"><span>40</span></span>
-							<span class="heart_filled"><span>40</span></span>						
-						</div>
-						<div class="button-flip">
-							<span class="flipIcon-grey"></span>	
-							<span class="flipIcon opaque_strong"></span>							
-						</div>
-						<div class="collageBox openModal">
-							<div class="collageBox-inside ">
-								<img src="images/outfit2.png">
-							</div>
-						</div>
-						<div class="modelBox openModal">
-							<img src="images/model1.png" height="100%"/>
-						</div>
-						<div class="peopleBox openModal">
-						</div>
-						<div class="content-styleDetails">
-							<div class="styleDetails-wrapper">			
-								<div class="styleTitle">
-									<span class="openModal"> Beauty of Simplicity</span>
-								</div>
-								<div class="styleInfo">
-									<a class="artist-name" href="#">
-										By 
-										<span>
-											Kaori Kuniyoshi 
-										</span>
-									</a>
-									<a class="style-category" href="#">
-										Category
-										<span>
-										 - Sexy
-										</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="clear right">
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="large_boxes">
-						<div class="button-heart">
-							<span class="heart_empty"><span>40</span></span>
-							<span class="heart_filled"><span>40</span></span>						
-						</div>
-						<div class="button-flip">
-							<span class="flipIcon-grey"></span>	
-							<span class="flipIcon opaque_strong"></span>							
-						</div>
-						<div class="collageBox openModal">
-							<div class="collageBox-inside ">
-								<img src="images/outfit2.png">
-							</div>
-						</div>
-						<div class="modelBox openModal">
-							<img src="images/model1.png" height="100%"/>
-						</div>
-						<div class="peopleBox openModal">
-						</div>
-						<div class="content-styleDetails">
-							<div class="styleDetails-wrapper">			
-								<div class="styleTitle">
-									<span class="openModal"> Beauty of Simplicity</span>
-								</div>
-								<div class="styleInfo">
-									<a class="artist-name" href="#">
-										By 
-										<span>
-											Kaori Kuniyoshi 
-										</span>
-									</a>
-									<a class="style-category" href="#">
-										Category
-										<span>
-										 - Sexy
-										</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="clear left">
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="clear right">
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="large_boxes">
-						<div class="button-heart">
-							<span class="heart_empty"><span>40</span></span>
-							<span class="heart_filled"><span>40</span></span>						
-						</div>
-						<div class="button-flip">
-							<span class="flipIcon-grey"></span>	
-							<span class="flipIcon opaque_strong"></span>							
-						</div>
-						<div class="collageBox openModal">
-							<div class="collageBox-inside ">
-								<img src="images/outfit2.png">
-							</div>
-						</div>
-						<div class="modelBox openModal">
-							<img src="images/model1.png" height="100%"/>
-						</div>
-						<div class="peopleBox openModal">
-						</div>
-						<div class="content-styleDetails">
-							<div class="styleDetails-wrapper">			
-								<div class="styleTitle">
-									<span class="openModal"> Beauty of Simplicity</span>
-								</div>
-								<div class="styleInfo">
-									<a class="artist-name" href="#">
-										By 
-										<span>
-											Kaori Kuniyoshi 
-										</span>
-									</a>
-									<a class="style-category" href="#">
-										Category
-										<span>
-										 - Sexy
-										</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="large_boxes">
-						<div class="button-heart">
-							<span class="heart_empty"><span>40</span></span>
-							<span class="heart_filled"><span>40</span></span>						
-						</div>
-						<div class="button-flip">
-							<span class="flipIcon-grey"></span>	
-							<span class="flipIcon opaque_strong"></span>							
-						</div>
-						<div class="collageBox openModal">
-							<div class="collageBox-inside ">
-								<img src="images/outfit2.png">
-							</div>
-						</div>
-						<div class="modelBox openModal">
-							<img src="images/model1.png" height="100%"/>
-						</div>
-						<div class="peopleBox openModal">
-						</div>
-						<div class="content-styleDetails">
-							<div class="styleDetails-wrapper">			
-								<div class="styleTitle">
-									<span class="openModal"> Beauty of Simplicity</span>
-								</div>
-								<div class="styleInfo">
-									<a class="artist-name" href="#">
-										By 
-										<span>
-											Kaori Kuniyoshi 
-										</span>
-									</a>
-									<a class="style-category" href="#">
-										Category
-										<span>
-										 - Sexy
-										</span>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="clear left">
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="medium_boxes">	
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="openModal" src="images/outfit1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="clear right">
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-					<div class="small_boxes">
-						<ul>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-							<li>
-								<div class="button-heart">
-									<span class="heart_empty"><span>40</span></span>
-									<span class="heart_filled"><span>40</span></span>		
-								</div>
-								<img class="zoom" src="images/item1.png"/>
-								<span>Liked by
-									<a class="user" href="#">Natasha
-									</a>
-								</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="footer" class="themeColor"> 
+		</div>	
+		<div id="footer" class="background_themeColor"> 
 			<div>
 				<ul>
 					<li class="subheader">
