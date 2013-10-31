@@ -180,7 +180,7 @@ $(document).ready(function(){
 //---------------------Contents ---------------------//
 //--hover effect for contents--//
 $(document).ready(function(){
-	$(".content_small,.content_large,.items > li,.large_boxes,#feed_content > div > div > ul > li").hover(function(){
+	$(".content_small,.content_large,.items > li,.small_boxes > ul > li,.medium_boxes > ul > li,.large_boxes,#content > div > div > ul > li").hover(function(){
 		$(this).children(".button_heart,.button_flip").fadeIn("fast");},function(){
 		$(this).children(".button_heart,.button_flip").fadeOut("fast");
 	});
@@ -335,7 +335,7 @@ $(document).ready(function(){
 //-----------------left side ----------------//
 //--hover effect--//
 $(document).ready(function(){
-	$("#tryonContent-left").hover(function(){
+	$("#creationCanvas").hover(function(){
 		$(".hide").fadeIn("fast");},function(){
 		$(".hide").fadeOut("fast");
 	});
@@ -405,7 +405,7 @@ $(document).ready(function(){
 //-----------------Right side (item box)----------------//
 //--item box header-//
 $(document).ready(function(){
-	$(".subHeader-left > li").click(function(){
+	$(".controlBoxes > li").click(function(){
 		$(this).children().children(".subHeader-submenu").slideToggle(200);
 	});
 
@@ -430,7 +430,7 @@ $(document).ready(function(){
     	} 
 	});
 	
-	$('.subHeader-left > li').click(function(event){
+	$('.controlBoxes > li').click(function(event){
 		event.stopPropagation();
 	});	
 });
