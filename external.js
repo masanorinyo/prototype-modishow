@@ -449,7 +449,7 @@ $(document).ready(function() {
     $("#itembox_header ul li").click(function() { 
         $(this).addClass("currently_focus");
         $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
-        $(".itemBox-images").hide();
+        $(".itemBoxImages").hide();
  	}); 	
 
      $(".itemList_myItems").click(function() { 
@@ -483,12 +483,12 @@ $(document).ready(function() {
  	}); 
 
     $(".itemList_beauty").click(function() { 
-        $("#beautyList,#beautyImages > .itemBox-images").show();
+        $("#beautyList,#beautyImages > .itemBoxImages").show();
 		$(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#beautyList,#beautyImages > .itemIconsWrapper").hide();
  	}); 
     
     $(".itemList_people").click(function() { 
-        $("#peopleList,#peopleImages > .itemBox-images").show();
+        $("#peopleList,#peopleImages > .itemBoxImages").show();
         $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#peopleList,#peopleImages > .itemIconsWrapper").hide();
  	}); 
 });
@@ -500,27 +500,27 @@ $(document).ready(function() {
  	});                                     
     
     $("#myItemImages > .itemIconsWrapper > li, #myItemList .subHeader-submenu > ul > li").click(function() { 
-        $("#myItemImages > .itemBox-images").show(); 
+        $("#myItemImages > .itemBoxImages").show(); 
  	});
     
     $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .subHeader-submenu > ul > li").click(function() { 
-        $("#clothingImages > .itemBox-images").show(); 
+        $("#clothingImages > .itemBoxImages").show(); 
  	}); 
     
     $("#modelImages > .itemIconsWrapper > li").click(function() { 
-        $("#modelImages > .itemBox-images").show(); 
+        $("#modelImages > .itemBoxImages").show(); 
  	}); 
     
     $("#backgroundImages > .itemIconsWrapper > li,#backgroundList .subHeader-submenu > ul > li").click(function() { 
-        $("#backgroundImages > .itemBox-images").show(); 
+        $("#backgroundImages > .itemBoxImages").show(); 
  	}); 
     
     $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .subHeader-submenu > ul > li").click(function() { 
-        $("#embelishmentImages > .itemBox-images").show(); 
+        $("#embelishmentImages > .itemBoxImages").show(); 
  	});   	
     
     $("#itemImages > .itemIconsWrapper > li, #itemList .subHeader-submenu > ul > li").click(function() { 
-        $("#itemImages > .itemBox-images").show(); 
+        $("#itemImages > .itemBoxImages").show(); 
  	});
 });
 
@@ -837,25 +837,25 @@ $(document).ready(function(){
 //********* expand text/content************//
 $(document).ready(function(){
 	$(".moreText").click(function() { 
-        if($("#signin .introduction p").hasClass("expandable")){
+        if($("#userPage .introduction p").hasClass("expandable")){
             $(this).text("Show Less");
         }else {
             $(this).text("Show More");
         }
-        $("#signin .introduction p").toggleClass("expandable");
+        $("#userPage .introduction p").toggleClass("expandable");
         
  	}); 
 });
 
 $(document).ready(function(){
 	$(".moreAward").click(function() { 
-		 if($("#signin .rightSide .hidden").is(":visible")){
+		 if($("#userPage .rightSide .hidden").is(":visible")){
             $(this).text("Show more");
         }else {
             $(this).text("Show less");
         }
 
-        $("#signin .rightSide .hidden").fadeToggle("fast");
+        $("#userPage .rightSide .hidden").fadeToggle("fast");
  	}); 
 });
 

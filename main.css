@@ -123,6 +123,12 @@ li{
 .fullWidth{width:100%;}
 
 .fullHeight{height:100%;}
+
+#current,
+.current{
+	color:rgb(50,180,240);
+}
+
 /*----------Side Scroll----------*/
 .sideScroll{
 	width:100%;
@@ -3131,11 +3137,11 @@ li{
 	display:block;
 }
 
-.itemBox-images,.itemIconsWrapper{
+.itemBoxImages,.itemIconsWrapper{
 	display:none;
 }
 
-.itemBox > .itemBox-images > li{
+.itemBox > .itemBoxImages > li{
 	float:left;
 	margin:0px 0px 3px 3px;
 	border-radius:1px;
@@ -3148,7 +3154,7 @@ li{
 	border:1px solid rgb(230,230,230);
 }
 
-.itemBox > .itemBox-images > li > img{
+.itemBox > .itemBoxImages > li > img{
 	margin:0 auto;
 	height:100%;
 }
@@ -3232,7 +3238,7 @@ li{
 	color: rgb(50,180,240);
 }
 
-.itemBox > .itemBox-images > li:hover{
+.itemBox > .itemBoxImages > li:hover{
 	border-color:	rgb(50,180,240);
 }
 
@@ -3261,7 +3267,8 @@ li{
 
 
 
-/*--Popup confirmation page--*/
+/*------------------Popup confirmation page-------------------*/
+/*----Sturcture----*/
 .popup-box{
 	height:430px;
 	width:500px;
@@ -3333,8 +3340,6 @@ li{
 	color:rgb(200,200,200);
 }
 
-
-
 .button_large > a{
 	font-size:5.5em;
 	color:rgb(200,200,200);
@@ -3343,7 +3348,6 @@ li{
 .button_large > a:hover{
 	color:rgb(50,180,240);
 }
-
 
 #publish .button_category{
 	background-color:rgb(200,200,200);
@@ -3409,8 +3413,6 @@ li{
 	background-color:rgb(50,180,240);
 }
 
-
-
 .button_medium.cancel{
 	left:180px;
 	color:rgb(170,170,170);
@@ -3458,7 +3460,6 @@ li{
 	bottom:60px;
 	color:rgb(210,210,210);
 }
-
 
 /*----------------------------------------Shop.html---------------------------------------------*/
 /*-------------Overall-------------*/
@@ -3691,9 +3692,6 @@ li{
 	top:5px;
 }
 
-
-
-
 .shop .colorBox{
 	position: relative;
 }
@@ -3708,7 +3706,6 @@ li{
 	-moz-border-radius:2px;
 	border:1px solid rgb(200,200,200);
 }
-
 
 .bottom .lastChild > .submenu_second{
 	height:50px;
@@ -3983,14 +3980,11 @@ li{
 	color:rgb(100,100,100);
 }
 
-
-
 .zoom span{	
 	font-size:0.8em;
 	color:rgb(100,150,150);
 
 }
-
 
 .button-tryon > .right{
 	color:rgb(150,150,150);
@@ -4033,17 +4027,11 @@ li{
 	right:55px;
 	color:rgb(140,170,190);
 	cursor: pointer;
-
-
 }
 
 .popupBox div span{
 	right:15px;
 }
-
-
-
-
 
 .popupBox div span:hover,
 .popupBox div a:hover{
@@ -4297,10 +4285,6 @@ li{
 
 }
 
-#current,
-.current{
-	color:rgb(50,180,240);
-}
 
 .itemDetails-tabs p,
 .itemDetails-tabs div li{
@@ -4334,14 +4318,14 @@ li{
 
 
 #shopItem .content,
-#signin .content{
+#userPage .content{
 	width:1108px;
 	margin:0 auto;
 }
 
 #shopItem .content .top,
 #shopItem .content .bottom,
-#signin .content .bottom{
+#userPage .content .bottom{
 	width:100%;
 	float:left;
 	padding-bottom:100px;
@@ -4349,12 +4333,12 @@ li{
 	height:auto;
 }
 
-#signin .content .bottom{
+#userPage .content .bottom{
 	border:1px solid rgb(221,221,221);
 }
 
 #shopItem .content .bottom,
-#signin .content .bottom{
+#userPage .content .bottom{
 	min-height:500px;
 }
 
@@ -4409,7 +4393,7 @@ li{
 /*---------------bottom subheader content---------------*/
 /*--structure--*/
 #shopItem .bottom .subHeader,
-#signin .bottom .subHeader{
+#userPage .bottom .subHeader{
 	width:90%;
 	background-color:rgb(230,230,230);
 	height:37px;
@@ -4420,19 +4404,19 @@ li{
 }
 
 #shopItem .bottom .subHeader ul,
-#signin .bottom .subHeader ul{
+#userPage .bottom .subHeader ul{
 	width:80%;
 	margin:0 auto;
 	text-align: center;
 }
-#signin .bottom .subHeader ul{
+#userPage .bottom .subHeader ul{
 	width:95%;
 }
 
 
 
 #shopItem .bottom .subHeader ul li,
-#signin .bottom .subHeader ul li{
+#userPage .bottom .subHeader ul li{
 	display: inline-block;
 	padding:14px 25px 10px;
 	text-align: center;
@@ -4443,19 +4427,19 @@ li{
 
 
 #shopItem .bottom .subHeader ul  li .blue-color,
-#signin .bottom .subHeader ul  li .blue-color{
+#userPage .bottom .subHeader ul  li .blue-color{
 	color:rgb(50,180,240);
 }
 
 #shopItem .bottom .subHeader ul  li  span,
-#signin .bottom .subHeader ul  li  span{
+#userPage .bottom .subHeader ul  li  span{
 	font-family:Thonburi;
 	font-size:14px;
 	color:rgb(155,155,155);
 }
 
 #shopItem .bottom .subHeader ul  li:hover span,
-#signin .bottom .subHeader ul  li:hover span{
+#userPage .bottom .subHeader ul  li:hover span{
 	color:rgb(50,180,240);
 }
 
@@ -4602,13 +4586,13 @@ li{
 /*--Structure--*/
 #shopItem .bottom .creation,
 #shopItem .bottom .comment,
-#signin .bottom .creation,
-#signin .bottom .comment{
+#userPage .bottom .creation,
+#userPage .bottom .comment{
 	display:none;
 }
 
 #shopItem .bottom .inside,
-#signin .bottom .inside{
+#userPage .bottom .inside{
 	position: relative;
 	width:1030px;
 	margin:0 auto;
@@ -4616,7 +4600,7 @@ li{
 }
 
 #shopItem .bottom .inside .hidden,
-#signin .bottom .inside .hidden{
+#userPage .bottom .inside .hidden{
 	position: absolute;
 	right:0;
 	left:0;
@@ -4628,12 +4612,12 @@ li{
 }
 
 #shopItem .items,
-#signin .items{
+#userPage .items{
 	margin:0 auto;
 }
 
 #shopItem .items > li,
-#signin .items > li{
+#userPage .items > li{
 	width:29%;
 	height:360px;
 	position: relative;
@@ -4644,7 +4628,7 @@ li{
 
 
 #shopItem .items .itemDetails-image,
-#signin .items .itemDetails-image{
+#userPage .items .itemDetails-image{
 	width:100%;
 	position: relative;
 	height:300px;
@@ -4654,14 +4638,14 @@ li{
 
 
 #shopItem li .itemDetails-description,
-#signin .rightSideBox .itemDetails-description{
+#userPage .rightSideBox .itemDetails-description{
 	position: relative;
 	width:100%;
 	height:13%;
 }
 
 #shopItem .bottom .items li .itemDetails-description .description,
-#signin .bottom .items li .itemDetails-description .description{
+#userPage .bottom .items li .itemDetails-description .description{
 	position: absolute;
 	top:10px;
 	left:5px;
@@ -4671,57 +4655,57 @@ li{
 } 
 
 #shopItem .bottom .itemDetails-description .description a,
-#signin .bottom .itemDetails-description .description a{
+#userPage .bottom .itemDetails-description .description a{
 	font-size:1.1em;
 }
 
 #shopItem .bottom .inside .button-tryon,
 #shopItem .bottom .inside .button_heart-item,
-#signin .bottom .inside .button-tryon,
-#signin .bottom .inside .button_heart-item{
+#userPage .bottom .inside .button-tryon,
+#userPage .bottom .inside .button_heart-item{
 	right:0px;
 	bottom:60px;
 }
 
 #shopItem .bottom .inside .button-tryon,
-#signin .bottom .inside .button-tryon{
+#userPage .bottom .inside .button-tryon{
 	right:65px;
 }
 
 #shopItem .items > li .itemDetails-description .price,
-#signin .items > li .itemDetails-description .price{
+#userPage .items > li .itemDetails-description .price{
 	bottom:-5px;
 	left:260px;
 
 }
 
 #shopItem .items > li .itemDetails-description .url,
-#signin .items > li .itemDetails-description .url{
+#userPage .items > li .itemDetails-description .url{
 	position: absolute;
 	bottom:-5px;
 	left:5px;
 }
 
 #shopItem .itemDetails-description .url a,
-#signin .itemDetails-description .url a{
+#userPage .itemDetails-description .url a{
 	font-size:1.2em;
 }
 
 /*--creation--*/
 
 #shopItem .content_stream > ul > li,
-#signin .content_stream > ul > li{
+#userPage .content_stream > ul > li{
 	margin:30px 13px;
 }
 
-#signin .creation > ul{
+#userPage .creation > ul{
 	width:97%;
 	margin:0 auto;
 }
 
 /*--comment--*/
 #shopItem .comment > div,
-#signin .comment > div{
+#userPage .comment > div{
 	width:90%;
 	margin:30px auto;
 	background-color: rgb(250,250,250);
@@ -4730,14 +4714,14 @@ li{
 
 
 #shopItem .comment-messageBox,
-#signin .comment-messageBox{
+#userPage .comment-messageBox{
 	width:81%;
 	margin:0 auto 40px;
 	border-bottom:1px solid rgb(220,220,220);
 }
 
 #shopItem .comment .comment-others,
-#signin .comment .comment-others{
+#userPage .comment .comment-others{
 	width:80%;
 }
 
@@ -4745,12 +4729,12 @@ li{
 /*------------------------------Profile.html------------------------------*/
 /*---------------Overall---------------*/
 /*--structure--*/
-#signin .top{
+#userPage .top{
 	margin:0 auto;
 	width:1050px;
 }
 
-#signin .top > div{
+#userPage .top > div{
 	background-color:rgb(255,255,255);
 	height:100%;
 	float:left;	border:1px solid rgb(221,221,221);
@@ -4758,26 +4742,26 @@ li{
 	margin:15px 0px;
 }
 
-#signin .top > .leftSide{
+#userPage .top > .leftSide{
 	width:77%;
 }
 
-#signin .top > .rightSide{
+#userPage .top > .rightSide{
 	width:21%;
 	margin-left:10px;
 }
 
-#signin .leftSide > div{
+#userPage .leftSide > div{
 	float:left;
 }
 
-#signin .userProfile{
+#userPage .userProfile{
 	width:30%;
 	height:100%;
 	position: relative;
 }
 
-#signin .userProfile > div{
+#userPage .userProfile > div{
 	height:155px;
 	width:155px;
 	margin:30px;
@@ -4785,12 +4769,12 @@ li{
 
 
 /*--Element--*/
-#signin .userProfile img{
+#userPage .userProfile img{
 	height:100%;
 	border:5px solid rgb(221,221,221);
 }
 
-#signin .userProfile > div > div{
+#userPage .userProfile > div > div{
 	width:100px;
 	height:25px;
 	background-color: rgb(240,240,240);
@@ -4803,7 +4787,7 @@ li{
 
 }
 
-#signin .userProfile span{
+#userPage .userProfile span{
 	position: absolute;
 	right:0;
 	left:0;
@@ -4813,40 +4797,40 @@ li{
 }
 
 /*--Effect--*/
-#signin .userProfile > div:hover div{
+#userPage .userProfile > div:hover div{
 	display: block
 }
 
-#signin .userProfile > div > div:hover{
+#userPage .userProfile > div > div:hover{
 		background-color: rgb(50,180,240);
 
 }
 
-#signin .userProfile > div > div:hover span{
+#userPage .userProfile > div > div:hover span{
 	color:rgb(255,255,255);
 }
 
 /*----Left Inner----*/
 /*--Structure--*/
-#signin .leftSide > .rightSide{
+#userPage .leftSide > .rightSide{
 	width:70%;
 	height:100%;
 	margin:0;
 	position: relative;
 }
-#signin .leftSide > .rightSide .userInformation > ul > li{
+#userPage .leftSide > .rightSide .userInformation > ul > li{
 	float:left;
 	margin:25px 10px;
 }
 /*--Element--*/
-#signin .userInformation li{
+#userPage .userInformation li{
 	color:rgb(83,83,83);
 	font-family:"Calisto MT";
 	font-size:26px;
 }
 
 
-#signin .leftSide > .rightSide .userInformation .location{
+#userPage .leftSide > .rightSide .userInformation .location{
 	font-family:"American Typewriter";
 	font-size:15px;
 	line-height: 220%;
@@ -4854,7 +4838,7 @@ li{
 	position: relative;
 }
 
-#signin .userInformation .location_icon{
+#userPage .userInformation .location_icon{
 	width:17px;
 	height:29px;
 	position: absolute;
@@ -4862,13 +4846,13 @@ li{
 	left:-30px;
 }
 
-#signin .userInformation .joinDate{
+#userPage .userInformation .joinDate{
 	font-size:11px;
 	line-height: 300%;
 	color:rgb(68,68,68);
 }
 
-#signin .userInformation .editIcon{
+#userPage .userInformation .editIcon{
 	background:url("images/editIcon.png") top left no-repeat; 
 	background-size:65%;
 	background-position: 50% 50%;
@@ -4880,11 +4864,11 @@ li{
 }
 
 
-#signin .leftSide > .rightSide .introduction{
+#userPage .leftSide > .rightSide .introduction{
 	position: relative;
 }
 
-#signin .leftSide > .rightSide .introduction p{
+#userPage .leftSide > .rightSide .introduction p{
 	margin:25px 15px;
 	width:480px;
 	font-size:13px;
@@ -4895,7 +4879,7 @@ li{
 }
 
 
-#signin .leftSide > .rightSide .lastChild .leftSide li{
+#userPage .leftSide > .rightSide .lastChild .leftSide li{
 	float:left;
 	margin:0 0 15px 10px;
 	position: relative;
@@ -4906,13 +4890,13 @@ li{
 	cursor: pointer;
 }
 
-#signin .leftSide > .rightSide .right-bottom{
+#userPage .leftSide > .rightSide .right-bottom{
 	position: absolute;
 	right:25px;
 	bottom:20px;
 }
 
-#signin .leftSide > .rightSide .right-bottom li{
+#userPage .leftSide > .rightSide .right-bottom li{
 	float:left;
 	font-size:13px;
 	color:rgb(85,85,85);
@@ -4922,35 +4906,35 @@ li{
 
 /*----Inner right----*/
 /*--Structure--*/
-#signin .top > .rightSide{
+#userPage .top > .rightSide{
 	position: relative;
 }
 /*--Element--*/
-#signin .top >  .rightSide > .award{
+#userPage .top >  .rightSide > .award{
 	margin:25px 0px 50px 60px;
 	width:80%;
 	position: relative;
 }
 
-#signin .top >  .rightSide > .award > li{
+#userPage .top >  .rightSide > .award > li{
 	position: relative;
 	margin-top:15px;
 }
 
-#signin .top >  .rightSide .award .middle{
+#userPage .top >  .rightSide .award .middle{
 	font-size:0.9em;
 	color:rgb(100,100,100);
 }
 
 
-#signin .top >  .rightSide .award_icon{
+#userPage .top >  .rightSide .award_icon{
 	position: absolute;
 	top:-10px;
 	left:-30px;
 }
 
 
-#signin .rightSide .moreAward{
+#userPage .rightSide .moreAward{
 	position: absolute;
 	bottom:155px;
 	right:25px;
@@ -4958,32 +4942,32 @@ li{
 	font-size: 0.8em;
 }
 
-#signin .rightSide .hidden{
+#userPage .rightSide .hidden{
 	display:none;
 }
 
-#signin .top >  .rightSide > .dashboard{
+#userPage .top >  .rightSide > .dashboard{
 	width:75%;
 	margin:10px auto;
 }
 
-#signin .top >  .rightSide > ul > li > div{
+#userPage .top >  .rightSide > ul > li > div{
 	margin:10px 0px;
 	position: relative;
 	border-bottom:1px solid rgb(220,220,220);
 }
 
-#signin .top >  .rightSide .comment_icon{
+#userPage .top >  .rightSide .comment_icon{
 	left:23px;
 	top:0px;
 }
 
-#signin .top >  .rightSide .view_icon{
+#userPage .top >  .rightSide .view_icon{
 	left:20px;
 	top:-2px;
 }
 
-#signin .top >  .rightSide .heart_empty{
+#userPage .top >  .rightSide .heart_empty{
 	right:auto;
 	width:20px;
 	height:18px;
@@ -4993,7 +4977,7 @@ li{
 }
 
 
-#signin .follow_icon{
+#userPage .follow_icon{
 	background:url("images/followIcon.png") top left no-repeat; 
 	background-size: 100%;
 	opacity: 0.3;
@@ -5004,17 +4988,17 @@ li{
 	left:12px;
 }
 
-#signin .top >  .rightSide .dashboard span{
+#userPage .top >  .rightSide .dashboard span{
 	font-size:1.0em;
 	color:rgb(119,119,119);
 }
 
-#signin .top >  .rightSide .dashboard-number{
+#userPage .top >  .rightSide .dashboard-number{
 	margin-left:60px;
 }
 
 
-#signin .top >  .rightSide .lastChild{
+#userPage .top >  .rightSide .lastChild{
 	margin-left:10px; 	
 }
 
@@ -5022,34 +5006,34 @@ li{
 
 
 /*--Effect--*/
-#signin .rightSide .moreAward:hover{
+#userPage .rightSide .moreAward:hover{
 	color: rgb(50,180,240);
 
 }
 /*----Following & Follower sub-content----*/
 /*--Structure--*/
-#signin .inside > div{
+#userPage .inside > div{
 	display:none;
 }
 
-#signin .inside > .overall{
+#userPage .inside > .overall{
 	display:block;
 }
 
 
 
-#signin .follow > div{
+#userPage .follow > div{
 	width:983px;
 	height:266px;
 	margin:20px auto;
 }
 
-#signin .follow > div > div{
+#userPage .follow > div > div{
 float:left;
 }
 
-#signin .follow > div > .leftSide,
-#signin .follow > div >.rightSide{
+#userPage .follow > div > .leftSide,
+#userPage .follow > div >.rightSide{
   width:23.1%;
   height:100%;
   margin-right:3px;
@@ -5057,21 +5041,21 @@ float:left;
   position: relative;
 }
 
-#signin .follow > div >.rightSide{
+#userPage .follow > div >.rightSide{
   width:75.8%;
   height:100%
 }
 
 /*--Element--*/
 
-#signin .follow > div > .leftSide ul .firstChild{
+#userPage .follow > div > .leftSide ul .firstChild{
 	height:42px;
 	width:100%;
 	position: relative;
 }	
 
 
-#signin .follow > div > .leftSide .userName{
+#userPage .follow > div > .leftSide .userName{
 	position: absolute;
 	top:12px;
 	left:10px;
@@ -5081,18 +5065,18 @@ float:left;
 	color:rgb(102,102,102);
 }
 
-#signin .follow > div > .leftSide ul .lastChild{
+#userPage .follow > div > .leftSide ul .lastChild{
 	width:100%;
 	height:225px;
 	overflow:hidden;
 }
 
-#signin .follow > div > .leftSide ul .lastChild img{
+#userPage .follow > div > .leftSide ul .lastChild img{
 	width:100%;
 	margin:0 auto;
 }
 
-#signin .follow > div > .leftSide .hidden{
+#userPage .follow > div > .leftSide .hidden{
 	width:100%;
 	height:50px;
 	display: none;
@@ -5101,7 +5085,7 @@ float:left;
 	background-color: rgb(100,100,100);
 }
 
-#signin .follow > div > .leftSide .hidden span{
+#userPage .follow > div > .leftSide .hidden span{
 	font-size: 0.5em;
 	position: absolute;
 	right:0;
@@ -5112,15 +5096,15 @@ float:left;
 }
 
 
-#signin .follow > div .leftSide ul:hover .hidden{
+#userPage .follow > div .leftSide ul:hover .hidden{
 	display:block;
 }
 
-#signin .follow > div > .rightSide ul{
+#userPage .follow > div > .rightSide ul{
 	height:100%;
 }
 
-#signin .follow > div > .rightSide ul li{
+#userPage .follow > div > .rightSide ul li{
     float:left;
 	height:100%;
 	width:33.3%;
@@ -5128,7 +5112,7 @@ float:left;
     cursor: pointer;
 }
 
-#signin .follow > div > .rightSide ul li img{
+#userPage .follow > div > .rightSide ul li img{
 	position:absolute;
 	top:0;
 	bottom:0;
@@ -5138,34 +5122,34 @@ float:left;
 	width:100%;
 }
 
-#signin .follow > div > .rightSide > span{
+#userPage .follow > div > .rightSide > span{
 	z-index:1000;
 	left:5px;
 	display: none;
 }
 
-#signin .follow > div > .rightSide > .rightArrow_mainSlideshow{
+#userPage .follow > div > .rightSide > .rightArrow_mainSlideshow{
 	right:5px;
 	left:auto;
 }
 
 /*-------------------------------Profile page-------------------------------*/
-#signin .profile > form > div{
+#userPage .profile > form > div{
 	width:90%;
 	margin:20px auto;
 	
 }
 
-#signin .profile > form > div > ul > li{
+#userPage .profile > form > div > ul > li{
 	margin:25px;
 }
 
-#signin .profile > form > div span{
+#userPage .profile > form > div span{
 	font-size:1.5em;
 	color:rgb(140,140,140);
 }
 
-#signin .profile > form > div input{
+#userPage .profile > form > div input{
 	width:70%;
 	height:20px;
 	padding:4px;
@@ -5176,7 +5160,7 @@ float:left;
 
 }
 
-#signin .profile > form > div textarea{
+#userPage .profile > form > div textarea{
 	height:200px;
 	width:70%;
 	border-color:rgb(200,200,200);
@@ -5186,12 +5170,12 @@ float:left;
 	font-size:1.1em;
 }
 
-#signin .profile > form > .confirmation{
+#userPage .profile > form > .confirmation{
 	height:73px;
 	width:100%;
 }
 
-#signin .profile > form > .confirmation > div{
+#userPage .profile > form > .confirmation > div{
 	float:left;
 	margin:40px 0 44px 40px;
 	font-size:0.9em;
@@ -5212,11 +5196,11 @@ float:left;
 
 
 
-#signin .profile > form > .confirmation #confirm{
+#userPage .profile > form > .confirmation #confirm{
 	margin-right:50px;
 }
 
-#signin .profile > form > .confirmation button{
+#userPage .profile > form > .confirmation button{
 	float:right;
 	margin:30px 10px;
 	 -webkit-appearance: none;
@@ -5228,43 +5212,43 @@ float:left;
     cursor: pointer;
 }
 
-#signin .profile > form > .confirmation #confirm{
+#userPage .profile > form > .confirmation #confirm{
 	background-color: rgb(50,180,240);
 	color:rgb(255,255,255);
 }
 
 
-#signin .profile > form > .confirmation > div a{
+#userPage .profile > form > .confirmation > div a{
 	font-size:1.3em;
 }
 
 
 
 /*--Effect--*/
-#signin .lastChild .leftSide .follow.round_medium:hover{
+#userPage .lastChild .leftSide .follow.round_medium:hover{
 	background-color: rgb(50,180,240);
 	color:rgb(255,255,255);
 }
 
-#signin .follow .hidden:hover
+#userPage .follow .hidden:hover
 
 
-#signin .profile > form > .confirmation #confirm:hover,
-#signin .profile > form > .confirmation #confirm:active{
+#userPage .profile > form > .confirmation #confirm:hover,
+#userPage .profile > form > .confirmation #confirm:active{
 	background-color:rgb(80,110,150);
 }
 
-#signin .profile form button:hover,
-#signin .profile form button:active{
+#userPage .profile form button:hover,
+#userPage .profile form button:active{
 	border-color:	rgb(50,180,240);
 }
 
 }
-#signin .profile > form > .confirmation > div a:hover{
+#userPage .profile > form > .confirmation > div a:hover{
 	color:rgb(50,180,240);
 }
 
-#signin .follow > div > .rightSide:hover > span{
+#userPage .follow > div > .rightSide:hover > span{
 	display: block;
 }
 
@@ -5274,7 +5258,7 @@ float:left;
 
 }
 
-/*----Setting confirmation----*/
+/*------Setting confirmation------*/
 /*----Overall----*/
 /*--Structure--*/
 #setting #modalbox{
@@ -5631,28 +5615,6 @@ float:left;
 	background-color: rgb(255,255,255);
 }
 
-
-/*-------------------------------PersonalInfo.html-------------------------------*/
-/*----Overall----*/
-/*--Structure--*/
-#personalInfo{
-	display: none;
-}
-
-#personalInfo   form > div{
-	margin:0 auto;
-}
-
-#personalInfo > form > .setting-wrapper{
-	height:355px;
-}
-
-#personalInfo > form > .setting-wrapper ul li{
-	height:60px;
-}
-
-
-
 /*-------------------------------FOOTER-------------------------------*/
 /*--Structure--*/
 #subFooter{
@@ -5673,7 +5635,6 @@ float:left;
 	bottom:0;
 	display: none;
 	z-index:9998;
-
 }
 
 
@@ -5695,16 +5656,11 @@ float:left;
 	color:rgb(150,150,150);
 }
 
-
-
-
 #footer > div > ul{
 	width:20%;
 	height:80%;
 	margin-left:10px;
-
 }
-
 
 #footer > div > ul,
 #footer > div > #connect li{
@@ -5751,4 +5707,20 @@ float:left;
 /*--effect--*/
 #footer a:hover{
 	color:rgb(255,255,255);
+}
+
+
+/*------------------------------About------------------------------*/
+#about #content{
+	height:150px;
+}
+
+#about #content h5{
+	text-align: center;
+	margin-top:70px;
+	font-size:5em;
+	color:rgb(170,80,80);
+}
+#about #footer{
+	display:block;
 }
