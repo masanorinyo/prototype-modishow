@@ -619,9 +619,7 @@ $(document).ready(function(){
 		$(this).children(".zoom,.button-tryon,.button_heart-item").fadeOut("fast");
 		$(this).children().children(".popupBox").fadeOut("fast");
 	});
-	$(".button-tryon").click(function(){
-		$(this).children(".popupBox").fadeToggle("fast");
-	});
+	
 	$('.popup-box,.cancel,html').click(function(){
 		$(".popupBox").hide();
 	});
