@@ -46,7 +46,7 @@ $(document).ready(function(){
 	$('.openModal').click(function(event){
 		$('#popup_overlay').show();
 	});
-	$('.openModal,.zoom,.editIcon,.userProfile > div > div').click(function(event){
+	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div').click(function(event){
 		$('html').css("overflow", "hidden");
 	});
 	$('.openModal').click(function(event){
@@ -615,8 +615,8 @@ $(document).ready(function(){
 //--hover effect for contents--//
 $(document).ready(function(){
 	$(".items > li").hover(function(){
-		$(this).children(".zoom,.button-tryon,.button_heart-item").fadeIn("fast");},function(){
-		$(this).children(".zoom,.button-tryon,.button_heart-item").fadeOut("fast");
+		$(this).children(".singleItemImage,.button-tryon,.button_heart-item").fadeIn("fast");},function(){
+		$(this).children(".singleItemImage,.button-tryon,.button_heart-item").fadeOut("fast");
 		$(this).children().children(".popupBox").fadeOut("fast");
 	});
 	
@@ -631,7 +631,7 @@ $(document).ready(function(){
 
 //--Sign in page  modalboxes--//
 $(document).ready(function(){
-	$('.zoom').click(function(event){
+	$('.singleItemImage, .small_boxes > ul li > a').click(function(event){
 		$('#quickView').fadeIn("fast");
 	});
 	$('.userProfile > div > div').click(function(event){

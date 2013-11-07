@@ -2437,7 +2437,7 @@ li{
 	cursor: pointer;
 }
 
-#feed_content > div > div > ul > li > img{
+#feed_content > div > div > ul > li > a > img{
 	width:80%;
 	position: absolute;
 	top:0;
@@ -2623,6 +2623,10 @@ li{
 	top:10%;
 	right:48px;
 	cursor: pointer;
+}
+
+.modelPic{
+	height:100%;
 }
 
 /*heart icons*/
@@ -3912,7 +3916,7 @@ li{
 	color:rgb(100,170,180);
 }
 
-.shop .zoom,
+.shop .singleItemImage,
 .shop .button-tryon,
 .shop .button_heart-item,
 #shopItem .button-tryon,
@@ -3929,7 +3933,7 @@ li{
 
 }
 
-.shop .zoom:hover span,
+.shop .singleItemImage:hover span,
 .shop .button-tryon:hover > span,
 .shop .button_heart-item:hover span,
 #shopItem .button-tryon:hover > span,
@@ -3938,7 +3942,7 @@ li{
 
 }
 
-#shop .zoom{	
+#shop .singleItemImage{	
 	background-color: rgb(232,240,240);
 }
 
@@ -3975,7 +3979,7 @@ li{
 	color:rgb(100,100,100);
 }
 
-.zoom span{	
+.singleItemImage span{	
 	font-size:0.8em;
 	color:rgb(100,150,150);
 
@@ -4299,7 +4303,7 @@ li{
 #userPage .content .bottom{
 	width:100%;
 	float:left;
-	padding-bottom:30px;
+	padding-bottom:20px;
 	background-color: rgb(255,255,255);
 	height:auto;
 }
@@ -4369,7 +4373,7 @@ li{
 	background-color:rgb(230,230,230);
 	height:37px;
 	border-bottom:5px solid rgb(230,230,230);
-	margin:0px auto 20px;
+	margin:30px auto;
 	z-index:999;
 	position: relative;
 }
