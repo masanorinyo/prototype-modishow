@@ -4330,7 +4330,7 @@ li{
 	right:0;
 	left:-1px;
 	margin:0 auto;
-	z-index:9999;
+	z-index:1000;
 }
 
 #shopItem .subHeader .button-tryon,
@@ -4673,6 +4673,7 @@ li{
 	margin:30px 13px;
 }
 
+#shopItem .creation > ul,
 #userPage .creation > ul{
 	width:97%;
 	margin:0 auto;
