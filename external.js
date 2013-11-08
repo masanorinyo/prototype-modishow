@@ -376,6 +376,53 @@ $(function(){
 	});
 });
 
+//-----------------Form entry - sub categories change based on the chosen category----------------//
+$(function(){
+
+	var optionStyle = $("<option value=0>Please choose a sub-category</option><option value='active'>Active</option><option value='basic'>basic</option><option value='businessCasual'>Business Casual</option><option value='bohemian'>Bohemian</option><option value='casual'>Casual</option><option value='classic'>Classic</option><option value='comfortable'>Comfortable</option><option value='celebrity'>Celebrity</option><option value='cute'>Cute</option><option value='elegant'>Elegant</option><option value='formal'>Formal</option><option value='goth'>Goth</option><option value='preppy'>Preppy</option><option value='punk'>Punk</option><option value='runway'>Runway</option><option value='sexy'>Sexy</option><option value='swimwear'>Swimwear</option><option value='vintage'>Vintage</option>");
+	var optionOccasion = $("<option value=0>Please choose a sub-category</option><option value='casualDate'>Casual Date</option><option value='classyDate'>Classy Date</option><option value='everyday'>Everyday</option><option value='formalEvents'>Formal Events</option><option value='nightOut'>Night Out</option><option value='outdoorActivities'>Outdoor Activities</option><option value='work'>Work</option>");
+	var optionSeason = $("<option value=0>Please choose a sub-category</option><option value='spring'>Spring</option><option value='midSpring'>Mid-Spring</option><option value='summer'>Summer</option><option value='fall'>Fall</option><option value='midFall'>Mid-Fall</option><option value='winter'>Winter</option>");
+	var optionWeather = $("<option value=0>Please choose a sub-category</option><option value='warm'>Warm</option><option value='freezing'>Freezing</option><option value='cold'>Cold</option><option value='raining'>Raining</option><option value='hot'>Hot</option><option value='snowing'>Snowing</option><option value='tropical'>Tropical</option>");
+	
+	$("#categorySelect").change(function(){
+		if($(this).val() == "style"){
+
+			$("#subCategorySelect").empty();
+			$("#subCategorySelect").append(optionStyle);
+
+		} else if($(this).val() == "Occassion"){
+			$("#subCategorySelect").empty();
+			$("#subCategorySelect").append(optionOccasion);
+
+		}else if($(this).val() == "Season"){
+
+			$("#subCategorySelect").empty();
+			$("#subCategorySelect").append(optionSeason);
+
+		}else if($(this).val() == "Season"){
+
+			$("#subCategorySelect").empty();
+			$("#subCategorySelect").append(optionWeather);
+
+		}else if($(this).val() == "Weather"){
+
+			$("#subCategorySelect").empty();
+			$("#subCategorySelect").append(optionWeather);
+
+		}else{
+
+			$("#subCategorySelect").empty();
+
+		};
+
+
+	});
+
+
+
+
+});
+
 //-----------------Right side (item box)----------------//
 //--item box header-//
 $(function(){
