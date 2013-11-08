@@ -1,6 +1,6 @@
 //********************General functions********************//
 //--Click event to scroll to top--//
-$(document).ready(function(){
+$(function(){
 	$('#modalbox-backToTop').click(function(){
 		$('#modalbox').animate({scrollTop : 0},800);
 		return false;
@@ -12,7 +12,7 @@ $(document).ready(function(){
 });
 
 //--heart fillup--//
-$(document).ready(function(){
+$(function(){
 	$(".button_heart").click(function(){
 		$(this).children('.heart_filled').fadeToggle("fast");
 	});
@@ -31,18 +31,10 @@ $(document).ready(function(){
 });
 
 
-
-
-
-
-
-
-
-
 //********************Index html********************//
 //---------------------Modal box---------------------//
 //--Open and close modal box--//
-$(document).ready(function(){
+$(function(){
 	$('.openModal').click(function(event){
 		$('#popup_overlay').show();
 	});
@@ -82,7 +74,7 @@ $(document).ready(function(){
 });
 
 //--back to top button--//
-$(document).ready(function(){
+$(function(){
 	$(window).scroll(function(){
 		if ($(this).scrollTop() < 850) {
 			$('.backToTop').fadeOut(300);
@@ -100,14 +92,14 @@ $(document).ready(function(){
 });
 
 //--about display show button--//
-$(document).ready(function(){
+$(function(){
 	$(".button_about").click(function(){
 		$("#footer").css("position","fixed").fadeToggle(300);       
  	});
  });
 
 //--header fix position--//
-$(document).ready(function(){
+$(function(){
     $('#modalbox').scroll(function(){
         var scrollTop = 30;
         
@@ -125,7 +117,7 @@ $(document).ready(function(){
 });
 
 //--change among three options - collage, model, people--//
-$(document).ready(function(){
+$(function(){
 	$(".rectanglar-left").click(function(){
 		if( $(".content_model,.content_people").css("display","block") ) {
             $(".content_model,.content_people").hide();
@@ -155,7 +147,7 @@ $(document).ready(function(){
 
 //--direct contents to the modal box content--//
 //if collage contents are clicked, the collage will be shown in the modal box at first//
-$(document).ready(function(){
+$(function(){
    	$(".collageBox,.styleTitle > .openModal,.medium_boxes .openModal,.follow .openModal").click(function(){
 		$(".rectanglar-left").addClass("currently_focus");
     	$(".rectanglar-medium,.rectanglar-right").removeClass("currently_focus");
@@ -179,7 +171,7 @@ $(document).ready(function(){
 
 //---------------------Contents ---------------------//
 //--hover effect for contents--//
-$(document).ready(function(){
+$(function(){
 	$(".content_small,.content_large,.items > li,.small_boxes > ul > li,.medium_boxes > ul > li,.large_boxes,#content > div > div > ul > li").hover(function(){
 		$(this).children(".button_heart,.button_flip").fadeIn("fast");},function(){
 		$(this).children(".button_heart,.button_flip").fadeOut("fast");
@@ -187,33 +179,26 @@ $(document).ready(function(){
 });
 
 //--flip individual effect--//
-$(document).ready(function(){
-	var toggleStateSingle = true;
+$(function(){
 	$('.button_flip').on("click", function(){
-	  if(toggleStateSingle) {
-	     $(this).next().next(".modelBox").fadeIn();
-	  } else {
-	    $(this).next().next(".modelBox").fadeOut();
-	  }
-	  
-	  toggleStateSingle = !toggleStateSingle;
-	});
+  		var modelImage = $(this).next().next(".modelBox");
+  		var collageImage = $(this).next(".collageBox");
 
-	var toggleStateSingleCategory = true;
-	$('.button_flip').on("click", function(){
-	  if(toggleStateSingleCategory) {
+	  if(collageImage.css('display') == "block"){
+	     collageImage.fadeOut();
+	     modelImage.fadeIn();
 	     $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeOut();
-	  } else {
-	    $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeIn();
-	  }
-	  
-	  toggleStateSingleCategory = !toggleStateSingleCategory;
+	  } else{
+	     modelImage.fadeOut();
+	     collageImage.fadeIn();
+	     $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeIn();
+	  };	  
 	});
 });
 
 //---------------------Sticky navi---------------------//
 //--hover effect for sticky navi--//
-$(document).ready(function(){
+$(function(){
 	$(".stickynavi_submenu > div").hover(function(){
 		$(this).children(".background_white.stickynavi_submenu_second").fadeIn("fast");},function(){
 		$(this).children(".background_white.stickynavi_submenu_second").fadeOut("fast");
@@ -225,7 +210,7 @@ $(document).ready(function(){
 });
 
 //--sticky navi fix navi--//
-$(document).ready(function(){
+$(function(){
     $(window).scroll(function(){
         var scrollTop = 50;
         
@@ -244,7 +229,7 @@ $(document).ready(function(){
 
 
 //--flip all effect--//
-$(document).ready(function(){
+$(function(){
 	var toggleState = true;
 	
 	$('#button_flipAll').on("click", function(){
@@ -271,7 +256,7 @@ $(document).ready(function(){
 });
 
 //--search box appears--// 
-$(document).ready(function(){
+$(function(){
     $(window).scroll(function(){
         var scrollTop = 50;
         if($(window).scrollTop() >= scrollTop){
@@ -285,7 +270,7 @@ $(document).ready(function(){
 })
 
 //--sign up box appears--// 
-$(document).ready(function(){
+$(function(){
     $(window).scroll(function(){
         var scrollTop = 50;
         if($(window).scrollTop() >= scrollTop){
@@ -299,7 +284,7 @@ $(document).ready(function(){
 })
 
 //--dropdown menu--//
-$(document).ready(function(){
+$(function(){
 	$(".stickynavi-left > li").click(function(){
 		$(this).children('.stickynavi_submenu').fadeToggle("fast");});			
 	
@@ -334,7 +319,7 @@ $(document).ready(function(){
 //********************Tryon html********************//
 //-----------------left side ----------------//
 //--hover effect--//
-$(document).ready(function(){
+$(function(){
 	$("#creationCanvas").hover(function(){
 		$(".hide").fadeIn("fast");},function(){
 		$(".hide").fadeOut("fast");
@@ -342,7 +327,7 @@ $(document).ready(function(){
 });
 
 //--appears & disappears for category and layer button--//
-$(document).ready(function(){
+$(function(){
 	$(".button_category,.button_layer").click(function(){
     	if( $(this).children(".hiddenBox").is("display","block")){
         	$(this).children(".hiddenBox").hide();
@@ -378,7 +363,7 @@ $(document).ready(function(){
 
 //-----------------Modal box ----------------//
 //--open and close modal box--//
-$(document).ready(function(){
+$(function(){
 	$('.button_publish').click(function(event){
 		$('#popup_overlay').fadeIn("fast");
 	});
@@ -404,7 +389,7 @@ $(document).ready(function(){
 
 //-----------------Right side (item box)----------------//
 //--item box header-//
-$(document).ready(function(){
+$(function(){
 	$(".controlBoxes > li").click(function(){
 		$(this).children().children(".subHeader-submenu").slideToggle(200);
 	});
@@ -436,7 +421,7 @@ $(document).ready(function(){
 });
 
 //--dropdown for category box--//
-$(document).ready(function(){
+$(function(){
 	$(".parent-submenu").hover(function(){			
 	    $(this).children(".hiddenBox-submenu").fadeIn(100)},function(){
 		$(this).children(".hiddenBox-submenu").fadeOut(100);
@@ -445,7 +430,7 @@ $(document).ready(function(){
 
 //--item box sub header--//
 //sub header changes according to a selected header//
-$(document).ready(function() {
+$(function() {
     $("#itembox_header ul li").click(function() { 
         $(this).addClass("currently_focus");
         $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
@@ -489,7 +474,7 @@ $(document).ready(function() {
 });
 
 //--items show up--//
-$(document).ready(function() { 
+$(function() { 
  	$(".itemBox > .itemIconsWrapper > li, .subHeader-submenu > ul > li").click(function() { 
         $(".itemBox > .itemIconsWrapper").hide();
  	});                                     
@@ -523,7 +508,7 @@ $(document).ready(function() {
 
 //********************Shop html********************//
 //--Top selling item hover effect--//
-$(document).ready(function(){
+$(function(){
 	$(".topSellingBox li a").hover(function(){			
 	    $(this).children(".popupBox").slideToggle(130)},function(){
 		$(this).children(".popupBox").slideToggle(130);
@@ -532,7 +517,7 @@ $(document).ready(function(){
 
 
 //--Top selling jump direclty to the items--//
-//$(document).ready(function(){
+//$(function(){
 //	$(".topSellingBox li").click(function(){			
 //		var $category_name = $(this).children(".popupBox").children('span').clone();
 //
@@ -560,7 +545,7 @@ $(document).ready(function(){
 
 //--Side menu toggle--//
 
-$(document).ready(function(){
+$(function(){
 	$(".sideMenu > ul > li").not(".titleHeader").click(function(){
 		var currentDropdown = $(this).children(".submenu_second")
 
@@ -576,7 +561,7 @@ $(document).ready(function(){
 });
 
 //--Side menu third level dropdown--//
-$(document).ready(function(){
+$(function(){
 	$(".sideMenu .submenu_second > ul > li").click(function(){
 		var currentDropdown = $(this).children(".submenu-thirdLevel")
 
@@ -600,7 +585,7 @@ $(document).ready(function(){
 });
 
 //--hover effect for contents--//
-$(document).ready(function(){
+$(function(){
 	$(".items > li").hover(function(){
 		$(this).children(".singleItemImage,.button-tryon,.button_heart-item").fadeIn("fast");},function(){
 		$(this).children(".singleItemImage,.button-tryon,.button_heart-item").fadeOut("fast");
@@ -609,7 +594,7 @@ $(document).ready(function(){
 });
 
 //--Sign in page  modalboxes--//
-$(document).ready(function(){
+$(function(){
 	$('.singleItemImage, .small_boxes > ul li > a').click(function(event){
 		$('#quickView').fadeIn("fast");
 	});
@@ -634,7 +619,7 @@ $(document).ready(function(){
 
 
 //---change tabs for quick look --//
-$(document).ready(function(){
+$(function(){
 	$('.itemDetails-tabs > ul > li').click(function(event){
 		var currentBox = $(this).children("div");
 		var currentTab = $(this).children("span");
@@ -680,7 +665,7 @@ $(document).ready(function(event){
 
 
 //--remove and add class for filters--//
-$(document).ready(function(){
+$(function(){
 	
 	$('.submenu_second > ul > label').click(function(event){
 		var $filter_element = $(this).children().children('span').addClass('filter').clone();
@@ -734,7 +719,7 @@ $(document).ready(function(){
 
 
 //--current--//
-$(document).ready(function(){
+$(function(){
 	$(".bottom .subHeader > ul > li").click(function() { 
         $(this).children("span").addClass("blue-color");
         $(".bottom .subHeader > ul > li > span").not($(this).children("span")).removeClass("blue-color");
@@ -743,7 +728,7 @@ $(document).ready(function(){
 
 
 //*---shopItem sticky subheader---*//
-$(document).ready(function(){
+$(function(){
     $(window).scroll(function(){
         var scrollTop = 60;
         
@@ -763,7 +748,7 @@ $(document).ready(function(){
 
 //*---shopItem bottom change tab---*//
 
-$(document).ready(function(){
+$(function(){
 	$('#similarItems').click(function(event){
 		$(".bottom .similarItems").show();
 		$(".inside > div").not(".similarItems").hide();
@@ -801,7 +786,7 @@ $(document).ready(function(){
 
 
 //**********feed navi current*********//
-$(document).ready(function(){
+$(function(){
 	$("#feed_navi ul li").click(function() { 
                 $(this).addClass("current");
         $("#feed_navi ul li").not(this).removeClass("current");
@@ -811,7 +796,7 @@ $(document).ready(function(){
 
 
 //********* expand text/content************//
-$(document).ready(function(){
+$(function(){
 	$(".moreText").click(function() { 
         if($("#userPage .introduction p").hasClass("expandable")){
             $(this).text("Show Less");
@@ -823,7 +808,7 @@ $(document).ready(function(){
  	}); 
 });
 
-$(document).ready(function(){
+$(function(){
 	$(".moreAward").click(function() { 
 		 if($("#userPage .rightSide .hidden").is(":visible")){
             $(this).text("Show more");
@@ -837,7 +822,7 @@ $(document).ready(function(){
 
 
 //--login--//
-$(document).ready(function(){
+$(function(){
 	$(".login").click(function(){
 		$("#signup").hide();
 		$("#login").fadeIn(1000);
@@ -850,29 +835,29 @@ $(document).ready(function(){
 });
 
 //--personal information--//
-$(document).ready(function(){
+$(function(){
 	$(".move").click(function(){
 		$("#moveToPersonal").hide();
 		$("#personalInfo").fadeIn(1000);
 	});
 });
 
-//--------------------------Jquery UI-------------------------------------//
+//----------This seems to have problems----------------Jquery UI-------------------------------------//
 //--price range--//
-$(document).ready(function(){
-	$( "#slider").slider({
-		range: true,
-		min: 0,
-		max: 1000,
-		values: [ 0, 1000 ],
-		slide: function( event, ui ) {
-			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-		}
-	});
-	$( "#amount" ).val( "$" + $( "#slider" ).slider( "values", 0 ) +
-		" - $" + $( "#slider").slider( "values", 1 ) 
-	);
-	$("#slider").children("div").css("background","rgb(130,140,150)");
-});
-
+//$(function(){
+//	$( "#slider").slider({
+//		range: true,
+//		min: 0,
+//		max: 1000,
+//		values: [ 0, 1000 ],
+//		slide: function( event, ui ) {
+//			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+//		}
+//	});
+//	$( "#amount" ).val( "$" + $( "#slider" ).slider( "values", 0 ) +
+//		" - $" + $( "#slider").slider( "values", 1 ) 
+//	);
+//	$("#slider").children("div").css("background","rgb(130,140,150)");
+//});
+//
 
