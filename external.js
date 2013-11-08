@@ -38,9 +38,10 @@ $(function(){
 	$('.openModal').click(function(event){
 		$('#popup_overlay').show();
 	});
-	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div').click(function(event){
+	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div, .editIcon').click(function(event){
 		$('html').css("overflow", "hidden");
 	});
+
 	$('.openModal').click(function(event){
 		$('.backToTop').css("display", "none");
 	});
@@ -629,7 +630,7 @@ $(function(){
 	});
 });
 
-//--Sign in page  modalboxes--//
+//--Userpage  modalboxes--//
 $(function(){
 	$('.singleItemImage, .small_boxes > ul li > a').click(function(event){
 		$('#quickView').fadeIn("fast");
