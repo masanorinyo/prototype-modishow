@@ -188,13 +188,29 @@ $(function(){
 	     collageImage.fadeOut();
 	     modelImage.fadeIn();
 	     $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeOut();
+	     $(this).next().next().next().next().children().children(".styleTitle").fadeOut();
 	  } else{
 	     modelImage.fadeOut();
 	     collageImage.fadeIn();
 	     $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeIn();
+	    $(this).next().next().next().next().children().children(".styleTitle").fadeIn();
 	  };	  
 	});
 });
+
+//--flip all effect--//
+$(function(){
+	$('#button_flipAll').on("click", function(){
+		if($(".modelBox").css("display") == "block"){
+			$(".modelBox").fadeOut();
+			$(".collageBox,.styleTitle,.styleCategory").fadeIn();
+		}else if($(".collageBox").css("display") == "block"){
+			$(".collageBox,.styleTitle,.styleCategory").fadeOut();
+			$(".modelBox").fadeIn();
+		};
+	});
+});
+
 
 //---------------------Sticky navi---------------------//
 //--hover effect for sticky navi--//
@@ -227,33 +243,6 @@ $(function(){
     })
 });
 
-
-//--flip all effect--//
-$(function(){
-	var toggleState = true;
-	
-	$('#button_flipAll').on("click", function(){
-		if(toggleState) {
-	    	$(".modelBox,.styleTitle,.styleCategory").fadeIn();
-  		} else {
-	    	$(".modelBox").fadeOut();
-	  	}
-	
-	toggleState = !toggleState;
-	});
-
-	var toggleStateCategory = true;
-	
-	$('#button_flipAll').on("click", function() {
-  		if(toggleStateCategory) {
-	    	$(".styleCategory").fadeOut();
-	  	} else {
-	    	$(".styleCategory").fadeIn();
-		}
-	
-	toggleStateCategory = !toggleStateCategory;
-	});
-});
 
 //--search box appears--// 
 $(function(){
