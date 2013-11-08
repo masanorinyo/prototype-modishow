@@ -467,11 +467,6 @@ $(document).ready(function() {
         $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#modelList,#modelImages > .itemIconsWrapper").hide();
  	}); 
     
-    $(".itemList_background").click(function() { 
-        $("#backgroundList,#backgroundImages > .itemIconsWrapper").show();
-        $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#backgroundList,#backgroundImages > .itemIconsWrapper").hide();		
- 	}); 
-    
     $(".itemList_Embelishment").click(function() { 
        	$("#embelishmentList,#embelishmentImages > .itemIconsWrapper").show();
         $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#embelishmentList,#embelishmentImages > .itemIconsWrapper").hide();
@@ -511,10 +506,6 @@ $(document).ready(function() {
         $("#modelImages > .itemBoxImages").show(); 
  	}); 
     
-    $("#backgroundImages > .itemIconsWrapper > li,#backgroundList .subHeader-submenu > ul > li").click(function() { 
-        $("#backgroundImages > .itemBoxImages").show(); 
- 	}); 
-    
     $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .subHeader-submenu > ul > li").click(function() { 
         $("#embelishmentImages > .itemBoxImages").show(); 
  	});   	
@@ -533,7 +524,7 @@ $(document).ready(function() {
 //********************Shop html********************//
 //--Top selling item hover effect--//
 $(document).ready(function(){
-	$(".topSellingBox li").hover(function(){			
+	$(".topSellingBox li a").hover(function(){			
 	    $(this).children(".popupBox").slideToggle(130)},function(){
 		$(this).children(".popupBox").slideToggle(130);
 	});
@@ -541,33 +532,29 @@ $(document).ready(function(){
 
 
 //--Top selling jump direclty to the items--//
-$(document).ready(function(){
-	$(".topSellingBox li").click(function(){			
-	    $(".promotion,.topSellingBox").hide();
-		$(".contentBox .items,.bottom > .sideMenu,.item-guides").show();
-		$('html, body').scrollTop("#header");
-
-		var $category_name = $(this).children(".popupBox").children('span').clone();
-
-		$(".item-guides > ul > .firstChild > .main").html($category_name.html());
-
-		var $category_overall = $(this).attr("class").split(' ')[0];
-		var $category_each = $(this).attr("class").split(' ')[1];
-		var $selected = $(".sideMenu > ul > li > div." + $category_overall);
-		
-		$('.middle .submenu_second > ul > li.' + $category_each).children("span").addClass('current');
-
-		$('.selectBox > div > select[name="sort"]').val("popular").trigger('change');
-
-		$selected.show();
-			
-		$(".sideMenu > ul > li .submenu_second").not($selected).hide();		
-
-		$("#footer").hide();
-		$(".button_about").show();
-
-	});
-});
+//$(document).ready(function(){
+//	$(".topSellingBox li").click(function(){			
+//		var $category_name = $(this).children(".popupBox").children('span').clone();
+//
+//		$(".item-guides > ul > .firstChild > .main").html($category_name.html());
+//
+//		var $category_overall = $(this).attr("class").split(' ')[0];
+//		var $category_each = $(this).attr("class").split(' ')[1];
+//		var $selected = $(".sideMenu > ul > li > div." + $category_overall);
+//		
+//		$('.middle .submenu_second > ul > li.' + $category_each).children("span").addClass('current');
+//
+//		$('.selectBox > div > select[name="sort"]').val("popular").trigger('change');
+//
+//		$selected.show();
+//			
+//		$(".sideMenu > ul > li .submenu_second").not($selected).hide();		
+//
+//		$("#footer").hide();
+//		$(".button_about").show();
+//
+//	});
+//});
 
 
 
@@ -619,14 +606,6 @@ $(document).ready(function(){
 		$(this).children(".singleItemImage,.button-tryon,.button_heart-item").fadeOut("fast");
 		$(this).children().children(".popupBox").fadeOut("fast");
 	});
-	
-	$('.popup-box,.cancel,html').click(function(){
-		$(".popupBox").hide();
-	});
-	$('.button-tryon,.popupBox').click(function(event){
-		event.stopPropagation();
-	});
-
 });
 
 //--Sign in page  modalboxes--//
@@ -671,7 +650,6 @@ $(document).ready(function(){
 $(document).ready(function(event){
 	$('.top > .sideMenu > ul > li,.middle .submenu_second > ul > li').not('.titleHeader').click(function(event){
 		var $selected = $(this).children("span");
-		$(".promotion,.topSellingBox").hide();
 		$selected.not('.titleHeader > span').addClass('current');
 		$("span").not($selected).removeClass('current');
 		$(".contentBox .items,.bottom > .sideMenu,.item-guides").show();

@@ -2551,11 +2551,12 @@ li{
 	width:48.5%;
 	margin-left:0.9%;	
 	border:1px solid rgb(150,150,150);
+	overflow: hidden;
 }
 
 .submitPanel{
 	width:100px;
-	height:110px;
+	height:80px;
 	position: absolute;
 	top:20px;
 	left:20px;
@@ -2567,11 +2568,13 @@ li{
 	height:30px;
 	position: absolute;
 	top:20px;
-	right:20px;
+	right:80px;
 	z-index:110;
 }
 
-
+#collage .controlPanel{
+	right:30px;
+}
 
 /*--Element--*/
 /*model and background images*/
@@ -2660,14 +2663,18 @@ li{
 .hiddenBox{
 	width:230px;
 	top:30px;
-	right:-13px;
+	left:0px;
 	display:none;
+}
+
+#collage .hiddenBox{
+	left:90px;
 }
 
 .button_category > .hiddenBox{
 	width:109px;
 	top:30px;
-	right:110px;
+	right:55px;
 }
 
 .button_category > .hiddenBox > ul > li{
@@ -2866,19 +2873,16 @@ li{
 }
 
 .itemList_myItems,.itemList_model{
-	width:15%;
+	width:20%;
 }
 
 .itemList_clothing{
 	width:31%;
 }
 
-.itemList_background{
-	width:18%;
-}
 
 #itembox_header .itemList_Embelishment{
-	width:21%;
+	width:31%;
 	height:14px;
 	border-right:none;
 	position: absolute;
@@ -3185,14 +3189,6 @@ li{
 	top:100px;	
 }
 
-
-
-#backgroundImages .itemIconsWrapper{
-	width:500px;
-	margin-top:4em;
-}
-
-
 .itemIconsWrapper > li{
 	width:22%;
 	height:130px;
@@ -3462,10 +3458,10 @@ li{
 	color:rgb(210,210,210);
 }
 
-/*----------------------------------------Shop.html---------------------------------------------*/
+/*----------------------------------------shopOverall.html---------------------------------------------*/
 /*-------------Overall-------------*/
 /*--Structure--*/
-#shop{
+#shop,#shopOverall{
 	background-color: rgb(255,255,255);
 }
 .shop{
@@ -3489,13 +3485,6 @@ li{
 	top:0;
 	left:0;
 }
-
-
-.bottom > .sideMenu{
-	display:none;
-}
-
-
 
 .sideNavi .sideMenu{
 	width:100%;
@@ -3527,10 +3516,12 @@ li{
 .sideNavi .sideMenu > ul > li{
 	padding:5px 0px 5px 15px;
 	width:70%;
-	color:rgb(130,130,130);
 	cursor: pointer;
+	color:rgb(130,130,130);
+}
 
-
+.sideNavi .sideMenu a{
+	color:rgb(130,130,130);
 }
 
 
@@ -3597,9 +3588,11 @@ li{
 	width:167px;
 	color:rgb(180,180,180);
 	cursor: pointer;
-
 }
 
+.sideNavi .sideMenu ul li .submenu_second a{
+	color:rgb(180,180,180);
+}
 
 .sideMenu ul li .submenu_second ul{
 	margin-bottom:5px;
@@ -3643,7 +3636,6 @@ li{
 	height:30px;
 	margin-bottom:10px;
 	position: relative;
-	display: none;
 }
 
 .item-guides > ul > li{
@@ -3732,7 +3724,9 @@ li{
 
 
 /*--Effect--*/
+.sideNavi .sideMenu ul li a:hover,
 .sideNavi .sideMenu ul li:hover,
+.sideNavi .sideMenu ul li .submenu_second li:hover,
 .deleteAll:hover{
 	color:rgb(50,180,240);
 }
@@ -3740,7 +3734,6 @@ li{
 	color:rgb(70,90,100);
 }
 
-.sideNavi .sideMenu ul li .submenu_second ul li:hover,
 .titleHeader > ul > li:hover span{
 	color:rgb(50,180,240);
 	opacity:1;
@@ -3859,16 +3852,6 @@ li{
 
 /*---------------Content wrapper (list of items)---------------*/
 /*--Stucture--*/
-.promotion,
-.topSellingBox{
-	display: block;
-}
-
-.contentBox .items{
-	display:none;
-}
-
-
 #shop .items > li{
 	width:235px;
 	height:320px;
@@ -3934,9 +3917,9 @@ li{
 }
 
 .shop .singleItemImage:hover span,
-.shop .button-tryon:hover > span,
+.shop .button-tryon:hover a > span,
 .shop .button_heart-item:hover span,
-#shopItem .button-tryon:hover > span,
+#shopItem .button-tryon:hover a > span,
 #shopItem .button_heart-item:hover span{
 	color:rgb(50,180,240);
 
@@ -3985,7 +3968,7 @@ li{
 
 }
 
-.button-tryon > .right{
+.button-tryon .right{
 	color:rgb(150,150,150);
 	font-size:0.8em;
 	position: absolute;
@@ -4612,7 +4595,7 @@ li{
 }
 
 
-#shopItem li .itemDetails-description,
+#shopItem .content li .itemDetails-description,
 #userPage .rightSideBox .itemDetails-description{
 	position: relative;
 	width:100%;
@@ -5038,7 +5021,6 @@ float:left;
 	font-family:"Calisto MT";
 	font-size:1.5em;
 	font-weight:bold;
-	color:rgb(102,102,102);
 }
 
 #userPage .follow > div > .leftSide ul .lastChild{
@@ -5206,32 +5188,22 @@ float:left;
 	color:rgb(255,255,255);
 }
 
-#userPage .follow .hidden:hover
-
-
 #userPage .profile > form > .confirmation #confirm:hover,
 #userPage .profile > form > .confirmation #confirm:active{
 	background-color:rgb(80,110,150);
 }
 
 #userPage .profile form button:hover,
-#userPage .profile form button:active{
-	border-color:	rgb(50,180,240);
-}
-
-}
-#userPage .profile > form > .confirmation > div a:hover{
+#userPage .profile form button:active,
+#userPage .profile > form > .confirmation > div a:hover,
+#userPage .follow .userName:hover,
+#deactivate:hover,
+#deactivate:active{
 	color:rgb(50,180,240);
 }
 
 #userPage .follow > div > .rightSide:hover > span{
 	display: block;
-}
-
-#deactivate:hover,
-#deactivate:active{
-	border-color:	rgb(50,180,240);
-
 }
 
 /*------Setting confirmation------*/
