@@ -292,17 +292,43 @@ $(function(){
              $('.stickynavi_submenu').hide();
          });
 
-	$('.stickynavi-left > li,.stickynavi_submenu_second,.stickynavi_submenu').click(function(event){
+	$('.stickynavi-left > li, #stickynavi_filter .stickynavi_submenu_second, #stickynavi_creator .stickynavi_submenu_second, #stickynavi_location input[type="text"]').click(function(event){
 			event.stopPropagation();
 	});	
 });
 
+//--------the stickynavi menu changes based on the selected option----------//
+$(function(){
+	$("#stickynavi_category .stickynavi_submenu_second li").click(function(){
+		var selectedSubCategory = $(this).text();
+		$("#stickynavi_category .stickynavi_list").text(selectedSubCategory);
+	});
+	$("#stickynavi_category .stickynavi_submenu a li").click(function(){
+		var selectedCategory = $(this).text();
+		$("#stickynavi_category .stickynavi_list").text(selectedCategory);
+	});
+	$("#stickynavi_order .stickynavi_submenu_second li").click(function(){
+		var selectedSubCategory = $(this).text();
+		var parentCategory = $(this).parent().parent().parent().prev().prev().text();
+		var titleString = parentCategory + " : " + selectedSubCategory;
+		$("#stickynavi_order .stickynavi_list").text(titleString);
+	});
+	$("#stickynavi_order .stickynavi_submenu > a > li").click(function(){
+		var selectedOrderCategory = $(this).text();
+		$("#stickynavi_order .stickynavi_list").text(selectedOrderCategory);
+	});
 
-
-
-
-
-
+	$("#stickynavi_location form").submit(function(){
+		var selectedCountry = $("#stickynavi_location select option:selected").text();
+		var inputCity = $("#cityInput").val();
+		if(inputCity){
+			var slocation = selectedCountry + " : "+inputCity;
+		}else{
+			var slocation = selectedCountry;
+		}
+		$("#stickynavi_location .stickynavi_list").text(slocation);
+	});
+});
 
 
 
@@ -857,6 +883,13 @@ $(function(){
  	}); 
 });
 
+//-------------Follow button gets clicked -------//
+$(function(){
+
+	$("#userPage .lastChild .leftSide .follow.round_medium").click(function(e) {
+		$(this).toggleClass('clickedBlue');
+	});
+});
 
 //--login--//
 $(function(){
@@ -881,20 +914,16 @@ $(function(){
 
 //----------This seems to have problems----------------Jquery UI-------------------------------------//
 //--price range--//
-//$(function(){
-//	$( "#slider").slider({
-//		range: true,
-//		min: 0,
-//		max: 1000,
-//		values: [ 0, 1000 ],
-//		slide: function( event, ui ) {
-//			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-//		}
-//	});
-//	$( "#amount" ).val( "$" + $( "#slider" ).slider( "values", 0 ) +
-//		" - $" + $( "#slider").slider( "values", 1 ) 
-//	);
-//	$("#slider").children("div").css("background","rgb(130,140,150)");
-//});
-//
-
+$(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 1000,
+      values: [ 0, 1000 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  });

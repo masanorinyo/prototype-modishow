@@ -362,7 +362,7 @@
 						</ul>
 					</div>
 				</li>
-				<li>
+				<li id="stickynavi_category">
 					<div class="stickynavi_list_wrapper">
 						<ul>
 							<li class="stickynavi_list">
@@ -658,7 +658,7 @@
 						<div>
 							<div class="background_white stickynavi_submenu_second"></div>						
 							<li>
-								Most Viewed
+								<span>Most Viewed</span>
 								<span class="rightArrow_standard "></span>
 								<div class="stickynavi_submenu_second">
 									<ul>
@@ -686,7 +686,7 @@
 								</div>
 							</li>
 							<li>
-								Most Popular
+								<span>Most Popular</span>
 								<span class="rightArrow_standard "></span>
 								<div class="stickynavi_submenu_second">
 									<ul>
@@ -714,7 +714,7 @@
 								</div>
 							</li>
 							<li>
-								Price
+								<span>Price</span>
 								<span class="rightArrow_standard "></span>
 								<div class="stickynavi_submenu_second">
 									<ul>
@@ -1020,15 +1020,16 @@
 							<li>
 								<span>Country:</span>
 								<select class="pointer color_lightWhite background_black"> 
-									<option>--Select a Country--</option>
-									<option>USA</option>
-									<option>Japan</option>
-									<option>France</option>
-									<option>England</option>
+									<option value="worldwide">All Worldwide</option>
+									<option value="usa">USA</option>
+									<option value="Japan">Japan</option>
+									<option value="France">France</option>
+									<option value="England">England</option>
 								</select>
 							</li>
 							<li>
-								<span>City:</span><input type="text"/>
+								<span>City:</span>
+								<input id="cityInput" type="text" maxlength="20"/>
 							</li>
 
 							<li>
@@ -2304,7 +2305,7 @@
 						<div class="profile_name">
 							<a class="username" href="#">Sara Cook</a>
 							<div class="timeStamp">Created 8 weeks ago</div>	
-							<div class="followLink"><a class="color_lightBlue" href="userPage.html">Follow</a></div>				
+							<div class="followLink"><span class="color_lightBlue pointer">Follow</span></div>				
 						</div>				
 					</div>	
 					<div class="titleBox">

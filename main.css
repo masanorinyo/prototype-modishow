@@ -124,10 +124,9 @@ li{
 
 .fullHeight{height:100%;}
 
-#current,
-.current{
-	color:rgb(50,180,240);
-}
+.clickedBlue{background-color: rgb(50,180,240);color:rgb(255,255,255) !important;}
+
+#current,.current{color:rgb(50,180,240);}
 
 /*----------Side Scroll----------*/
 .sideScroll{
@@ -844,7 +843,7 @@ li{
 
 
 #stickynavi{
-	width:1000px;
+	width:1100px;
 	right:0;
 	left:0;
 	margin:0 auto;
@@ -853,18 +852,13 @@ li{
 
  }
 .stickynavi-left{
-	width:60%;
+	width:80%;
 	float:left;
 }
 
-.stickynavi-right{
-	width:40%;
-	float:right;
-}
 
 /*--Elements--*/
-.stickynavi-left > li,
-.stickynavi-right > li {
+.stickynavi-left > li{
 	float:left;
 	display:block;
 	position: relative;	
@@ -872,7 +866,8 @@ li{
 }
 
 .stickynavi-right > li {
-	float:right;
+	position:absolute;
+	right:0;
 	cursor: default
 
 }
@@ -918,13 +913,15 @@ li{
 
 #stickynavi_searchBox{
 	display:none;
+	position: absolute;
+	right:60px;
 	/*this will shopw up once users scroll down*/
 }
 
 #stickynavi_searchBox input[type=text]{
 	margin:10px 20px;
 	font-size:1em;
-	width:200px;
+	width:150px;
 	padding:3px 10px;
 	line-height:120%;
 	color:rgb(135,135,135);
@@ -2365,7 +2362,7 @@ li{
 
 #feed #feed_navi ul{
 	position: absolute;
-	width:300px;
+	width:500px;
 	bottom:5px;
 }
 
@@ -3611,23 +3608,10 @@ li{
 	position: relative;
 }
 
-#slider{
-	width:85%;
-	position: absolute;
-	bottom:5px;
-	left:0;
-	right:0;
-	margin:0 auto;
-}
-
-#amount{
-	position: absolute;
+.slider_wrapper #amount{
 	border: 0; 
-	color: rgb(130,140,150); 
-	font-weight: bold;
-	font-size:1.1em;
-	top:5px;
-	right:20px;
+	color: rgb(80,100,150); 
+	margin:5px 5px 12px ;
 }
 
 
@@ -4838,12 +4822,12 @@ li{
 }
 
 
-#userPage .leftSide > .rightSide .lastChild .leftSide li{
+#userPage .leftSide > .rightSide .lastChild li{
 	float:left;
 	margin:0 0 15px 10px;
 	position: relative;
-	border:1px solid rgb(220,220,220);
 	color:rgb(152,152,152);
+	border:1px solid rgb(220,220,220);
 	font-size:11px;
 	padding:5px 20px;
 	cursor: pointer;
@@ -5057,6 +5041,7 @@ float:left;
 #userPage .follow > div .leftSide ul:hover .hidden{
 	display:block;
 }
+
 
 #userPage .follow > div > .rightSide ul{
 	height:100%;
