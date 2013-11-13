@@ -330,6 +330,12 @@ $(function(){
 	});
 });
 
+//---------------Prevent default <a> action of refreshing the page --------------//
+$(function(){
+	$(".stickynavi_submenu").click(function(e){
+		e.preventDefault();
+	});
+});
 
 
 //********************Tryon html********************//
@@ -397,9 +403,26 @@ $(function(){
 		event.stopPropagation();
 	});
 
- 	$('.button_medium.publish').click(function(event){
-		$('.createCollage').fadeIn();
-		$('.publishes').hide();
+
+//start from here
+$('.button_medium.publish').click(function(event){
+		
+		var firstOptionCategory = $("#categorySelect option:selected").val();	
+ 		var firstOptionSubCategory = $("#subCategorySelect option:selected").val();
+ 		var titleRe = /[0-9,a-z,A-Z]/;
+ 		var inputTitle = $(".title_box input").val();
+ 		
+ 		if(inputTitle.match(titleRe)){
+			if(firstOptionSubCategory !== "0" && firstOptionCategory !== "0"){
+				$('.createCollage').fadeIn();
+				$('.publishes').hide();
+			}else{
+				alert("please choose a category and a sub-category");
+
+			}
+		}else{
+			alert("Please fill out the title ( you can only use 0 ~9 and a ~ z )")
+		};
 	});
 });
 
@@ -478,7 +501,7 @@ $(function(){
     	} 
 	});
 	
-	$('.controlBoxes > li').click(function(event){
+	$('.controlBoxes > li,.filterOrderWrapper label').click(function(event){
 		event.stopPropagation();
 	});	
 });
@@ -536,6 +559,14 @@ $(function() {
  	}); 
 });
 
+//-------order box changes based on the selected element------------//
+$(function(){
+	$(".subHeader-list.order .submenu-second li").click(function(){
+		var selectedOrder = $(this).text();
+		$(".subHeader-list.order span").text(selectedOrder);
+	});
+});
+
 //--items show up--//
 $(function() { 
  	$(".itemBox > .itemIconsWrapper > li, .subHeader-submenu > ul > li").click(function() { 
@@ -565,9 +596,24 @@ $(function() {
 
 
 
+//----------------Confirmation popup for leaving the page-----------------//
+$(function(){
+	$("#tryclothes #header a, #collage #header a").click(function(event) {
+		$(window).bind('beforeunload', function(){
+			return 'Your creation will be lost if you do not submit it';
+		});
+		$('a.noUnloadMessage').on('click', function(e){
+        	$(window).unbind('beforeunload');
+		});
+	});
+});
 
 
+//------------------Try on / collage creation form that makes sure users input correct data------------//
+$(function(){
 
+
+});
 
 //********************Shop html********************//
 //--Top selling item hover effect--//

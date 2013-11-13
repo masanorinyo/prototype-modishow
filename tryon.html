@@ -777,7 +777,7 @@
 							</li>	
 							<li class="filterOrderWrapper">
 								<div class="subHeader-list background_white font_calistro filterOrder order">
-									Order
+									<span>Order</span>
 									<div class="iconWrapper">
 									</div>
 									<div class="subHeader-submenu">
@@ -844,10 +844,17 @@
 						<ul class="controlBoxes fullWidth">
 							<li class="firstChild">
 								<div class="subHeader-list background_white font_calistro">
-									Choose models
+									Choose your model
 									<div class="iconWrapper">
 									</div>
 									<div class="subHeader-submenu">
+										<ul>
+											<li>Natasha</li>	
+											<!--<li>My uploads</li>-->
+										</ul>
+									</div>
+								</div>
+								<!--<div class="subHeader-submenu">
 										<ul>			
 											<li>
 												Skin Color	
@@ -986,8 +993,7 @@
 												</div>	
 											</li>
 										</ul>
-									</div>
-								</div>
+									</div>-->
 							</li>
 							<!--
 								<li class="shape">
@@ -1329,11 +1335,12 @@
 					</div>
 					<div class="category_box">
 						<span>
-							Category:<span class="required">*</span>
+							Category:
+							<span class="required">*</span>
 						</span>
 						<form class="firstChild">
 							<select id="categorySelect">
-								<option>Please choose a category</option>
+								<option value="0">Please choose a category</option>
 								<option value='style'>Style</option>
 								<option value='Occassion'>Occassion</option>
 								<option value='Season'>Season</option>
@@ -1405,9 +1412,9 @@
 					<div class="popup-box-header">
 						<span>Create a collage for this style?</span>
 					</div>
-					<div class="button_large background-strong round_weak"><a href="collage.html">YES</a></div>
+					<div class="button_large background-strong round_weak"><a class="noUnloadMessage" href="collage.html">YES</a></div>
 					<span>or</span>
-					<div class="button_large background-weak round_weak"><a href="index.html">Maybe later</a></div>			
+					<div class="button_large background-weak round_weak"><a class="noUnloadMessage"href="index.html">Maybe later</a></div>			
 				</div>			
 			</div>
 		</div>	
