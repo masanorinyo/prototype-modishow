@@ -2627,6 +2627,16 @@ li{
 	right:48px;
 	cursor: pointer;
 }
+/* virtual model outfit image orders*/
+#tryonContent #outfitItems img{
+	position:absolute;
+	z-index:1200;
+	height:90%;
+	top:8%;
+	right:0;
+	left:0;
+	margin:0 auto;
+}
 
 .modelPic{
 	height:100%;

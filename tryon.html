@@ -8,6 +8,9 @@
 		<link rel="stylesheet" href="main.css">
 		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="external.js"></script>
+		<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.js"></script>
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
@@ -304,8 +307,15 @@
 		<div id="tryonContent" class="fullWidth">
 			<div id="creationCanvas" class="background_black floatLeft overflowHidden">
 				<img class="backgroundImage" src="images/street.png"/>
-				<img class="virtualModel center" src="images/modelOutfit1.png"/>
+				<img class="virtualModel center" src="images/raw_natashaModel.png"/>
 				<div class="openLayer center"></div><!--click the virtual model to see item info-->
+				<div id="outfitItems">
+					<img class="skirt" src="images/skirt_1.png" style="z-index:110"/>
+					<img class="inner" src="images/inner_1.png" style="z-index:110"/>
+					<img class="shirt" src="images/shirt_1.png" style="z-index:110"/>
+					<img class="accessory" src="images/accessory_1.png" style="z-index:110"/>
+					<img class="jacket" src="images/jacket_1.png" style="z-index:110"/>
+				</div>
 				<div class="leftArrow_subSlideshow_two opaque_strong pointer hide"></div>
 				<div class="rightArrow_subSlideshow_two opaque_strong pointer hide"></div>
 				<div class="userPreference hide">
@@ -411,14 +421,14 @@
 								<span class="generaterHeader_downArrow"></span>
 							</div>	
 							<div class="hiddenBox round_medium">
-								<ul class="opaque_weak">
+								<ul id="sortable" class="opaque_weak">
 									<li class="layers">
 										<div class="holdIconBox">
 											<div class="holdIcon">hold</div>
 										<div>
 										<div class="imageIconBox">
 											<a href="#">
-												<img src="images/item1.png"/>
+												<img src="images/jacket_1.png"/>
 											</a>		
 										<div>
 										<div class="itemDescriptionBox">
@@ -437,7 +447,7 @@
 										<div>
 										<div class="imageIconBox">
 											<a href="#">
-												<img src="images/item1.png"/>
+												<img src="images/accessory_1.png"/>
 											</a>		
 										<div>
 										<div class="itemDescriptionBox">
@@ -456,7 +466,7 @@
 										<div>
 										<div class="imageIconBox">
 											<a href="#">
-												<img src="images/item1.png"/>
+												<img src="images/shirt_1.png"/>
 											</a>		
 										<div>
 										<div class="itemDescriptionBox">
@@ -469,13 +479,13 @@
 											</div>
 										<div>
 									</li>
-									<li class="layers">
+									<li class="layers ">
 										<div class="holdIconBox">
 											<div class="holdIcon">hold</div>
 										<div>
 										<div class="imageIconBox">
 											<a href="#">
-												<img src="images/item1.png"/>
+												<img src="images/inner_1.png"/>
 											</a>		
 										<div>
 										<div class="itemDescriptionBox">
@@ -488,56 +498,18 @@
 											</div>
 										<div>
 									</li>
-									<li class="layers">
+									<li class="layers ">
 										<div class="holdIconBox">
 											<div class="holdIcon">hold</div>
 										<div>
 										<div class="imageIconBox">
 											<a href="#">
-												<img src="images/item1.png"/>
+												<img src="images/skirt_1.png"/>
 											</a>		
 										<div>
 										<div class="itemDescriptionBox">
 											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-										<div class="holdIconBox">
-											<div class="holdIcon">hold</div>
-										<div>
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-										<div class="holdIconBox">
-											<div class="holdIcon">hold</div>
-										<div>
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
+											<div class="url"><a href="#"> topshop.com</a></div>							
 											<div class="price">$30</div>
 											<div class="itemHeart">
 												<div class="heart_empty"></div>
@@ -1200,68 +1172,12 @@
 						</li>
 					</ul>
 					<ul  class="itemBoxImages">
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>	
+						<li class="items-wrapper"><img src="images/accessory_1.png"/></li>
+						<li class="items-wrapper"><img src="images/jacket_1.png"/></li>
+						<li class="items-wrapper"><img src="images/shirt_1.png"/></li>
+						<li class="items-wrapper"><img src="images/skirt_1.png"/></li>
+						<li class="items-wrapper"><img src="images/inner_1.png"/></li>
+						
 					</ul>
 				</div>
 				<div id="modelImages" class="itemBox">

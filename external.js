@@ -383,47 +383,84 @@ $(function(){
 	});
 });
 
+//------------------- outfit creation layout ----------------//
+$(function(){
+    $("#sortable").sortable();
+    $("#sortable").disableSelection();
+
+
+});
+
+
+
+//----------------outfit creation clear function------------------//
+$(function(){
+	$(".submitPanel .button_clear").click(function(){
+		$("#outfitItems").empty();
+		$("#sortable").empty();
+	});
+});
+
+
+
 //-----------------Modal box ----------------//
 //--open and close modal box--//
 $(function(){
-	$('.button_publish').click(function(event){
-		$('#popup_overlay').fadeIn("fast");
+	$('#tryonContent .button_publish').click(function(event){
+		// popup warning when more than two outfits are not selected
+		if($("#outfitItems img").length >= 2){
+			$('#popup_overlay').fadeIn("fast");	
+		}else{
+			alert("Please choose at least three items");
+		}
 	});
 
 	$("#modalbox").click(function(event){
 			$('#popup_overlay').hide();
 			$('.createCollage').hide();
 			$('.publishes').fadeIn("fast");
+			$(".title_box input").val("");
+			$("#categorySelect").val("0");
+			$("#subCategorySelect").empty();
+			$(".description_box textarea").val("");
 		});	
 
 	$('.icon_close,.button_medium.cancel').click(function(event){
-		$('#popup_overlay').hide();});
+		$('#popup_overlay').hide();
+		$(".title_box input").val("");
+		$("#categorySelect").val("0");
+		$("#subCategorySelect").empty();
+		$(".description_box textarea").val("");
+
+	});
 
 	$('.button_publish,.popup-box').click(function(event){
 		event.stopPropagation();
 	});
+});
 
 
 //start from here
-$('.button_medium.publish').click(function(event){
-		
-		var firstOptionCategory = $("#categorySelect option:selected").val();	
- 		var firstOptionSubCategory = $("#subCategorySelect option:selected").val();
- 		var titleRe = /[0-9,a-z,A-Z]/;
- 		var inputTitle = $(".title_box input").val();
- 		
- 		if(inputTitle.match(titleRe)){
-			if(firstOptionSubCategory !== "0" && firstOptionCategory !== "0"){
-				$('.createCollage').fadeIn();
-				$('.publishes').hide();
-			}else{
-				alert("please choose a category and a sub-category");
+$(function(){
+	$('.button_medium.publish').click(function(event){
+			
+			var firstOptionCategory = $("#categorySelect option:selected").val();	
+	 		var firstOptionSubCategory = $("#subCategorySelect option:selected").val();
+	 		var titleRe = /[0-9,a-z,A-Z]/;
+	 		var inputTitle = $(".title_box input").val();
+	 		
+	 		if(inputTitle.match(titleRe)){
+				if(firstOptionSubCategory !== "0" && firstOptionCategory !== "0"){
+					$('.createCollage').fadeIn();
+					$('.publishes').hide();
+				}else{
+					alert("please choose a category and a sub-category");
 
-			}
-		}else{
-			alert("Please fill out the title ( you can only use 0 ~9 and a ~ z )")
-		};
-	});
+				}
+			}else{
+				alert("Please fill out the title ( you can only use 0 ~9 and a ~ z )")
+			};
+		});
 });
 
 //-----------------Form entry - sub categories change based on the chosen category----------------//
