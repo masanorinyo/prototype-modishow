@@ -13,19 +13,20 @@ $(function(){
 
 //--heart fillup--//
 $(function(){
-	$(".button_heart").click(function(){
+	$(".button_heart").on('click',function(){
 		$(this).children('.heart_filled').fadeToggle("fast");
 	});
-	$(".button_heart_medium,.button_heart-item").click(function(){
+	$(".button_heart_medium,.button_heart-item").on('click',function(){
 		$(this).children(".mediumButton-leftside").children('.heart_filled').fadeToggle("fast");
 	});
-	$(".button_heart_medium,.button_heart-item").click(function(){
+	$(".button_heart_medium,.button_heart-item").on('click',function(){
 		$(this).children(".mediumButton-leftside").children('heart_filled').children(span).css('color','white');
 	});
-	$(".itemDetails-heart").click(function(){
+	$(".itemDetails-heart").on('click',function(){
 		$(this).children().next(".heart_filled").fadeToggle("fast");
 	});
-	$(".itemHeart").click(function(){
+	
+	$("#sortable").on("click",'.itemHeart',function(event){
 		$(this).children('.heart_filled').fadeToggle("fast");
 	});
 });
@@ -383,11 +384,66 @@ $(function(){
 	});
 });
 
-//------------------- outfit creation layout ----------------//
+//------------------- outfit creation layering ----------------//
 $(function(){
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
+	var itemWrapper = '';
+	//for hold icon
+	itemWrapper += '<li class="layers">';
+	itemWrapper += '<div class="holdIconBox"><div class="holdIcon">Hold</div></div>';
+	//item image - should be inserted by the item box image
+	itemWrapper += '<div class="imageIconBox"><a href="#"></a></div>';
+	itemWrapper += '<div class="itemDescriptionBox">';
+	//product name - should be downlaoded from the server
+	itemWrapper += '<div class="titleOfProduct"></div>';
+	//for vendor's site - should be downlaoded from the server
+	itemWrapper += '<div class="url"></div>';
+	//for price - should be downlaoded from the server
+	itemWrapper += '<div class="price"></div>';
+	//for heart button - should be downlaoded from the server
+	itemWrapper += '<div class="itemHeart"><div class="heart_empty"></div><div class="heart_filled"></div></div>';
+	itemWrapper += '</div>';
+	itemWrapper += '</li>';
 
+	function outfitStyle(title,url,price,smallImg,largeImg,layer,itemCategory){
+	    this.titleInfo = title;
+	    this.urlInfo = url;
+	    this.priceInfo = price;
+		this.smallImageInfo = smallImg;
+		this.largeImageInfo = largeImg;
+		this.layerWrapper = layer;
+		this.itemCategory = itemCategory;
+	};			
+
+	outfitStyle.prototype.createItemList = function(){
+		//re-read the newly created item wrapper 
+		var wrapper = $.parseHTML(this.layerWrapper);
+		$("#sortable").append(wrapper);
+		$(wrapper).find(".imageIconBox").children("a").append(this.smallImageInfo);
+		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
+		$(wrapper).find(".url").append(this.urlInfo);
+		$(wrapper).find(".price").append(this.priceInfo);
+		$("#outfitItems").append(this.largeImageInfo);
+	};
+
+	$('.itemBoxImages').on('click','.items-wrapper',function(event){	
+   		var title = "<a href='item.html'>test</a>"; //Ajax call
+   		var url = "<a href='#''>test.html</a>"; //Ajax call
+   		var price = "$30";//Ajax call
+   		var sImage = $(this).children('img').clone(); //clone
+   		var lImage = $(this).children('img').clone(); //Ajax call - most important
+   		var category = "jacket";//Ajax call 
+
+   		var outfit = new outfitStyle(title,url,price,sImage,lImage,itemWrapper,category);
+
+   		outfit.createItemList();
+
+	});
+
+
+    $("#sortable").sortable({
+    	
+    });
+    $("#sortable").disableSelection();
 
 });
 

@@ -460,7 +460,7 @@ li{
 .heart_filled{
 	display:none;
 	background:url("images/heart_filled.png") top left no-repeat; 
-	z-index:101;
+	z-index:211;
 	background-size: 81% 71%;
 	background-position:50% 50%; 
 }
@@ -2740,22 +2740,22 @@ li{
 	opacity:0.9;
 	border-bottom:1px solid rgb(200,200,200);
 	border-top:1px solid rgb(200,200,200);
+	cursor:move;
 }
 
 .layers div,
 .holdIcon,
 .imageIconBox > a > img,
-.imageIconBox > div,
 .itemDescriptionBox > div{
 	position: absolute;
 }
 
-.layers div{
+.layers > div{
 	height:100%;
 }
 
 .holdIconBox{
-	width:30px;
+	width:20px;
 	top:0;
 	left:0;
 }
@@ -2764,42 +2764,39 @@ li{
 	top:55px;
 	right:2px;
 	left:2px;
-	cursor: pointer;
-}
-
-.imageIconBox{
-	width:110px;
-	top:0;
-	left:30px;
+	cursor: move;
 }
 
 .imageIconBox > a > img{
-	width:75%;
+	width:80%;
+	height:80%;
 	right:0;
 	left:0;
-	margin:15px auto;
+	top:0;
+	bottom:0;
+	margin:auto;
 	z-index:990;
 }
 
-.imageIconBox > div{
+.imageIconBox{
 	background-color: rgb(255,255,255);
-	width:90%;
-	height:80%;
+	width:45%;
+	height:81% !important;
 	border-radius: 100px;
-	left:0;
-	right:0;
-	margin:12px auto;
+	left:15px;
+	margin:12px 5px;
+	overflow:hidden;
 	z-index:100;	
 }
 
 .itemDescriptionBox{
 	width:92px;
 	top:0;
-	left:105px;
+	right:0;
 }
 
 .titleOfProduct{
-	top:10px;
+	top:15px;
 	left:0px;
 	font-size:1.2em;
 }
@@ -2810,7 +2807,7 @@ li{
 
 .tryonPage .url{
 	font-family:Tahoma, Geneva, sans-serif;
-	top:35px;
+	top:40px;
 	left:0px;
 	font-size:0.8em;
 }
@@ -2820,7 +2817,7 @@ li{
 }
 
 .tryonPage .price{
-	top:70px;
+	top:80px;
 	left:0px;
 	font-size:1.2em;
 	color:rgb(235,235,235);
@@ -2830,7 +2827,7 @@ li{
 .itemDescriptionBox > .itemHeart> .heart_filled{
 	width:35px;
 	height:35px;
-	top:58px;
+	top:65px;
 	left:32px;
 	cursor: pointer;
 }
@@ -3163,6 +3160,7 @@ li{
 	height:18.4%;
 	background-color:rgb(255,255,255);
 	border:1px solid rgb(230,230,230);
+	cursor:pointer;
 }
 
 .itemBox > .itemBoxImages > li > img{
