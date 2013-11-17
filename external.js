@@ -412,7 +412,8 @@ $(function(){
 		this.largeImageInfo = largeImg;
 		this.layerWrapper = layer;
 		this.itemCategory = itemCategory;
-	};			
+	}		
+
 
 	outfitStyle.prototype.createItemList = function(){
 		//re-read the newly created item wrapper 
@@ -423,9 +424,9 @@ $(function(){
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
 		$("#outfitItems").append(this.largeImageInfo);
-	};
+	}
 
-	$('.itemBoxImages').on('click','.items-wrapper',function(event){	
+	$('.itemBoxImages').on("click",".items-wrapper",function(event){	
    		var title = "<a href='item.html'>test</a>"; //Ajax call
    		var url = "<a href='#''>test.html</a>"; //Ajax call
    		var price = "$30";//Ajax call
@@ -435,14 +436,37 @@ $(function(){
 
    		var outfit = new outfitStyle(title,url,price,sImage,lImage,itemWrapper,category);
 
-   		outfit.createItemList();
+   		//this prevents duplicate item selection.
+		var alreadySelected = 0;
+		var layerItems =$(".layers");
 
+   		if($(".layers").length == 0){
+
+			outfit.createItemList();
+
+   		}else{
+
+			for(var i=0 ;i < $(".layers").length;i++){
+				if($(outfit.smallImageInfo).attr('src') == $(layerItems[i]).find("img").attr('src')){
+					alreadySelected = 1;
+				}else{
+				};
+			};
+
+			if(alreadySelected == 0){
+
+				outfit.createItemList();
+			
+			}else{
+			
+				return false;
+			
+			};
+   		};
 	});
 
 
-    $("#sortable").sortable({
-    	
-    });
+    $("#sortable").sortable();
     $("#sortable").disableSelection();
 
 });
@@ -601,8 +625,8 @@ $(function(){
 
 //--dropdown for category box--//
 $(function(){
-	$(".parent-submenu").hover(function(){			
-	    $(this).children(".hiddenBox-submenu").fadeIn(100)},function(){
+	$(".parent-submenu").hover(function(e){			
+	    $(this).children(".hiddenBox-submenu").fadeIn(100)},function(e){
 		$(this).children(".hiddenBox-submenu").fadeOut(100);
 	});
 });

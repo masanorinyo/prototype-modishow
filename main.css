@@ -2569,7 +2569,7 @@ li{
 	position: absolute;
 	top:20px;
 	right:80px;
-	z-index:110;
+	z-index:10000;
 }
 
 #collage .controlPanel{
@@ -2622,7 +2622,7 @@ li{
 	width:26%;
 	max-width:160px;
 	height:85%;
-	z-index:111;
+	z-index:1001;
 	top:10%;
 	right:48px;
 	cursor: pointer;
@@ -2630,7 +2630,7 @@ li{
 /* virtual model outfit image orders*/
 #tryonContent #outfitItems img{
 	position:absolute;
-	z-index:1200;
+	z-index:1000;
 	height:90%;
 	top:8%;
 	right:0;
