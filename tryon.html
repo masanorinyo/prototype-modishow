@@ -8,9 +8,10 @@
 		<link rel="stylesheet" href="main.css">
 		<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-		<script type="text/javascript" src="external.js"></script>
 		<script src="js/jquery-1.9.1.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.js"></script>
+		<script type="text/javascript" src="external.js"></script>
+
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
@@ -308,16 +309,10 @@
 			<div id="creationCanvas" class="background_black floatLeft overflowHidden">
 				<img class="backgroundImage" src="images/street.png"/>
 				<img class="virtualModel center" src="images/raw_natashaModel.png"/>
-				<div class="openLayer center"></div><!--click the virtual model to see item info-->
 				<div id="outfitItems">
-					<!--<img class="jacket" src="images/jacket_1.png" style="z-index:110"/>
-
-					<img class="skirt" src="images/skirt_1.png" style="z-index:110"/>
-					<img class="inner" src="images/inner_1.png" style="z-index:110"/>
-					<img class="shirt" src="images/shirt_1.png" style="z-index:110"/>
-					<img class="accessory" src="images/accessory_1.png" style="z-index:110"/>
-					<img class="jacket" src="images/jacket_1.png" style="z-index:110"/>-->
+					
 				</div>
+				<div class="openLayer center"></div><!--click the virtual model to see item info-->
 				<div class="leftArrow_subSlideshow_two opaque_strong pointer hide"></div>
 				<div class="rightArrow_subSlideshow_two opaque_strong pointer hide"></div>
 				<div class="userPreference hide">
@@ -1088,11 +1083,11 @@
 						</li>
 					</ul>
 					<ul  class="itemBoxImages">
-						<li class="items-wrapper"><img src="images/accessory_1.png"/></li>
-						<li class="items-wrapper"><img src="images/jacket_1.png"/></li>
-						<li class="items-wrapper"><img src="images/shirt_1.png"/></li>
-						<li class="items-wrapper"><img src="images/skirt_1.png"/></li>
-						<li class="items-wrapper"><img src="images/inner_1.png"/></li>
+						<li class="items-wrapper"><img id="accessory-1" src="images/accessory_1.png"/></li>
+						<li class="items-wrapper"><img id="jacket-1" src="images/jacket_1.png"/></li>
+						<li class="items-wrapper"><img id="shirt-1" src="images/shirt_1.png"/></li>
+						<li class="items-wrapper"><img id="skirt-1" src="images/skirt_1.png"/></li>
+						<li class="items-wrapper"><img id="inner-1" src="images/inner_1.png"/></li>
 						
 					</ul>
 				</div>

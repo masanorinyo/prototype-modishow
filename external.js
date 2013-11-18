@@ -386,10 +386,13 @@ $(function(){
 
 //------------------- outfit creation layering ----------------//
 $(function(){
+	
+
 	var itemWrapper = '';
 	//for hold icon
 	itemWrapper += '<li class="layers">';
 	itemWrapper += '<div class="holdIconBox"><div class="holdIcon">Hold</div></div>';
+	itemWrapper += '<span class="removeIcon">X</span>';
 	//item image - should be inserted by the item box image
 	itemWrapper += '<div class="imageIconBox"><a href="#"></a></div>';
 	itemWrapper += '<div class="itemDescriptionBox">';
@@ -404,7 +407,8 @@ $(function(){
 	itemWrapper += '</div>';
 	itemWrapper += '</li>';
 
-	function outfitStyle(title,url,price,smallImg,largeImg,layer,itemCategory){
+	function outfitStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory){
+	    this.idNum = id;
 	    this.titleInfo = title;
 	    this.urlInfo = url;
 	    this.priceInfo = price;
@@ -418,36 +422,52 @@ $(function(){
 	outfitStyle.prototype.createItemList = function(){
 		//re-read the newly created item wrapper 
 		var wrapper = $.parseHTML(this.layerWrapper);
-		$("#sortable").append(wrapper);
+		$("#sortable").prepend(wrapper);
+		//assign the same id as selected image to the whole list wrapper
+		$(wrapper).attr('id',this.idNum);
+		$(wrapper).addClass(this.itemCategory);
 		$(wrapper).find(".imageIconBox").children("a").append(this.smallImageInfo);
 		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
 		$("#outfitItems").append(this.largeImageInfo);
+
+
+		$('.removeIcon').click(function(event){
+			$(this).parent().remove();
+			var sameId = $(this).parent().attr('id');
+			$("#outfitItems").find('#'+sameId).remove();
+		});
+
 	}
 
 	$('.itemBoxImages').on("click",".items-wrapper",function(event){	
+   		//take ID information here & get multiple images for different positions
+   		//image for being on top of the other clothes
+   		//image for being underneath the other clothes
+
+   		var id = $(this).children('img').attr('id');
    		var title = "<a href='item.html'>test</a>"; //Ajax call
    		var url = "<a href='#''>test.html</a>"; //Ajax call
    		var price = "$30";//Ajax call
    		var sImage = $(this).children('img').clone(); //clone
    		var lImage = $(this).children('img').clone(); //Ajax call - most important
-   		var category = "jacket";//Ajax call 
+   		var category = "";//Ajax call 
 
-   		var outfit = new outfitStyle(title,url,price,sImage,lImage,itemWrapper,category);
+   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
 
    		//this prevents duplicate item selection.
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
+
 
    		if($(".layers").length == 0){
 
 			outfit.createItemList();
 
    		}else{
-
 			for(var i=0 ;i < $(".layers").length;i++){
-				if($(outfit.smallImageInfo).attr('src') == $(layerItems[i]).find("img").attr('src')){
+				if(outfit.idNum == $(layerItems[i]).find("img").attr('id')){
 					alreadySelected = 1;
 				}else{
 				};
@@ -465,11 +485,67 @@ $(function(){
    		};
 	});
 
+	//remove the selected layer
 
-    $("#sortable").sortable();
+	var sortableIn = 1;
+	$("#sortable" ).sortable({
+		stop: function(event, ui) {
+			sortableIn = 1;
+			var selected = $(ui.item);
+			if($(selected).is('.jacket')){
+				$(this).sortable('cancel');
+			}else{
+				//record the z-index of every itemBox		
+				for(var k=0;k < $('.layers').length;k++){
+					var itemArray = $('.layers')
+					var itemId = $(itemArray[k]).attr('id')
+					$("#outfitItems").find('#'+itemId).css('z-index',1000-k);
+				};
+				//modify the z-index of every itemBox
+				var imageId = ui.item.attr('id');				
+				var indexNum = ui.item.index();			
+				var zindexNum = 1000 - indexNum;
+				var num = parseInt(zindexNum);
+				$('#outfitItems').find('#'+imageId).css('z-index',zindexNum);	
+			};
+		},
+		out:function(event,ui){
+			sortableIn = 0;
+		},
+		//beforeStop to remove items and maintain a sentinel based on the over and out to determine whether or not you've moved outside the bounds of the container.
+        beforeStop: function (event, ui){
+            if(sortableIn == 0){ 
+            	ui.item.remove();
+				var sameId = ui.item.attr('id');
+				$("#outfitItems").find('#'+sameId).remove();
+           };
+        }
+	});
+    
     $("#sortable").disableSelection();
 
+
+    //collage page
+	$("#draggable").draggable({
+		containment: ".background_grid"
+	});
+
+    $( "#outfitItems" ).selectable({
+        selected: function(event, ui){
+            console.log(event);
+            console.log(ui);
+            var s=$(this).find('.ui-selected');
+            console.log(s);
+        }
+    });
+
+    $( "#draggable" ).resizable({
+      aspectRatio: 1
+    });
+   
+
 });
+
 
 
 

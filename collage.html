@@ -8,9 +8,13 @@
 		<link rel="stylesheet" href="main.css">
 		<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 		<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-		<script type="text/javascript" src="external.js"></script>
 		<script src="js/jquery-1.9.1.js"></script>
 		<script src="js/jquery-ui-1.10.3.custom.js"></script>
+
+
+		<script type="text/javascript" src="external.js"></script>
+
+
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
@@ -306,19 +310,18 @@
 		</div>
 		<div id="tryonContent" class="tryon-collage fullWidth">
 			<div id="creationCanvas" class="floatLeft">
-				<div class="background_grid fullWidth"></div>
-				<div id="outfitItems">
-					<img class="skirt" src="images/skirt_1.png" style="z-index:110"/>
-					<img class="inner" src="images/inner_1.png" style="z-index:110"/>
-					<img class="shirt" src="images/shirt_1.png" style="z-index:110"/>
-					<img class="accessory" src="images/accessory_1.png" style="z-index:110"/>
-					<img class="jacket" src="images/jacket_1.png" style="z-index:110"/>
-				</div>
-				<div class="submitPanel background_shadow opaque_weak round_medium">
-					<ul>
-						<li class="button_publish">Publish</li>
-						<li class="button_clear ">Clear</li>
+				<div class="background_grid fullWidth">
+					<ul id="outfitItems">
+						<li id="draggable">
+							<img src="images/jacket_1.png"/>
+						</li>
 					</ul>
+					<div class="submitPanel background_shadow opaque_weak round_medium">
+						<ul>
+							<li class="button_publish">Publish</li>
+							<li class="button_clear ">Clear</li>
+						</ul>
+					</div>
 				</div>
 				<div class="controlPanel">
 					<ul>
@@ -341,125 +344,7 @@
 								<span class="generaterHeader_downArrow"></span>
 							</div>	
 							<div class="hiddenBox round_medium">
-								<ul class="opaque_weak">
-									<li class="layers">								
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
-									<li class="layers">
-
-										<div class="imageIconBox">
-											<a href="#">
-												<img src="images/item1.png"/>
-											</a>		
-										<div>
-										<div class="itemDescriptionBox">
-											<div class="titleOfProduct"><a href="item.html">Skirt</a></div>
-											<div class="url"><a href="#"> topshop.com</a></div>									
-											<div class="price">$30</div>
-											<div class="itemHeart">
-												<div class="heart_empty"></div>
-												<div class="heart_filled"></div>
-											</div>
-										<div>
-									</li>
+								<ul id="sortable" class="opaque_weak">
 								</ul>
 							</div>
 						</li>
@@ -708,10 +593,11 @@
 						</li>
 					</ul>
 					<ul class="itemBoxImages">					
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>
-						<li class="items-wrapper"><img src="images/item.png"/></li>	
+						<li class="items-wrapper"><img id="accessory-1" src="images/accessory_1.png"/></li>
+						<li class="items-wrapper"><img id="jacket-1" src="images/jacket_1.png"/></li>
+						<li class="items-wrapper"><img id="shirt-1" src="images/shirt_1.png"/></li>
+						<li class="items-wrapper"><img id="skirt-1" src="images/skirt_1.png"/></li>
+						<li class="items-wrapper"><img id="inner-1" src="images/inner_1.png"/></li>
 					</ul>
 				</div>
 				<div id="beautyImages" class="itemBox">

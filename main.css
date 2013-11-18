@@ -510,7 +510,7 @@ li{
 	top:14px;
 	left:10px;
 	display:block;
-	z-index:100000000;
+	z-index:100000;
 }
 
 
@@ -731,7 +731,7 @@ li{
 	left:-9999px;
 	border:solid 1px rgb(24,32,44);
 	border-top:solid 1px rgb(39,51,75);
-	z-index:3001;
+	z-index:30001;
 }
 
 #header .submenu.userProfile_list{
@@ -2628,7 +2628,23 @@ li{
 	cursor: pointer;
 }
 /* virtual model outfit image orders*/
-#tryonContent #outfitItems img{
+#draggable {
+	width: 200px; 
+	height: 200px; 
+}
+
+#draggable:hover,
+#draggable:focus{
+	border:1px solid black;
+}
+
+#draggable img{
+	margin: 0; 
+	padding: 0; 
+	width: 100%; 
+}
+
+#tryclothes #outfitItems img{
 	position:absolute;
 	z-index:1000;
 	height:90%;
@@ -2758,6 +2774,15 @@ li{
 	width:20px;
 	top:0;
 	left:0;
+}
+
+.layers .removeIcon{
+	position:absolute;
+	left:10px;
+	top:10px;
+	color:rgb(200,200,200);	
+	font-size: 1.1em;
+	cursor: pointer;
 }
 
 .holdIcon{
