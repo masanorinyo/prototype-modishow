@@ -593,7 +593,7 @@ $(function(){
 
 	collageStyle.prototype.adding = function(){//add canvas effect to all the elements
 	 	console.log($(this));
-		
+		var itemsArray = $("#outfitItems > li");
 		//make the items draggable
 	 	$( ".draggable > li" ).draggable();
 		$(".draggable > li").mousedown(function(event){
@@ -603,15 +603,20 @@ $(function(){
 			$(this).css({
 				border:"1px solid rgb(70,120,100)"
 			});
-
-
+		//if users click the item, it will be added with "selected img" class
+			for(var i=0; i<itemsArray.length;i++){
+				$(itemsArray[i]).removeClass('selectedImg');
+				$(itemsArray[i]).removeClass('selectedImg');
+				$(itemsArray[i]).find(".ui-resizable-handle").css("display","none");
+				$(itemsArray[i]).find(".ui-rotatable-handle").css('display',"none");
+				$(itemsArray[i]).css('border',"none");
+			}
 			$(this).addClass("selectedImg");
-			
-
-
-
-
 			$(this).find(".ui-resizable-handle").css("display","block");
+			$(this).find(".ui-rotatable-handle").css('display',"block");
+			$(this).css('border',"1px solid rgb(100,100,100)");
+
+			
 		});
 		
 		//selection border will be removed when users click outside the item
@@ -761,7 +766,7 @@ $(function(){
 $(function(){
 	$('#tryonContent .button_publish').click(function(event){
 		// popup warning when more than two outfits are not selected
-		if($("#outfitItems img").length >= 2){
+		if($("#outfitItems img").length >= 3){
 			$('#popup_overlay').fadeIn("fast");	
 		}else{
 			alert("Please choose at least three items");
