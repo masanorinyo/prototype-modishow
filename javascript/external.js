@@ -431,7 +431,14 @@ $(function(){
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
 		$("#outfitItems").append(this.largeImageInfo);
-
+		
+		$('.removeIcon').click(function(event){
+			$(this).parent().remove();
+			var sameId = $(this).parent().attr('id');
+			var parentList = $("#outfitItems").find('#'+sameId).parent();
+			$("#outfitItems").find('#'+sameId).remove();
+			
+		});
 
 		
 
@@ -534,7 +541,7 @@ $(function(){
             if(sortableIn == 0){ 
             	ui.item.remove();
 				var sameId = ui.item.attr('id');
-				var parentList = $("#outfitItems").find('#'+sameId).parent();
+				var parentList = $("#collage #outfitItems").find('#'+sameId).parent();
 				$("#outfitItems").find('#'+sameId).remove();
 				$(parentList).remove();
            };
