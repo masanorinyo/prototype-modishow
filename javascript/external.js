@@ -548,22 +548,68 @@ $(function(){
 				}
 			};
 		});
-		
 
-		$( ".draggable > li" ).draggable({containment:".background_grid"});
+
+		$("#mirror").on('click',function(e){
+			var itemsOnCanvas = $(".draggable > li");
+			for(var i =0; i < itemsOnCanvas.length;i++){
+				if($(itemsOnCanvas[i]).is(".selectedImg")){
+					var selectedImage = $(itemsOnCanvas[i]).children('img'); 
+					if($(selectedImage).is(".reflection")){
+						$(selectedImage).removeClass('reflection');
+					}else{
+						$(selectedImage).addClass('reflection');
+					}
+				};
+				
+			};
+		});
+
+		$("#front").on('click',function(e){
+			var imageArray = $(".draggable > li");
+			var arrayPosition = 70;
+			var k;
+			for(k =0; k < imageArray.length;k++){
+				$(imageArray[k]).css('z-index',arrayPosition-k);
+			};
+			console.log(k);
+			$(".selectedImg").css('z-index',arrayPosition + k + 1);
+		});
+
+		$("#back").on('click',function(e){
+			var imageArray = $(".draggable > li");
+			var arrayPosition = 70;
+			var k;
+			for(k =0; k < imageArray.length;k++){
+				$(imageArray[k]).css('z-index',arrayPosition-k);
+			};
+			console.log(k);
+			$(".selectedImg").css('z-index',arrayPosition - k);
+		});
+
+		$( ".draggable > li" ).draggable();
 		$(".draggable > li").mousedown(function(event){
 			$(this).find(".ui-rotatable-handle").css({
 				display:"block",
 			});
 			$(this).css({
 				border:"1px solid rgb(70,120,100)"
-			}).addClass("selectedImg");
-			$(".draggable > li > .ui-resizable-handle").css("display","block");
+			});
+
+
+			$(this).addClass("selectedImg");
+			
+
+
+
+
+			$(this).find(".ui-resizable-handle").css("display","block");
 		});
 		
 
 		$('.background_grid').click(function(event) {
-			if($(event.target).is('img')){
+			var clickedImage = $(event.target).parent('li');
+			if($(clickedImage).is('.selectedImg')){
 				return false;
 			}else{
 				$(".draggable > li ").find(".ui-rotatable-handle").css({
@@ -588,6 +634,14 @@ $(function(){
 
 
 
+		 $(".draggable  > li").hover(function(){
+		 	$(this).addClass('border');
+		 },function(){
+		 	$(this).removeClass('border');
+		 });
+
+
+		 
 
 		 
 
