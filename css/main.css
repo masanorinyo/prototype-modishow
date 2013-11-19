@@ -2627,34 +2627,68 @@ li{
 	right:48px;
 	cursor: pointer;
 }
+
 /* virtual model outfit image orders*/
-#draggable {
-	width: 200px; 
-	height: 200px; 
+
+
+
+.ui-resizable-ne,
+.ui-resizable-nw,
+.ui-resizable-sw,
+.ui-resizable-se{
+	height: 10px !important;
+	width: 10px !important;
+	cursor: pointer;
+	background-color:rgb(100,120,140);
+	background-size: 100%;
+	display: none;
 }
 
-.ui-rotatable-handle {
-	height: 16px;
-	width: 16px;
+.ui-resizable-se{
+	position: absolute;
+	right:-5px!important;
+	bottom:-5px!important;
+}
+
+
+
+
+#outfitItems.draggable,
+.draggable > li,
+.ui-draggable,
+.ui-resizable{
+	width: 250px; 
+	height: 250px; 
+	cursor: move;
+}
+
+
+.ui-rotatable-handle{
+	height: 15px;
+	width: 15px;
 	cursor: pointer;
-	background-image: url(../images/rotate.png);
+	background-color:rgb(100,120,140);
 	background-size: 100%;
 	left: 0;
-	bottom: 2px;
 	right: 0;
-	top: -7px;
+	top: -10px;
 	position: absolute;
 	margin: 0 auto;
+	display:none;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;	
 }
 
-#draggable:hover,
-#draggable:focus{
+
+.draggable > li:hover{
 	border:1px solid black;
 }
 
-#draggable img{
+.draggable > li > img{
 	position: absolute;
 	height: 100%;
+	width: 100%;
 	padding: 0;
 	right: 0;
 	left: 0;

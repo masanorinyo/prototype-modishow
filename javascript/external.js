@@ -526,17 +526,7 @@ $(function(){
 
 
     //collage page
-	$("#draggable").draggable({
-		containment: ".background_grid"
-	});
- 	
- 	$( "#draggable" ).resizable(
- 		{aspectRatio: 1},
-    	{handles: 'ne, se, nw, sw'}
-	);
-	 $('#draggable').rotatable( );
-
-   // $( "#outfitItems" ).selectable({
+   // $( "#outfitItems" ).draggable({
    //     selected: function(event, ui){
    //         console.log(event);
    //         console.log(ui);
@@ -544,19 +534,65 @@ $(function(){
    //         console.log(s);
    //     }
    // });
+		$("#clone").click(function(e){
+			var itemsOnCanvas = $(".draggable > li");
+			var imageWrapper = "<li></li>"	
+			for(var i =0; i < itemsOnCanvas.length;i++){
+				if($(itemsOnCanvas[i]).is(".selectedImg")){
+					var cloneImage = $(itemsOnCanvas[i]).children("img").clone();
+					var wrappedImage = $(imageWrapper).append(cloneImage);
+					$(".draggable").append(wrappedImage);
+					console.log(wrappedImage);
+				}else{
+					return false;
+				}
+			};
+		});
+		
+
+		$( ".draggable > li" ).draggable({containment:".background_grid"});
+		$(".draggable > li").mousedown(function(event){
+			$(this).find(".ui-rotatable-handle").css({
+				display:"block",
+			});
+			$(this).css({
+				border:"1px solid rgb(70,120,100)"
+			}).addClass("selectedImg");
+			$(".draggable > li > .ui-resizable-handle").css("display","block");
+		});
+		
+
+		$('.background_grid').click(function(event) {
+			if($(event.target).is('img')){
+				return false;
+			}else{
+				$(".draggable > li ").find(".ui-rotatable-handle").css({
+					display:"none",
+				});
+				$(".draggable > li > .ui-resizable-handle").css("display","none");
+				$(".draggable > li").css("border","none").removeClass("selectedImg");
+
+			}
+		});
 
 
+
+		 
+
+		$(".draggable  > li").resizable(
+ 			{aspectRatio: 1},
+    		{handles: 'ne, se, nw, sw'}
+		);
+
+		 $(".draggable  > li").rotatable( );
+
+
+
+
+		 
 
 });
-
-   $(document).ready(function() {
-			$('#target').rotatable();
-			$('#target2').draggable().rotatable();
-			$('#target3').resizable().draggable().rotatable();
-            $('#target4').rotatable( {angle: 0.1} );
-            $('#target5').rotatable( {handle: $(document.createElement('img')).attr('src', 'images/alternate_rotate.png')} );
-		});
-   
+		
 
 
 //----------------outfit creation clear function------------------//
