@@ -545,7 +545,8 @@ $(function(){
 
 
 
-//Collage creation		
+//Collage creation	
+//sub class of the outfitStyle class - there are duplicate codes - learn how to inherit properties from parent class
 	function collageStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory,subName,selectedItem){
 	 	this.idNum = id;
 	    this.titleInfo = title;
@@ -562,7 +563,6 @@ $(function(){
 
 	collageStyle.prototype = new outfitStyle();
 	collageStyle.prototype.constructor = collageStyle;
-
 	collageStyle.prototype.createItemList = function(){ // override -> append the sub image to the creation canvas
 		var wrapper = $.parseHTML(this.layerWrapper);
 		var collageItemWrapper = $.parseHTML("<li></li>");
@@ -593,6 +593,8 @@ $(function(){
 
 	collageStyle.prototype.adding = function(){//add canvas effect to all the elements
 	 	console.log($(this));
+		
+		//make the items draggable
 	 	$( ".draggable > li" ).draggable();
 		$(".draggable > li").mousedown(function(event){
 			$(this).find(".ui-rotatable-handle").css({
@@ -612,7 +614,7 @@ $(function(){
 			$(this).find(".ui-resizable-handle").css("display","block");
 		});
 		
-
+		//selection border will be removed when users click outside the item
 		$('.background_grid').click(function(event) {
 			var clickedImage = $(event.target).parent('li');
 			if($(clickedImage).is('.selectedImg')){
@@ -627,19 +629,16 @@ $(function(){
 			}
 		});
 
-
-
-		 
-
+		//make the item resizable
 		$(".draggable  > li").resizable(
  			{aspectRatio: 1},
     		{handles: 'ne, se, nw, sw'}
 		);
 
+		//make the item rotatable
 		 $(".draggable  > li").rotatable( );
 
-
-
+		 //border shows up when users hover the item
 		 $(".draggable  > li").hover(function(){
 		 	$(this).addClass('border');
 		 },function(){
@@ -647,21 +646,58 @@ $(function(){
 		 });	
 	 };
 
+	 collageStyle.prototype.clone = function(cloneImage){
+	 	var collageItemWrapper = $.parseHTML("<li></li>");
+	 	$(collageItemWrapper).append(cloneImage);
+		$("#outfitItems").append(collageItemWrapper);
 
+		$('.removeIcon').click(function(event){
+			$(this).parent().remove();
+			var sameId = $(this).parent().attr('id');
+			var parentList = $("#outfitItems").find('#'+sameId).parent();
+			$("#outfitItems").find('#'+sameId).remove();
+			$(parentList).remove();
+		});
+	 };
 
 //control panel functions
-	$("#clone").click(function(e){
+	$("#remove").on('click',function(e){
+		var itemsOnCanvasArray = $("#outfitItems > li");
+		var selectedImgId = $("#outfitItems > .selectedImg").find("img").attr('id');
+		console.log(selectedImgId);
+		for(var i=0;i<itemsOnCanvasArray.length; i++){
+
+			if($(itemsOnCanvasArray[i]).is(".selectedImg")){
+				$(itemsOnCanvasArray[i]).remove();
+				//if all the images with the same id are deleted, the image list in the sortable list will be deleted
+				
+				var itemNum = $("#outfitItems").find("#"+selectedImgId);
+				console.log(itemNum.length);
+				if(itemNum.length == 0){
+					$("#sortable").find("#"+selectedImgId).remove();	
+				};
+			};
+		};
+	})
+	$("#clone").on('click',function(e){
 		var itemsOnCanvas = $(".draggable > li");
 		var imageWrapper = "<li></li>"	
+
 		for(var i =0; i < itemsOnCanvas.length;i++){
 			if($(itemsOnCanvas[i]).is(".selectedImg")){
+				var originalId =$("#outfitItems > .selectedImg").children('img').attr('id');
+				console.log(originalId);
 				var cloneImage = $(itemsOnCanvas[i]).children("img").clone();
-				var wrappedImage = $(imageWrapper).append(cloneImage);
-				$(".draggable").append(wrappedImage);
-				console.log(wrappedImage);
-			}else{
-				return false;
-			}
+				$(cloneImage).attr('id',originalId);
+				console.log($(cloneImage).attr('id'));
+				//console.log("cloneImage");
+				//var wrappedImage = $(imageWrapper).append(cloneImage);
+				var collage = new collageStyle();
+				console.log(collage);
+				collage.clone(cloneImage);
+				collage.adding();
+			};
+			
 		};
 	});
 
