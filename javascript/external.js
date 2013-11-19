@@ -387,7 +387,7 @@ $(function(){
 //------------------- outfit creation layering ----------------//
 $(function(){
 	
-
+//tryon creation
 	var itemWrapper = '';
 	//for hold icon
 	itemWrapper += '<li class="layers">';
@@ -433,11 +433,7 @@ $(function(){
 		$("#outfitItems").append(this.largeImageInfo);
 
 
-		$('.removeIcon').click(function(event){
-			$(this).parent().remove();
-			var sameId = $(this).parent().attr('id');
-			$("#outfitItems").find('#'+sameId).remove();
-		});
+		
 
 	}
 
@@ -450,33 +446,54 @@ $(function(){
    		var title = "<a href='item.html'>test</a>"; //Ajax call
    		var url = "<a href='#''>test.html</a>"; //Ajax call
    		var price = "$30";//Ajax call
-   		var sImage = $(this).children('img').clone(); //clone
-   		var lImage = $(this).children('img').clone(); //Ajax call - most important
-   		var category = "";//Ajax call 
-
+   		var sImage = $(this).children('img').clone(); //to show items on the list box and the item box
+   		var lImage = $(this).children('img').clone(); //Ajax call - goes onto the model		
+   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
+   		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
+		var selectedItem = $(this).children('img').clone();//selected sub-images
+   		
    		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
+
 
    		//this prevents duplicate item selection.
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
 
-
+		//if there is no single selected items, first create one
    		if($(".layers").length == 0){
-
-			outfit.createItemList();
+   			//if the item image was selected on the collage creation page
+	   		if($(this).parent().is(".collageCanvas")){
+	   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+	   			console.log(collage);
+	   			collage.createItemList();
+	   			collage.adding();
+	   			
+	   		}else{
+	   		//if it was selected on the tryon page
+				outfit.createItemList();
+			}
 
    		}else{
+   			//check to see if the item is already selected
 			for(var i=0 ;i < $(".layers").length;i++){
 				if(outfit.idNum == $(layerItems[i]).find("img").attr('id')){
 					alreadySelected = 1;
-				}else{
 				};
 			};
 
+			//if there is no selected items in the list, add it
 			if(alreadySelected == 0){
+				if($(this).parent().is(".collageCanvas")){
+		   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+	   				console.log(collage);
+	   				collage.createItemList();
+	   				collage.adding();
+	   			
+		   		}else{
+		   		//if it was selected on the tryon page
+					outfit.createItemList();
+				}
 
-				outfit.createItemList();
-			
 			}else{
 			
 				return false;
@@ -517,7 +534,9 @@ $(function(){
             if(sortableIn == 0){ 
             	ui.item.remove();
 				var sameId = ui.item.attr('id');
+				var parentList = $("#outfitItems").find('#'+sameId).parent();
 				$("#outfitItems").find('#'+sameId).remove();
+				$(parentList).remove();
            };
         }
 	});
@@ -525,69 +544,56 @@ $(function(){
     $("#sortable").disableSelection();
 
 
-    //collage page
-   // $( "#outfitItems" ).draggable({
-   //     selected: function(event, ui){
-   //         console.log(event);
-   //         console.log(ui);
-   //         var s=$(this).find('.ui-selected');
-   //         console.log(s);
-   //     }
-   // });
-		$("#clone").click(function(e){
-			var itemsOnCanvas = $(".draggable > li");
-			var imageWrapper = "<li></li>"	
-			for(var i =0; i < itemsOnCanvas.length;i++){
-				if($(itemsOnCanvas[i]).is(".selectedImg")){
-					var cloneImage = $(itemsOnCanvas[i]).children("img").clone();
-					var wrappedImage = $(imageWrapper).append(cloneImage);
-					$(".draggable").append(wrappedImage);
-					console.log(wrappedImage);
-				}else{
-					return false;
-				}
-			};
+
+//Collage creation		
+	function collageStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory,subName,selectedItem){
+	 	this.idNum = id;
+	    this.titleInfo = title;
+	    this.urlInfo = url;
+	    this.priceInfo = price;
+		this.smallImageInfo = smallImg;
+		this.largeImageInfo = largeImg;
+		this.layerWrapper = layer;
+		this.itemCategory = itemCategory;
+	 	this.subImageName = subName;
+	 	this.selectedItem =selectedItem;
+
+ 	};
+
+	collageStyle.prototype = new outfitStyle();
+	collageStyle.prototype.constructor = collageStyle;
+
+	collageStyle.prototype.createItemList = function(){ // override -> append the sub image to the creation canvas
+		var wrapper = $.parseHTML(this.layerWrapper);
+		var collageItemWrapper = $.parseHTML("<li></li>");
+
+		$(collageItemWrapper).append(this.selectedItem);
+		
+		console.log($(this.selectedItem));
+
+		$("#sortable").prepend(wrapper);
+		//assign the same id as selected image to the whole list wrapper
+		$(wrapper).attr('id',this.idNum);
+		$(wrapper).addClass(this.itemCategory);
+		$(wrapper).find(".imageIconBox").children("a").append(this.smallImageInfo);
+		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
+		$(wrapper).find(".url").append(this.urlInfo);
+		$(wrapper).find(".price").append(this.priceInfo);
+		$("#outfitItems").append(collageItemWrapper);
+
+		$('.removeIcon').click(function(event){
+			$(this).parent().remove();
+			var sameId = $(this).parent().attr('id');
+			var parentList = $("#outfitItems").find('#'+sameId).parent();
+			$("#outfitItems").find('#'+sameId).remove();
+			$(parentList).remove();
 		});
+		
+	};
 
-
-		$("#mirror").on('click',function(e){
-			var itemsOnCanvas = $(".draggable > li");
-			for(var i =0; i < itemsOnCanvas.length;i++){
-				if($(itemsOnCanvas[i]).is(".selectedImg")){
-					var selectedImage = $(itemsOnCanvas[i]).children('img'); 
-					if($(selectedImage).is(".reflection")){
-						$(selectedImage).removeClass('reflection');
-					}else{
-						$(selectedImage).addClass('reflection');
-					}
-				};
-				
-			};
-		});
-
-		$("#front").on('click',function(e){
-			var imageArray = $(".draggable > li");
-			var arrayPosition = 70;
-			var k;
-			for(k =0; k < imageArray.length;k++){
-				$(imageArray[k]).css('z-index',arrayPosition-k);
-			};
-			console.log(k);
-			$(".selectedImg").css('z-index',arrayPosition + k + 1);
-		});
-
-		$("#back").on('click',function(e){
-			var imageArray = $(".draggable > li");
-			var arrayPosition = 70;
-			var k;
-			for(k =0; k < imageArray.length;k++){
-				$(imageArray[k]).css('z-index',arrayPosition-k);
-			};
-			console.log(k);
-			$(".selectedImg").css('z-index',arrayPosition - k);
-		});
-
-		$( ".draggable > li" ).draggable();
+	collageStyle.prototype.adding = function(){//add canvas effect to all the elements
+	 	console.log($(this));
+	 	$( ".draggable > li" ).draggable();
 		$(".draggable > li").mousedown(function(event){
 			$(this).find(".ui-rotatable-handle").css({
 				display:"block",
@@ -638,12 +644,67 @@ $(function(){
 		 	$(this).addClass('border');
 		 },function(){
 		 	$(this).removeClass('border');
-		 });
+		 });	
+	 };
 
 
-		 
 
-		 
+//control panel functions
+	$("#clone").click(function(e){
+		var itemsOnCanvas = $(".draggable > li");
+		var imageWrapper = "<li></li>"	
+		for(var i =0; i < itemsOnCanvas.length;i++){
+			if($(itemsOnCanvas[i]).is(".selectedImg")){
+				var cloneImage = $(itemsOnCanvas[i]).children("img").clone();
+				var wrappedImage = $(imageWrapper).append(cloneImage);
+				$(".draggable").append(wrappedImage);
+				console.log(wrappedImage);
+			}else{
+				return false;
+			}
+		};
+	});
+
+
+	$("#mirror").on('click',function(e){
+		var itemsOnCanvas = $(".draggable > li");
+		for(var i =0; i < itemsOnCanvas.length;i++){
+			if($(itemsOnCanvas[i]).is(".selectedImg")){
+				var selectedImage = $(itemsOnCanvas[i]).children('img'); 
+				if($(selectedImage).is(".reflection")){
+					$(selectedImage).removeClass('reflection');
+				}else{
+					$(selectedImage).addClass('reflection');
+				}
+			};
+			
+		};
+	});
+
+	$("#front").on('click',function(e){
+		var imageArray = $(".draggable > li");
+		var arrayPosition = 70;
+		var k;
+		for(k =0; k < imageArray.length;k++){
+			$(imageArray[k]).css('z-index',arrayPosition-k);
+		};
+		console.log(k);
+		$(".selectedImg").css('z-index',arrayPosition + k + 1);
+	});
+
+	$("#back").on('click',function(e){
+		var imageArray = $(".draggable > li");
+		var arrayPosition = 70;
+		var k;
+		for(k =0; k < imageArray.length;k++){
+			$(imageArray[k]).css('z-index',arrayPosition-k);
+		};
+		console.log(k);
+		$(".selectedImg").css('z-index',arrayPosition - k);
+	});
+
+
+
 
 });
 		
