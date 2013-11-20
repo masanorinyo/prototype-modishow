@@ -1187,13 +1187,7 @@ li{
 
 }
 
-#main_slideshow .slideshow_wrapper{
-	width:94.8%;
-	height:449px;
-	float:left;
-	margin:14px 30px 14px 30px;
-}
-
+/*
 #main_slideshow .slideshow{
 	width:76%;
 	height:449px;
@@ -1210,6 +1204,18 @@ li{
 	color:rgb(0,0,0);
 }
 
+#main_slideshow .slideshow_images li{
+	display: none;
+	position: absolute;
+	top:0;
+}
+
+
+
+#main_slideshow .slideshow_images ul #slideshow_1{
+	display: block;
+}
+
 #main_slideshow .advertisement{
 	background-color:rgb(255,255,255);
 	width:21.1%;
@@ -1217,6 +1223,40 @@ li{
 	border:1px solid rgb(38,38,33);
 	float:right;
 }
+--*/
+
+.marquee_panels { display: none; }
+.marquee_container { position: relative; width: 100%; height: 100%; overflow: hidden; margin: 0px 0px 30px 0px; padding: 0px; }
+.marquee_photos { position: absolute; width:100%;top: 0px; left: 0px; display: none; }
+.marquee_caption {
+	width: 100%;
+	margin: 0px;
+	padding: 15px 0px 10px 0px;
+	color: #fff;
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	background: url(../images/template/marquee_caption.png) 0px 0px;
+	background-size:100% 100%;
+}
+.marquee_caption_content { width: 100%; padding: 0px 0px 0px 25px; }
+.marquee_caption h2 { margin: 0px 0px 10px 0px; color: #fff; font-size: 1.25em; font-weight: normal; text-transform: uppercase; }
+.marquee_caption p { margin: 0px 0px 12px 0px; color: #fff; width:95%;}
+.marquee_caption a { color: #ffc600; }
+.marquee_caption a:hover { color: #fff; }
+.marquee_flag { float: left; margin-right: 10px; }
+
+.marquee_nav { position: absolute; width: 240px; bottom: 0px; right: 20px; text-align: right; }
+.marquee_nav a {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin:10px 10px;
+	background: url(../images/template/nav_buttons.png) no-repeat 0px 0px;
+	cursor: pointer;
+}
+.marquee_nav a:hover { background-position: -25px 0px; }
+.marquee_nav a.selected { background-position: -50px 0px; }
 
 
 /*--Element--*/
@@ -1243,22 +1283,17 @@ li{
 	text-align:left;
 }
 
+#main_slideshow  .rightArrow_standard{
+	display:none;
+	margin-top:-2px;
+}
+
 #main_slideshow .firstChild{
 	font-size:1.1em;
 	line-height:120%;
 	color:rgb(140,220,200);
 	text-align: left;
 }
-
-/*---Effect---*/
-
-
-.slideshow_menu li:hover .rightArrow_standard{
-	display:block;
-	margin-top:-2px;
-}
-
-
 
 
 /*------------------Content_Stream------------------*/

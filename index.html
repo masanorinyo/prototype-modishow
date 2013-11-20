@@ -6,8 +6,6 @@
 		<meta id="view" name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<link rel="stylesheet" href="css/main.css">
-		<link href="css/smoothness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
-		<script type="text/javascript"src="javascript/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="javascript/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="javascript/jquery-ui-1.10.3.custom.min.js"></script>
 		<script type="text/javascript" src="javascript/jquery.ui.rotatable.min.js"></script>
@@ -1312,59 +1310,55 @@
 		<span class="button_about modalbox-fixPosition round_circle background_shadow opaque_strong">
 			i
 		</span>
+		<!--Marquee slideshow-->
 		<div id="main_slideshow" class="fullWidth">
-			<div class="slideshow_wrapper">
-				<div class="slideshow round_little">
-					<div class="slideshow_menu">
-						<ul>
-							<li class="firstChild">
-								Contest
-							</li>
-							<li class="pointer">
-								2013 Summer
-								<span class="rightArrow_standard">
-								</span>
-							</li>
-							<li class="pointer">
-								Contest
-								<span class="rightArrow_standard"></span>
-							</li>
-						</ul>
-						<ul>
-							<li class="firstChild">
-								Trends
-							</li>
-							<li class="pointer">
-								Long boots
-								<span class="rightArrow_standard"></span>
-							</li>
-							<li class="pointer">
-								Red shirts
-								<span class="rightArrow_standard"></span>
-							</li>
-						</ul>
-						<ul>
-							<li class="firstChild">
-								Spotlight
-							</li>
-							<li class="pointer">
-								Jen Choi
-								<span class="rightArrow_standard"></span>
-							</li>
-							<li class="pointer">
-								Katherine Low
-								<span class="rightArrow_standard"></span>
-							</li>
-						</ul>
-					</div>
-					<div class="slideshow_images">
-						<div class="leftArrow_mainSlideshow" ></div>
-						<img src="images/slideshow_contest1.png"/>
-						<div class="rightArrow_mainSlideshow"></div>
+			<div class="marquee_container">
+				<div class="marquee_photos"></div>
+				<div class="marquee_caption">
+					<div class="marquee_caption_content"></div>
+				</div>
+				<div class="marquee_nav"></div>
+			</div>
+			<div class="marquee_panels">
+				<!-- Panel -->
+				<div class="marquee_panel">
+					<img class="marquee_panel_photo" src="images/photos/london.jpg" alt="London" width="100" />
+					<div class="marquee_panel_caption">
+						<img class="marquee_flag" src="images/template/flag_england.jpg" width="20" height="13" />
+						<h2>Test1</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula porttitor tortor a ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus auctor tincidunt gravida. Morbi varius arcu ut imperdiet feugiat. Curabitur tincidunt tempus diam, a feugiat lorem semper in. Phasellus convallis consequat pellentesque. Phasellus sed dui ipsum. Donec in imperdiet nulla, vel imperdiet mi. In et elementum nulla. Praesent vel augue vel velit interdum ultrices. Vestibulum imperdiet interdum eros in iaculis. Integer eu urna vitae tortor semper mattis eget id justo. Pellentesque a luctus odio. Suspendisse vestibulum dolor id porttitor gravida. Aliquam at pulvinar tortor, nec posuere arcu.</p>
+						<p><a href="#">Check it out!</a></p>
 					</div>
 				</div>
-				<div class="advertisement round_little"> 
-					<img src="images/advertisement.png" style="margin:15px 0px 0px 5px;"/>
+				<!-- Panel -->
+				<div class="marquee_panel">
+					<img class="marquee_panel_photo" src="images/photos/milan.jpg" alt="Milan" width="100" />
+					<div class="marquee_panel_caption">
+						<img class="marquee_flag" src="images/template/flag_italy.jpg" width="20" height="13" />
+						<h2>Test2</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula porttitor tortor a ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus auctor tincidunt gravida. Morbi varius arcu ut imperdiet feugiat. Curabitur tincidunt tempus diam, a feugiat lorem semper in. Phasellus convallis consequat pellentesque. Phasellus sed dui ipsum. Donec in imperdiet nulla, vel imperdiet mi. In et elementum nulla. Praesent vel augue vel velit interdum ultrices. Vestibulum imperdiet interdum eros in iaculis. Integer eu urna vitae tortor semper mattis eget id justo. Pellentesque a luctus odio. Suspendisse vestibulum dolor id porttitor gravida. Aliquam at pulvinar tortor, nec posuere arcu.</p>
+						<p><a href="#">Check it out!</a></p>
+					</div>
+				</div>
+				<!-- Panel -->
+				<div class="marquee_panel">
+					<img class="marquee_panel_photo" src="images/photos/staugustine.jpg" alt="St. Augustine" width="100" />
+					<div class="marquee_panel_caption">
+						<img class="marquee_flag" src="images/template/flag_usa.jpg" width="20" height="13" />
+						<h2>Test 3</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula porttitor tortor a ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus auctor tincidunt gravida. Morbi varius arcu ut imperdiet feugiat. Curabitur tincidunt tempus diam, a feugiat lorem semper in. Phasellus convallis consequat pellentesque. Phasellus sed dui ipsum. Donec in imperdiet nulla, vel imperdiet mi. In et elementum nulla. Praesent vel augue vel velit interdum ultrices. Vestibulum imperdiet interdum eros in iaculis. Integer eu urna vitae tortor semper mattis eget id justo. Pellentesque a luctus odio. Suspendisse vestibulum dolor id porttitor gravida. Aliquam at pulvinar tortor, nec posuere arcu.</p>
+						<p><a href="#">Check it out!</a></p>
+					</div>
+				</div>
+				<!-- Panel -->
+				<div class="marquee_panel">
+					<img class="marquee_panel_photo" src="images/photos/montreal.jpg" alt="Montreal" width="100" />
+					<div class="marquee_panel_caption">
+						<img class="marquee_flag" src="images/template/flag_canada.jpg" width="20" height="13" />
+						<h2>Test 4</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vehicula porttitor tortor a ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus auctor tincidunt gravida. Morbi varius arcu ut imperdiet feugiat. Curabitur tincidunt tempus diam, a feugiat lorem semper in. Phasellus convallis consequat pellentesque. Phasellus sed dui ipsum. Donec in imperdiet nulla, vel imperdiet mi. In et elementum nulla. Praesent vel augue vel velit interdum ultrices. Vestibulum imperdiet interdum eros in iaculis. Integer eu urna vitae tortor semper mattis eget id justo. Pellentesque a luctus odio. Suspendisse vestibulum dolor id porttitor gravida. Aliquam at pulvinar tortor, nec posuere arcu.</p>
+						<p><a href="#">Check it out!</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
