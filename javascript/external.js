@@ -602,7 +602,11 @@ $(function(){
 	 	console.log($(this));
 		var itemsArray = $("#outfitItems > li");
 		//make the items draggable
-	 	$( ".draggable > li" ).draggable();
+	 	$( ".draggable > li" ).draggable({
+	 		
+	 		opacity: 0.5,
+	 	});
+		
 		$(".draggable > li").mousedown(function(event){
 			$(this).find(".ui-rotatable-handle").css({
 				display:"block",
@@ -804,6 +808,28 @@ $(function(){
 	});
 });
 
+$(function($){
+	var scrolling = false;
+
+  	
+
+	function startScrolling(obj, param){
+		console.log(obj);
+	    $(obj).animate({"left":"param"}, "fast", function(){
+	    	console.log(param+"px");
+	    	if (scrolling){
+	    		startScrolling(obj, param);
+	    	};
+	    });
+	};
+
+	$(".rightArrow_subSlideshow_two").mousedown(function(){
+    	scrolling = true;
+    	startScrolling($(".slider-middle > li"), "+=10");
+    }).mouseup(function(){
+    	scrolling = false;
+    });
+});
 
 //start from here
 $(function(){
