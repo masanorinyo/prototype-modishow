@@ -1702,9 +1702,9 @@ li{
 	text-align: center;
 	font-size:1.2em;
 	padding:10px 5px 10px 5px;
-
-
 }
+
+
 
 /*--Element(overall)--*/
 
@@ -3452,6 +3452,13 @@ li{
 	position: relative;
 }
 
+#signup .popup-box.moreInformatin{
+	display:none;
+	height:250px;
+}
+
+
+
  .popup-box .icon_close{
 	left:440px;
 	top:10px;
@@ -3471,19 +3478,25 @@ li{
 	height:170px;
 }
 
-
 .popup-box-header{
 	width:100%;
 	height:70px;
 	background-color: rgb(250,250,250);
 	border-bottom:1px solid rgb(220,220,220);
 }
+
+.popup-box.moreInformatin .popup-box-header{
+	height:100px;	
+}
+
+
+
 .popup-box-header > span{
 	color:rgb(150,150,150);
 	font-size:2em;
 	font-style:italic;
 	text-align:left;
-	position: absolute;
+	position: relative;
 	top:20px;
 	left:30px;
 }
@@ -4406,11 +4419,13 @@ li{
 	display:none;
 }
 
-#shop #footer{
-	display:block;
-	position: relative;
+#shop #footer,
+#userInfo #footer{
+	display: block;
+	height:50px;
+	position: absolute;
+	bottom:0;
 }
-
 
 #setting #footer,
 #signup_modalBox #footer{
@@ -5302,8 +5317,8 @@ float:left;
 	color:rgb(155,155,155);
 	border:1px solid rgb(230,230,230);
     font-size: 1.2em;
-    cursor: pointer;
     margin:20px;
+    cursor: pointer;
 }
 
 
@@ -5372,6 +5387,7 @@ float:left;
 	left:80px;
 	font-size:0.8em;
 }
+
 
 /*--Element--*/
 #setting #modalbox .popup-box .firstList a{
@@ -5549,7 +5565,7 @@ float:left;
 
 }
 
-.setting button{
+.setting input[type="submit"]{
 	 -webkit-appearance: none;
     height: 30px;
     width:100px;
@@ -5637,13 +5653,20 @@ float:left;
 	padding:2px 4px;
 }
 
-#signup_modalBox #login  .confirmation > button{
+#signup_modalBox #login  .confirmation > .cancel{
+	left:180px;
+}
+
+#signup_modalBox .confirmation > .cancel{
+	left:350px;
+}
+
+
+#signup_modalBox #login  .confirmation > input[type="submit"]{
 	width:60px;
 }
 
-#signup_modalBox #login  .confirmation > #cancel{
-	right:100px;
-}
+
 #signup_modalBox #login  .confirmation > #confirm{
 	right:20px;
 }

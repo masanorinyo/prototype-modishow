@@ -207,12 +207,19 @@ $(function(){
 	$('.closeBox').click(function(event){
 		$('#popup_overlay').hide();
 	});
-	$('.closeBox,.icon_close').click(function(event){
+	$('.closeBox,.icon_close,.confirmation .cancel').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
 	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic,#signup_modalBox').click(function(event){
-		$('html').css("overflow","visible"); 
+		//if users did not choose either options in the more information popup and clicked the outside box
+		if($('#signup .popup-box.moreInformatin').is(':visible')){
+			return false;
+			
+		}else{
+			$('html').css("overflow","visible"); 
+		};
 	});
+
 	$('#modalbox').click(function(event){
 		$('.backToTop').css("display", "none");
 	});
@@ -1180,32 +1187,6 @@ $(function(){
 });
 
 
-//--Top selling jump direclty to the items--//
-//$(function(){
-//	$(".topSellingBox li").click(function(){			
-//		var $category_name = $(this).children(".popupBox").children('span').clone();
-//
-//		$(".item-guides > ul > .firstChild > .main").html($category_name.html());
-//
-//		var $category_overall = $(this).attr("class").split(' ')[0];
-//		var $category_each = $(this).attr("class").split(' ')[1];
-//		var $selected = $(".sideMenu > ul > li > div." + $category_overall);
-//		
-//		$('.middle .submenu_second > ul > li.' + $category_each).children("span").addClass('current');
-//
-//		$('.selectBox > div > select[name="sort"]').val("popular").trigger('change');
-//
-//		$selected.show();
-//			
-//		$(".sideMenu > ul > li .submenu_second").not($selected).hide();		
-//
-//		$("#footer").hide();
-//		$(".button_about").show();
-//
-//	});
-//});
-
-
 
 //--Side menu toggle--//
 
@@ -1273,7 +1254,8 @@ $(function(){
 			$('#quickView,#editProfile,#changePic').hide();
 		});	
 
-	$('.icon_close,.button_medium.cancel').click(function(event){
+	$('.icon_close,.button_medium.cancel,.confirmation .cancel').click(function(event){
+
 		$('#quickView,#editProfile,#changePic,#registration_modalBox').hide();});
 
 	$('.popup-box').click(function(event){
@@ -1288,8 +1270,16 @@ $(function(){
 
 
 	$("#signup_modalBox").click(function(event){
+		//if users did not choose either options in the more information popup and clicked the outside box
+		if($('#signup .popup-box.moreInformatin').is(':visible')){
+			return false;
+			
+		}else{
 			$('#registration_modalBox').hide();
-		});	
+		};
+	});
+		
+		
 
 	$('#signup, #login').click(function(event){
 		event.stopPropagation();
@@ -1528,7 +1518,38 @@ $(function(){
 	});
 });
 
-//----------This seems to have problems----------------Jquery UI-------------------------------------//
+/*-----------Setting page----------- */
+$(function(){
+	$("#setting #confirm, #setting #cancel").click(function sendUsers() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	window.location.href = "userPage.html";
+	  	return false;
+	});
+
+	$("#userInfo #confirm, #userInfo #cancel").click(function sendUsers() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	window.location.href = "index.html";
+	  	return false;
+	});
+})
+
+/*-----------signup page---------------------*/
+$(function(){
+	function confirm(){
+		$('.popup-box.moreInformatin').fadeIn();
+		$(".closeBox").hide();
+		$("#signup > form > div:not('.popup-box')").hide();
+	};
+
+	//when users create an account
+	$("#signup form").submit(function(e){
+		confirm();
+		return false;
+	});
+
+
+});
+
 //--price range--//
 $(function() {
     $( "#slider-range" ).slider({
