@@ -38,7 +38,16 @@ $(function(){
 // Written by Chris Converse
 // for Lynda.com
 
+function openRegistrationForm(event){
+	$('#registration_modalBox').fadeIn("fast");
+	$('html').css("overflow", "hidden");
+};
+
+
 $(function(){
+
+
+
 
 	// Generate Navigation links
 	$('.marquee_panels .marquee_panel').each(function(index){
@@ -56,6 +65,9 @@ $(function(){
 		$('.marquee_photos').append('<img class="marquee_photo" style="left: '+photoPosition+'; float:left" src="'+$(this).attr('src')+'" alt="'+$(this).attr('alt')+'" width='+photoWidth+' height="100%" />');
 		$('.marquee_photos').css('width', photoPosition+photoWidth);
 	});
+
+
+
 
 	// Set up Navigation Links
 	$('.marquee_nav a.marquee_nav_item').click(function(){
@@ -77,7 +89,13 @@ $(function(){
 			$('.marquee_caption_content').html(newHTML);
 			setCaption();
 		});
+
 	});
+
+	
+
+
+
 	
 	// Preload all images, then initialize marquee
 	$('.marquee_panels img').imgpreload(function(){
@@ -419,7 +437,7 @@ $(function(){
 //--sign up box appears--// 
 $(function(){
     $(window).scroll(function(){
-        var scrollTop = 50;
+        var scrollTop = 550;
         if($(window).scrollTop() >= scrollTop){
             $('#signupBox').fadeIn("fast");
         }
@@ -1268,7 +1286,6 @@ $(function(){
 		$('#registration_modalBox').fadeIn("fast");
 	});
 
-
 	$("#signup_modalBox").click(function(event){
 		//if users did not choose either options in the more information popup and clicked the outside box
 		if($('#signup .popup-box.moreInformatin').is(':visible')){
@@ -1528,7 +1545,7 @@ $(function(){
 
 	$("#userInfo #confirm, #userInfo #cancel").click(function sendUsers() {   
 		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "index.html";
+	  	window.location.href = "userPage.html";
 	  	return false;
 	});
 })

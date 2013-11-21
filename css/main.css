@@ -1279,15 +1279,18 @@ li{
 }
 
 .marquee_caption span { 
-	font-size:1.1em;
-	color: rgb(255,5,155); 
-	font-weight: bold;
-	cursor: pointer;
+	font-size: 1.1em;
+	font-weight:bold;
+	color:rgb(255,255,255);
+	padding:3px 10px 3px 8px;
+	background-color:rgb(130,210,190);
+	border-radius:8px;
+	cursor:pointer;
 }
 
 
 .marquee_caption span:hover { 
-	color: rgb(100,200,160); 
+	background-color:rgb(100,180,160);
 }
 
 .marquee_flag { 
@@ -4415,11 +4418,16 @@ li{
 	cursor: default;
 }
 
-.shop .contentBox .button_about,.shop .contentBox .backToTop{
+#shopOverall .contentBox .button_about,#shopOverall .contentBox .backToTop{
 	display:none;
 }
 
-#shop #footer,
+#shopOverall #footer{
+	display: block;
+	position: relative;
+}
+
+
 #userInfo #footer{
 	display: block;
 	height:50px;
