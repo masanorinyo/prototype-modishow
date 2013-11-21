@@ -38,7 +38,7 @@ $(function(){
 // Written by Chris Converse
 // for Lynda.com
 
-$(document).ready(function(){
+$(function(){
 
 	// Generate Navigation links
 	$('.marquee_panels .marquee_panel').each(function(index){
@@ -183,59 +183,6 @@ if (typeof jQuery != "undefined")
 	})(jQuery);
 }
 
-/*
-
-	Usage:
-
-	$('#content img').imgpreload(function()
-	{
-		// this = jQuery image object selection
-		// callback executes when all images are loaded
-	});
-
-	$('#content img').imgpreload
-	({
-		each: function()
-		{
-			// this = dom image object
-			// callback executes when each image loads
-		},
-		all: function()
-		{
-			// this = jQuery image object selection
-			// callback executes when all images are loaded
-		}
-	});
-
-	$.imgpreload('/images/a.gif',function()
-	{
-		// this = new image object
-		// callback
-	});
-
-	$.imgpreload(['/images/a.gif','/images/b.gif'],function()
-	{
-		// this = array of new image objects
-		// callback executes when all images are loaded
-	});
-
-	$.imgpreload(['/images/a.gif','/images/b.gif'],
-	{
-		each: function()
-		{
-			// this = new image object
-			// callback executes on every image load
-		},
-		all: function()
-		{
-			// this = array of new image objects
-			// callback executes when all images are loaded
-		}
-	});
-
-*/
-
-
 
 //---------------------Modal box---------------------//
 //--Open and close modal box--//
@@ -243,16 +190,14 @@ $(function(){
 	$('.openModal').click(function(event){
 		$('#popup_overlay').show();
 	});
-	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div, .editIcon').click(function(event){
+	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div, .editIcon,.jumpToSignup').click(function(event){
 		$('html').css("overflow", "hidden");
 	});
 
 	$('.openModal').click(function(event){
 		$('.backToTop').css("display", "none");
 	});
-	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic').click(function(event){
-		$('#modalbox-backToTop').css("display", "block");
-	});
+	
 	$('.openModal').click(function(event){
 		$('#modalbox').scrollTop(0);
 	});
@@ -265,7 +210,7 @@ $(function(){
 	$('.closeBox,.icon_close').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
-	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic').click(function(event){
+	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic,#signup_modalBox').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
 	$('#modalbox').click(function(event){
@@ -1329,9 +1274,24 @@ $(function(){
 		});	
 
 	$('.icon_close,.button_medium.cancel').click(function(event){
-		$('#quickView,#editProfile,#changePic').hide();});
+		$('#quickView,#editProfile,#changePic,#registration_modalBox').hide();});
 
 	$('.popup-box').click(function(event){
+		event.stopPropagation();
+	});
+});
+
+$(function(){
+	$('.jumpToSignup').click(function(event){
+		$('#registration_modalBox').fadeIn("fast");
+	});
+
+
+	$("#signup_modalBox").click(function(event){
+			$('#registration_modalBox').hide();
+		});	
+
+	$('#signup, #login').click(function(event){
 		event.stopPropagation();
 	});
 });

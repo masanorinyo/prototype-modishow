@@ -1244,6 +1244,110 @@
 					<div class="button_large background-weak round_weak"><a class="noUnloadMessage"href="index.html">Maybe later</a></div>			
 				</div>			
 			</div>
-		</div>	
+		</div>
+		<div id="registration_modalBox">
+		<div id="transparentBackground">
+		</div>
+		<div id="signup_modalBox">
+			<a class="closeBox modalbox-fixPosition round_weak background_gradientGrey">
+				<span class="icon_close"></span>
+			</a>
+			<div id="signup" class="setting">
+				<form>
+					<div class="setting-wrapper">
+						<div class="sub-header ">
+							<span>Account Information</span>
+						</div>
+						<ul>
+							<li>
+								<span>Name: </span>
+								<input id="name" type="text" name="name"/>
+							</li>
+							<li>
+								<span>E-mail Address: </span>
+								<input id="email" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+							</li>
+							<li>
+								<span>Password:</span>
+								<input id="newPassword" type="password" placeholder="Enter your new password"/>
+							</li>
+							<li>
+								<input id="verifiedPassword" type="password" placeholder="Re-type your new password"/>
+							</li>
+							<li>
+								<span>Country:</span>
+								<select id="country">
+									<option>
+										United States
+									</option>
+								</select>
+							</li>
+							<li>
+								<span>Gender:</span>
+								<label>
+									<input type="radio" name="sex" value="Unspecified"> Unspecified
+								</label>
+								<label>
+									<input type="radio" name="sex" value="female"/> Female
+								</label>
+								<label>
+									<input type="radio" name="sex" value="male"  checked="checked"/> Male
+								</label>
+							</li>
+							<li class="lastChild">
+								<span class="legalStatement">
+									By creating an account, I accept ModiShow's <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="confirmation">
+						<div class="login round_weak">
+							<span>Log In</span>
+						</div>
+						<button id="cancel" class="round_weak" type="submit" name="cancel">
+							Cancel
+						</button>
+						<button id="confirm" class="round_weak" type="submit" name="confirm">
+							Confirm
+						</button>
+					</div>
+				</form>
+				</div>
+				<div id="login" class="setting">
+					<form>
+						<div class="setting-wrapper">
+							<div class="sub-header ">
+								<span>Log in</span>
+							</div>
+							<ul>
+								<li>
+									<span>E-mail Address: </span>
+									<input id="email" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+								</li>
+								<li class="lastChild">
+									<span>Password:</span>
+									<input id="password" type="password" placeholder="Enter your new password"/>
+									<div class="round_weak forgotPassword">
+										<span>Forgot your password?</span></br>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="confirmation">
+							<div class="round_weak firstList">
+								<span>Signup</span>
+							</div>
+							<button id="cancel" class="round_weak" type="submit" name="cancel">
+								Cancel
+							</button>
+							<button id="confirm" class="round_weak" type="submit" name="confirm">
+								Login
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>		
 	</body>
 </html>

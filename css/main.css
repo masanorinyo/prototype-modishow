@@ -1225,9 +1225,27 @@ li{
 }
 --*/
 
-.marquee_panels { display: none; }
-.marquee_container { position: relative; width: 100%; height: 100%; overflow: hidden; margin: 0px 0px 30px 0px; padding: 0px; }
-.marquee_photos { position: absolute; width:100%;top: 0px; left: 0px; display: none; }
+.marquee_panels { 
+	display: none; 
+}
+
+.marquee_container{ 
+	position: relative; 
+	width: 100%; 
+	height: 100%; 
+	overflow: hidden; 
+	margin: 0px 0px 30px 0px; 
+	padding: 0px; 
+}
+
+.marquee_photos { 
+	position: absolute; 
+	width:100%;
+	top: 0px; 
+	left: 0px; 
+	display: none; 
+}
+
 .marquee_caption {
 	width: 100%;
 	margin: 0px;
@@ -1239,14 +1257,52 @@ li{
 	background: url(../images/template/marquee_caption.png) 0px 0px;
 	background-size:100% 100%;
 }
-.marquee_caption_content { width: 100%; padding: 0px 0px 0px 25px; }
-.marquee_caption h2 { margin: 0px 0px 10px 0px; color: #fff; font-size: 1.25em; font-weight: normal; text-transform: uppercase; }
-.marquee_caption p { margin: 0px 0px 12px 0px; color: #fff; width:95%;}
-.marquee_caption a { color: #ffc600; }
-.marquee_caption a:hover { color: #fff; }
-.marquee_flag { float: left; margin-right: 10px; }
 
-.marquee_nav { position: absolute; width: 240px; bottom: 0px; right: 20px; text-align: right; }
+.marquee_caption_content { 
+	width: 100%; 
+	padding: 0px 0px 0px 25px; 
+}
+
+.marquee_caption h2 { 
+	margin: 0px 0px 10px 0px; 
+	color: rgb(250,250,250); 
+	font-size: 1.25em; 
+	font-weight:bold;
+	text-transform: uppercase; 
+}
+
+.marquee_caption p { 
+	margin: 0px 0px 12px 0px; 
+	color: rgb(55,55,55); 
+	width:95%;
+	font-size:1.1em;
+}
+
+.marquee_caption span { 
+	font-size:1.1em;
+	color: rgb(255,5,155); 
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+.marquee_caption span:hover { 
+	color: rgb(100,200,160); 
+}
+
+.marquee_flag { 
+	float: left; 
+	margin-right: 10px; 
+	margin-top:3px;
+}
+
+.marquee_nav { position: absolute; 
+	width: 240px; 
+	bottom: 0px; 
+	right: 20px; 
+	text-align: right; 
+}
+
 .marquee_nav a {
 	display: inline-block;
 	width: 18px;
@@ -1255,8 +1311,13 @@ li{
 	background: url(../images/template/nav_buttons.png) no-repeat 0px 0px;
 	cursor: pointer;
 }
-.marquee_nav a:hover { background-position: -25px 0px; }
-.marquee_nav a.selected { background-position: -50px 0px; }
+.marquee_nav a:hover { 
+	background-position: -25px 0px; 
+}
+
+.marquee_nav a.selected{
+	background-position: -50px 0px; 
+}
 
 
 /*--Element--*/
@@ -1599,7 +1660,7 @@ li{
 /*----Overall----*/
 /*--Structure--*/
 
-#popup_overlay,#quickView,#changePic,#editProfile{
+#popup_overlay,#quickView,#changePic,#editProfile,#registration_modalBox{
 	display:none;
     z-index:40000;
 	position:fixed;
@@ -1617,7 +1678,7 @@ li{
 	opacity:0.94;
 }
 
-#modalbox,#modalbox-quick,#modalbox-changePic,#modalbox-editProfile{
+#modalbox,#modalbox-quick,#modalbox-changePic,#modalbox-editProfile,#signup_modalBox{
 	position:relative;
 	width:100%; 
 	height:100%; 
@@ -4352,7 +4413,7 @@ li{
 
 
 #setting #footer,
-#register #footer{
+#signup_modalBox #footer{
 	height:50px;
 	display:block;
 	position: relative;
@@ -5377,8 +5438,19 @@ float:left;
 /*--------------------Setting.html--------------------*/
 /*----Overall----*/
 /*--Structure--*/
+.setting{
+	margin:0 auto;
+	width:50%;
+}
+
+#login{
+	margin:0 auto;
+	width:24%;
+}
+
 .setting > form{
-	margin-top:50px;
+	margin:50px auto;
+
 }
 
 .setting > form > div{
@@ -5519,17 +5591,17 @@ float:left;
 /*-------------------------------Register.com-------------------------------*/
 /*----Overall----*/
 /*--Structure--*/
-#register .setting-wrapper ul li .legalStatement{
+#signup_modalBox .setting-wrapper ul li .legalStatement{
 	font-size:0.9em;
 	margin:0px 0px 0px 40px;
 }
 
-#register .setting-wrapper ul li .legalStatement a{
+#signup_modalBox .setting-wrapper ul li .legalStatement a{
 	color:rgb(0,0,0);
 	font-weight: bold;
 }
 
-#register .confirmation > div{
+#signup_modalBox .confirmation > div{
 	position: absolute;
 	bottom:20px;
 	padding:2px 10px;
@@ -5539,13 +5611,13 @@ float:left;
 
 
 /*--Element--*/
-#register .confirmation > div > span{
+#signup_modalBox .confirmation > div > span{
 	font-size:1.5em;
 }
 
 
 
-#register #login  .setting-wrapper ul > li > div{
+#signup_modalBox #login  .setting-wrapper ul > li > div{
 	position: absolute;
 	bottom:40px;
 	width:200px;
@@ -5553,57 +5625,57 @@ float:left;
 
 }
 
-#register #login  .setting-wrapper ul li div span{
+#signup_modalBox #login  .setting-wrapper ul li div span{
 	font-size:0.8em;
 	cursor: pointer;
 }
 
 
 
-#register #login  .confirmation > div{
+#signup_modalBox #login  .confirmation > div{
 	left:30px;
 	padding:2px 4px;
 }
 
-#register #login  .confirmation > button{
+#signup_modalBox #login  .confirmation > button{
 	width:60px;
 }
 
-#register #login  .confirmation > #cancel{
+#signup_modalBox #login  .confirmation > #cancel{
 	right:100px;
 }
-#register #login  .confirmation > #confirm{
+#signup_modalBox #login  .confirmation > #confirm{
 	right:20px;
 }
 
 
-#register .confirmation > div > span{
+#signup_modalBox .confirmation > div > span{
 	color:rgb(150,150,150);
 }
 
 
 
 
-#register   form > div{
+#signup_modalBox   form > div{
 	margin:0 auto;
 }
 
 
 /*--Effect--*/
-#register .confirmation div:hover span,
-#register #login .confirmation > div:hover span{
+#signup_modalBox .confirmation div:hover span,
+#signup_modalBox #login .confirmation > div:hover span{
 	color:rgb(255,255,255);
 }
 
 
-#register #login .confirmation > div:hover span
-#register .setting > form > div{
+#signup_modalBox #login .confirmation > div:hover span
+#signup_modalBox .setting > form > div{
 	margin:0 auto;
 }
-#register .confirmation > div:hover{
+#signup_modalBox .confirmation > div:hover{
 	background-color:rgb(50,180,240);
 }
-#register #login  .setting-wrapper ul li div:hover span{
+#signup_modalBox #login  .setting-wrapper ul li div:hover span{
 	color:rgb(50,180,240);
 }
 
