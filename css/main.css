@@ -3458,11 +3458,11 @@ li{
 #signup .popup-box.moreInformatin{
 	display:none;
 	height:250px;
+	width: 500px;
+
 }
 
-
-
- .popup-box .icon_close{
+.popup-box .icon_close{
 	left:440px;
 	top:10px;
 	width:50px;
@@ -3492,8 +3492,6 @@ li{
 	height:100px;	
 }
 
-
-
 .popup-box-header > span{
 	color:rgb(150,150,150);
 	font-size:2em;
@@ -3502,6 +3500,19 @@ li{
 	position: relative;
 	top:20px;
 	left:30px;
+}
+
+.popup-box.moreInformatin span.firstChild{
+	font-size:1.6em;
+}
+
+.popup-box.moreInformatin .popup-box-header span.secondChild{
+	font-size:0.9em;
+	top:30px;
+	font-style:normal;
+	width:100px;
+	color:rgb(170,170,150);
+
 }
 
 .button_large{
