@@ -3515,6 +3515,20 @@ li{
 
 }
 
+#signup_modalBox .setting .popup-box.moreInformatin input[type="submit"]{
+	top:140px;
+	height:80px;
+	width:150px;
+	font-size: 1.7em;
+	background-color:none;
+}
+
+
+
+#backToThePage{
+	left:280px;
+}
+
 .button_large{
 	width:100px;
 	height:30px;
@@ -3633,9 +3647,7 @@ li{
 	background-color:rgb(210,210,210);
 
 }
-.sns:hover{
-	background-color:rgb(60,190,250);
-}
+
 
 .button_medium.sns_facebook{
 	right:155px;
@@ -3647,6 +3659,14 @@ li{
 	right:15px;
 }
 
+.popup-box > .label{
+	position: absolute;
+	right:125px;
+	bottom:60px;
+	color:rgb(210,210,210);
+}
+
+/*-------------Effect-------------*/
 .button_medium.cancel:hover{
 	color:rgb(0,0,0);
 }
@@ -3655,12 +3675,15 @@ li{
 	background-color:rgb(80,110,150);
 }
 
-.popup-box > .label{
-	position: absolute;
-	right:125px;
-	bottom:60px;
-	color:rgb(210,210,210);
+.sns:hover{
+	background-color:rgb(60,190,250);
 }
+
+#signup_modalBox .setting .popup-box.moreInformatin input[type="submit"]:hover{
+	color:rgb(255,255,255);
+	background-color:rgb(80,110,150);
+}
+
 
 /*----------------------------------------shopOverall.html---------------------------------------------*/
 /*-------------Overall-------------*/
@@ -5673,7 +5696,7 @@ float:left;
 }
 
 #signup_modalBox #login  .confirmation > .cancel{
-	left:180px;
+	left:160px;
 }
 
 #signup_modalBox .confirmation > .cancel{
@@ -5681,22 +5704,32 @@ float:left;
 }
 
 
-#signup_modalBox #login  .confirmation > input[type="submit"]{
-	width:60px;
+#signup_modalBox #confirm{
+    height: 29px;
+    width:70px;
+	background-color:rgb(255,255,255);    
+	border:1px solid rgb(230,230,230);
+    cursor: pointer;
+    position: absolute;
+    top:20px;
+    left:450px;
+}
+
+#signup_modalBox #loginConfirm{
+	left:260px;
+	height: 35px;
+    width:75px;
 }
 
 
-#signup_modalBox #login  .confirmation > #confirm{
-	right:20px;
+#confirm span{
+ 	font-size: 1.6em;
+	color:rgb(155,155,155);
 }
-
 
 #signup_modalBox .confirmation > div > span{
 	color:rgb(150,150,150);
 }
-
-
-
 
 #signup_modalBox   form > div{
 	margin:0 auto;
@@ -5705,7 +5738,7 @@ float:left;
 
 /*--Effect--*/
 #signup_modalBox .confirmation div:hover span,
-#signup_modalBox #login .confirmation > div:hover span{
+#signup_modalBox #login .confirmation  input:hover{
 	color:rgb(255,255,255);
 }
 
@@ -5714,7 +5747,9 @@ float:left;
 #signup_modalBox .setting > form > div{
 	margin:0 auto;
 }
-#signup_modalBox .confirmation > div:hover{
+#signup_modalBox .confirmation > div:hover,
+#signup_modalBox .confirmation > #confirm:hover,
+#signup_modalBox .confirmation #loginConfirm:hover{
 	background-color:rgb(50,180,240);
 }
 #signup_modalBox #login  .setting-wrapper ul li div:hover span{

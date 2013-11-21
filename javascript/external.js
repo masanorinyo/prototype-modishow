@@ -1548,21 +1548,22 @@ $(function(){
 	  	window.location.href = "userPage.html";
 	  	return false;
 	});
+
+	$("#signup_modalBox #moveToMoreInfo").click(function sendUsers() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	window.location.href = "userInfo.html";
+	  	return false;
+	});
 })
 
 /*-----------signup page---------------------*/
 $(function(){
-	function confirm(){
+	$("#signup_modalBox #confirm").click(function(e){
 		$('.popup-box.moreInformatin').fadeIn();
 		$(".closeBox").hide();
 		$("#signup > form > div:not('.popup-box')").hide();
-	};
-
-	//when users create an account
-	$("#signup form").submit(function(e){
-		confirm();
-		return false;
 	});
+
 
 
 });
@@ -1584,13 +1585,32 @@ $(function() {
 
 
 
-//-------------Form validation for setting and signup modal boxes-----------------//
+//-------------Form validation -----------------//
+//for setting page, login, and signup modal boxes//
+$(function(){
+	var name = $(".setting-wrapper #name");
+	var email = $(".setting-wrapper #email");
+	var password = $(".setting-wrapper #name");
+	var verifiedPassword =$(".setting-wrapper #name");
+	var selectedCountry = $("#country").val();
+
+	$("#signupBox form").submit(function(){
+		if($("#country").val() == 0){
+
+			alert('Please choose your country');
+		};
+
+
+	});
+});
+
+//for Text area//
+$(function(){
 
 
 
-
-
-
+	
+});
 
 
 
