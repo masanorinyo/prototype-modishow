@@ -493,7 +493,7 @@ $(function(){
 		$("#stickynavi_order .stickynavi_list").text(selectedOrderCategory);
 	});
 
-	$("#stickynavi_location form").submit(function(){
+	$("#stickynavi_location form").submit(function(e){
 		var selectedCountry = $("#stickynavi_location select option:selected").text();
 		var inputCity = $("#cityInput").val();
 		if(inputCity){
@@ -502,13 +502,7 @@ $(function(){
 			var slocation = selectedCountry;
 		}
 		$("#stickynavi_location .stickynavi_list").text(slocation);
-	});
-});
-
-//---------------Prevent default <a> action of refreshing the page --------------//
-$(function(){
-	$(".stickynavi_submenu").click(function(e){
-		e.preventDefault();
+		return false;
 	});
 });
 
@@ -1604,14 +1598,16 @@ $(function(){
 	});
 });
 
-//for Text area//
+//for message textarea area & for country search text area & search boxes//
 $(function(){
+
+
+
 
 
 
 	
 });
-
 
 
 
