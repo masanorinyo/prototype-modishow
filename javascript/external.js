@@ -1529,26 +1529,6 @@ $(function(){
 	});
 });
 
-/*-----------Setting page----------- */
-$(function(){
-	$("#setting #confirm, #setting #cancel").click(function sendUsers() {   
-		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "userPage.html";
-	  	return false;
-	});
-
-	$("#userInfo #confirm, #userInfo #cancel").click(function sendUsers() {   
-		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "index.html";
-	  	return false;
-	});
-
-	$("#signup_modalBox #moveToMoreInfo").click(function sendUsers() {   
-		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "userInfo.html";
-	  	return false;
-	});
-})
 
 /*-----------signup page + setting  validation form---------------------*/
 $(function(){
@@ -1557,18 +1537,21 @@ $(function(){
 	
 	//if any error occurs, erro box comes out
 	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
-	
+	var errorMessage = "<span class='color_red errorMessage' style='margin-left:40px;'>Please fill out the form </span>";
+
 	//regular expression 
 	var regName = /[a-zA-Z0-9]/;
 	var regPass = /[a-zA-Z0-9$#-_]/;
 	var regEmail =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 		
 
-	function validationSet(password,verifiedPass, email,name){
+	function validationSet(password,verifiedPass, email,name,logEmail,logPass){
 		this.password = password;
 		this.verifiedPass = verifiedPass;
 		this.email = email;
 		this.username = name;
+		this.loginEmail = logEmail;
+		this.loginPass = logPass;
 	}
 
 
@@ -1599,7 +1582,7 @@ $(function(){
 			
 		}else if($(inputTag).val().length <= 4){
 			//this will prevent the error box for the verified password input from coming out
-			if(!$(inputTag).is("#verifiedPassword")){
+			if(!($(inputTag).is("#verifiedPassword") || $(inputTag).is("#loginPassword"))){
 				wrongFormat();
 				$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
 			}
@@ -1638,6 +1621,30 @@ $(function(){
 					console.log("email failed");
 				};
 				
+			}else if($(inputTag).is("#loginPassword")){
+				if(regPass.test(this.loginPass)){
+					correctFormat();
+					validLoginPassword = true;
+				}else{
+					console.log(this.loginPass)
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong password");
+					
+					console.log("email failed");
+				};
+				
+			}else if($(inputTag).is("#loginEmail")){
+				if(regEmail.test(this.loginEmail)){
+					correctFormat();
+					validLoginEmail = true;
+				}else{
+					console.log(this.loginEmail)
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong email");
+					
+					console.log("email failed");
+				};
+				
 			}else{
 				correctFormat();
 			};
@@ -1656,61 +1663,139 @@ $(function(){
 			var verifiedPass = $(this).val();
 		}else if($(this).is("#email")){
 			var email = $(this).val();
+		}else if($(this).is("#loginEmail")){
+			var logEmail = $(this).val();
+		}else if($(this).is("#loginPassword")){
+			var logPassword = $(this).val();
 		}else{
 			var name = $(this).val();
 		}		
 
-		var validation = new validationSet(password,verifiedPass, email,name,focusInput);
+		var validation = new validationSet(password,verifiedPass, email,name,logEmail,logPassword);
 	
 		//sending the input tag that users just unfocus
 		validation.checking(focusInput);
 
 	});
 
+	function samePassword(){
+
+	};
+
+	function selectedCountry(){
+		
+	}
+
+
+
+
 	//if every element in the form is written in a right format, the form will be submitted
-	$("#confirm").click(function(){
+	$("#signup #confirm").click(function(){
 		//whether two passwords match
-		if($("#newPassword").val() === $("#verifiedPassword").val()){
-			samePass = true;
-				
-		}else{
-			if($("#newPassword").next('.insertBox').is(":visible")){
-				return false;
+		if(validPassword){
+			if($("#newPassword").val() === $("#verifiedPassword").val()){
+			    samePass = true;
+					
 			}else{
-				$("#newPassword,#verifiedPassword").css('border-color','red');	
-				$("#newPassword").parents('li').append(insertBox);
-				$("#newPassword").next(".insertBox").fadeIn();
-				$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+				if($("#newPassword").next('.insertBox').is(":visible")){
+					return false;
+				}else{
+					$("#newPassword,#verifiedPassword").css('border-color','red');	
+					$("#newPassword").parents('li').append(insertBox);
+					$("#newPassword").next(".insertBox").fadeIn();
+					$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+				}
+				return false;
+
 			}
 		}
 
 		//whether the country input is selected
-		if($("#country").val() != "0"){
-			validCountry = true;
-		}
+		$("#country").change(function(){
+			if($("#country").val() != "0"){
+				$("#country").css('border-color','rgb(200,200,200)');
+				validCountry = true;
+			}else{
+				validCountry = false;
+			}
+		});
 
+		
 
 		//If everything is written in a right format, the form gets submitted
-		if(validEmail && validName && validCountry && validPassword && samePass){
+		if(validEmail && validName && validPassword &&  samePass && validCountry){
 			$('.popup-box.moreInformatin').fadeIn();
 			$(".closeBox").hide();
 			$("#signup > form > div:not('.popup-box')").hide();
 		}else{
-			alert("Please finish filling out the form");
-		};
+			if(!validCountry){
+				$("#country").css('border-color','red');
+			}
 
+			if(!validName){
+				$("#name").css('border-color','red');
+			}
 
+			if(!validEmail){
+				$("#email").css('border-color','red');
+			}
+
+			if(!validPassword){
+				$("#newPassword").css('border-color','red');
+			}
+
+			if($("#signup .errorMessage").is(":visible")){
+				$("#signup .errorMessage").effect( "highlight", "slow" );
+			}else{
+				$("#signup .sub-header > span").append(errorMessage);
+			}
+		}	
 	});
 
+
+	//if every element in the form is written in a right format, the form will be submitted
 	$("#loginConfirm").click(function(){
-		if(validEmail && validName){
+		if(validLoginEmail && validLoginPassword){
 			return true;
 		}else{
-			alert("Please finish filling out the form");
+			if(!validLoginEmail){
+				$("#loginEmail").css('border-color','red');
+			};
+
+			if(!validLoginPassword){
+				$("#loginPassword").css('border-color','red');
+			};
+
+			if($("#login .errorMessage").is(":visible")){
+				$("#login  .errorMessage").effect( "highlight", "slow" );
+			}else{
+				$("#login  .sub-header > span").append(errorMessage);
+			};
 			return false;
 		};
 	});
 
+
+	//if users click yes in the confirmation page, which leads them to the survey page.
+	$("#signup_modalBox #moveToMoreInfo").click(function sendUsers() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	window.location.href = "userInfo.html";
+	  	return false;
+	});
+
+
+
+	$("#setting #cancel").click(function sendUsers() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	window.location.href = "userPage.html";
+	  	return false;
+	});
+
+	$("#userInfo #cancel").click(function sendUsers() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	window.location.href = "index.html";
+	  	return false;
+	});
 
 
 });
@@ -1730,29 +1815,6 @@ $(function() {
       " - $" + $( "#slider-range" ).slider( "values", 1 ) );
   });
 
-
-
-//-------------Form validation -----------------//
-//for setting page, login, and signup modal boxes//
-$(function(){
-	var cityName =$("#cityName").val();
-	var country = $("#country").val();
-	var message = $("#message").val();
-
-
-	
-});
-
-//for message textarea area & for country search text area & search boxes//
-$(function(){
-
-
-
-
-
-
-	
-});
 
 
 
