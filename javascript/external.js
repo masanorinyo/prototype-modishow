@@ -1533,7 +1533,7 @@ $(function(){
 /*-----------signup page + setting  validation form---------------------*/
 $(function(){
 	//once everything is validated, form will be submitted
-	var validName,validEmail,validPassword,samePass,validCountry,validLoginEmail,validLoginPassword = false;
+	var validName,validEmail,validPassword,samePass,validCountry,validLoginEmail,validLoginPassword,validAge,validHeight,validSkinColor,validSize,validBody = false;
 	
 	//if any error occurs, erro box comes out
 	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
@@ -1541,7 +1541,7 @@ $(function(){
 
 	//regular expression 
 	var regName = /[a-zA-Z0-9]/;
-	var regPass = /[a-zA-Z0-9$#-_]/;
+	var regPass = /[a-zA-Z0-9$#-_@]/;
 	var regEmail =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 		
 
@@ -1593,9 +1593,8 @@ $(function(){
 					validName = true;
 				}else{
 					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong name");
-					
-					console.log("name failed");
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ z] and [0 ~ 9]");
+					validName = false
 				};
 				
 			}else if($(inputTag).is("#newPassword") || $(inputTag).is("#password")){
@@ -1603,10 +1602,11 @@ $(function(){
 					correctFormat();
 					validPassword = true;
 				}else{
+					validPassword = false;
+					samePass = false;
 					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong password");
-					
-					console.log("password failed");
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[#$-_@]");
+
 				};
 				
 			}else if($(inputTag).is("#email")){
@@ -1616,9 +1616,8 @@ $(function(){
 				}else{
 					console.log(this.email)
 					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong email");
-					
-					console.log("email failed");
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
+					validEmail = false;
 				};
 				
 			}else if($(inputTag).is("#loginPassword")){
@@ -1628,9 +1627,8 @@ $(function(){
 				}else{
 					console.log(this.loginPass)
 					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong password");
-					
-					console.log("email failed");
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[#$-_@]");
+					validLoginPassword = false;
 				};
 				
 			}else if($(inputTag).is("#loginEmail")){
@@ -1640,9 +1638,8 @@ $(function(){
 				}else{
 					console.log(this.loginEmail)
 					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong email");
-					
-					console.log("email failed");
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
+					validLoginEmail = false;
 				};
 				
 			}else{
@@ -1678,78 +1675,133 @@ $(function(){
 
 	});
 
-	function samePassword(){
+	$('select').change(function(){
+		if($(this).val() != "0"){
+			$(this).css('border-color','rgb(200,200,200)');
+		};
+	});
 
+	function samePassword(){
+		//whether two passwords match
+		if($("#newPassword").val().length >=5){
+			if(regPass.test($("#newPassword").val())){
+				if($("#newPassword").val() === $("#verifiedPassword").val()){
+			    	samePass = true;
+				}else{
+					if($("#newPassword").next('.insertBox').is(":visible")){
+					}else{
+						$("#newPassword,#verifiedPassword").css('border-color','red');	
+						$("#newPassword").parents('li').append(insertBox);
+						$("#newPassword").next(".insertBox").fadeIn();
+						$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+					}
+				
+				samePass = false;
+				
+				}	
+			}
+		}else{
+			validPassword, samePass = false;
+		}
 	};
 
+
 	function selectedCountry(){
-		
-	}
-
-
-
-
-	//if every element in the form is written in a right format, the form will be submitted
-	$("#signup #confirm").click(function(){
-		//whether two passwords match
-		if(validPassword){
-			if($("#newPassword").val() === $("#verifiedPassword").val()){
-			    samePass = true;
-					
-			}else{
-				if($("#newPassword").next('.insertBox').is(":visible")){
-					return false;
-				}else{
-					$("#newPassword,#verifiedPassword").css('border-color','red');	
-					$("#newPassword").parents('li').append(insertBox);
-					$("#newPassword").next(".insertBox").fadeIn();
-					$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
-				}
-				return false;
-
-			}
-		}
-
 		//whether the country input is selected
-		$("#country").change(function(){
 			if($("#country").val() != "0"){
 				$("#country").css('border-color','rgb(200,200,200)');
-				validCountry = true;
+				validCountry =  true;
 			}else{
 				validCountry = false;
 			}
-		});
+	}
 
+	function selectedGroup(){
+		if($("#ageGroup").val() != "0"){
+				$("#ageGroup").css('border-color','rgb(200,200,200)');
+				validAge =  true;
+			}else{
+				validAge = false;
+			};
+
+		if($("#heightGroup").val() != "0"){
+				$("#heightGroup").css('border-color','rgb(200,200,200)');
+				validHeight =  true;
+			}else{
+				validHeight = false;
+			};
+
+		if($("#skinGroup").val() != "0"){
+				$("#skinGroup").css('border-color','rgb(200,200,200)');
+				validSkinColor =  true;
+			}else{
+				validSkinColor = false;
+			};
+
+		if($("#sizeGroup").val() != "0"){
+				$("#sizeGroup").css('border-color','rgb(200,200,200)');
+				validSize =  true;
+			}else{
+				validSize = false;
+			};
+
+		if($("#bodyTypeGroup").val() != "0"){
+				$("#bodyTypeGroup").css('border-color','rgb(200,200,200)');
+				validBody =  true;
+			}else{
+				validBody = false;
+			};
+	}
+
+	//if every element in the form is written in a right format, the form will be submitted
+	$("#signup #confirm").click(function(){
+		
+		selectedCountry();
 		
 
+		samePassword();
+
+
 		//If everything is written in a right format, the form gets submitted
+		if(!validCountry){
+			$("#country").css('border-color','red');
+			validCountry = false;
+		}
+
+		if(!validName){
+			$("#name").css('border-color','red');
+			validName = false;
+		}
+
+		if(!validEmail){
+			$("#email").css('border-color','red');
+			validEmail = false;
+		}
+
+		if(!validPassword){
+			$("#newPassword,#password").css('border-color','red');
+			validPassword = false;
+			samePass = false;
+		}
+
+		console.log(samePass);
+		console.log(validPassword);
+
 		if(validEmail && validName && validPassword &&  samePass && validCountry){
 			$('.popup-box.moreInformatin').fadeIn();
 			$(".closeBox").hide();
 			$("#signup > form > div:not('.popup-box')").hide();
 		}else{
-			if(!validCountry){
-				$("#country").css('border-color','red');
-			}
-
-			if(!validName){
-				$("#name").css('border-color','red');
-			}
-
-			if(!validEmail){
-				$("#email").css('border-color','red');
-			}
-
-			if(!validPassword){
-				$("#newPassword").css('border-color','red');
-			}
-
 			if($("#signup .errorMessage").is(":visible")){
 				$("#signup .errorMessage").effect( "highlight", "slow" );
 			}else{
 				$("#signup .sub-header > span").append(errorMessage);
 			}
-		}	
+			console.log(samePass);
+		console.log(validPassword);
+			return false;
+		}
+			
 	});
 
 
@@ -1760,10 +1812,12 @@ $(function(){
 		}else{
 			if(!validLoginEmail){
 				$("#loginEmail").css('border-color','red');
+				validLoginEmail = false;
 			};
 
 			if(!validLoginPassword){
 				$("#loginPassword").css('border-color','red');
+				validLoginPassword = false;
 			};
 
 			if($("#login .errorMessage").is(":visible")){
@@ -1775,9 +1829,115 @@ $(function(){
 		};
 	});
 
+	$("#setting #confirm").click(function() {   
+		//Should be used PHP in order to send the user back to the previous page
+	  	samePassword();
+		selectedCountry();
+		selectedGroup();
+
+		//If everything is written in a right format, the form gets submitted
+		if(validEmail && validPassword &&  samePass && validAge && validHeight && validSkinColor && validSize && validBody){
+			//php comes in
+			window.location.href = "userPage.html";
+			return false;
+		}else{
+			if(!validName){
+				$("#name").css('border-color','red');
+				validName = false;
+			}
+
+			if(!validEmail){
+				$("#email").css('border-color','red');
+				validEmail = false;
+			}
+
+			if(!validPassword){
+				$("#newPassword,#password").css('border-color','red');
+				validPassword = false;
+			}
+
+			if(!validAge){
+				$("#ageGroup").css('border-color','red');
+				validAge = false;
+			}
+
+			if(!validHeight){
+				$("#heightGroup").css('border-color','red');
+				validHeight = false;
+			}
+
+			if(!validSkinColor){
+				$("#skinGroup").css('border-color','red');
+				validSkinColor = false;
+			}
+
+			if(!validSize){
+				$("#sizeGroup").css('border-color','red');
+				validSize = false;
+			}
+
+			if(!validBody){
+				$("#bodyTypeGroup").css('border-color','red');
+				validBody = false;
+			}
+
+			if($("#signup .errorMessage").is(":visible")){
+				$("#signup .errorMessage").effect( "highlight", "slow" );
+			}else{
+				$("#signup .sub-header > span").append(errorMessage);
+			}
+			return false;
+		}	
+	  	
+	});
+
+	$("#userInfo #confirm").click(function() {   
+		//Should be used PHP in order to send the user back to the previous page
+		selectedGroup();
+
+		//If everything is written in a right format, the form gets submitted
+		if(validAge && validHeight && validSkinColor && validSize && validBody){
+			//php comes in
+			window.location.href = "userPage.html";
+			return false;
+		}else{
+			if(!validAge){
+				$("#ageGroup").css('border-color','red');
+				validAge = false;
+			}
+
+			if(!validHeight){
+				$("#heightGroup").css('border-color','red');
+				validHeight = false;
+			}
+
+			if(!validSkinColor){
+				$("#skinGroup").css('border-color','red');
+				validSkinColor = false;
+			}
+
+			if(!validSize){
+				$("#sizeGroup").css('border-color','red');
+				validSize = false;
+			}
+
+			if(!validBody){
+				$("#bodyTypeGroup").css('border-color','red');
+				validBody = false;
+			}
+
+			if($("#signup .errorMessage").is(":visible")){
+				$("#signup .errorMessage").effect( "highlight", "slow" );
+			}else{
+				$("#signup .sub-header > span").append(errorMessage);
+			}
+			return false;
+		}	
+	  	
+	});
 
 	//if users click yes in the confirmation page, which leads them to the survey page.
-	$("#signup_modalBox #moveToMoreInfo").click(function sendUsers() {   
+	$("#signup_modalBox #moveToMoreInfo").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
 	  	window.location.href = "userInfo.html";
 	  	return false;
@@ -1785,13 +1945,13 @@ $(function(){
 
 
 
-	$("#setting #cancel").click(function sendUsers() {   
+	$("#setting #cancel").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
 	  	window.location.href = "userPage.html";
 	  	return false;
 	});
 
-	$("#userInfo #cancel").click(function sendUsers() {   
+	$("#userInfo #cancel").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
 	  	window.location.href = "index.html";
 	  	return false;

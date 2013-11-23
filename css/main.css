@@ -157,7 +157,7 @@ li{
 
 .insertBox{
 	display:none;
-	width: 250px;
+	width: 300px;
 	height: 40px;
 	background-color: rgb(250,255,255);
 	top: 8px;
@@ -174,7 +174,7 @@ li{
 .insertMessage{
 	position: absolute;
 	color:rgb(255,105,150);
-	font-size:1.1em;
+	font-size:0.9em;
 	left:10px;
 	bottom: 10px;
 }
