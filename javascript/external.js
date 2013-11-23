@@ -1539,7 +1539,7 @@ $(function(){
 
 	$("#userInfo #confirm, #userInfo #cancel").click(function sendUsers() {   
 		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "userPage.html";
+	  	window.location.href = "index.html";
 	  	return false;
 	});
 
@@ -1550,12 +1550,165 @@ $(function(){
 	});
 })
 
-/*-----------signup page---------------------*/
+/*-----------signup page + setting  validation form---------------------*/
 $(function(){
-	$("#signup_modalBox #confirm").click(function(e){
-		$('.popup-box.moreInformatin').fadeIn();
-		$(".closeBox").hide();
-		$("#signup > form > div:not('.popup-box')").hide();
+	//once everything is validated, form will be submitted
+	var validName,validEmail,validPassword,samePass,validCountry,validLoginEmail,validLoginPassword = false;
+	
+	//if any error occurs, erro box comes out
+	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
+	
+	//regular expression 
+	var regName = /[a-zA-Z0-9]/;
+	var regPass = /[a-zA-Z0-9$#-_]/;
+	var regEmail =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+		
+
+	function validationSet(password,verifiedPass, email,name){
+		this.password = password;
+		this.verifiedPass = verifiedPass;
+		this.email = email;
+		this.username = name;
+	}
+
+
+	//validateSet object method - it will check whether each element (name, email, password) is written in a proper format.
+	validationSet.prototype.checking = function(inputTag){
+		
+		//for the input written in a proper format 
+		function correctFormat(){
+				$(inputTag).next('.insertBox').fadeOut();
+				$(inputTag).css('border-color','rgb(200,200,200');
+		};
+
+		//for the input written in a wrong format
+		function wrongFormat(){
+			if($(inputTag).next('.insertBox').is(":visible")){
+				return false;
+			}else{
+				$(inputTag).css('border-color','red');	
+				$(inputTag).parents('li').append(insertBox);
+				$(inputTag).next(".insertBox").fadeIn();
+				
+			}
+		};
+
+		//validation - whether the input is empty, less than 4 characters, and written in proper formats.
+		if($(inputTag).val() ==''){
+			$(inputTag).css('border-color','red');	
+			
+		}else if($(inputTag).val().length <= 4){
+			//this will prevent the error box for the verified password input from coming out
+			if(!$(inputTag).is("#verifiedPassword")){
+				wrongFormat();
+				$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
+			}
+		}else{
+			if($(inputTag).is("#name")){
+				if(regName.test(this.username)){
+					correctFormat();
+					validName = true;
+				}else{
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong name");
+					
+					console.log("name failed");
+				};
+				
+			}else if($(inputTag).is("#newPassword") || $(inputTag).is("#password")){
+				if(regPass.test(this.password)){
+					correctFormat();
+					validPassword = true;
+				}else{
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong password");
+					
+					console.log("password failed");
+				};
+				
+			}else if($(inputTag).is("#email")){
+				if(regEmail.test(this.email)){
+					correctFormat();
+					validEmail = true;
+				}else{
+					console.log(this.email)
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("wrong email");
+					
+					console.log("email failed");
+				};
+				
+			}else{
+				correctFormat();
+			};
+		};
+		
+
+	};
+
+	//this will create an object 
+	$("input[type='text'],input[type='password']").blur(function(){
+		//make variables for each value
+		var focusInput = $(this);
+		if($(this).is("#newPassword") || $(this).is("#password")){
+			var password = $(this).val()
+		}else if($(this).is("#verifiedPassword")){
+			var verifiedPass = $(this).val();
+		}else if($(this).is("#email")){
+			var email = $(this).val();
+		}else{
+			var name = $(this).val();
+		}		
+
+		var validation = new validationSet(password,verifiedPass, email,name,focusInput);
+	
+		//sending the input tag that users just unfocus
+		validation.checking(focusInput);
+
+	});
+
+	//if every element in the form is written in a right format, the form will be submitted
+	$("#confirm").click(function(){
+		//whether two passwords match
+		if($("#newPassword").val() === $("#verifiedPassword").val()){
+			samePass = true;
+				
+		}else{
+			if($("#newPassword").next('.insertBox').is(":visible")){
+				return false;
+			}else{
+				$("#newPassword,#verifiedPassword").css('border-color','red');	
+				$("#newPassword").parents('li').append(insertBox);
+				$("#newPassword").next(".insertBox").fadeIn();
+				$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+			}
+		}
+
+		//whether the country input is selected
+		if($("#country").val() != "0"){
+			validCountry = true;
+		}
+
+
+		//If everything is written in a right format, the form gets submitted
+		if(validEmail && validName && validCountry && validPassword && samePass){
+			$('.popup-box.moreInformatin').fadeIn();
+			$(".closeBox").hide();
+			$("#signup > form > div:not('.popup-box')").hide();
+		}else{
+			alert("Please finish filling out the form");
+		};
+
+
+	});
+
+	$("#loginConfirm").click(function(){
+		if(validEmail && validName){
+			return true;
+		}else{
+			alert("Please finish filling out the form");
+			return false;
+		};
 	});
 
 
@@ -1582,20 +1735,12 @@ $(function() {
 //-------------Form validation -----------------//
 //for setting page, login, and signup modal boxes//
 $(function(){
-	var name = $(".setting-wrapper #name");
-	var email = $(".setting-wrapper #email");
-	var password = $(".setting-wrapper #name");
-	var verifiedPassword =$(".setting-wrapper #name");
-	var selectedCountry = $("#country").val();
-
-	$("#signupBox form").submit(function(){
-		if($("#country").val() == 0){
-
-			alert('Please choose your country');
-		};
+	var cityName =$("#cityName").val();
+	var country = $("#country").val();
+	var message = $("#message").val();
 
 
-	});
+	
 });
 
 //for message textarea area & for country search text area & search boxes//

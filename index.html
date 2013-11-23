@@ -1231,7 +1231,7 @@
 							</li>
 							<li>
 								<span>City:</span>
-								<input id="cityInput" type="text" maxlength="20"/>
+								<input id="cityName" type="text" maxlength="20"/>
 							</li>
 
 							<li>
@@ -2735,7 +2735,7 @@
 					<div class="comment-messageBox">
 						<img src="images/userPhoto.gif"/>
 						<form>
-							<textarea ></textarea>
+							<textarea id="message"></textarea>
 							<input type="button" value="Post"/>
 						</form>
 					</div>
@@ -3202,11 +3202,11 @@
 								</li>
 								<li class="lastChild">
 									<span>Password:</span>
-									<input id="password" type="password" placeholder="Enter your new password"/>
-									<div class="round_weak forgotPassword">
-										<span>Forgot your password?</span></br>
-									</div>
+									<input id="verifiedPassword" type="password" placeholder="Enter your new password"/>
 								</li>
+								<div class="round_weak forgotPassword">
+									<span class="pointer">Forgot your password?</a>
+								</div>
 							</ul>
 						</div>
 						<div class="confirmation">

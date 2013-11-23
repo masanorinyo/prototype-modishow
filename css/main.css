@@ -155,6 +155,31 @@ li{
 
 .top-right{position: absolute; top:0;right:0;}
 
+.insertBox{
+	display:none;
+	width: 250px;
+	height: 40px;
+	background-color: rgb(250,255,255);
+	top: 8px;
+	left: 600px;
+	position: absolute;
+	border: 1px solid rgb(255,105,150);
+	border-radius: 10px;
+}
+
+#login .insertBox{
+	left:200px;
+}
+
+.insertMessage{
+	position: absolute;
+	color:rgb(255,105,150);
+	font-size:1.1em;
+	left:10px;
+	bottom: 10px;
+}
+
+
 /*----------Font----------*/
 .font_monotype{
 	font-family:"Monotype Corsiva";
@@ -5529,7 +5554,7 @@ float:left;
 	position: relative;
 }
 
-.setting > form .sub-header span{
+.setting > form .sub-header > span{
 	position: absolute;
 	top:13px;
 	left:78px;
@@ -5561,7 +5586,7 @@ float:left;
 }
 
 /*--Element- */
-.setting .setting-wrapper ul li span,
+.setting .setting-wrapper > ul > li > span,
 .setting .setting-wrapper input[type="text"],
 .setting .setting-wrapper input[type="password"],
 .setting .setting-wrapper select{
@@ -5609,6 +5634,7 @@ float:left;
 
 .setting input[type="submit"]{
 	 -webkit-appearance: none;
+	 /*Mozila is not working*/
     height: 30px;
     width:100px;
 	background-color:rgb(255,255,255);    
@@ -5673,21 +5699,21 @@ float:left;
 	font-size:1.5em;
 }
 
-
-
-#signup_modalBox #login  .setting-wrapper ul > li > div{
-	position: absolute;
-	bottom:40px;
-	width:200px;
-
-
+#signup_modalBox #login .forgotPassword{
+	position: relative;
+	bottom: 25px;
+	left: 20px;
+	width: 150px;
 }
 
-#signup_modalBox #login  .setting-wrapper ul li div span{
-	font-size:0.8em;
-	cursor: pointer;
+.forgotPassword span{
+	color:rgb(200,200,200);
+	font-size:0.9em;
 }
 
+.forgotPassword span:hover{
+	color:	rgb(80,110,150);
+}
 
 
 #signup_modalBox #login  .confirmation > div{
@@ -5764,7 +5790,7 @@ float:left;
 	display:none;
 }
 
-#login .sub-header span{
+#login .sub-header > span{
 	left:20px;
 }
 
@@ -5783,7 +5809,7 @@ float:left;
 
 /*--Element--*/
 
-#login > form > .setting-wrapper ul li span{
+#login > form > .setting-wrapper ul > li >  span{
 	top:30px;
 	left:20px;
 }
@@ -5902,7 +5928,7 @@ float:left;
 
 /*------------------------------About------------------------------*/
 #about #content{
-	height:150px;
+	height:200px;
 }
 
 #about #content h5{
@@ -5914,3 +5940,6 @@ float:left;
 #about #footer{
 	display:block;
 }
+
+
+
