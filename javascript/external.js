@@ -1533,7 +1533,8 @@ $(function(){
 /*-----------signup page + setting  validation form---------------------*/
 $(function(){
 	//once everything is validated, form will be submitted
-	var validName,validEmail,validPassword,samePass,validCountry,validLoginEmail,validLoginPassword,validAge,validHeight,validSkinColor,validSize,validBody = false;
+	var validName,validEmail,validPassword, samePass,validCountry,validLoginEmail,validLoginPassword,validAge,validHeight,validSkinColor,validSize,validBody = false;
+	var validCityName = true;
 	
 	//if any error occurs, erro box comes out
 	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
@@ -1541,17 +1542,19 @@ $(function(){
 
 	//regular expression 
 	var regName = /[a-zA-Z0-9]/;
-	var regPass = /[a-zA-Z0-9$#-_@]/;
+	var regPass = /(?=[^A-Z]*[A-Z])(?=[^!@#\$%]*[!@#\$%])/;
 	var regEmail =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 		
 
-	function validationSet(password,verifiedPass, email,name,logEmail,logPass){
+	function validationSet(password,oPassword,verifiedPass, email,name,logEmail,logPass,cityN){
 		this.password = password;
+		this.oldPassword = oPassword;
 		this.verifiedPass = verifiedPass;
 		this.email = email;
 		this.username = name;
 		this.loginEmail = logEmail;
 		this.loginPass = logPass;
+		this.cityName = cityN
 	}
 
 
@@ -1577,16 +1580,7 @@ $(function(){
 		};
 
 		//validation - whether the input is empty, less than 4 characters, and written in proper formats.
-		if($(inputTag).val() ==''){
-			$(inputTag).css('border-color','red');	
-			
-		}else if($(inputTag).val().length <= 4){
-			//this will prevent the error box for the verified password input from coming out
-			if(!($(inputTag).is("#verifiedPassword") || $(inputTag).is("#loginPassword"))){
-				wrongFormat();
-				$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
-			}
-		}else{
+		if($(inputTag).val().length > 0){
 			if($(inputTag).is("#name")){
 				if(regName.test(this.username)){
 					correctFormat();
@@ -1597,18 +1591,30 @@ $(function(){
 					validName = false
 				};
 				
-			}else if($(inputTag).is("#newPassword") || $(inputTag).is("#password")){
+			}else if($(inputTag).is("#cityName")){
+				if(regName.test(this.cityName)){
+					correctFormat();
+					validCityName = true;
+					console.log("test");
+				}else{
+					console.log("fail");
+					validCityName = false;
+					wrongFormat();
+					console.log(this.cityName);
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9]");
+				};
+			}else if($(inputTag).is("#newPassword")){
 				if(regPass.test(this.password)){
 					correctFormat();
 					validPassword = true;
+					console.log("fa");
 				}else{
+					console.log("fa");
 					validPassword = false;
 					samePass = false;
 					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[#$-_@]");
-
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[!#$%&?]");
 				};
-				
 			}else if($(inputTag).is("#email")){
 				if(regEmail.test(this.email)){
 					correctFormat();
@@ -1645,7 +1651,43 @@ $(function(){
 			}else{
 				correctFormat();
 			};
-		};
+		}
+
+		if($(inputTag).val() ==''){
+			if($(inputTag).is("#cityName")){
+				correctFormat();
+				validCityName = true;
+			}else{
+				$(inputTag).css('border-color','red');
+				
+				if($(inputTag).is("#name")){
+					validName = false;
+				}else if($(inputTag).is("#email")){
+					validEmail = false;
+				}else if($(inputTag).is("#newPassword")){
+					validPassword = false;
+				};
+			}
+			
+		}else if($(inputTag).val().length <= 4){
+			//this will prevent the error box for the verified password input from coming out
+			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") || $(inputTag).is("#loginPassword") || $(inputTag).is("#cityName"))){
+				wrongFormat();
+				$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
+
+			}else{
+				if($(inputTag).is("#name")){
+					validName = false;
+				}else if($(inputTag).is("#email")){
+					validEmail = false;
+				}else if($(inputTag).is("#newPassword")){
+					validPassword = false;
+					console.log("fa");
+				};
+			}
+		}
+
+		
 		
 
 	};
@@ -1654,21 +1696,25 @@ $(function(){
 	$("input[type='text'],input[type='password']").blur(function(){
 		//make variables for each value
 		var focusInput = $(this);
-		if($(this).is("#newPassword") || $(this).is("#password")){
+		if($(this).is("#newPassword")){
 			var password = $(this).val()
 		}else if($(this).is("#verifiedPassword")){
 			var verifiedPass = $(this).val();
+		}else if($(this).is("#password")){
+			var oPassword = $(this).val();
 		}else if($(this).is("#email")){
 			var email = $(this).val();
 		}else if($(this).is("#loginEmail")){
 			var logEmail = $(this).val();
 		}else if($(this).is("#loginPassword")){
 			var logPassword = $(this).val();
+		}else if($(this).is("#cityName")){
+			var cityN = $(this).val();
 		}else{
 			var name = $(this).val();
 		}		
 
-		var validation = new validationSet(password,verifiedPass, email,name,logEmail,logPassword);
+		var validation = new validationSet(password,oPassword,verifiedPass, email,name,logEmail,logPassword,cityN);
 	
 		//sending the input tag that users just unfocus
 		validation.checking(focusInput);
@@ -1779,7 +1825,7 @@ $(function(){
 		}
 
 		if(!validPassword){
-			$("#newPassword,#password").css('border-color','red');
+			$("#newPassword").css('border-color','red');
 			validPassword = false;
 			samePass = false;
 		}
@@ -1836,7 +1882,7 @@ $(function(){
 		selectedGroup();
 
 		//If everything is written in a right format, the form gets submitted
-		if(validEmail && validPassword &&  samePass && validAge && validHeight && validSkinColor && validSize && validBody){
+		if(validEmail && validPassword &&  samePass && validCityName){
 			//php comes in
 			window.location.href = "userPage.html";
 			return false;
@@ -1852,40 +1898,28 @@ $(function(){
 			}
 
 			if(!validPassword){
-				$("#newPassword,#password").css('border-color','red');
+				$("#newPassword").css('border-color','red');
 				validPassword = false;
 			}
 
-			if(!validAge){
-				$("#ageGroup").css('border-color','red');
-				validAge = false;
-			}
-
-			if(!validHeight){
-				$("#heightGroup").css('border-color','red');
-				validHeight = false;
-			}
-
-			if(!validSkinColor){
-				$("#skinGroup").css('border-color','red');
-				validSkinColor = false;
-			}
-
-			if(!validSize){
-				$("#sizeGroup").css('border-color','red');
-				validSize = false;
-			}
-
-			if(!validBody){
-				$("#bodyTypeGroup").css('border-color','red');
-				validBody = false;
-			}
-
-			if($("#signup .errorMessage").is(":visible")){
-				$("#signup .errorMessage").effect( "highlight", "slow" );
+			if($("#cityName").val().length > 0){
+				if(!validCityName){
+					$("#cityName").css('border-color','red');
+					validCityName = false;
+				}
 			}else{
-				$("#signup .sub-header > span").append(errorMessage);
+				$("#cityName").css('border-color','rgb(200,200,200)');
+				validCityName = true;
 			}
+
+			if($("#setting .errorMessage").is(":visible")){
+				$("#setting .errorMessage").effect( "highlight", "slow" );
+			}else{
+				$("#setting .sub-header.accountInfo > span").append(errorMessage);
+			}
+
+			$(window).scrollTop(0);
+
 			return false;
 		}	
 	  	
