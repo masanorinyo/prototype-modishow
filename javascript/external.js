@@ -705,13 +705,13 @@ $(function(){
 			sortableIn = 0;
 		},
 		//beforeStop to remove items and maintain a sentinel based on the over and out to determine whether or not you've moved outside the bounds of the container.
-        beforeStop: function (event, ui){
+        beforeStop: function (event, ui,target){
             if(sortableIn == 0){ 
             	ui.item.remove();
 				var sameId = ui.item.attr('id');
 				var parentList = $("#collage #outfitItems #"+sameId).parent();
-				var itemArray = $("#collage #outfitItems #"+sameId);					
-				
+				var itemArray = $("#outfitItems #"+sameId);					
+
 				console.log("image length:"+itemArray.length + "" + "parent length:" + parentList.length);
 
 				for(var i=0;i<itemArray.length; i++){
@@ -991,7 +991,7 @@ $(function(){
 	var titleRe = /^[a-zA-Z0-9'-]+$/;
 	var validTitle,validCategory = false;
 	 		
-	$("#tryclothes #modalbox .title_box input[type='text']").blur(function(){
+	$("#tryclothes #modalbox .title_box input[type='text']").focusout(function(){
  		
  		if($(this).val().length <= 4){
  			$("#modalbox .title_box .required").text(" Please write more than 4 characters").effect('highlight',"slow");
@@ -1867,7 +1867,7 @@ $(function(){
 	};
 
 	//this will create an object 
-	$(".setting input[type='text'],.setting input[type='password']").blur(function(){
+	$(".setting input[type='text'],.setting input[type='password']").focusout(function(){
 		//make variables for each value
 		var focusInput = $(this);
 		if($(this).is("#newPassword")){
