@@ -1112,11 +1112,15 @@ $(function(){
 //-----------------Right side (item box)----------------//
 //--item box header-//
 $(function(){
-	$(".controlBoxes > li").click(function(){
-		$(this).children().children(".subHeader-submenu").slideToggle(200);
+	$(".controlBoxes > li").click(function(event){
+		if($(event.target).is(".icon_close")){
+			return false;
+		}else{
+			$(this).children().children(".subHeader-submenu").slideToggle(200);
+		}
 	});
 
-	$('html').click(function(event){
+	$('html,.icon_close').click(function(event){
         $('.subHeader-submenu').hide();
     });
 
@@ -1150,13 +1154,37 @@ $(function(){
 	});
 });
 
+
 //--item box sub header--//
 //sub header changes according to a selected header//
 $(function() {
+	//---icon close -- if users click the close icon, back to the oirginal state----//
+ 	$(".icon_close").click(function(){ 
+        $(".itemBoxImages").hide();
+        $(".selectedListItem").remove();
+        $(".default").show();
+
+        console.log($(this).parent().parent().parent().parent().parent().attr('id'));
+	    switch ($(this).parent().parent().parent().parent().parent().attr('id')){
+		    case 'myItemList': $("#myItemImages > .itemIconsWrapper").show();break;
+		    case 'clothingItemList': $("#clothingImages > .itemIconsWrapper").show();break;
+		    case 'modelList': $("#modelImages > .itemIconsWrapper").show();break;
+		    case 'embelishmentList': $("#embelishmentImages > .itemIconsWrapper").show();break;
+		    case 'itemList': $("#itemImages > .itemIconsWrapper").show();break;
+		    case 'beautyList': $("#beautyImages > .itemIconsWrapper").show();break;
+		    case 'peopleList': $("#peopleImages > .itemIconsWrapper").show();break;
+
+		}
+
+
+	}); 
+
     $("#itembox_header ul li").click(function() { 
         $(this).addClass("currently_focus");
         $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
         $(".itemBoxImages").hide();
+        $(".selectedListItem").remove();
+        $(".default").show();
  	}); 	
 
      $(".itemList_myItems").click(function() { 
@@ -1198,35 +1226,74 @@ $(function() {
 //-------order box changes based on the selected element------------//
 $(function(){
 	$(".subHeader-list.order .submenu-second li").click(function(){
-		var selectedOrder = $(this).text();
-		$(".subHeader-list.order span").text(selectedOrder);
+		$(".order .default").hide();
+        if($(".order .selectedListItem").is(":visible")){
+        	$(".order .selectedListItem").text($(this).text());
+        }else{
+        	$(".subHeader-list.order").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
+    	}
 	});
 });
 
 //--items show up--//
 $(function() { 
- 	$(".itemBox > .itemIconsWrapper > li, .subHeader-submenu > ul > li").click(function() { 
+ 	$(".itemBox > .itemIconsWrapper > li, .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $(".itemBox > .itemIconsWrapper").hide();
  	});                                     
     
-    $("#myItemImages > .itemIconsWrapper > li, #myItemList .subHeader-submenu > ul > li").click(function() { 
-        $("#myItemImages > .itemBoxImages").show(); 
- 	});
+    $("#myItemImages > .itemIconsWrapper > li, #myItemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
+        $("#myItemImages > .itemBoxImages").show();
+        $("#myItemList .firstChild .subHeader-list > .default").hide();
+        
+        if($(".firstChild .selectedListItem").is(":visible")){
+        	$("#myItemList .firstChild .selectedListItem").text($(this).text());
+        }else{
+        	$("#myItemList .firstChild .subHeader-list").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
+    	}
+ 	});	
     
-    $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .subHeader-submenu > ul > li").click(function() { 
+    $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $("#clothingImages > .itemBoxImages").show(); 
+        $("#clothingItemList .firstChild .subHeader-list > .default").hide();
+        
+        if($(".firstChild .selectedListItem").is(":visible")){
+        	$("#clothingItemList .firstChild .selectedListItem").text($(this).text());
+        }else{
+        	$("#clothingItemList .firstChild .subHeader-list").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
+    	}
  	}); 
     
-    $("#modelImages > .itemIconsWrapper > li").click(function() { 
+    $("#modelImages > .itemIconsWrapper > li,#modelList .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $("#modelImages > .itemBoxImages").show(); 
+        $("#modelList .firstChild .subHeader-list > .default").hide();
+        
+        if($(".firstChild .selectedListItem").is(":visible")){
+        	$("#modelList .firstChild .selectedListItem").text($(this).text());
+        }else{
+        	$("#modelList .firstChild .subHeader-list").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
+    	}
  	}); 
     
-    $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .subHeader-submenu > ul > li").click(function() { 
+    $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $("#embelishmentImages > .itemBoxImages").show(); 
+        $("#embelishmentList .firstChild .subHeader-list > .default").hide();
+        
+        if($(".firstChild .selectedListItem").is(":visible")){
+        	$("#embelishmentList .firstChild .selectedListItem").text($(this).text());
+        }else{
+        	$("#embelishmentList .firstChild .subHeader-list").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
+    	}
  	});   	
     
-    $("#itemImages > .itemIconsWrapper > li, #itemList .subHeader-submenu > ul > li").click(function() { 
+    $("#itemImages > .itemIconsWrapper > li, #itemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $("#itemImages > .itemBoxImages").show(); 
+        $("#itemList .firstChild .subHeader-list > .default").hide();
+        
+        if($(".firstChild .selectedListItem").is(":visible")){
+        	$("#itemList .firstChild .selectedListItem").text($(this).text());
+        }else{
+        	$("#itemList .firstChild .subHeader-list").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
+    	}
  	});
 });
 
@@ -1245,11 +1312,6 @@ $(function(){
 });
 
 
-//------------------Try on / collage creation form that makes sure users input correct data------------//
-$(function(){
-
-
-});
 
 //********************Shop html********************//
 //--Top selling item hover effect--//
