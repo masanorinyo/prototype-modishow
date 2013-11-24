@@ -1055,7 +1055,7 @@ li{
 	cursor:default;
 
 }
-.stickynavi_submenu input[type=text]{
+.stickynavi_submenu input[type='text']{
 	font-size: 12px;
 	height:20px;
 	width:138px;
@@ -1077,13 +1077,15 @@ li{
    padding:5px 10px; 
 }
 
-#stickynavi_location input[type=submit]{
+#stickynavi_location input[type='submit']{
 	width:80px;
 	margin-top:10px;
 	padding: 5px 10px 6px;
 	text-decoration: none;
 	border-color:rgb(233,233,233);
+	color:rgb(200,200,200);
 }
+
 
 
 /*--second level submenu--*/
@@ -5619,7 +5621,7 @@ float:left;
 	top:20px;
 	font-family:"Calisto MT";
 	font-size:1.3em;
-	color:rgb(102,102,102);
+	color:rgb(102,102,102); 
 }
 
 .setting .setting-wrapper input[type="text"],
@@ -5629,9 +5631,13 @@ float:left;
 	left:auto;
 	width:330px;
 	height:21px;
-	padding:4px;
 	border:1px solid rgb(200,200,200);
 	top:13px;
+}
+
+.setting .setting-wrapper input[type="text"],
+.setting .setting-wrapper input[type="password"]{
+	padding:5px;
 }
 
 .setting .setting-wrapper select{
