@@ -167,6 +167,10 @@ li{
 	border-radius: 10px;
 }
 
+.strengthOfPassword{
+	border-color:rgb(80,110,150);
+}
+
 #login .insertBox{
 	left:200px;
 }
@@ -177,6 +181,9 @@ li{
 	font-size:0.9em;
 	left:10px;
 	bottom: 10px;
+}
+.strengthOfPassword > .insertMessage{
+	color:rgb(100,100,200);
 }
 
 

@@ -1541,10 +1541,39 @@ $(function(){
 	var errorMessage = "<span class='color_red errorMessage' style='margin-left:40px;'>Please fill out the form </span>";
 
 	//regular expression 
-	var regName = /[a-zA-Z0-9]/;
-	var regPass = /(?=[^A-Z]*[A-Z])(?=[^!@#\$%]*[!@#\$%])/;
+	var regName = /^[a-zA-Z0-9'-]+$/;
+	var regPass = /^[a-zA-Z'-@#$%&]+$/;
 	var regEmail =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 		
+
+	function strengthOfPassword(pass){	
+		var message;
+		var strength = new Array();
+		strength[0] = pass.match(/[A-Z]/);
+		strength[1] = pass.match(/[a-z]/);
+		strength[2] = pass.match(/0-9/);
+		strength[3] = pass.match(/['-@#$%&]/);
+
+		var sum = 0;
+		for (var i=0; i<strength.length; i++) {
+		    sum += strength[i] ? 1 : 0;
+		}
+
+		switch (sum) {
+		    case 0: message = "The strength of this password is weak"; break;
+		    case 1: message ="The strength of this password is okay"; break;
+		    case 2: message ="The strength of this password is strong"; break;
+		    case 3: message ="The strength of this password is very strong"; break;
+		    default: message ="Something is not right"; break;
+		}
+
+		$("#newPassword").next(".insertBox").remove();
+		$("#newPassword").parents('li').append(insertBox);
+		$("#newPassword").next(".insertBox").addClass('strengthOfPassword').fadeIn();
+		$("#newPassword").next('.insertBox').children('.insertMessage').text(message);		
+	
+	}
+
 
 	function validationSet(password,oPassword,verifiedPass, email,name,logEmail,logPass,cityN){
 		this.password = password;
@@ -1563,7 +1592,12 @@ $(function(){
 		
 		//for the input written in a proper format 
 		function correctFormat(){
-				$(inputTag).next('.insertBox').fadeOut();
+				if($(inputTag).is("#newPassword")){
+					strengthOfPassword($(inputTag).val());
+				}else{
+					$(inputTag).next('.insertBox').fadeOut();
+				}
+
 				$(inputTag).css('border-color','rgb(200,200,200');
 		};
 
@@ -1579,79 +1613,7 @@ $(function(){
 			}
 		};
 
-		//validation - whether the input is empty, less than 4 characters, and written in proper formats.
-		if($(inputTag).val().length > 0){
-			if($(inputTag).is("#name")){
-				if(regName.test(this.username)){
-					correctFormat();
-					validName = true;
-				}else{
-					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ z] and [0 ~ 9]");
-					validName = false
-				};
-				
-			}else if($(inputTag).is("#cityName")){
-				if(regName.test(this.cityName)){
-					correctFormat();
-					validCityName = true;
-					console.log("test");
-				}else{
-					console.log("fail");
-					validCityName = false;
-					wrongFormat();
-					console.log(this.cityName);
-					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9]");
-				};
-			}else if($(inputTag).is("#newPassword")){
-				if(regPass.test(this.password)){
-					correctFormat();
-					validPassword = true;
-					console.log("fa");
-				}else{
-					console.log("fa");
-					validPassword = false;
-					samePass = false;
-					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[!#$%&?]");
-				};
-			}else if($(inputTag).is("#email")){
-				if(regEmail.test(this.email)){
-					correctFormat();
-					validEmail = true;
-				}else{
-					console.log(this.email)
-					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
-					validEmail = false;
-				};
-				
-			}else if($(inputTag).is("#loginPassword")){
-				if(regPass.test(this.loginPass)){
-					correctFormat();
-					validLoginPassword = true;
-				}else{
-					console.log(this.loginPass)
-					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[#$-_@]");
-					validLoginPassword = false;
-				};
-				
-			}else if($(inputTag).is("#loginEmail")){
-				if(regEmail.test(this.loginEmail)){
-					correctFormat();
-					validLoginEmail = true;
-				}else{
-					console.log(this.loginEmail)
-					wrongFormat();
-					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
-					validLoginEmail = false;
-				};
-				
-			}else{
-				correctFormat();
-			};
-		}
+
 
 		if($(inputTag).val() ==''){
 			if($(inputTag).is("#cityName")){
@@ -1666,26 +1628,95 @@ $(function(){
 					validEmail = false;
 				}else if($(inputTag).is("#newPassword")){
 					validPassword = false;
+					$(inputTag).next(".insertBox").remove();
 				};
-			}
+			}	
 			
 		}else if($(inputTag).val().length <= 4){
 			//this will prevent the error box for the verified password input from coming out
 			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") || $(inputTag).is("#loginPassword") || $(inputTag).is("#cityName"))){
+				if($(inputTag).is("#newPassword")){
+					$(inputTag).next(".insertBox").remove();
+				}
 				wrongFormat();
 				$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
-
 			}else{
-				if($(inputTag).is("#name")){
-					validName = false;
-				}else if($(inputTag).is("#email")){
-					validEmail = false;
-				}else if($(inputTag).is("#newPassword")){
-					validPassword = false;
-					console.log("fa");
-				};
+				return false
 			}
-		}
+		}else if($(inputTag).val().length > 0){
+			if($(inputTag).is("#name")){
+				if(regName.test(this.username)){
+					correctFormat();
+					validName = true;
+				}else{
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ z],[0 ~ 9],[' and -']");
+					validName = false
+				}
+				
+			}else if($(inputTag).is("#cityName")){
+				if(regName.test(this.cityName)){
+					correctFormat();
+					validCityName = true;
+					console.log("test");
+				}else{
+					console.log("fail");
+					validCityName = false;
+					wrongFormat();
+					console.log(this.cityName);
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9]");
+				}
+			}else if($(inputTag).is("#newPassword")){
+				if(regPass.test(this.password)){
+					correctFormat();
+					validPassword = true;
+
+				}else{
+					$(inputTag).next(".insertBox").remove();
+					validPassword = false;
+					samePass = false;
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],['-@#$%&]");
+				}
+			}else if($(inputTag).is("#email")){
+				if(regEmail.test(this.email)){
+					correctFormat();
+					validEmail = true;
+				}else{
+					console.log(this.email)
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
+					validEmail = false;
+				}
+				
+			}else if($(inputTag).is("#loginPassword")){
+				if(regPass.test(this.loginPass)){
+					correctFormat();
+					validLoginPassword = true;
+				}else{
+					console.log(this.loginPass)
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9],[#$-_@]");
+					validLoginPassword = false;
+				}
+				
+			}else if($(inputTag).is("#loginEmail")){
+				if(regEmail.test(this.loginEmail)){
+					correctFormat();
+					validLoginEmail = true;
+				}else{
+					console.log(this.loginEmail)
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
+					validLoginEmail = false;
+				}
+				
+			}else{
+				correctFormat();
+			}
+		};
+
+		
 
 		
 		
@@ -1734,16 +1765,12 @@ $(function(){
 				if($("#newPassword").val() === $("#verifiedPassword").val()){
 			    	samePass = true;
 				}else{
-					if($("#newPassword").next('.insertBox').is(":visible")){
-					}else{
-						$("#newPassword,#verifiedPassword").css('border-color','red');	
-						$("#newPassword").parents('li').append(insertBox);
-						$("#newPassword").next(".insertBox").fadeIn();
-						$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
-					}
-				
-				samePass = false;
-				
+					$("#newPassword").next(".insertBox").remove();
+					$("#newPassword,#verifiedPassword").css('border-color','red');	
+					$("#newPassword").parents('li').append(insertBox);
+					$("#newPassword").next(".insertBox").fadeIn();
+					$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+					samePass = false;
 				}	
 			}
 		}else{
@@ -1960,10 +1987,10 @@ $(function(){
 				validBody = false;
 			}
 
-			if($("#signup .errorMessage").is(":visible")){
-				$("#signup .errorMessage").effect( "highlight", "slow" );
+			if($("#userInfo .errorMessage").is(":visible")){
+				$("#userInfo .errorMessage").effect( "highlight", "slow" );
 			}else{
-				$("#signup .sub-header > span").append(errorMessage);
+				$("#userInfo .sub-header > span").append(errorMessage);
 			}
 			return false;
 		}	
