@@ -1611,21 +1611,21 @@ $(function(){
 	function strengthOfPassword(pass){	
 		var message;
 		var strength = new Array();
-		strength[0] = pass.match(/[A-Z]/);
-		strength[1] = pass.match(/[a-z]/);
-		strength[2] = pass.match(/0-9/);
-		strength[3] = pass.match(/['-@#$%&]/);
-
+		strength[0] = pass.match(/[a-z]/);
+		strength[1] = pass.match(/[A-Z]/);
+		strength[2] = pass.match(/[0-9]/);
+		strength[3] = pass.match(/[-@#$%&']/);
+		
 		var sum = 0;
 		for (var i=0; i<strength.length; i++) {
 		    sum += strength[i] ? 1 : 0;
 		}
 
 		switch (sum) {
-		    case 0: message = "The strength of this password is weak"; break;
-		    case 1: message ="The strength of this password is okay"; break;
-		    case 2: message ="The strength of this password is strong"; break;
-		    case 3: message ="The strength of this password is very strong"; break;
+		    case 1: message = "The strength of this password is weak"; break;
+		    case 2: message ="The strength of this password is okay"; break;
+		    case 3: message ="The strength of this password is strong"; break;
+		    case 4: message ="The strength of this password is very strong"; break;
 		    default: message ="Something is not right"; break;
 		}
 
@@ -1698,12 +1698,28 @@ $(function(){
 		//if the string is less than 4 characters
 		}else if($(inputTag).val().length <= 4){
 			//this will prevent the error box for the verified password input from coming out
-			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") || $(inputTag).is("#loginPassword") || $(inputTag).is("#cityName"))){
+			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") || $(inputTag).is("#loginPassword"))){
 				if($(inputTag).is("#newPassword")){
 					$(inputTag).next(".insertBox").remove();
 				}
-				wrongFormat();
-				$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
+
+				//check whether the city name is submitted in a correct format
+				if($(inputTag).is("#cityName")){
+					if(regName.test($(inputTag).val())){
+						correctFormat();
+						validCityName = true;
+						console.log("test");
+					}else{
+						console.log("fail");
+						validCityName = false;
+						wrongFormat();
+						console.log(this.cityName);
+						$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ Z],[0~9]");
+					}
+				}else{
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
+				}
 			}else{
 				return false
 			}
@@ -1789,7 +1805,7 @@ $(function(){
 	};
 
 	//this will create an object 
-	$("input[type='text'],input[type='password']").blur(function(){
+	$(".setting input[type='text'],.setting input[type='password']").blur(function(){
 		//make variables for each value
 		var focusInput = $(this);
 		if($(this).is("#newPassword")){
