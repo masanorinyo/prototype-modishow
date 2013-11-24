@@ -3619,6 +3619,7 @@ li{
 
 .popup-box .required{
 	color:rgb(255,100,100);
+	font-size:0.7em;
 }
 
 .popup-box > .description_box{

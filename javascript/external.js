@@ -979,34 +979,89 @@ $(function(){
 
 //start from here
 $(function(){
-	$('.button_medium.publish').click(function(event){
-			
-			var firstOptionCategory = $("#categorySelect option:selected").val();	
-	 		var firstOptionSubCategory = $("#subCategorySelect option:selected").val();
-	 		var titleRe = /[0-9,a-z,A-Z]/;
-	 		var inputTitle = $(".title_box input").val();
-	 		
-	 		if(inputTitle.match(titleRe)){
-				if(firstOptionSubCategory !== "0" && firstOptionCategory !== "0"){
-					$('.createCollage').fadeIn();
-					$('.publishes').hide();
-				}else{
-					alert("please choose a category and a sub-category");
 
-				}
-			}else{
-				alert("Please fill out the title ( you can only use 0 ~9 and a ~ z )")
-			};
-		});
+
+	var titleRe = /^[a-zA-Z0-9'-]+$/;
+	var validTitle,validCategory = false;
+	 		
+	$("#tryclothes #modalbox .title_box input[type='text']").blur(function(){
+ 		
+ 		if($(this).val().length <= 4){
+ 			$("#modalbox .title_box .required").text(" Please write more than 4 characters").effect('highlight',"slow");
+ 			$("#modalbox .title_box input").css('border-color','red');
+ 			validTitle = false;
+ 		}else if(titleRe.test($(this).val())){
+			$("#modalbox .title_box .required").text("*");
+			$("#modalbox .title_box input").css('border-color','rgb(200,200,200)');
+			validTitle = true;
+		}else{
+			$("#modalbox .title_box .required").text(" You can only use 0 ~9 and a ~ Z").effect('highlight',"slow");
+			$("#modalbox .title_box input").css('border-color','red');
+			validTitle = false;
+		}
+
+		
+	});
+
+	$("#categorySelect").change(function(){
+		if($(this).val() != 0){
+			$("#modalbox .category_box .required").text("*");
+			$("#modalbox .category_box select").css('border-color','rgb(200,200,200)');
+		}else{
+			$("#modalbox .category_box .required").text("please choose a category and a sub-category").effect('highlight',"slow");
+			$("#modalbox .category_box select").css('border-color','red');
+		}
+	});
+
+	$("#subCategorySelect").change(function(){
+		if($(this).val() != 0 || $(this).val() !="null"){
+			$("#modalbox .category_box .required").text("*");
+			$("#modalbox .category_box select").css('border-color','rgb(200,200,200)');
+		}else{
+			$("#modalbox .category_box .required").text("please choose a category and a sub-category").effect('highlight',"slow");
+			$("#modalbox .category_box select").css('border-color','red');
+		}
+	});
+
+	$('.button_medium.publish').click(function(){	
+		var firstOptionCategory = $("#categorySelect").val();	
+		var firstOptionSubCategory = $("#subCategorySelect").val();
+		
+		console.log(firstOptionCategory + firstOptionSubCategory);		
+		
+		if(firstOptionSubCategory == "0" || firstOptionCategory == "null" || firstOptionCategory == "0"){
+			validCategory = false;
+			console.log("Fail")
+		}else{
+			console.log("sucess")
+			validCategory = true;
+		}
+
+		if(validTitle && validCategory){
+			$('.createCollage').fadeIn();
+			$('.publishes').hide();
+			validCategory, validTitle = false;
+		}else{
+			if(!validTitle){
+				$("#modalbox .title_box .required").text(" You can only use 0 ~9 and a ~ Z").effect('highlight',"slow");
+				$("#modalbox .title_box input").css('border-color','red');
+			}
+
+			if(!validCategory){
+				$("#modalbox .category_box .required").text("please choose a category and a sub-category").effect('highlight',"slow");
+				$("#modalbox .category_box select").css('border-color','red');
+			}
+		}
+	});
 });
 
 //-----------------Form entry - sub categories change based on the chosen category----------------//
 $(function(){
 
-	var optionStyle = $("<option value=0>Please choose a sub-category</option><option value='active'>Active</option><option value='basic'>basic</option><option value='businessCasual'>Business Casual</option><option value='bohemian'>Bohemian</option><option value='casual'>Casual</option><option value='classic'>Classic</option><option value='comfortable'>Comfortable</option><option value='celebrity'>Celebrity</option><option value='cute'>Cute</option><option value='elegant'>Elegant</option><option value='formal'>Formal</option><option value='goth'>Goth</option><option value='preppy'>Preppy</option><option value='punk'>Punk</option><option value='runway'>Runway</option><option value='sexy'>Sexy</option><option value='swimwear'>Swimwear</option><option value='vintage'>Vintage</option>");
-	var optionOccasion = $("<option value=0>Please choose a sub-category</option><option value='casualDate'>Casual Date</option><option value='classyDate'>Classy Date</option><option value='everyday'>Everyday</option><option value='formalEvents'>Formal Events</option><option value='nightOut'>Night Out</option><option value='outdoorActivities'>Outdoor Activities</option><option value='work'>Work</option>");
-	var optionSeason = $("<option value=0>Please choose a sub-category</option><option value='spring'>Spring</option><option value='midSpring'>Mid-Spring</option><option value='summer'>Summer</option><option value='fall'>Fall</option><option value='midFall'>Mid-Fall</option><option value='winter'>Winter</option>");
-	var optionWeather = $("<option value=0>Please choose a sub-category</option><option value='warm'>Warm</option><option value='freezing'>Freezing</option><option value='cold'>Cold</option><option value='raining'>Raining</option><option value='hot'>Hot</option><option value='snowing'>Snowing</option><option value='tropical'>Tropical</option>");
+	var optionStyle = $("<option value='0'>Please choose a sub-category</option><option value='active'>Active</option><option value='basic'>basic</option><option value='businessCasual'>Business Casual</option><option value='bohemian'>Bohemian</option><option value='casual'>Casual</option><option value='classic'>Classic</option><option value='comfortable'>Comfortable</option><option value='celebrity'>Celebrity</option><option value='cute'>Cute</option><option value='elegant'>Elegant</option><option value='formal'>Formal</option><option value='goth'>Goth</option><option value='preppy'>Preppy</option><option value='punk'>Punk</option><option value='runway'>Runway</option><option value='sexy'>Sexy</option><option value='swimwear'>Swimwear</option><option value='vintage'>Vintage</option>");
+	var optionOccasion = $("<option value='0'>Please choose a sub-category</option><option value='casualDate'>Casual Date</option><option value='classyDate'>Classy Date</option><option value='everyday'>Everyday</option><option value='formalEvents'>Formal Events</option><option value='nightOut'>Night Out</option><option value='outdoorActivities'>Outdoor Activities</option><option value='work'>Work</option>");
+	var optionSeason = $("<option value='0'>Please choose a sub-category</option><option value='spring'>Spring</option><option value='midSpring'>Mid-Spring</option><option value='summer'>Summer</option><option value='fall'>Fall</option><option value='midFall'>Mid-Fall</option><option value='winter'>Winter</option>");
+	var optionWeather = $("<option value='0'>Please choose a sub-category</option><option value='warm'>Warm</option><option value='freezing'>Freezing</option><option value='cold'>Cold</option><option value='raining'>Raining</option><option value='hot'>Hot</option><option value='snowing'>Snowing</option><option value='tropical'>Tropical</option>");
 	
 	$("#categorySelect").change(function(){
 		if($(this).val() == "style"){
@@ -1375,7 +1430,6 @@ $(function(){
 		var $filter_element = $(this).children().children('span').addClass('filter');
 		var closeBox = "<span class='icon_close'></span>";
 		var $filter = $filter_element.append(closeBox);		
-		alert("Your book is overdue.");
 		$filter.appendTo('.filters > ul > .titleHeader > ul').wrap('<li class="filtering"></li>');
 
 
@@ -1546,6 +1600,7 @@ $(function(){
 	var regEmail =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
 		
 
+	//check to see how strong the newly created password is
 	function strengthOfPassword(pass){	
 		var message;
 		var strength = new Array();
@@ -1593,6 +1648,7 @@ $(function(){
 		//for the input written in a proper format 
 		function correctFormat(){
 				if($(inputTag).is("#newPassword")){
+					//if the input for new password is in a proper format, it will get passed down to the password strenght testing
 					strengthOfPassword($(inputTag).val());
 				}else{
 					$(inputTag).next('.insertBox').fadeOut();
@@ -1614,10 +1670,11 @@ $(function(){
 		};
 
 
-
+		//if there is no text in the box
 		if($(inputTag).val() ==''){
 			if($(inputTag).is("#cityName")){
 				correctFormat();
+				//On the setting page, the city is an option box so the city validation is always true when it is empty
 				validCityName = true;
 			}else{
 				$(inputTag).css('border-color','red');
@@ -1631,7 +1688,7 @@ $(function(){
 					$(inputTag).next(".insertBox").remove();
 				};
 			}	
-			
+		//if the string is less than 4 characters
 		}else if($(inputTag).val().length <= 4){
 			//this will prevent the error box for the verified password input from coming out
 			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") || $(inputTag).is("#loginPassword") || $(inputTag).is("#cityName"))){
@@ -1643,6 +1700,7 @@ $(function(){
 			}else{
 				return false
 			}
+		//if the string is more than 4 characters	
 		}else if($(inputTag).val().length > 0){
 			if($(inputTag).is("#name")){
 				if(regName.test(this.username)){
