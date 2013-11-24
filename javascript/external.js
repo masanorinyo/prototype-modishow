@@ -709,9 +709,16 @@ $(function(){
             if(sortableIn == 0){ 
             	ui.item.remove();
 				var sameId = ui.item.attr('id');
-				var parentList = $("#collage #outfitItems").find('#'+sameId).parent();
-				$("#outfitItems").find('#'+sameId).remove();
-				$(parentList).remove();
+				var parentList = $("#collage #outfitItems #"+sameId).parent();
+				var itemArray = $("#collage #outfitItems #"+sameId);					
+				
+				console.log("image length:"+itemArray.length + "" + "parent length:" + parentList.length);
+
+				for(var i=0;i<itemArray.length; i++){
+					$(itemArray[i]).remove();
+					$(parentList[i]).remove();
+				};
+				
            };
         }
 	});
