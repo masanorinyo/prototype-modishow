@@ -530,11 +530,23 @@ $(function(){
 	        $(this).siblings().children(".hiddenBox").is("display","block"); 
 	        $(this).siblings().children(".hiddenBox").hide();
 	    }
- 
+
         $(this).children(".hiddenBox").fadeToggle("fast");
     });
 
-		$(".openLayer").click(function(){
+	$(".openLayer").click(function(){
+		if($(".button_layer .hiddenBox").is(":visible")){
+			$(".dragAndDropGuide").fadeOut("fast");
+		}else{
+			$(".dragAndDropGuide").fadeIn("fast");
+		}
+	});
+
+	$(".button_layer").click(function(){
+		$(".dragAndDropGuide").fadeToggle("fast");
+	});
+
+	$(".openLayer").click(function(){
         if( $(".button_layer > .hiddenBox").is("display","block")){
         	$(".button_layer > .hiddenBox").hide();
         } else {
@@ -542,12 +554,12 @@ $(function(){
         	$(".button_category > .hiddenBox").is("display","block"); 
             $(".button_category > .hiddenBox").hide();   
     	}
-        
         $(".button_layer > .hiddenBox").fadeToggle("fast");
     });
 
 	$('html').click(function(event){
         $('.hiddenBox').hide();
+        $(".dragAndDropGuide").hide();
     });
 	
 	$('.button_category,.button_layer,.openLayer,.hiddenBox').click(function(event){
@@ -591,6 +603,9 @@ $(function(){
 
 
 	outfitStyle.prototype.createItemList = function(){
+		//highlight the layer box to show it receives a new item
+		$(".button_layer").effect("highlight",{color: 'rgb(140,220,200)'},"slow");
+
 		//re-read the newly created item wrapper 
 		var wrapper = $.parseHTML(this.layerWrapper);
 		$("#sortable").prepend(wrapper);
@@ -601,7 +616,8 @@ $(function(){
 		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
-		$("#outfitItems").append(this.largeImageInfo);
+		$("#collage #outfitItems").prepend(this.largeImageInfo);
+		$("#tryclothes #outfitItems").append(this.largeImageInfo);
 		
 		$('.removeIcon').click(function(event){
 			$(this).parent().remove();
@@ -637,6 +653,8 @@ $(function(){
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
 
+		
+
 		//if there is no single selected items, first create one
    		if($(".layers").length == 0){
    			//if the item image was selected on the collage creation page
@@ -670,6 +688,7 @@ $(function(){
 		   		}else{
 		   		//if it was selected on the tryon page
 					outfit.createItemList();
+
 				}
 
 			}else{
@@ -749,6 +768,10 @@ $(function(){
 	collageStyle.prototype = new outfitStyle();
 	collageStyle.prototype.constructor = collageStyle;
 	collageStyle.prototype.createItemList = function(){ // override -> append the sub image to the creation canvas
+		
+		//highlight the i box to show it receives a new item
+		$(".button_layer").effect("highlight",{color: 'rgb(140,220,200)'},"slow");
+		
 		var wrapper = $.parseHTML(this.layerWrapper);
 		var collageItemWrapper = $.parseHTML("<li></li>");
 
