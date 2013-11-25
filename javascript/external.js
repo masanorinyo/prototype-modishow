@@ -13,8 +13,15 @@ $(function(){
 
 //--heart fillup--//
 $(function(){
-	$(".button_heart").on('click',function(){
-		$(this).children('.heart_filled').fadeToggle("fast");
+	$(".button_heart").on('click',function(event){
+		if($(this).is('.broken')){
+			$(".button_heart.whole > .heart_filled").hide();
+			$(this).children('.heart_filled,.brokenHeart_filled').fadeToggle("fast");
+		}else{
+			$(".button_heart.broken > .brokenHeart_filled").hide();
+			$(this).children('.heart_filled,.brokenHeart_filled').fadeToggle("fast");
+		}
+		
 	});
 	$(".button_heart_medium,.button_heart-item").on('click',function(){
 		$(this).children(".mediumButton-leftside").children('.heart_filled').fadeToggle("fast");
@@ -1239,7 +1246,7 @@ $(function(){
 $(function() { 
  	$(".itemBox > .itemIconsWrapper > li, .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $(".itemBox > .itemIconsWrapper").hide();
-        $(".filledDownArrow").hide();
+        $(".firstChild .filledDownArrow").hide();
 		$(".icon_close").show();
  	});                                     
     

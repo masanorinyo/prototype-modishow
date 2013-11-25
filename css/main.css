@@ -19,7 +19,6 @@ header color    				 =
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff373a46,endColorstr=#ff22232c,GradientType=0);
 */
 
-
 /*------------------------------------PAGE RESETTING------------------------------------*/
 @charset "UTF-8";
 
@@ -533,6 +532,34 @@ li{
 	background-position:50% 50%; 
 }
 
+.brokenHeart_empty{
+	background: url("../images/brokenHeart_empty.png") top left no-repeat;
+	display: block;
+	z-index: 100;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 4px;
+}
+
+
+.brokenHeart_filled{
+	display:none;
+	background:url("../images/brokenHeart_filled.png") top left no-repeat; 
+	z-index:211;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 4px;
+}
+
+
 .heart_filled{
 	display:none;
 	background:url("../images/heart_filled.png") top left no-repeat; 
@@ -558,16 +585,20 @@ li{
 
 .icon_flip_grey{
 	background:url("../images/flip-icon-grey.png") top left no-repeat; 
-	background-size: 100%; 
+	background-size: 90% 80%;
 	background-position:50% 50%; 
-	position:absolute;	
+	position:absolute;
+	z-index:100;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+	margin:auto;	
 }
 
 .icon_flip_dark{
 	background:url("../images/flip-icon-dark.png") top left no-repeat; 
-	background-size: 100%;
-	width:28px; 
-	height:26px; 
+	background-size: 90% 80%;
 	background-position:50% 50%; 
 	position:absolute;
 	top:0;
@@ -1625,6 +1656,10 @@ li{
 	margin:60px 0px 0px 0px;
 }
 
+.content_stream img{
+	width:100%;
+}
+
 /*content description*/
 .descriptionBox_wrapper{
 	width:100%;
@@ -2186,6 +2221,8 @@ li{
 
 .award_icon{
 	background:url("../images/award-icon.png") top left no-repeat; 
+	background-position:50% 50%; 
+	background-size:100%; 
 	width:20px;
 	height:35px;
 	left:0px;
@@ -3448,20 +3485,25 @@ height: 23px;
 
 
 
-#myItemImages .itemIconsWrapper,
-#embelishmentImages .itemIconsWrapper{
-	width:500px;
-	position: absolute;
-	left:25%;
-	top:30%;	
+
+
+.textImage{
+	background: url("../images/text.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
 }
 
-#embelishmentImages .itemIconsWrapper{
-	left:16%;
-
+.frameImage{
+	background: url("../images/frames.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
 }
 
-
+.backgroundImage{
+	background: url("../images/backgroundImage.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+}
 
 .tryon-collage #embelishmentImages .itemIconsWrapper{
 	margin-top:0;
@@ -3471,8 +3513,8 @@ height: 23px;
 }
 
 .itemIconsWrapper > li{
-	width:22%;
-	height:130px;
+	width:155px;
+	height:155px;
 	position: relative;
 	float:left;
 	text-align: center;
@@ -3489,11 +3531,41 @@ height: 23px;
 	margin:10px 0px 20px 9px;
 }
 
+.skirtImage{
+	background: url("../images/item1.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+}
+
+.topImage{
+	background: url("../images/inner_1.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+
+}
+
+.outwearImage{
+	background: url("../images/item3.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+}
+
+.jewelryImage{
+	background: url("../images/accessory_1.png") top left no-repeat;
+	background-size: 85% 95%;
+	background-position: 50% 50%;
+}
+
+
+
 
 .itemIcon{
 	width:100%;
 	height: 100px;
 	position: absolute;
+	left:0;
+	right:0;
+	margin:0 auto;
 }
 
 .itemIconsWrapper > li > .heart_filled{
@@ -3510,13 +3582,41 @@ height: 23px;
 	left:0;
 }
 
+.unavailable{
+	position:absolute;
+	top:250px;
+	left:30px;
+	font-size:1.5em;
+}
+
+.itemIconsWrapper li{
+	border:1px solid rgb(255,255,255);
+
+}
+
+
+#collage .itemBoxImages .items-wrapper{
+	width:100px;
+	height:100px;
+}
+
+
+.itemIconsWrapper li img,
+#collage .items-wrapper img{
+	width:100px;
+}
+.itemBoxImages li img{
+	height:100%;
+}
+
 /*--Effect--*/
 
 .itemIconsWrapper li:hover span{
 	color: rgb(50,180,240);
 }
 
-.itemBox > .itemBoxImages > li:hover{
+.itemBox > .itemBoxImages > li:hover,
+.itemIconsWrapper li:hover{
 	border-color:	rgb(50,180,240);
 }
 
@@ -3524,7 +3624,8 @@ height: 23px;
 	color:rgb(80,80,80);
 }
 
-.subHeader-submenu ul li:hover{
+.subHeader-submenu ul li:hover,
+.itemIconsWrapper li:hover{
 		color:rgb(50,180,240);
 
 }
@@ -5250,13 +5351,13 @@ height: 23px;
 
 #userPage .follow_icon{
 	background:url("../images/followIcon.png") top left no-repeat; 
-	background-size: 100%;
+	background-size: 44%;
 	opacity: 0.3;
 	width:35px;
 	height:25px;
 	position: absolute;
-	top:-8px;
-	left:12px;
+	top:-3px;
+	left:22px;
 }
 
 #userPage .top >  .rightSide .dashboard span{
@@ -5600,7 +5701,7 @@ float:left;
 /*--Structure--*/
 .setting{
 	margin:0 auto;
-	width:50%;
+	width: 638px;
 }
 
 #login{
@@ -5610,6 +5711,7 @@ float:left;
 
 .setting > form{
 	margin:50px auto;
+	width:100%;
 
 }
 
