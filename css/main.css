@@ -215,6 +215,9 @@ li{
 
 .color_lightBlue:active{color:rgb(50,180,240);}
 
+
+
+
 /*----------Background Color----------*/
 .background_white{background-color: white;}
 
@@ -372,6 +375,23 @@ li{
 	background-size: 100%;
 }
 
+.filledDownArrow{
+	color:rgb(220,220,220);
+	left:0;
+	top:5px;
+	bottom:0;
+	right:0;
+	margin:auto;
+	position: absolute;
+	text-align: center;
+}
+
+.controlBoxes > li:hover .filledDownArrow{
+	color:rgb(180,180,180);
+}
+
+
+
 .downArrow_stickynavi{
 	background:url("../images/downArrow-circle-grey.png") top left no-repeat; 
 	background-size: 50%;
@@ -474,6 +494,26 @@ li{
 }
 
 
+.magnifier{
+	background:url("../images/magnifierLens.png") top left no-repeat;
+	background-size: 100%;
+	width:18px;
+	height:18px;
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
+	opacity:0.2;
+	cursor: default;
+}
+
+.controlBoxes li:hover .magnifier{
+	opacity:0.6;	
+}
+
+
 /*heart*/
 .heart_empty,.heart_filled{
 	width:40px; 
@@ -537,26 +577,32 @@ li{
 	margin:auto;		
 }
 
-.icon_close{
-	background:url("../images/close.png") top left no-repeat;
-	background-position:50% 50%; 
-	width:20px;
-	height:20px;
-	position:absolute;
-	top:14px;
-	left:10px;
-	display:block;
-	z-index:100000;
-}
-
 .iconWrapper .icon_close{
-	width: 100%;
-	height:100%;
+	font-size:1.5em;
+	position: absolute;
+	margin:auto;
 	right:0;
 	top:0;
 	left:0;
-
+	bottom:0;
+	text-align: center;
+	color:rgb(200,200,200);
+	display: none;
 }
+
+.icon_close{
+	font-size:2em;
+	color:rgb(170,170,170);
+}
+
+.closeBox:hover .icon_close{
+	color:rgb(70,70,70);
+}
+
+.iconWrapper:hover .icon_close{
+	color:rgb(120,120,120);
+}
+
 
 
 
@@ -2977,16 +3023,21 @@ li{
 	position:absolute;
 	left:10px;
 	top:10px;
-	color:rgb(200,200,200);	
+	color:rgb(100,100,100);	
 	font-size: 1.1em;
 	cursor: pointer;
 }
 
+.layers .removeIcon:hover{
+	color:rgb(170,220,200);
+}
+
 .holdIcon{
-	top:55px;
-	right:2px;
-	left:2px;
+	top:50px;
+	left:7px;
 	cursor: move;
+	color:rgb(197,197,197);
+	font-size:1.5em;
 }
 
 .imageIconBox > a > img{
@@ -3002,13 +3053,13 @@ li{
 
 .imageIconBox{
 	background-color: rgb(255,255,255);
-	width:45%;
-	height:81% !important;
-	border-radius: 100px;
-	left:15px;
-	margin:12px 5px;
-	overflow:hidden;
-	z-index:100;	
+	width: 43%;
+	height: 81% !important;
+	border-radius: 150px;
+	left: 24px;
+	margin: 12px 5px;
+	overflow: hidden;
+	z-index: 100;	
 }
 
 .itemDescriptionBox{
@@ -3232,8 +3283,8 @@ li{
 }
 
 .firstChild .iconWrapper {
-	background-color:rgb(150,150,150);
-	height:24px;
+	background-color: rgb(250,250,250);
+height: 23px;
 }
 
 .subHeader-right li .iconWrapper{
@@ -3283,7 +3334,7 @@ li{
 	position: absolute;
 	top:25px;
 	left:0;
-	z-index: 501;
+	z-index: 701;
 	display:none;
 
 }

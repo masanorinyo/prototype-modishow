@@ -555,8 +555,8 @@ $(function(){
 	var itemWrapper = '';
 	//for hold icon
 	itemWrapper += '<li class="layers">';
-	itemWrapper += '<div class="holdIconBox"><div class="holdIcon">Hold</div></div>';
-	itemWrapper += '<span class="removeIcon">X</span>';
+	itemWrapper += '<div class="holdIconBox"><div class="holdIcon">&Xi;</div></div>';
+	itemWrapper += '<span class="removeIcon">&#10006;</span>';
 	//item image - should be inserted by the item box image
 	itemWrapper += '<div class="imageIconBox"><a href="#"></a></div>';
 	itemWrapper += '<div class="itemDescriptionBox">';
@@ -1159,6 +1159,8 @@ $(function() {
         $(".itemBoxImages").hide();
         $(".selectedListItem").remove();
         $(".default").show();
+        $(".filledDownArrow").show();
+		$(".icon_close").hide();
 
         console.log($(this).parent().parent().parent().parent().parent().attr('id'));
 	    switch ($(this).parent().parent().parent().parent().parent().attr('id')){
@@ -1181,6 +1183,8 @@ $(function() {
         $(".itemBoxImages").hide();
         $(".selectedListItem").remove();
         $(".default").show();
+        $(".filledDownArrow").show();
+		$(".icon_close").hide();
  	}); 	
 
      $(".itemList_myItems").click(function() { 
@@ -1235,6 +1239,8 @@ $(function(){
 $(function() { 
  	$(".itemBox > .itemIconsWrapper > li, .selectionBox .subHeader-submenu > ul > li").click(function() { 
         $(".itemBox > .itemIconsWrapper").hide();
+        $(".filledDownArrow").hide();
+		$(".icon_close").show();
  	});                                     
     
     $("#myItemImages > .itemIconsWrapper > li, #myItemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
@@ -1246,6 +1252,8 @@ $(function() {
         }else{
         	$("#myItemList .firstChild .subHeader-list").append("<span class='selectedListItem'>"+$(this).text()+"</span>"); 
     	}
+    	
+
  	});	
     
     $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
