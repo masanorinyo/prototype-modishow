@@ -106,6 +106,9 @@ li{
 }
 
 /*------------------------------------GENERAL RULES------------------------------------*/
+/*---------CSS Sprite---------*/
+
+
 /*----------Basics----------*/
 .underscore{border-bottom:solid 1px #666d78;}
 
@@ -249,11 +252,6 @@ li{
 .background_shadow{background-color:rgb(40,40,40);}
 
 .background_dark{background-color:rgb(45,45,60);}
-
-.background_other{
-	background:url("../images/color-other.png") top left no-repeat;
-	background-size: 100%;
-}
 
 .background_gradientGrey{
 	background-color: #f4f5f5; 
@@ -657,8 +655,6 @@ li{
 /*--others--*/
 .picFrame{background:url("../images/pic-Frame.png") top left no-repeat;}
 
-.basicWebLayout{ background:url("../images/basicWebLayout.png") top left no-repeat; }
-
 .background_grid{
 	background:url("../images/background_grid.png");
 	height:100%;
@@ -741,9 +737,11 @@ li{
 }
 #header .icon_clothes{ 
 	/*clothes icon will be shown in the tryon menu*/
+	background: url("../images/tryon_white.png") top left no-repeat;
+	background-position:50% 50%;
+	background-size:100%;
 	width:11px; 
 	height:9px; 
-	background-position:-425px -435px;
 }
 
 
@@ -3041,6 +3039,10 @@ li{
 	width: 150px;
 	height: 200px;
 	opacity:0.5;
+}
+
+#collage .dragAndDropGuide{
+	right: 200px;
 }
 
 
