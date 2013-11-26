@@ -1553,10 +1553,16 @@ li{
 	display:none;
 	text-align: center;
 	cursor:pointer;
-	right:30px;
+	right:60px;
 	top:10px;
 }
 
+#collage .button_heart, 
+#tryclothes .button_heart{
+	right:30px;
+	top:10px;
+
+}
 
 .content_large > .button_heart{
 	width:60px;

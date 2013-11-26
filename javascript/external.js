@@ -759,7 +759,7 @@ $(function(){
 //event handler
 	$(".itemBoxImages .items-wrapper").draggable({ 
 		appendTo: "body",
-		zIndex:"100000",
+		cursor: "move", 		
 		helper:function(event,ui){
 			var cloneList = $(this).clone();
 			$(cloneList).find("img").addClass('addStyleListBox');
@@ -844,13 +844,16 @@ $(function(){
 		
 	};
 
+
+
+
 	collageStyle.prototype.adding = function(){//add canvas effect to all the elements
 	 	console.log($(this));
 		var itemsArray = $("#outfitItems > li");
 		//make the items draggable
 	 	$( ".draggable > li" ).draggable({
 	 		opacity: 0.5,
-
+	 		cursor: "move"
 	 	});
 		
 		$(".draggable > li").mousedown(function(event){
