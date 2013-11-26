@@ -1,7 +1,7 @@
 //********************General functions********************//
 //*------------Popup warning------------*//
 function warningPopup(){
-	alert("The site is not currently connected with teh database. Therefore, it visually works but functionally does not work. Pleaes check us out again later. Thank you!")
+	alert("The site is not currently connected with the database. Therefore, it visually works but functionally does not work. Pleaes check us out again later. Thank you!")
 };
 
 //--Click event to scroll to top--//

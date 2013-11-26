@@ -3499,7 +3499,7 @@ li{
 	background-color:rgb(255,255,255);
 	border:1px solid rgb(230,230,230);
 	cursor:move;
-	list-style-type:none!important;
+	opacity:0.5;
 }
 
 .itemBox > .itemBoxImages > li > img{
@@ -4192,7 +4192,7 @@ li{
 }
 
 .contentBox .promotion img{
-	width:110%;
+	width:102%;
 	margin:0 auto;
 }
 
