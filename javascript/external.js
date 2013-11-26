@@ -1,4 +1,9 @@
 //********************General functions********************//
+//*------------Popup warning------------*//
+function warningPopup(){
+	alert("The site is not currently connected with teh database. Therefore, it visually works but functionally does not work. Pleaes check us out again later. Thank you!")
+};
+
 //--Click event to scroll to top--//
 $(function(){
 	$('#modalbox-backToTop').click(function(){
@@ -626,39 +631,18 @@ $(function(){
 			$("#outfitItems").find('#'+sameId).remove();
 			
 		});
-
-		
-
 	}
 
-	$('.itemBoxImages').on("click",".items-wrapper",function(event){	
-   		//take ID information here & get multiple images for different positions
-   		//image for being on top of the other clothes
-   		//image for being underneath the other clothes
-
-   		var id = $(this).children('img').attr('id');
-   		var title = "<a href='item.html'>test</a>"; //Ajax call
-   		var url = "<a href='#''>test.html</a>"; //Ajax call
-   		var price = "$30";//Ajax call
-   		var sImage = $(this).children('img').clone(); //to show items on the list box and the item box
-   		var lImage = $(this).children('img').clone(); //Ajax call - goes onto the model		
-   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
-   		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
-		var selectedItem = $(this).children('img').clone();//selected sub-images
-   		
-   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
-
-
+	function filterDuplicate(event,outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem){
    		//this prevents duplicate item selection.
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
-
 		
 
 		//if there is no single selected items, first create one
    		if($(".layers").length == 0){
    			//if the item image was selected on the collage creation page
-	   		if($(this).parent().is(".collageCanvas")){
+	   		if($(event).parent().is(".collageCanvas")){
 	   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
 	   			console.log(collage);
 	   			collage.createItemList();
@@ -679,7 +663,7 @@ $(function(){
 
 			//if there is no selected items in the list, add it
 			if(alreadySelected == 0){
-				if($(this).parent().is(".collageCanvas")){
+				if($(event).parent().is(".collageCanvas")){
 		   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
 	   				console.log(collage);
 	   				collage.createItemList();
@@ -697,9 +681,10 @@ $(function(){
 			
 			};
    		};
-	});
+	};
 
-	//remove the selected layer
+
+//remove the selected layer
 
 	var sortableIn = 1;
 	$("#sortable" ).sortable({
@@ -746,6 +731,66 @@ $(function(){
 	});
     
     $("#sortable").disableSelection();
+
+//event handler
+	$('.itemBoxImages').on("click",".items-wrapper",function(event){	
+   		//take ID information here & get multiple images for different positions
+   		//image for being on top of the other clothes
+   		//image for being underneath the other clothes
+
+   		var id = $(this).children('img').attr('id');
+   		var title = "<a href='item.html'>test</a>"; //Ajax call
+   		var url = "<a href='#''>test.html</a>"; //Ajax call
+   		var price = "$30";//Ajax call
+   		var sImage = $(this).children('img').clone(); //to show items on the list box and the item box
+   		var lImage = $(this).children('img').clone(); //Ajax call - goes onto the model		
+   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
+   		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
+		var selectedItem = $(this).children('img').clone();//selected sub-images
+   		
+   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
+
+   		
+   		filterDuplicate($(this),outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+   		
+	});
+
+
+//event handler
+	$(".itemBoxImages .items-wrapper").draggable({ 
+		appendTo: "body",
+		zIndex:"100000",
+		helper:function(event,ui){
+			var cloneList = $(this).clone();
+			$(cloneList).find("img").addClass('addStyleListBox');
+
+			return cloneList;
+		}
+
+		
+	});
+
+
+	$("#creationCanvas").droppable({
+		accept:".items-wrapper",
+		drop:function(event,ui){
+			var id = $(ui.draggable).children('img').attr('id');
+	   		var title = "<a href='item.html'>test</a>"; //Ajax call
+	   		var url = "<a href='#''>test.html</a>"; //Ajax call
+	   		var price = "$30";//Ajax call
+	   		var sImage = $(ui.draggable).children('img').clone(); //to show items on the list box and the item box
+	   		var lImage = $(ui.draggable).children('img').clone(); //Ajax call - goes onto the model		
+	   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
+	   		var subImgName = $(ui.draggable).children('img').attr('src');// use regular expression to extract only the image name
+			var selectedItem = $(ui.draggable).children('img').clone();//selected sub-images
+	   		
+	   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
+	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+		}
+	});
+
+	
+	
 
 
 
