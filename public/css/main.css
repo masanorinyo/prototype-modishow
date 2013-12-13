@@ -130,7 +130,7 @@ li{
 
 #current,.current{color:rgb(50,180,240);}
 
-.border{border:2px solid rgb(170,220,200)!important;}
+.border{border:1px solid rgb(170,220,200)!important;}
 
 /*----------Side Scroll----------*/
 .sideScroll{
@@ -2879,19 +2879,12 @@ li{
 
 
 .draggable > li{
+	position:absolute;
 	width: 250px; 
 	height: 250px; 
 	cursor: move;
 }
 
-.draggable > li{
-	position: absolute;
-	top:0;
-	right:0;
-	left:0;
-	bottom:0;
-	margin:auto;
-}
 
 .reflection{
     -webkit-transform: scaleX(-1);
@@ -3101,7 +3094,6 @@ li{
 }
 
 .imageIconBox > a > img{
-	width:80%;
 	height:80%;
 	right:0;
 	left:0;
@@ -6148,6 +6140,8 @@ float:left;
 #about #footer{
 	display:block;
 }
+
+
 
 
 

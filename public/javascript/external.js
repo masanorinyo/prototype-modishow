@@ -1,9 +1,4 @@
 //********************General functions********************//
-//*------------Popup warning------------*//
-function warningPopup(){
-	alert("The site is not currently connected with the database. Therefore, it visually works but functionally does not work. Pleaes check us out again later. Thank you!")
-};
-
 //--Click event to scroll to top--//
 $(function(){
 	$('#modalbox-backToTop').click(function(){
@@ -595,6 +590,7 @@ $(function(){
 	itemWrapper += '</div>';
 	itemWrapper += '</li>';
 
+	//constructor for an outfit -> attaching each attribute info onto the newly created outfit
 	function outfitStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory){
 	    this.idNum = id;
 	    this.titleInfo = title;
@@ -633,7 +629,7 @@ $(function(){
 		});
 	}
 
-	function filterDuplicate(event,outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem){
+	function filterDuplicate(event,outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItems,topPosition,leftPosition){
    		//this prevents duplicate item selection.
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
@@ -643,9 +639,9 @@ $(function(){
    		if($(".layers").length == 0){
    			//if the item image was selected on the collage creation page
 	   		if($(event).parent().is(".collageCanvas")){
-	   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+	   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItems,topPosition,leftPosition);
 	   			console.log(collage);
-	   			collage.createItemList();
+	   			collage.createItemList(collage.topPosition,collage.leftPosition);
 	   			collage.adding();
 	   			
 	   		}else{
@@ -664,9 +660,9 @@ $(function(){
 			//if there is no selected items in the list, add it
 			if(alreadySelected == 0){
 				if($(event).parent().is(".collageCanvas")){
-		   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+		   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItems,topPosition,leftPosition);
 	   				console.log(collage);
-	   				collage.createItemList();
+	   				collage.createItemList(collage.topPosition,collage.leftPosition);
 	   				collage.adding();
 	   			
 		   		}else{
@@ -783,9 +779,18 @@ $(function(){
 	   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
 	   		var subImgName = $(ui.draggable).children('img').attr('src');// use regular expression to extract only the image name
 			var selectedItem = $(ui.draggable).children('img').clone();//selected sub-images
-	   		
+	   	
+			
+		
+			droppableOffset =  $('#creationCanvas').offset();
+			console.log("droppable is "+droppableOffset.top);
+	        topPosition = ui.position.top - droppableOffset.top;
+	        leftPosition = ui.position.left - droppableOffset.left;
+			
+
+
 	   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
-	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem, topPosition,leftPosition);
 		}
 	});
 
@@ -796,7 +801,7 @@ $(function(){
 
 //Collage creation	
 //sub class of the outfitStyle class - there are duplicate codes - learn how to inherit properties from parent class
-	function collageStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory,subName,selectedItem){
+	function collageStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory,subName,selectedItem,top_pos,left_pos){
 	 	this.idNum = id;
 	    this.titleInfo = title;
 	    this.urlInfo = url;
@@ -807,18 +812,28 @@ $(function(){
 		this.itemCategory = itemCategory;
 	 	this.subImageName = subName;
 	 	this.selectedItem =selectedItem;
+	 	this.top_position = top_pos;
+	 	this.left_position = left_pos;
 
  	};
 
 	collageStyle.prototype = new outfitStyle();
 	collageStyle.prototype.constructor = collageStyle;
-	collageStyle.prototype.createItemList = function(){ // override -> append the sub image to the creation canvas
-		
+	collageStyle.prototype.createItemList = function(){ 
+		// override -> append the sub image to the creation canvas
 		//highlight the i box to show it receives a new item
 		$(".button_layer").effect("highlight",{color: 'rgb(140,220,200)'},"slow");
 		
 		var wrapper = $.parseHTML(this.layerWrapper);
 		var collageItemWrapper = $.parseHTML("<li></li>");
+		console.log(this.top_position);
+
+		//if the item is not dragged into the canvas, the cloned items will be generated at the center of the canvas. 
+		if(!this.top_position){
+			$(collageItemWrapper).css({top:"40%",left:"40%"});
+		}else{
+			$(collageItemWrapper).css({top:this.top_position,left:this.left_position});
+		}
 
 		$(collageItemWrapper).append(this.selectedItem);
 		
@@ -853,7 +868,16 @@ $(function(){
 		//make the items draggable
 	 	$( ".draggable > li" ).draggable({
 	 		opacity: 0.5,
-	 		cursor: "move"
+	 		cursor: "move",
+	 		
+	 		//keep the cursor position at the center of a selected image
+        	start: function(event, ui) { 
+		        $(this).draggable("option", "cursorAt", {
+		            left: Math.floor($(this).width() / 2),
+		            top: Math.floor($(this).height() / 2)
+		        }); 
+		    }
+
 	 	});
 		
 		$(".draggable > li").mousedown(function(event){
@@ -865,7 +889,6 @@ $(function(){
 			});
 		//if users click the item, it will be added with "selected img" class
 			for(var i=0; i<itemsArray.length;i++){
-				$(itemsArray[i]).removeClass('selectedImg');
 				$(itemsArray[i]).removeClass('selectedImg');
 				$(itemsArray[i]).find(".ui-resizable-handle").css("display","none");
 				$(itemsArray[i]).find(".ui-rotatable-handle").css('display',"none");
@@ -897,7 +920,7 @@ $(function(){
 		//make the item resizable
 		$(".draggable  > li").resizable(
  			{aspectRatio: 1},
-    		{handles: 'ne, se, nw, sw'}
+    		{handles: 'nw, sw,ne, se'}
 		);
 
 		//make the item rotatable

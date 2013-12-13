@@ -1,3 +1,6 @@
+<?php require_once("../includes/db_connection.php");?>
+<?php require_once("../includes/functions/function.php");?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,20 +25,20 @@
 			<div class="inner background_themeColor center">
 				<div class="inner-inside center" >
 					<div id="logo">
-						<a href="index.html">
+						<a href="index.php">
 							<h1 id="logo_modi">Modi</h1>
 							<h1 id="logo_show">Show</h1>
 						</a>
 					</div>
 					<ul id="header_leftOptions">
 						<li class="firstChild">
-							<a href="feed.html"><h2>FEED</h2></a>
+							<a href="feed.php"><h2>FEED</h2></a>
 						</li>
 						<li>
-							<a href="index.html"><h2>EXPLORE</h2> </a>
+							<a href="index.php"><h2>EXPLORE</h2> </a>
 						</li>					
 						<li>
-							<a href="shop.html"><h2>SHOP</h2></a>
+							<a href="shop.php"><h2>SHOP</h2></a>
 							<ul class="submenu background_dark round_bottom">
 								<li>
 									<a href="#">New Items</a>
@@ -176,7 +179,7 @@
 							</ul>
 						</li>
 						<li>
-							<a class="tryon" href="tryon.html">
+							<a class="tryon" href="tryon.php">
 								<ul>
 									<li class="icon_clothes"></li>
 									<li><h2>TRY-ON</h2></li>
@@ -503,7 +506,7 @@
 								</li>
 								<li class="lastChild">
 									<span class="legalStatement">
-										By creating an account, I accept ModiShow's <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.
+										By creating an account, I accept ModiShow's <a href="terms.php">Terms of Service</a> and <a href="privacy.php">Privacy Policy</a>.
 									</span>
 								</li>
 							</ul>
@@ -568,96 +571,5 @@
 				</div>
 			</div>	
 		</div>
-		<div id="footer" class="background_themeColor"> 
-			<div>
-				<ul>
-					<li class="subheader">
-						Company
-					</li>
-					<li><a href="about.html">What is ModiShow</a></li>
-					<li><a href="about.html">Rewards Program</a></li>
-					<li><a href="about.html">Partners</a></li>
-					<li><a href="about.html">Explore</a></li>
-				</ul>
-				<ul>
-					<li class="subheader">
-						Partner
-					</li>
-					<li><a href="about.html">Brands &amp; Retailers</a></li>
-					<li><a href="about.html">Bloggers</a></li>					
-				</ul>
-				<ul>
-					<li class="subheader">
-						Policies
-					</li>
-					<li><a href="about.html">Language</a></li>
-					<li><a href="about.html">Privacy Policy</a></li>
-					<li><a href="about.html">Terms of Services</a></li>
-					<li><a href="about.html">Help</a></li>
-				</ul>
-				<ul id="connect">
-					<li class=" subheader">
-						Connect with us
-					</li>
-					<li class="clear">
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/facebook.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>					
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/twitter.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/pinterest.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/linkedInLogo.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/blog.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/email.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-				</ul>
-			</div>
-			<div class="clear lastChild">
-				<span>&copy; 2013 - ModiShow corporation</span>
-			</div>
-		</div>	
-	</body>
-</html>
+
+<?php include("../includes/layouts/footer.php");?>

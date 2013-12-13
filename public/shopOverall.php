@@ -1,3 +1,6 @@
+<?php require_once("../includes/db_connection.php");?>
+<?php require_once("../includes/functions/function.php");?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,87 +25,87 @@
 			<div class="inner background_themeColor center">
 				<div class="inner-inside center" >
 					<div id="logo">
-						<a href="index.html">
+						<a href="index.php">
 							<h1 id="logo_modi">Modi</h1>
 							<h1 id="logo_show">Show</h1>
 						</a>
 					</div>
 					<ul id="header_leftOptions">
 						<li class="firstChild">
-							<a href="feed.html"><h2>FEED</h2></a>
+							<a href="feed.php"><h2>FEED</h2></a>
 						</li>
 						<li>
-							<a href="index.html"><h2>EXPLORE</h2> </a>
+							<a href="index.php"><h2>EXPLORE</h2> </a>
 						</li>					
 						<li>
-							<a class="currentPage" href="shopOverall.html"><h2>SHOP</h2></a>
+							<a class="currentPage" href="shopOverall.php"><h2>SHOP</h2></a>
 							<ul class="submenu background_dark round_bottom">
 								<li>
-									<a href="shop.html">New Items</a>
+									<a href="shop.php">New Items</a>
 								</li>
 								<li class="underscore">
-									<a href="shop.html">On Sale</a>
+									<a href="shop.php">On Sale</a>
 								</li>
 								<li class="submenu_list list_clothing">
-									<a class="submenu_second_parent" href="shop.html">
+									<a class="submenu_second_parent" href="shop.php">
 										Clothing
 									</a>
 									<div class="submenu_second">
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Dresses
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Skirts
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Tops
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Outwear
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Jeans
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Pants
 												</a>
 											</li>
 										</ul>
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Shorts
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Jumpsuits &amp; Rompers
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Intimates
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Swimwear
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Activewear
 												</a>
 											</li>
@@ -110,55 +113,55 @@
 									</div>
 								</li>
 								<li class="submenu_list list_shoes">
-									<a class="submenu_second_parent" href="shop.html">
+									<a class="submenu_second_parent" href="shop.php">
 										Shoes
 									</a>
 									<div class="submenu_second">
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Boots
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Clogs
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Flats
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Oxford
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Pumps
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sandles
 												</a>
 											</li>
 										</ul>
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sneakers
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Moccasines
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Loafers &amp; Moccasins
 												</a>
 											</li>
@@ -166,53 +169,53 @@
 									</div>
 								</li>
 								<li class="submenu_list list_accessories">
-									<a class="submenu_second_parent" href="shop.html">Accessories</a>
+									<a class="submenu_second_parent" href="shop.php">Accessories</a>
 									<div class="submenu_second">
 										<ul >
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Jewelry
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Bags
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Cases covers
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Belts
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Hats
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sunglasses
 												</a>
 											</li>
 										</ul>
 										<ul>	
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Hair &amp; Beauty
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Scarves Ponchos
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Socks &amp; Legwear
 												</a>
 											</li>
@@ -220,50 +223,50 @@
 									</div>
 								</li>
 								<li class="submenu_list list_beauty">
-									<a class="submenu_second_parent" href="shop.html">
+									<a class="submenu_second_parent" href="shop.php">
 										Beauty
 									</a>
 									<div class="submenu_second">
 										<ul >
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Makeup
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Skincare
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Fragance
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Hair
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Nails
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Accessories
 												</a>
 											</li>	
 										</ul>
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Bath &amp; Body
 												</a>
 											</li>	
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sets &amp;Kits
 												</a>
 											</li>
@@ -273,7 +276,7 @@
 							</ul>
 						</li>
 						<li>
-							<a class="tryon" href="tryon.html">
+							<a class="tryon" href="tryon.php">
 								<ul>
 									<li class="icon_clothes"></li>
 									<li><h2>TRY-ON</h2></li>
@@ -307,17 +310,17 @@
 									<span>Shops &amp; Trends</span>
 								</li>
 								<li class="firstChild">
-									<a href="shop.html">
+									<a href="shop.php">
 										<span>Trending</span>
 									</a>
 								</li>
 								<li>
-									<a href="shop.html">
+									<a href="shop.php">
 										<span>New Arrival</span>
 									</a>
 								</li>
 								<li class="lastChild">
-									<a href="shop.html">
+									<a href="shop.php">
 										<span>On Sale</span>
 									</a>
 								</li>
@@ -335,62 +338,62 @@
 									<div class="clothing submenu_second">
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>All clothing</span>
 												</a>
 											</li>
 											<li class="dress">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Dresses</span>
 												</a>	
 											</li>
 											<li class="skirt">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Skirt</span>
 												</a>
 											</li>
 											<li class="tops">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Tops</span>
 												</a>
 											</li>
 											<li class="outwear">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Outwear</span>
 												</a>
 											</li>
 											<li class="jeans">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Jeans</span>
 												</a>
 											</li>
 											<li class="pants">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Pants</span>
 												</a>
 											</li>
 											<li class="shorts">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Shorts</span>
 												</a>
 											</li>
 											<li class="jumpsuits">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Jumpsuits Rompers</span>
 												</a>
 											</li>
 											<li class="intimate">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Intimates</span>
 												</a>
 											</li>
 											<li class="swimwear">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Swimwear</span>
 												</a>
 											</li>
 											<li class="activewear">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Activewear</span>
 												</a>
 											</li>
@@ -402,47 +405,47 @@
 									<div class="shoes submenu_second">
 										<ul>
 											<li class="shoes">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>All Shoes</span>
 												</a>
 											</li>
 											<li class="clogs">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Clogs</span>
 												</a>
 											</li>
 											<li class="flats">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Flats</span>
 												</a>
 											</li>
 											<li class="moccasine">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Loafers &amp; Moccasins</span>
 												</a>
 											</li>
 											<li class="oxford">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Oxford</span>
 												</a>
 											</li>
 											<li class="pumps">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Pumps</span>
 												</a>
 											</li>
 											<li class="boots">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Boots</span>
 												</a>
 											</li>
 											<li class="sandles">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Sandles</span>
 												</a>
 											</li>
 											<li class="sneaker">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Sneakers</span>
 												</a>
 											</li>
@@ -454,52 +457,52 @@
 									<div class="list_accessories submenu_second">
 										<ul>
 											<li class="accessories">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>All accessories</span>
 												</a>
 											</li>
 											<li class="jewelry">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Jewelry</span>
 												</a>
 											</li>
 											<li class="bag">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Bags</span>
 												</a>
 											</li>
 											<li class="case">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Cases covers</span> 
 												</a>
 											</li>
 											<li class="belt">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Belts</span>
 												</a>
 											</li>
 											<li class="hat">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Hats</span>
 												</a>
 											</li>
 											<li class="sunglass">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Sunglasses</span>
 												</a>
 											</li>
 											<li class="hair">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Hair Beauty</span>
 												</a>
 											</li>
 											<li class="scarve">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Scarves Ponchos</span>
 												</a>
 											</li>
 											<li class="sock">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Socks Legwear</span>
 												</a>
 											</li>
@@ -511,47 +514,47 @@
 									<div class="beauty submenu_second">
 										<ul>
 											<li class="beauty">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>All beauty</span>
 												</a>
 											</li>
 											<li class="makeup">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Makeup</span>
 												</a>
 											</li>
 											<li class="skincare">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Skincare</span>
 												</a>
 											</li>
 											<li class="fragrance">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Fragrance</span>
 												</a>
 											</li>
 											<li class="bath">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Bath &amp; Body</span>
 												</a>
 											</li>
 											<li class="hairBeauty">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Hair</span>
 												</a>
 											</li>
 											<li class="nail">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Nails</span>
 												</a>
 											</li>
 											<li class="set">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Sets &amp; Kits</span>
 												</a>
 											</li>
 											<li class="accessoryBeauty">
-												<a href="shop.html">
+												<a href="shop.php">
 													<span>Accessories</span>
 												</a>
 											</li>
@@ -582,7 +585,7 @@
 								</div>
 							</li>	
 							<li class="clothing dress">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Dresses</span>
@@ -590,7 +593,7 @@
 								</a>
 							</li>
 							<li class="clothing skirt">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Skirt</span>
@@ -598,7 +601,7 @@
 								</a>
 							</li>
 							<li class="clothing tops">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Tops</span>
@@ -606,7 +609,7 @@
 								</a>
 							</li>
 							<li class="clothing outwear">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Outwear</spa>
@@ -614,7 +617,7 @@
 								</a>
 							</li>
 							<li class="clothing jeans">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Jeans</span>
@@ -622,7 +625,7 @@
 								</a>
 							</li>
 							<li class="clothing pants">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Pants</span>
@@ -630,7 +633,7 @@
 								</a>
 							</li>
 							<li class="clothing shorts">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Shorts</span>
@@ -638,7 +641,7 @@
 								</a>
 							</li>
 							<li class="clothing jumpsuits">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox large">
 										<span>Jumpsuits & Rumpers</span>
@@ -646,7 +649,7 @@
 								</a>
 							</li>
 							<li class="clothing intimate">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Intimates</span>
@@ -654,7 +657,7 @@
 								</a>
 							</li>
 							<li class="clothing swimwear">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Swimwear</span>
@@ -662,7 +665,7 @@
 								</a>
 							</li>
 							<li class="clothing activewear">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Activewear</span>
@@ -670,7 +673,7 @@
 								</a>
 							</li>
 							<li class="shoes shoes">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Shoes</span>
@@ -678,7 +681,7 @@
 								</a>
 							</li>
 							<li class="list_accessories accessories">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Accessories</span>
@@ -686,7 +689,7 @@
 								</a>
 							</li>
 							<li class="list_accessories bag">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Bags</span>
@@ -694,7 +697,7 @@
 								</a>
 							</li>
 							<li class="list_accessories jewelry">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Jewelry</span>
@@ -702,7 +705,7 @@
 								</a>
 							</li>
 							<li class="beauty makeup">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Makeup</span>
@@ -710,7 +713,7 @@
 								</a>
 							</li>
 							<li class="beauty skincare">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Skincare</span>
@@ -718,7 +721,7 @@
 								</a>
 							</li>
 							<li class="beauty fragrance">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Fragrance</span>
@@ -726,7 +729,7 @@
 								</a>
 							</li>
 							<li class="beauty nail">
-								<a href="shop.html">
+								<a href="shop.php">
 									<img class="item" src="images/productItems/item1.png"/>
 									<div class="popupBox">
 										<span>Nail Polish</span>
@@ -755,7 +758,7 @@
 							</div>
 						</div>
 						<div class="button-tryon">
-							<a href="tryon.html">
+							<a href="tryon.php">
 								<span class="icon_tryon"></span>
 								<span class="right">Try On</span>
 							</a>
@@ -1137,7 +1140,7 @@
 								</li>
 								<li class="lastChild">
 									<span class="legalStatement">
-										By creating an account, I accept ModiShow's <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.
+										By creating an account, I accept ModiShow's <a href="terms.php">Terms of Service</a> and <a href="privacy.php">Privacy Policy</a>.
 									</span>
 								</li>
 							</ul>
@@ -1203,96 +1206,5 @@
 			</div>	
 		</div>
 		<div class="bottom clear"></div>
-		<div id="footer" class="background_themeColor"> 
-			<div>
-				<ul>
-					<li class="subheader">
-						Company
-					</li>
-					<li><a href="about.html">What is ModiShow</a></li>
-					<li><a href="about.html">Rewards Program</a></li>
-					<li><a href="about.html">Partners</a></li>
-					<li><a href="about.html">Explore</a></li>
-				</ul>
-				<ul>
-					<li class="subheader">
-						Partner
-					</li>
-					<li><a href="about.html">Brands &amp; Retailers</a></li>
-					<li><a href="about.html">Bloggers</a></li>					
-				</ul>
-				<ul>
-					<li class="subheader">
-						Policies
-					</li>
-					<li><a href="about.html">Language</a></li>
-					<li><a href="about.html">Privacy Policy</a></li>
-					<li><a href="about.html">Terms of Services</a></li>
-					<li><a href="about.html">Help</a></li>
-				</ul>
-				<ul id="connect">
-					<li class=" subheader">
-						Connect with us
-					</li>
-					<li class="clear">
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/facebook.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>					
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/twitter.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/pinterest.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/linkedInLogo.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/blog.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/email.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-				</ul>
-			</div>
-			<div class="clear lastChild">
-				<span>&copy; 2013 - ModiShow corporation</span>
-			</div>
-		</div>
-	</body>
-</html>
+
+<?php include("../includes/layouts/footer.php");?>

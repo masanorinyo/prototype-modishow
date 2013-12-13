@@ -1,3 +1,6 @@
+<?php require_once("../includes/db_connection.php");?>
+<?php require_once("../includes/functions/function.php");?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,87 +26,87 @@
 			<div class="inner background_themeColor center">
 				<div class="inner-inside center" >
 					<div id="logo">
-						<a href="index.html">
+						<a href="index.php">
 							<h1 id="logo_modi">Modi</h1>
 							<h1 id="logo_show">Show</h1>
 						</a>
 					</div>
 					<ul id="header_leftOptions">
 						<li class="firstChild">
-							<a href="feed.html"><h2>FEED</h2></a>
+							<a href="feed.php"><h2>FEED</h2></a>
 						</li>
 						<li>
-							<a href="index.html"><h2>EXPLORE</h2> </a>
+							<a href="index.php"><h2>EXPLORE</h2> </a>
 						</li>					
 						<li>
-							<a href="shopOverall.html"><h2>SHOP</h2></a>
+							<a href="shopOverall.php"><h2>SHOP</h2></a>
 							<ul class="submenu background_dark round_bottom">
 								<li>
-									<a href="shop.html">New Items</a>
+									<a href="shop.php">New Items</a>
 								</li>
 								<li class="underscore">
-									<a href="shop.html">On Sale</a>
+									<a href="shop.php">On Sale</a>
 								</li>
 								<li class="submenu_list list_clothing">
-									<a class="submenu_second_parent" href="shop.html">
+									<a class="submenu_second_parent" href="shop.php">
 										Clothing
 									</a>
 									<div class="submenu_second">
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Dresses
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Skirts
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Tops
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Outwear
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Jeans
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Pants
 												</a>
 											</li>
 										</ul>
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Shorts
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Jumpsuits &amp; Rompers
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Intimates
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Swimwear
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Activewear
 												</a>
 											</li>
@@ -111,55 +114,55 @@
 									</div>
 								</li>
 								<li class="submenu_list list_shoes">
-									<a class="submenu_second_parent" href="shop.html">
+									<a class="submenu_second_parent" href="shop.php">
 										Shoes
 									</a>
 									<div class="submenu_second">
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Boots
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Clogs
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Flats
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Oxford
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Pumps
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sandles
 												</a>
 											</li>
 										</ul>
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sneakers
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Moccasines
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Loafers &amp; Moccasins
 												</a>
 											</li>
@@ -167,53 +170,53 @@
 									</div>
 								</li>
 								<li class="submenu_list list_accessories">
-									<a class="submenu_second_parent" href="shop.html">Accessories</a>
+									<a class="submenu_second_parent" href="shop.php">Accessories</a>
 									<div class="submenu_second">
 										<ul >
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Jewelry
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Bags
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Cases covers
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Belts
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Hats
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sunglasses
 												</a>
 											</li>
 										</ul>
 										<ul>	
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Hair &amp; Beauty
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Scarves Ponchos
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Socks &amp; Legwear
 												</a>
 											</li>
@@ -221,50 +224,50 @@
 									</div>
 								</li>
 								<li class="submenu_list list_beauty">
-									<a class="submenu_second_parent" href="shop.html">
+									<a class="submenu_second_parent" href="shop.php">
 										Beauty
 									</a>
 									<div class="submenu_second">
 										<ul >
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Makeup
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Skincare
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Fragance
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Hair
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Nails
 												</a>
 											</li>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Accessories
 												</a>
 											</li>	
 										</ul>
 										<ul>
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Bath &amp; Body
 												</a>
 											</li>	
 											<li>
-												<a href="shop.html">
+												<a href="shop.php">
 													Sets &amp;Kits
 												</a>
 											</li>
@@ -274,7 +277,7 @@
 							</ul>
 						</li>
 						<li>
-							<a class="tryon" href="tryon.html">
+							<a class="tryon" href="tryon.php">
 								<ul>
 									<li class="icon_clothes"></li>
 									<li><h2>TRY-ON</h2></li>
@@ -287,19 +290,19 @@
 					</form>
 					<ul id="header_rightOptions">
 						<li class="lastChild">
-							<a class="currentPage" href="userPage.html">
+							<a class="currentPage" href="userPage.php">
 								<img class="round_circle" src="images/user/userPhoto.gif" />
 								<h2>masanorinyo1243</h2>		
 								<span class="downArrow opaque_strong"></span>
 							</a>
 							<ul class="userProfile_list submenu background_dark round_bottom">
-								<li><a href="userPage.html">Profile</a></li>
-								<li><a href="userPage.html">Creations</a></li>
-								<li><a href="userPage.html">Likes</a></li>
-								<li><a href="userPage.html">Followings</a></li>
-								<li><a href="userPage.html">Followers</a></li>
-								<li class="underscore"><a href="userPage.html">Message</a></li>
-								<li><a href="setting.html">Setting</a></li>
+								<li><a href="userPage.php">Profile</a></li>
+								<li><a href="userPage.php">Creations</a></li>
+								<li><a href="userPage.php">Likes</a></li>
+								<li><a href="userPage.php">Followings</a></li>
+								<li><a href="userPage.php">Followers</a></li>
+								<li class="underscore"><a href="userPage.php">Message</a></li>
+								<li><a href="setting.php">Setting</a></li>
 								<li><a href="#">Logout</a></li>
 							</ul>
 						</li>
@@ -493,7 +496,7 @@
 												<img class="singleItemImage" src="images/productItems/item1.png"/>
 											</a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -504,7 +507,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -515,7 +518,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -530,7 +533,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -541,7 +544,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -552,7 +555,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -567,7 +570,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -578,7 +581,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -613,7 +616,7 @@
 												<span class="openModal"> Beauty of Simplicity</span>
 											</div>
 											<div class="styleInfo">
-												<a class="artist_name" href="userPage.html">
+												<a class="artist_name" href="userPage.php">
 													By 
 													<span>
 														Kaori Kuniyoshi 
@@ -642,7 +645,7 @@
 												<img class="singleItemImage" src="images/productItems/item1.png"/>
 											</a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -653,7 +656,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -664,7 +667,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -679,7 +682,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -690,7 +693,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -701,7 +704,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -716,7 +719,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -727,7 +730,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -762,7 +765,7 @@
 												<span class="openModal"> Beauty of Simplicity</span>
 											</div>
 											<div class="styleInfo">
-												<a class="artist_name" href="userPage.html">
+												<a class="artist_name" href="userPage.php">
 													By 
 													<span>
 														Kaori Kuniyoshi 
@@ -789,7 +792,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -800,7 +803,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -811,7 +814,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -826,7 +829,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -837,7 +840,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -848,7 +851,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -863,7 +866,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -874,7 +877,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -885,7 +888,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -900,7 +903,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -911,7 +914,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -926,7 +929,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -937,7 +940,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -954,7 +957,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -965,7 +968,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -976,7 +979,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1011,7 +1014,7 @@
 												<span class="openModal"> Beauty of Simplicity</span>
 											</div>
 											<div class="styleInfo">
-												<a class="artist_name" href="userPage.html">
+												<a class="artist_name" href="userPage.php">
 													By 
 													<span>
 														Kaori Kuniyoshi 
@@ -1056,7 +1059,7 @@
 												<span class="openModal"> Beauty of Simplicity</span>
 											</div>
 											<div class="styleInfo">
-												<a class="artist_name" href="userPage.html">
+												<a class="artist_name" href="userPage.php">
 													By 
 													<span>
 														Kaori Kuniyoshi 
@@ -1083,7 +1086,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1094,33 +1097,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-									</ul>
-								</div>
-								<div class="medium_boxes">	
-									<ul>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1135,7 +1112,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1146,7 +1123,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1161,7 +1138,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1172,7 +1149,33 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="medium_boxes">	
+									<ul>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1189,7 +1192,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1200,7 +1203,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1211,44 +1214,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-									</ul>
-								</div>
-								<div class="small_boxes">
-									<ul>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1263,7 +1229,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1274,7 +1240,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1285,44 +1251,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-									</ul>
-								</div>
-								<div class="small_boxes">
-									<ul>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1337,7 +1266,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1348,7 +1277,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1359,7 +1288,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1374,7 +1303,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1385,7 +1314,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1396,7 +1325,81 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="small_boxes">
+									<ul>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="small_boxes">
+									<ul>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -1445,7 +1448,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1499,7 +1502,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1553,7 +1556,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1607,7 +1610,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1661,7 +1664,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1715,7 +1718,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1769,7 +1772,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1823,7 +1826,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1877,7 +1880,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1931,7 +1934,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -1985,7 +1988,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -2039,7 +2042,7 @@
 											</span>
 										</div>
 										<div class="styleInfo">
-											<a class="artist_name" href="userPage.html">
+											<a class="artist_name" href="userPage.php">
 												By 
 												<span>
 														Kaori Kuniyoshi 
@@ -2069,7 +2072,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2080,7 +2083,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2091,7 +2094,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2106,7 +2109,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2117,7 +2120,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2128,7 +2131,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2143,7 +2146,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2154,7 +2157,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2165,7 +2168,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2180,7 +2183,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2191,7 +2194,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2206,7 +2209,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2217,7 +2220,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2234,7 +2237,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2245,7 +2248,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2256,7 +2259,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2291,7 +2294,7 @@
 												<span class="openModal"> Beauty of Simplicity</span>
 											</div>
 											<div class="styleInfo">
-												<a class="artist_name" href="userPage.html">
+												<a class="artist_name" href="userPage.php">
 													By 
 													<span>
 														Kaori Kuniyoshi 
@@ -2336,7 +2339,7 @@
 												<span class="openModal"> Beauty of Simplicity</span>
 											</div>
 											<div class="styleInfo">
-												<a class="artist_name" href="userPage.html">
+												<a class="artist_name" href="userPage.php">
 													By 
 													<span>
 														Kaori Kuniyoshi 
@@ -2363,7 +2366,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2374,33 +2377,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-									</ul>
-								</div>
-								<div class="medium_boxes">	
-									<ul>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2415,7 +2392,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2426,7 +2403,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2441,7 +2418,7 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2452,7 +2429,33 @@
 											</div>
 											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="medium_boxes">	
+									<ul>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="openModal" src="images/style/outfit1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2469,7 +2472,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2480,7 +2483,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2491,44 +2494,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-									</ul>
-								</div>
-								<div class="small_boxes">
-									<ul>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2543,7 +2509,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2554,7 +2520,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2565,44 +2531,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-									</ul>
-								</div>
-								<div class="small_boxes">
-									<ul>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
-												</a>
-											</span>
-										</li>
-										<li>
-											<div class="button_heart">
-												<span class="heart_empty"><span>40</span></span>
-												<span class="heart_filled"><span>40</span></span>		
-											</div>
-											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
-											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2617,7 +2546,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2628,7 +2557,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2639,7 +2568,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2654,7 +2583,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2665,7 +2594,7 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2676,7 +2605,81 @@
 											</div>
 											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
 											<span>Liked by
-												<a class="user" href="userPage.html">Natasha
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="small_boxes">
+									<ul>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<div class="small_boxes">
+									<ul>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
+												</a>
+											</span>
+										</li>
+										<li>
+											<div class="button_heart">
+												<span class="heart_empty"><span>40</span></span>
+												<span class="heart_filled"><span>40</span></span>		
+											</div>
+											<a href="#"><img class="singleItemImage" src="images/productItems/item1.png"/></a>
+											<span>Liked by
+												<a class="user" href="userPage.php">Natasha
 												</a>
 											</span>
 										</li>
@@ -2690,7 +2693,7 @@
 							<div class="leftSide">
 								<ul>
 									<li class="firstChild">
-										<a class="userName" href="userPage.html">
+										<a class="userName" href="userPage.php">
 											Sara cook
 										</a>
 									</li>
@@ -2724,7 +2727,7 @@
 							<div class="leftSide">
 								<ul>
 									<li class="firstChild">
-										<a class="userName" href="userPage.html">
+										<a class="userName" href="userPage.php">
 											Sara cook
 										</a>
 									</li>
@@ -2760,7 +2763,7 @@
 							<div class="leftSide">
 								<ul>
 									<li class="firstChild">
-										<a class="userName" href="userPage.html">
+										<a class="userName" href="userPage.php">
 											Sara cook
 										</a>
 									</li>
@@ -2794,7 +2797,7 @@
 							<div class="leftSide">
 								<ul>
 									<li class="firstChild">
-										<a class="userName" href="userPage.html">
+										<a class="userName" href="userPage.php">
 											Sara cook
 										</a>
 									</li>
@@ -2841,7 +2844,7 @@
 									</a>
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  
 											<span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
@@ -2854,7 +2857,7 @@
 									</a>	
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2866,7 +2869,7 @@
 									</a>	
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2878,7 +2881,7 @@
 									</a>
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2902,7 +2905,7 @@
 									</a>
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2914,7 +2917,7 @@
 									</a>
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2926,7 +2929,7 @@
 									</a>
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2938,7 +2941,7 @@
 									</a>
 									<ul>
 										<li>
-											<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+											<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 										</li>
 									</ul>
 									<div class="message_board">Best Idea
@@ -2962,7 +2965,7 @@
 					<div class="popup-mainContainer round_weak preventClose_modalBox background_white">
 						<div id="mainContainer_header">
 							<div class="button_tryon_medium background_gradientDarkBlue round_medium pointer  ">
-								<a href="tryon.html">
+								<a href="tryon.php">
 									<ul>
 										<li class="basicWebLayout icon_clothes"></li>
 										<li>TRY ON</li>
@@ -2999,7 +3002,7 @@
 							<div class="content-bottom">
 								<div class="content_description-bottom">
 									<span>Other styles created by 
-										<a class="username color_lightBlue" href="userPage.html">
+										<a class="username color_lightBlue" href="userPage.php">
 											Sara Cook
 										</a>
 									</span>
@@ -3048,7 +3051,7 @@
 					<div class="popup-side-top round_weak preventClose_modalBox background_white">
 						<div class="profileBox fullWidth">
 							<div class="profile_image">
-								<a href="userPage.html"><img class="round_circle" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="round_circle" src="images/user/userPhoto.gif"/></a>
 							</div>
 							<div class="profile_name">
 								<a class="username" href="#">Sara Cook</a>
@@ -3110,79 +3113,79 @@
 						</div>
 						<ul class="side_middle-users round_little">
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 							<li>
-								<a href="userPage.html"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
+								<a href="userPage.php"><img class="otherUsers" src="images/user/userPhoto.gif"/></a>
 							</li>
 						</ul>
 					</div>
@@ -3209,7 +3212,7 @@
 										$169
 										</div>
 										<span class="description">
-											<a href="item.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
+											<a href="item.php">MASCARA IN THERE AND BLACK BY LOUISE</a>
 										</span>
 										<span class="brand">
 											<a href="#">topshop.com</a>
@@ -3236,7 +3239,7 @@
 										$169
 										</div>
 										<span class="description">
-											<a href="item.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
+											<a href="item.php">MASCARA IN THERE AND BLACK BY LOUISE</a>
 										</span>
 										<span class="brand">
 											<a href="#">topshop.com</a>
@@ -3263,7 +3266,7 @@
 										$169
 										</div>
 										<span class="description">
-											<a href="item.html">MASCARA IN THERE AND BLACK BY LOUISE</a>
+											<a href="item.php">MASCARA IN THERE AND BLACK BY LOUISE</a>
 										</span>
 										<span class="brand">
 											<a href="#">topshop.com</a>
@@ -3298,12 +3301,12 @@
 						</div>
 						<div class="comment-others">
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  
 										<span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
@@ -3311,43 +3314,43 @@
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>	
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>	
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
@@ -3359,48 +3362,48 @@
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a> <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
 								</div>
 							</div>
 							<div class="others-commentWrapper">
-								<a href="userPage.html">
+								<a href="userPage.php">
 									<img src="images/user/userPhoto.gif"/>
 								</a>
 								<ul>
 									<li>
-										<a class="color_lightBlue" href="userPage.html">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
+										<a class="color_lightBlue" href="userPage.php">Sara Cook</a>  <span class="timeStamp"> - 5 weeks ago</span>
 									</li>
 								</ul>
 								<div class="message_board">Best Idea
@@ -3430,7 +3433,7 @@
 							</div>
 						</div>
 						<div class="button-tryon">
-							<a href="tryon.html">
+							<a href="tryon.php">
 								<span class="icon_tryon"></span>
 								<span class="right">Try On</span>
 							</a>
@@ -3459,7 +3462,7 @@
 					<div class="rightSideBox">
 						<div class="itemDetails-description">
 							<div class="description">
-								<a href="item.html" class="title">
+								<a href="item.php" class="title">
 									Mass test mass test mass test mass test mass
 								</a> 
 								<div class="url clear">
@@ -3558,7 +3561,7 @@
 									</ul>
 								</div>
 								<div class="confirmation clear">
-									<div>To change Account Settings, click <a href="setting.html">Setting</a></div> 
+									<div>To change Account Settings, click <a href="setting.php">Setting</a></div> 
 									<button id="confirm" class="round_weak" type="submit" name="confirm">
 										Confirm
 									</button>
@@ -3572,96 +3575,5 @@
 				</div>
 			</div>
 		</div>	
-		<div id="footer" class="background_themeColor"> 
-			<div>
-				<ul>
-					<li class="subheader">
-						Company
-					</li>
-					<li><a href="about.html">What is ModiShow</a></li>
-					<li><a href="about.html">Rewards Program</a></li>
-					<li><a href="about.html">Partners</a></li>
-					<li><a href="about.html">Explore</a></li>
-				</ul>
-				<ul>
-					<li class="subheader">
-						Partner
-					</li>
-					<li><a href="about.html">Brands &amp; Retailers</a></li>
-					<li><a href="about.html">Bloggers</a></li>					
-				</ul>
-				<ul>
-					<li class="subheader">
-						Policies
-					</li>
-					<li><a href="about.html">Language</a></li>
-					<li><a href="about.html">Privacy Policy</a></li>
-					<li><a href="about.html">Terms of Services</a></li>
-					<li><a href="about.html">Help</a></li>
-				</ul>
-				<ul id="connect">
-					<li class=" subheader">
-						Connect with us
-					</li>
-					<li class="clear">
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/facebook.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>					
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/twitter.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/pinterest.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/linkedInLogo.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/blog.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-					<li>
-						<ul>
-							<li>
-								<a class="icon_descriptions" href="#">
-									<img src="images/email.png"/>
-								</a>
-							</li>
-						</ul>
-					</li>	
-				</ul>
-			</div>
-			<div class="clear lastChild">
-				<span>&copy; 2013 - ModiShow corporation</span>
-			</div>
-		</div>	
-	</body>
-</html>
+
+<?php include("../includes/layouts/footer.php");?>
