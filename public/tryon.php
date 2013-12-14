@@ -1095,102 +1095,102 @@
 			<div id="transparentBackground">
 			</div>
 			<div id="modalbox">
-				<div class="popup-box publishes">
-					<span class="icon_close opaque_strong"></span>
-					<div class="popup-box-header">
-						<span>Tell us more about the style</span>
+				<form>
+					<div class="popup-box publishes">
+						<span class="icon_close opaque_strong"></span>
+						<div class="popup-box-header">
+							<span>Tell us more about the style</span>
+						</div>
+						<div class="title_box">
+							<span>
+								Title:<span class="required">*</span>
+							</span>
+							<input id="titleName" name="titleName" type="text"/>
+						</div>
+						<div class="category_box">
+							<span>
+								Category:
+								<span class="required">*</span>
+							</span>
+							<div class="firstChild">
+								<select id="categorySelect">
+									<option value="0">Please choose a category</option>
+									<option value='style'>Style</option>
+									<option value='Occassion'>Occassion</option>
+									<option value='Season'>Season</option>
+									<option value='Weather'>Weather</option>
+								</select>
+							</div>
+							<div class="middleChild">
+								<select id="subCategorySelect">
+								</select>
+							</div>
+							<div class="lastChild">
+								<select class="style_select">
+									<option>Active</option>
+									<option>Basic</option>
+									<option>Business Casual</option>
+									<option>Bohemian</option>
+									<option>Casual</option>
+									<option>Classic</option>
+									<option>Comfortable</option>
+									<option>Celebrity</option>					<option>Cute</option>
+									<option>Elegant</option>
+									<option>Formal</option>
+									<option>Goth</option>
+									<option>Preppy</option>
+									<option>Punk</option>
+									<option>Runway</option>
+									<option>Sexy</option>
+									<option>Swimwear</option>
+									<option>Vintage</option>
+								</select>
+								<select class="occassion_select">
+									<option>Casual date</option>
+									<option>Classy date</option>
+									<option>Everyday</option>
+									<option>Formal events</option>
+									<option>Night out</option>
+									<option>Outdoor activities</option>
+									<option>Work</option>						
+								</select>
+								<select class="season_select">
+									<option>Spring</option>
+									<option>Mid-Spring</option>
+									<option>Summer</option>
+									<option>Fall</option>
+									<option>Mid-Fall</option>
+									<option>Winters</option>
+								</select>
+								<select class="weather_select">
+									<option>Warm</option>
+									<option>Freezing</option>
+									<option>Cold</option>
+									<option>Raining</option>
+									<option>Hot</option>
+									<option>Snowing</option>
+									<option>Tropical</option>
+								</select>
+							</div>
+						</div>
+						<div class="description_box">
+							<span>
+								Description: <span class="optional"></span>
+							</span>
+							<textarea id="message" placeholder="400 words left"></textarea>
+						</div>
+						<div class="button_medium publish"><span>Publish</span></div>
+						<div class="button_medium cancel"><span>Cancel</span></div>
 					</div>
-					<div class="title_box">
-						<span>
-							Title:<span class="required">*</span>
-						</span>
-						<form>
-							<input type="text"/>
-						</form>
-					</div>
-					<div class="category_box">
-						<span>
-							Category:
-							<span class="required">*</span>
-						</span>
-						<form class="firstChild">
-							<select id="categorySelect">
-								<option value="0">Please choose a category</option>
-								<option value='style'>Style</option>
-								<option value='Occassion'>Occassion</option>
-								<option value='Season'>Season</option>
-								<option value='Weather'>Weather</option>
-							</select>
-						</form>
-						<form class="middleChild">
-							<select id="subCategorySelect">
-							</select>
-						</form>
-						<form class="lastChild">
-							<select class="style_select">
-								<option>Active</option>
-								<option>Basic</option>
-								<option>Business Casual</option>
-								<option>Bohemian</option>
-								<option>Casual</option>
-								<option>Classic</option>
-								<option>Comfortable</option>
-								<option>Celebrity</option>					<option>Cute</option>
-								<option>Elegant</option>
-								<option>Formal</option>
-								<option>Goth</option>
-								<option>Preppy</option>
-								<option>Punk</option>
-								<option>Runway</option>
-								<option>Sexy</option>
-								<option>Swimwear</option>
-								<option>Vintage</option>
-							</select>
-							<select class="occassion_select">
-								<option>Casual date</option>
-								<option>Classy date</option>
-								<option>Everyday</option>
-								<option>Formal events</option>
-								<option>Night out</option>
-								<option>Outdoor activities</option>
-								<option>Work</option>						
-							</select>
-							<select class="season_select">
-								<option>Spring</option>
-								<option>Mid-Spring</option>
-								<option>Summer</option>
-								<option>Fall</option>
-								<option>Mid-Fall</option>
-								<option>Winters</option>
-							</select>
-							<select class="weather_select">
-								<option>Warm</option>
-								<option>Freezing</option>
-								<option>Cold</option>
-								<option>Raining</option>
-								<option>Hot</option>
-								<option>Snowing</option>
-								<option>Tropical</option>
-							</select>
-						</form>
-					</div>
-					<div class="description_box">
-						<span>
-							Description: <span class="optional"></span>
-						</span>
-						<textarea id="message" placeholder="400 words left"></textarea>
-					</div>
-					<div class="button_medium publish"><span>Publish</span></div>
-					<div class="button_medium cancel"><span>Cancel</span></div>
-				</div>
-				<div class="popup-box createCollage">
-					<div class="popup-box-header">
-						<span>Create a collage for this style?</span>
-					</div>
-					<div class="button_large background-strong round_weak"><a class="noUnloadMessage" href="collage.php">YES</a></div>
-					<span>or</span>
-					<div class="button_large background-weak round_weak"><a class="noUnloadMessage"href="index.php">Maybe later</a></div>			
-				</div>			
+					<div class="popup-box createCollage">
+						<div class="popup-box-header">
+							<span>Create a collage for this style?</span>
+						</div>
+						<div class="button_large background-strong round_weak"><a class="noUnloadMessage" href="collage.php">YES</a></div>
+						<span>or</span>
+						<div class="button_large background-weak round_weak"><a class="noUnloadMessage"href="index.php">Maybe later</a></div>			
+					</div>		
+				</form>	
 			</div>
 		</div>
 		<div id="registration_modalBox">

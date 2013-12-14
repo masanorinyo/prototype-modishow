@@ -1676,7 +1676,8 @@ li{
 	position: relative;
 	height:100%;
 	width:100%;
-	cursor: default;	
+	cursor: default;
+	border-top:1px solid rgb(220,220,220);	
 }
 
 
@@ -2002,7 +2003,7 @@ li{
 	height:22px;
 	border:1px solid rgb(204,204,204);
 	position:absolute;
-	width:200px;
+	width:220px;
 	top:20px;
 }
 

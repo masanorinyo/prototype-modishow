@@ -870,13 +870,13 @@ $(function(){
 	 		opacity: 0.5,
 	 		cursor: "move",
 	 		
-	 		//keep the cursor position at the center of a selected image
-        	start: function(event, ui) { 
-		        $(this).draggable("option", "cursorAt", {
-		            left: Math.floor($(this).width() / 2),
-		            top: Math.floor($(this).height() / 2)
-		        }); 
-		    }
+		// keep the cursor position at the center of a selected image
+    	// start: function(event, ui) { 
+		//       $(this).draggable("option", "cursorAt", {
+		//           left: Math.floor($(this).width() / 2),
+		//           top: Math.floor($(this).height() / 2)
+		//       }); 
+		//   }
 
 	 	});
 		
@@ -1081,11 +1081,10 @@ $(function(){
 });
 
 
-//start from here
+//------------------------------Validation for tryon submission form------------------------------//
 $(function(){
 
-
-	var titleRe = /^[a-zA-Z0-9'-]+$/;
+	var titleRe = /^[a-zA-Z0-9'-\s]+$/;
 	var validTitle,validCategory = false;
 	 		
 	$("#tryclothes #modalbox .title_box input[type='text']").focusout(function(){
@@ -1094,6 +1093,10 @@ $(function(){
  			$("#modalbox .title_box .required").text(" Please write more than 4 characters").effect('highlight',"slow");
  			$("#modalbox .title_box input").css({'border-color':'red'});
  			validTitle = false;
+ 		}else if($(this).val().length >= 70){
+			$("#modalbox .title_box .required").text(" You cannot write more than 70 characters").effect('highlight',"slow");
+			$("#modalbox .title_box input").css({'border-color':'red'});
+			validTitle = false;
  		}else if(titleRe.test($(this).val())){
 			$("#modalbox .title_box .required").text("*");
 			$("#modalbox .title_box input").css({'border-color':'rgb(200,200,200'});
