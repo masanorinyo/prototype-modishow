@@ -21,7 +21,7 @@
 //check whether the created style already exists in the database
 //1 step = determine whether the system can find the same source name of the image.
 
-//*************************************************************************************************************************//
+//**************************************************************************************************************//
 //Properties
 //width = 550;
 //height = 550
@@ -30,7 +30,7 @@
 
 
 
-//*************************************************************************************************************************//
+//*****************************************************************************************************************//
 //Collage creation
 //1 step = determin whether the width or the height is bigger
 //2 step = get the value from the 1st step
@@ -60,25 +60,36 @@
 //8 step = Put everything together
 //9 step = Name it with each of the attribute - id of each item,model, and background + each of the z-index values.
 //9 step = Resize it to the original size.
-//
+
+//canvas creation
+//1 step = determin whether the width or the height is bigger
+//2 step = get the value from the 1st step
+//3 step = determine the width and the height of the whole canvas
+
 
 //assign size values
 //1 step = get the images
-//2 step = assign the mwith specified size values
+//2 step = assign them with specified size values
+
+//assign angle degree values
+//1 step = get the images
+//2 step = assign them with specified angle degree values
 
 //assign position values
 //1 step = get images
 //2 step = assign them with specified x and y values
 
-//combine all images 
-//1 step = get images 
-//2 step = combine them tegether 
-//3 step = name it with each of the attribute
-//id of each item,model, and background + each of the z-index values + values of round(x,y,z) into 1st level + width and height. 
-
 //layering
 //1 step = get images 
 //2 step = assign them with specified z-index
+
+
+//combine all images 
+//1 step = get images 
+//2 step = combine them tegether based on the canvas size
+//3 step = name it with each of the attribute
+//id of each item,model, and background + each of the z-index values + values of round(x,y,z) into 1st level + width and height. 
+
 
 //Resizing
 //1 step = get the image
