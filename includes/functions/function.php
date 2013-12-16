@@ -52,4 +52,17 @@
 //	}
 
 
+//image processing class
+//
+//properties 
+//id
+//width
+//height
+//position
+
+
+
+
+
+
 ?>

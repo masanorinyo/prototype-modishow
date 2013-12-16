@@ -1049,10 +1049,12 @@ $(function(){
 $(function(){
 	$('#tryonContent .button_publish').click(function(event){
 		// popup warning when more than two outfits are not selected
-		if($("#outfitItems img").length >= 3){
-			$('#popup_overlay').fadeIn("fast");	
-		}else{
+		if($("#outfitItems img").length <= 2){
 			alert("Please choose at least three items");
+		}else if($("#outfitItems img").length >= 16){
+			alert("You cannot choose more than 16 items");
+		}else{
+			$('#popup_overlay').fadeIn("fast");	
 		}
 	});
 
@@ -2289,8 +2291,29 @@ $(function() {
 
 
 
+//Collage creation
+//1 step = get the id of the selcted item
+//2 step = get the type of each selected id image
+//3 step = get the values of width, height, angle,and z-index of each item according to ids
+//4 step = creat a collage
 
+//Collage automatic creation
+//1 step = get the id of the selected item
+//2 step = creat a collage
 
+//Model creation
+//1 step = get the id of the selected model 
+//2 step = get the type of pose
+//4 step = get the id of the selected background image
+//5 step = get the image based on the id from the 4th step.
+//4 step = get the id of each item
+//5 step = get the image type = upper, lower
+//6 step = get the image of each item based on the image type.
+//7 step = get the z-index of each item
+//8 step = assign the z-index from the 7th step to each item
+//8 step = Put everything together
+//9 step = Name it with each of the attribute - id of each item,model, and background + each of the z-index values.
+//9 step = Resize it to the original size.
 
 
 

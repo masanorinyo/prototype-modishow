@@ -1,6 +1,6 @@
 <?php
 
-//**************************************************************************************************//
+//*************************************************************************************************************************//
 //Resizing
 //---------------------- Original size ----------------------//
 //Collage image size -> 550/ 550
@@ -21,10 +21,9 @@
 
 //******************************************************************************************************//
 
+
 //Properties
-//outfit_id
-//product_id
-//image_type = default is main unless specified.
+//id
 //width
 //height
 //z-index
@@ -35,23 +34,39 @@
 //canvas creation = constructor
 //1 step check whether the created style already exists in the database
 //	Determine whether the system can find the same source name of the image.
-//	
 //2 step = determine the width and the height of the whole canvas
 //	if it is for collage creation
 //		determin whether the width or the height is bigger 
 //		get the value from the 1st step
 
-//Collage automatic creation (append accoridng to the order of ids.)
-//1 step = Determine the num of items
-//2 step = Determine the width and heightof each item, which will change based on the num
+//Collage automatic creation
+//550 - if the item is  
 //	<= 4 -> 225px - 2 boxes X 2 boxes
 //	<= 6 -> 183.3px / 225px - 3 boxes X 2 boxes
-//		the first 3 items width 
 //	<= 9 -> 183.3px / 183.3px - 3 boxes X 3 boxes
 //	<= 12 -> 137.5 / 183.3px - 4 boxes X 3 boxes
 //	<= 16 -> 137.5 / 137.5 px - 4 boxes X 4 boxes
-//3 steps = add the frames to each item.
-//4 steps = append the items to the canvas.
+
+//Model creation
+//1 step = get the id of the selected model and
+//2 step = get the type of pose
+//3 step = get the image of the model based on the id from the 1st step and the selected type of pose.
+//4 step = get the id of the selected background image
+//5 step = get the image based on the id from the 4th step.
+//4 step = get the id of each item
+//5 step = get the image type = upper, lower
+//6 step = get the image of each item based on the image type.
+//7 step = get the z-index of each item
+//8 step = assign the z-index from the 7th step to each item
+//8 step = Put everything together
+//9 step = Name it with each of the attribute - id of each item,model, and background + each of the z-index values.
+//9 step = Resize it to the original size.
+
+//collageAutomateCreation
+//
+
+
+
 
 //assign size values
 //1 step = get the images
@@ -75,7 +90,6 @@
 //2 step = combine them tegether based on the canvas size
 //3 step = name it with each of the attribute
 //id of each item,model, and background + each of the z-index values + values of round(x,y,z) into 1st level + width and height. 
-
 
 
 ?>
