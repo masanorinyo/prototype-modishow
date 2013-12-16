@@ -591,15 +591,16 @@ $(function(){
 	itemWrapper += '</li>';
 
 	//constructor for an outfit -> attaching each attribute info onto the newly created outfit
-	function outfitStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory){
+	function outfitStyle(id, title,url,price,smallImg,image_above,image_middle,image_below,layer,itemCategory){
 	    this.idNum = id;
 	    this.titleInfo = title;
 	    this.urlInfo = url;
 	    this.priceInfo = price;
 		this.smallImageInfo = smallImg;
-		this.largeImageInfo = largeImg;
+		this.largeImageInfo_above = image_above;
+		this.largeImageInfo_middle = image_middle;
+		this.largeImageInfo_below = image_below;
 		this.layerWrapper = layer;
-		this.itemCategory = itemCategory;
 	}		
 
 
@@ -612,13 +613,16 @@ $(function(){
 		$("#sortable").prepend(wrapper);
 		//assign the same id as selected image to the whole list wrapper
 		$(wrapper).attr('id',this.idNum);
-		$(wrapper).addClass(this.itemCategory);
 		$(wrapper).find(".imageIconBox").children("a").append(this.smallImageInfo);
 		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
-		$("#collage #outfitItems").prepend(this.largeImageInfo);
-		$("#tryclothes #outfitItems").append(this.largeImageInfo);
+		//$("#collage #outfitItems").prepend(this.largeImageInfo);
+
+		//outfit order comes - other clothes will be below a newly selected image
+		//outwear is always on the top = z-index:1002
+		//jacket is always on the top unless any outwear selected = z-index:1001
+		$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
 		
 		$('.removeIcon').click(function(event){
 			$(this).parent().remove();
@@ -629,7 +633,7 @@ $(function(){
 		});
 	}
 
-	function filterDuplicate(event,outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItems,topPosition,leftPosition){
+	function filterDuplicate(event,outfit,id, title,url,price,sImage,image_above,image_middle,image_below,itemWrapper,subImgName,selectedItems,topPosition,leftPosition){
    		//this prevents duplicate item selection.
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
@@ -639,7 +643,7 @@ $(function(){
    		if($(".layers").length == 0){
    			//if the item image was selected on the collage creation page
 	   		if($(event).parent().is(".collageCanvas")){
-	   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItems,topPosition,leftPosition);
+	   			var collage = new collageStyle(id, title,url,price,sImage,itemWrapper,subImgName,selectedItems,topPosition,leftPosition);
 	   			console.log(collage);
 	   			collage.createItemList(collage.topPosition,collage.leftPosition);
 	   			collage.adding();
@@ -660,7 +664,7 @@ $(function(){
 			//if there is no selected items in the list, add it
 			if(alreadySelected == 0){
 				if($(event).parent().is(".collageCanvas")){
-		   			var collage = new collageStyle(id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItems,topPosition,leftPosition);
+		   			var collage = new collageStyle(id, title,url,price,sImage,itemWrapper,subImgName,selectedItems,topPosition,leftPosition);
 	   				console.log(collage);
 	   				collage.createItemList(collage.topPosition,collage.leftPosition);
 	   				collage.adding();
@@ -687,21 +691,26 @@ $(function(){
 		stop: function(event, ui) {
 			sortableIn = 1;
 			var selected = $(ui.item);
-			if($(selected).is('.jacket')){
+			if($(selected).parent().is(".tryon_list") && $(selected).find('img').is('.jacket,.vest,.coat')){
+				//applies this to only try on page
+				//this prevents users from moving jackets, coats, and vests.
 				$(this).sortable('cancel');
+				alert("you cannot wear jacket under others");
 			}else{
 				//record the z-index of every itemBox		
 				for(var k=0;k < $('.layers').length;k++){
 					var itemArray = $('.layers')
 					var itemId = $(itemArray[k]).attr('id')
-					$("#outfitItems").find('#'+itemId).css('z-index',1000-k);
+					$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
+					$("#collage #outfitItems").find('#'+itemId).parent().css('z-index',1000-k);
 				};
 				//modify the z-index of every itemBox
 				var imageId = ui.item.attr('id');				
 				var indexNum = ui.item.index();			
 				var zindexNum = 1000 - indexNum;
 				var num = parseInt(zindexNum);
-				$('#outfitItems').find('#'+imageId).css('z-index',zindexNum);	
+				$('#tryclothes #outfitItems').find('#'+imageId).css('z-index',zindexNum);	
+				$('#collage #outfitItems').find('#'+imageId).parent().css('z-index',zindexNum);	
 			};
 		},
 		out:function(event,ui){
@@ -738,16 +747,16 @@ $(function(){
    		var title = "<a href='item.html'>test</a>"; //Ajax call
    		var url = "<a href='#''>test.html</a>"; //Ajax call
    		var price = "$30";//Ajax call
-   		var sImage = $(this).children('img').clone(); //to show items on the list box and the item box
-   		var lImage = $(this).children('img').clone(); //Ajax call - goes onto the model		
-   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
+   		var sImage = $(this).children('img').clone(); //to show items on the list(sortable) box
+   		var image_above = $(this).children('img').clone(); //Ajax call - goes onto the model
+   		var image_middle = "middle";//Ajax call - for upper clothes when tagged below pants / for lower clothes when another clothes (skirt etc) on top of it
+   		var image_below = "below"; //Ajax call - goes onto the model
    		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
-		var selectedItem = $(this).children('img').clone();//selected sub-images
+		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
    		
-   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
+   		var outfit = new outfitStyle(id, title,url,price,sImage,image_above,image_middle,image_below,itemWrapper);
 
-   		
-   		filterDuplicate($(this),outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem);
+   		filterDuplicate($(this),outfit,id, title,url,price,sImage,image_above,image_middle,image_below,itemWrapper,subImgName,selectedItem);
    		
 	});
 
@@ -775,8 +784,9 @@ $(function(){
 	   		var url = "<a href='#''>test.html</a>"; //Ajax call
 	   		var price = "$30";//Ajax call
 	   		var sImage = $(ui.draggable).children('img').clone(); //to show items on the list box and the item box
-	   		var lImage = $(ui.draggable).children('img').clone(); //Ajax call - goes onto the model		
-	   		var category = "";//if it is a jacket or a coat, it cannot be moved to a different position.
+	   		var image_above = $(ui.draggable).children('img').clone(); //Ajax call - goes onto the model		
+	   		var image_middle = "middle";//Ajax call - for upper clothes when tagged below pants / for lower clothes when another clothes (skirt etc) on top of it
+   			var image_below = "below"; //Ajax call - goes onto the model
 	   		var subImgName = $(ui.draggable).children('img').attr('src');// use regular expression to extract only the image name
 			var selectedItem = $(ui.draggable).children('img').clone();//selected sub-images
 	   	
@@ -789,8 +799,8 @@ $(function(){
 			
 
 
-	   		var outfit = new outfitStyle(id, title,url,price,sImage,lImage,itemWrapper,category);
-	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,lImage,itemWrapper,category,subImgName,selectedItem, topPosition,leftPosition);
+	   		var outfit = new outfitStyle(id, title,url,price,sImage,image_above,image_middle,image_below,itemWrapper);
+	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,image_above,image_middle,image_below,itemWrapper,subImgName,selectedItem, topPosition,leftPosition);
 		}
 	});
 
@@ -801,15 +811,13 @@ $(function(){
 
 //Collage creation	
 //sub class of the outfitStyle class - there are duplicate codes - learn how to inherit properties from parent class
-	function collageStyle(id, title,url,price,smallImg,largeImg,layer,itemCategory,subName,selectedItem,top_pos,left_pos){
+	function collageStyle(id, title,url,price,smallImg,layer,subName,selectedItem,top_pos,left_pos){
 	 	this.idNum = id;
 	    this.titleInfo = title;
 	    this.urlInfo = url;
 	    this.priceInfo = price;
 		this.smallImageInfo = smallImg;
-		this.largeImageInfo = largeImg;
 		this.layerWrapper = layer;
-		this.itemCategory = itemCategory;
 	 	this.subImageName = subName;
 	 	this.selectedItem =selectedItem;
 	 	this.top_position = top_pos;
@@ -842,7 +850,6 @@ $(function(){
 		$("#sortable").prepend(wrapper);
 		//assign the same id as selected image to the whole list wrapper
 		$(wrapper).attr('id',this.idNum);
-		$(wrapper).addClass(this.itemCategory);
 		$(wrapper).find(".imageIconBox").children("a").append(this.smallImageInfo);
 		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
 		$(wrapper).find(".url").append(this.urlInfo);
@@ -862,7 +869,7 @@ $(function(){
 
 
 
-	collageStyle.prototype.adding = function(){//add canvas effect to all the elements
+	collageStyle.prototype.adding = function(){//add canvas effect (draggable,rotatable,expandable) to all the elements
 	 	console.log($(this));
 		var itemsArray = $("#outfitItems > li");
 		//make the items draggable
@@ -1007,24 +1014,35 @@ $(function(){
 
 	$("#front").on('click',function(e){
 		var imageArray = $(".draggable > li");
-		var arrayPosition = 70;
+		var arrayPosition = 1001;//always on top of everything
 		var k;
-		for(k =0; k < imageArray.length;k++){
-			$(imageArray[k]).css('z-index',arrayPosition-k);
-		};
-		console.log(k);
-		$(".selectedImg").css('z-index',arrayPosition + k + 1);
+		 
+		var selectedId= $(".selectedImg > img").attr("id");
+		$(".selectedImg").css('z-index',arrayPosition);
+		var cloneList = $("#sortable > #"+selectedId).clone();
+		$("#sortable").find("#"+selectedId).remove();
+		$("#sortable").prepend(cloneList);
+
+
+		
+
+
+
 	});
 
 	$("#back").on('click',function(e){
 		var imageArray = $(".draggable > li");
-		var arrayPosition = 70;
+		var arrayPosition = 1001;//exclude the selected image
+		var selectedId= $(".selectedImg > img").attr("id");
 		var k;
 		for(k =0; k < imageArray.length;k++){
 			$(imageArray[k]).css('z-index',arrayPosition-k);
 		};
 		console.log(k);
 		$(".selectedImg").css('z-index',arrayPosition - k);
+		var cloneList = $("#sortable > #"+selectedId).clone();
+		$("#sortable").find("#"+selectedId).remove();
+		$("#sortable").append(cloneList);
 	});
 
 
@@ -2293,7 +2311,50 @@ $(function() {
 
 //Collage creation
 //1 step = get the id of the selcted item
-//2 step = get the type of each selected id image
+
+$(function(){
+	$('.button_publish').click(function(){
+		
+		var item_url; // image url 
+		var user_id;//created whom?
+		var width;
+		var height;
+		var z_index;
+		var x_position;
+		var y_position;
+		var angle;
+
+		var itemArray =$("#outfitItems > img");
+		console.log(itemArray);
+
+		$("#outfitItems > img").each(function(){
+			if($(this).css('z-index') == 1000){
+				//1000 is a default z-index value for selected item
+				//jacket default z-index = 1001
+				//outwear default z-index = 1002
+				console.log($(this).css('z-index') );
+			}else{
+				//if users manually change the order of items
+				console.log($(this).css('z-index') );
+			}
+		});
+		  
+
+		$.ajax({
+			type:'POST',
+			url:'../../includes/outfit_creation.php',
+			data:{outfit_info:listOfItem_info},
+			success:function(){
+				console.log("listOfItem_info: "+listOfItem_info);
+			},
+			error:function(){
+				console.log("Ajax call failed: "+listOfItem_info);
+			}
+		});
+	});
+})
+
+
 //3 step = get the values of width, height, angle,and z-index of each item according to ids
 //4 step = creat a collage
 
@@ -2305,15 +2366,10 @@ $(function() {
 //1 step = get the id of the selected model 
 //2 step = get the type of pose
 //4 step = get the id of the selected background image
-//5 step = get the image based on the id from the 4th step.
 //4 step = get the id of each item
 //5 step = get the image type = upper, lower
-//6 step = get the image of each item based on the image type.
 //7 step = get the z-index of each item
-//8 step = assign the z-index from the 7th step to each item
-//8 step = Put everything together
-//9 step = Name it with each of the attribute - id of each item,model, and background + each of the z-index values.
-//9 step = Resize it to the original size.
+//9 step = create a model style.
 
 
 

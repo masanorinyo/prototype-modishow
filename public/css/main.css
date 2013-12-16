@@ -2933,6 +2933,10 @@ li{
 	margin:0 auto;
 }
 
+#collage .draggable > li{
+	
+}
+
 .modelPic{
 	height:100%;
 }

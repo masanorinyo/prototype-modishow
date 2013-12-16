@@ -413,7 +413,7 @@
 								<span class="generaterHeader_downArrow"></span>
 							</div>	
 							<div class="hiddenBox round_medium">
-								<ul id="sortable" class="opaque_weak">
+								<ul id="sortable" class="opaque_weak tryon_list">
 								</ul>
 							</div>
 							<span class="dragAndDropGuide"><span>
@@ -1045,11 +1045,11 @@
 						</li>
 					</ul>
 					<ul  class="itemBoxImages">
-						<li class="items-wrapper"><img id="accessory-1" src="images/items/accessory_1.png"/></li>
-						<li class="items-wrapper"><img id="jacket-1" src="images/items/jacket_1.png"/></li>
-						<li class="items-wrapper"><img id="shirt-1" src="images/items/shirt_1.png"/></li>
-						<li class="items-wrapper"><img id="skirt-1" src="images/items/skirt_1.png"/></li>
-						<li class="items-wrapper"><img id="inner-1" src="images/items/inner_1.png"/></li>
+						<li class="items-wrapper"><img id="accessory-1" class="accessory" src="images/items/accessory_1.png"/></li>
+						<li class="items-wrapper"><img id="jacket-1" class="jacket" src="images/items/jacket_1.png"/></li>
+						<li class="items-wrapper"><img id="shirt-1" class="shirt" src="images/items/shirt_1.png"/></li>
+						<li class="items-wrapper"><img id="skirt-1" class="skirt" src="images/items/skirt_1.png"/></li>
+						<li class="items-wrapper"><img id="inner-1" class="inner" src="images/items/inner_1.png"/></li>
 
 					</ul>
 				</div>
@@ -1186,9 +1186,9 @@
 						<div class="popup-box-header">
 							<span>Create a collage for this style?</span>
 						</div>
-						<div class="button_large background-strong round_weak"><a class="noUnloadMessage" href="collage.php">YES</a></div>
+						<div class="button_large background-strong round_weak"><a class="noUnloadMessage sendInfo" href="collage.php">YES</a></div>
 						<span>or</span>
-						<div class="button_large background-weak round_weak"><a class="noUnloadMessage"href="index.php">Maybe later</a></div>			
+						<div class="button_large background-weak round_weak"><a class="noUnloadMessage sendInfo"href="index.php">Maybe later</a></div>			
 					</div>		
 				</form>	
 			</div>

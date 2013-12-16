@@ -584,40 +584,40 @@
 					</ul>
 					<ul class="itemBoxImages collageCanvas">	
 						<li class="items-wrapper">
-							<img id="accessory-1" src="images/productItems/accessory_1.png"/>
+							<img id="accessory-1" class="accessory" src="images/productItems/accessory_1.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="item3" src="images/productItems/item3.png"/>
+							<img id="item3" class="inner" src="images/productItems/item3.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="item1" src="images/productItems/item1.png"/>
+							<img id="item1" class="inner" src="images/productItems/item1.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="inner-1" src="images/productItems/inner_1.png"/>
+							<img id="inner-1" class="inner" src="images/productItems/inner_1.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="skirt-1" src="images/productItems/skirt_1.png"/>
+							<img id="skirt-1" class="skirt" src="images/productItems/skirt_1.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="skirt-2" src="images/productItems/skirt_2.png"/>
+							<img id="skirt-2" class="skirt" src="images/productItems/skirt_2.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="dress-1" src="images/productItems/dress_1.png"/>
+							<img id="dress-1" class="dress" src="images/productItems/dress_1.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="top-2" src="images/productItems/top_2.png"/>
+							<img id="top-2" class="top" src="images/productItems/top_2.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="shirt-1" src="images/productItems/shirt_1.png"/>
+							<img id="shirt-1" class="shirt" src="images/productItems/shirt_1.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="top-3" src="images/productItems/top_3.png"/>
+							<img id="top-3" class="top" src="images/productItems/top_3.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="top-4" src="images/productItems/top_4.png"/>
+							<img id="top-4" class="top" src="images/productItems/top_4.png"/>
 						</li>
 						<li class="items-wrapper">
-							<img id="top-5" src="images/productItems/top_5.png"/>
+							<img id="top-5" class="top" src="images/productItems/top_5.png"/>
 						</li>
 					</ul>
 				</div>
