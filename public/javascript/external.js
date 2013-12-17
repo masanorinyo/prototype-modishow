@@ -625,23 +625,17 @@ $(function(){
 	
 
 
-		if(!$(wrapper).is(".accessory")){
-			if($("#sortable li").is(".vest")){
-				$(wrapper).insertAfter("#sortable > .vest");
-			}else if($("#sortable li").is(".jacket")){
-				$(wrapper).insertAfter("#sortable > .jacket");
-			}else if($("#sortable li").is(".coat")){
-				$(wrapper).insertAfter("#sortable > .coat");
-			}else{
-				$("#sortable").prepend(wrapper);
-			}
 
+		if($("#sortable li").is(".vest")){
+			$(wrapper).insertAfter("#sortable > .vest");
+		}else if($("#sortable li").is(".jacket")){
+			$(wrapper).insertAfter("#sortable > .jacket");
+		}else if($("#sortable li").is(".coat")){
+			$(wrapper).insertAfter("#sortable > .coat");
 		}else{
-			//accessory can go above all the clothes
 			$("#sortable").prepend(wrapper);
-			$(this.largeImageInfo_above).css("z-index","1001");
 		}
-		
+
 
 		//outfit order comes - other clothes will be below a newly selected image
 		//outwear is always on the top = z-index:1002
@@ -676,6 +670,7 @@ $(function(){
 	   		}else{
 	   		//if it was selected on the tryon page
 				outfit.createItemList();
+	   			changeImageType();
 			}
 
    		}else{
@@ -697,7 +692,7 @@ $(function(){
 		   		}else{
 		   		//if it was selected on the tryon page
 					outfit.createItemList();
-
+	   				changeImageType();
 				}
 
 			}else{
@@ -709,17 +704,135 @@ $(function(){
 	};
 
 
+	function changeImageType(callForAboveImage){
+	   		$("#tryclothes .layers").each(function(){
+	   			
+	   			var image_id = $(this).attr("id");
+	   			var image_class = $(this).attr("class");
+	   			var itemCategory = $(this).find("img").attr("class").split(" ")[0];
+	   			var image_type = "above";
+	   			var originalClothesOnTop_index = $(".layers:not('.accessory')").first().index();
+
+	   			var zIndexOfItem = $("#outfitItems #"+image_id).css("z-index");
+	   			if($(this).index() > originalClothesOnTop_index){
+	   				//if the current list index is above the first list, exluding accessories
+	   				if($(this).is(".top") && $(this).index() < $("#sortable").children(".pants,.shorts,.jeans,.skirt").first().index()){
+	   					image_type="middle";//for tops above pants, skirts, etc.
+	   				}else if($(this).is(".pants,.jeans,.skirt,.shorts")){
+	   					if($(this).index() > $(".affectBottom").index()){
+	   						//if there is any clotehs that affect the visuality of the bottom
+	   						image_type = "below";
+	   					}else{//if there is no clothes affecting the visuality of the bottom
+	   						image_type = "middle";
+	   					}
+	   				}else if($(this).is(".accessory")){
+	   					//if the accessory is skirf and is moved below other clothes
+	   					if($(this).is(".skirf")){
+	   						image_type="below";
+	   					}
+	   				}else{
+	   					image_type = "below";
+					}
+
+	   			}
+
+	   			console.log(image_type+" and "+ itemCategory);
+	   			
+	   			//callForAboveImage -> if the function is called from manually changing layers
+	   			if(callForAboveImage==1){
+	   				// if the position class (above,middle,below) changes, then call for a new image
+	   				if($(this).attr('class') !== image_type){
+	   					$.ajax({
+	   						type:"POST",
+	   						url:"../includes/product.php",
+	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
+	   						//assign each item with imageType class = classes of above, middle, and below.
+	   						success:function(data){
+	   							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
+	   							//add class "alreadyCalled" in order to prevent multiple ajax call
+	   						},
+	   						fail:function(){
+	   							alert("server request; failed");
+	   						}
+	   					});
+	   				}
+				}else if(image_type !== "above"){
+					if(!$("#tryclothes #outfitItems #"+image_id).is(".alreadyCalled")){
+						//check whether if this image is already called by ajax
+						
+	   					$.ajax({
+	   						type:"POST",
+	   						url:"../includes/product.php",
+	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
+	   						//assign each item with imageType class = classes of above, middle, and below.
+	   						success:function(data){
+	   							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
+	   							//add class "alreadyCalled" in order to prevent multiple ajax call
+	   						},
+	   						fail:function(){
+	   							alert("server request; failed");
+	   						}
+	   					});
+					}
+   				}
+
+	   		});
+		}
+
 //remove the selected layer
 
 	var sortableIn = 1;
 	$("#sortable" ).sortable({
 		update:function(event,ui){
 			var selectedItem = ui.item;
+			var firstListItem_index = $("#sortable > li:not('.accessory')").first().index();
 			//only accessory can go above the jacket,vest,and coat
-			if($(selectedItem).parent().is(".tryon_list") && !$(selectedItem).is(".accessory")){
-				if(ui.item.index() <= $("#sortable > .jacket,#sortable > .vest,#sortable > .coat").index()){
+			if($(selectedItem).parent().is(".tryon_list") && !$(selectedItem).is(".accessory,.coat,.jacket,.vest")){
+				
+				//if the selected item is not an accessory, a jacket, a coat, or a vest.
+				if(selectedItem.index() <= $("#sortable > .jacket,#sortable > .vest,#sortable > .coat").index()){
 					$(this).sortable('cancel');
 					alert("You can only put accessories above jacket,vest, and coat");
+				}
+
+			}
+
+			//moving jacket,vest, and coat around
+			if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".vest")){
+
+				//if the selected item is a vest, it needs to be below coat and jacket
+				if(selectedItem.index() <= $("#sortable > .jacket,#sortable > .coat").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put vest above jacket or coat");
+				}else if(selectedItem.index() > firstListItem_index){
+					$(this).sortable('cancel');
+					alert("You can only put accessories above jacket,vest, and coat");	
+				}
+
+			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".jacket")){
+				
+				//if the selected item is a vest, it needs to be below coat and above vest
+				if(selectedItem.index() <= $("#sortable > .coat").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put jacket above coat");
+				}else if(selectedItem.index() >= $("#sortable > .vest").index() && $("#sortable > li").is(".vest")){
+					$(this).sortable('cancel');
+					console.log($("#sortable > .vest").index());
+					alert("You cannot put jacket below vest");
+				}else if(selectedItem.index() > firstListItem_index){
+					$(this).sortable('cancel');
+					alert("You can only put accessories above jacket,vest, and coat");	
+				}
+
+			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".coat")){
+				
+				//if the selected item is a vest, it needs to be above jacket and vest
+				if(selectedItem.index() >= $("#sortable > .jacket,#sortable > .vest").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put coat below vest or jacket");
+				}else if(selectedItem.index() > firstListItem_index){
+					$(this).sortable('cancel');
+					alert("You can only put accessories above jacket,vest, and coat");	
 				}
 			}
 			
@@ -731,9 +844,13 @@ $(function(){
 			$(selected).css("border","1px solid rgb(200,200,200)");
 			//record the z-index of every itemBox	
 			for(var k=0;k < $('.layers').length;k++){
-				var itemArray = $('.layers')
-				var itemId = $(itemArray[k]).attr('id')
-				$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
+				var itemArray = $('.layers');
+				var itemId = $(itemArray[k]).attr('id');
+				var itemClass = $(itemArray[k]).attr('class');
+				if(!$(itemArray[k]).is(".jacket,.vest,.coat")){
+					//prevent jacket,coat, vest to be assigned with z-index value
+					$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
+				}
 				$("#collage #outfitItems").find('#'+itemId).parent().css('z-index',1000-k);
 			};
 			//modify the z-index of every itemBox
@@ -744,7 +861,8 @@ $(function(){
 			$('#tryclothes #outfitItems').find('#'+imageId).css('z-index',zindexNum);	
 			$('#collage #outfitItems').find('#'+imageId).parent().css('z-index',zindexNum);	
 
-		
+			changeImageType(1);
+			
 		},
 		over:function(event,ui){
 			sortableIn = 1;
@@ -790,6 +908,7 @@ $(function(){
    		var price = "$30";//Ajax call
    		var sImage = $(this).children('img').clone(); //to show items on the list(sortable) box
    		var image_above = $(this).children('img').clone(); //Ajax call - goes onto the model
+   		$(image_above).addClass("above");//all newly selected images are on top of other clothes.
    		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
 		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
 
@@ -798,54 +917,7 @@ $(function(){
 
    		filterDuplicate($(this),outfit,id, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
    		
-
-   		$(".layers").each(function(){
-   			var image_id = $(this).find("img").attr("id");
-   			var image_class = $(this).find("img").attr("class");
-   			var image_type = "above";
-   			if($(this).index() > $(".layers:not('.accessory')").first().index()){
-   				//if the current list index is above the first list, exluding accessories
-   				if($(this).is(".top") && $(this).index() < $("#sortable").children(".pants,.shorts,.jeans,.skirt").first().index()){
-   					image_type="middle";//for tops above pants, skirts, etc.
-   				}else if($(this).is(".pants,.jeans,.skirt,.shorts")){
-   					if($(this).index() > $(".affectBottom").index()){
-   						//if there is any clotehs that affect the visuality of the bottom
-   						image_type = "below";
-   					}else{//if there is no clothes affecting the visuality of the bottom
-   						image_type = "middle";
-   					}
-   				}else if($(this).is(".accessory")){
-   					//if the accessory is skirf and is moved below other clothes
-   					if($(this).is(".skirf")){
-   						image_type="below";
-   					}
-   				}else{
-   					image_type = "below";
-				}
-   					
-   				if(image_type !== "above"){
-   					if(!$("#tryclothes #outfitItems #"+image_id).is(".alreadyCalled")){
-   						console.log(image_type);
-   						
-   						check whether if this image is already called by ajax
-		   				$.ajax({
-		   					type:"POST",
-		   					url:"../includes/product.php",
-		   					data:{productID:image_id, imageType:image_type},
-		   					success:function(data){
-		   						$("#tryclothes #outfitItems #"+image_id).replaceWith(data);//add class "alreadyCalled" in order to prevent multiple ajax call
-		   					},
-		   					fail:function(){
-		   						alert("server request; failed");
-		   					}
-		   				});
-	   				}
-   				}
-
-   			}
-   		});
-
-
+   		
 
 	});
 
@@ -890,27 +962,6 @@ $(function(){
 	   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem, topPosition,leftPosition);
 	
-	   		$(".layers").each(function(){
-   				var image_id = $(this).find("img").attr("id");
-   				var image_type;
-   				if($(this).index() > $(".layers:not('.accessory')").first().index()){
-	   				console.log(image_id);
-	   				image_type = "below";
-	   				$.ajax({
-	   					type:"POST",
-	   					url:"../includes/product.php",
-	   					data:{productID:image_id, imageType:image_type},
-	   					success:function(data){
-	   						$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
-	   					},
-	   					fail:function(){
-	   						alert("server request; failed");
-	   					}
-	   				});
-
-	   			}
-	   		});
-
 		}
 	});
 
