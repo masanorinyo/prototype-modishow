@@ -1047,9 +1047,9 @@
 					<ul  class="itemBoxImages">
 						<li class="items-wrapper"><img id="accessory-1" class="accessory" src="images/items/accessory_1.png"/></li>
 						<li class="items-wrapper"><img id="jacket-1" class="jacket" src="images/items/jacket_1.png"/></li>
-						<li class="items-wrapper"><img id="shirt-1" class="shirt" src="images/items/shirt_1.png"/></li>
+						<li class="items-wrapper"><img id="shirt-1" class="top" src="images/items/shirt_1.png"/></li>
 						<li class="items-wrapper"><img id="skirt-1" class="skirt" src="images/items/skirt_1.png"/></li>
-						<li class="items-wrapper"><img id="inner-1" class="inner" src="images/items/inner_1.png"/></li>
+						<li class="items-wrapper"><img id="inner-1" class="top" src="images/items/inner_1.png"/></li>
 
 					</ul>
 				</div>
