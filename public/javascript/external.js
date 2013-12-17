@@ -573,7 +573,7 @@ $(function(){
 //tryon creation
 	var itemWrapper = '';
 	//for hold icon
-	itemWrapper += '<li class="layers">';
+	itemWrapper += '<li class="layers">';//if the list position changed, the above will change to either middle or below
 	itemWrapper += '<div class="holdIconBox"><div class="holdIcon">&Xi;</div></div>';
 	itemWrapper += '<span class="removeIcon">&#10006;</span>';
 	//item image - should be inserted by the item box image
@@ -652,11 +652,16 @@ $(function(){
 		});
 	}
 
-	function filterDuplicate(event,outfit,id, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItems,topPosition,leftPosition){
+	function filterDuplicate(event,outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItems,topPosition,leftPosition){
    		//this prevents duplicate item selection.
 		var alreadySelected = 0;
 		var layerItems =$(".layers");
-		
+
+		var replacableItems = ".jacket,.coat,.vest,.shoes,.swimwear,.jumpsuits,.shorts";
+			replacableItems +=",.pants,.jeans,.dresses,.skirt,.bras,.camisoles,.chemiss,.hosiery";
+			replacableItems +=",.sleepwear,.panties,.robes,.legwear";
+			console.log(replacableItems);
+
 
 		//if there is no single selected items, first create one
    		if($(".layers").length == 0){
@@ -689,7 +694,20 @@ $(function(){
 	   				collage.createItemList(collage.topPosition,collage.leftPosition);
 	   				collage.adding();
 	   			
-		   		}else{
+		   		}else if($(image_above).is(replacableItems)){
+	   			//if the selected item is among replacable items
+	   				
+	   				//if there are already replacable items in the list, remove them.
+	   				if($("#tryclothes #outfitItems > img").is(replacableItems)){
+	   					$("#tryclothes #outfitItems ."+className).remove();
+	   					$("#tryclothes #sortable ."+className).remove();	
+	   				}
+
+	   				outfit.createItemList();
+	   				changeImageType();
+	   				
+				
+				}else{
 		   		//if it was selected on the tryon page
 					outfit.createItemList();
 	   				changeImageType();
@@ -741,38 +759,50 @@ $(function(){
 	   			//callForAboveImage -> if the function is called from manually changing layers
 	   			if(callForAboveImage==1){
 	   				// if the position class (above,middle,below) changes, then call for a new image
-	   				if($(this).attr('class') !== image_type){
-	   					$.ajax({
-	   						type:"POST",
-	   						url:"../includes/product.php",
-	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
-	   						//assign each item with imageType class = classes of above, middle, and below.
-	   						success:function(data){
-	   							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
-	   							//add class "alreadyCalled" in order to prevent multiple ajax call
-	   						},
-	   						fail:function(){
-	   							alert("server request; failed");
-	   						}
-	   					});
+	   				if($("#outfitItems #"+image_id).attr("class").split(" ")[1] !== image_type){
+	   					// $.ajax({
+	   					// 	type:"POST",
+	   					// 	url:"../includes/product.php",
+	   					// 	data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
+	   					// 	//before data is successfully stored, the canvas gets darken.
+	   					// 	beforeSend: function(){
+	   					// 		$("#creationCanvas").append("<div id='darkenDiv'></div>");
+	   					// 		$("#darkenDiv").fadeIn("slow");
+	   					// 	},
+	   					// 	//assign each item with imageType class = classes of above, middle, and below.
+	   					// 	success:function(data){
+	   					// 		$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
+	   					// 		$("#darkenDiv").fadeOut("slow");
+	   					// 		//add class "alreadyCalled" in order to prevent multiple ajax call
+	   					// 	},
+	   					// 	fail:function(){
+	   					// 		alert("server request; failed");
+	   					// 	}
+	   					// });
 	   				}
 				}else if(image_type !== "above"){
 					if(!$("#tryclothes #outfitItems #"+image_id).is(".alreadyCalled")){
 						//check whether if this image is already called by ajax
 						
-	   					$.ajax({
-	   						type:"POST",
-	   						url:"../includes/product.php",
-	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
-	   						//assign each item with imageType class = classes of above, middle, and below.
-	   						success:function(data){
-	   							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
-	   							//add class "alreadyCalled" in order to prevent multiple ajax call
-	   						},
-	   						fail:function(){
-	   							alert("server request; failed");
-	   						}
-	   					});
+	   					// $.ajax({
+	   					// 	type:"POST",
+	   					// 	url:"../includes/product.php",
+	   					// 	data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
+	   					// 	//before data is successfully stored, the canvas gets darken.
+	   					// 	beforeSend: function(){
+	   					// 		$("#creationCanvas").append("<div id='darkenDiv'></div>");
+	   					// 		$("#darkenDiv").fadeIn("slow");
+	   					// 	},
+	   					// 	//assign each item with imageType class = classes of above, middle, and below.
+	   					// 	success:function(data){
+	   					// 		$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
+	   					// 		//add class "alreadyCalled" in order to prevent multiple ajax call
+	   					// 		$("#darkenDiv").fadeOut("slow");
+	   					// 	},
+	   					// 	fail:function(){
+	   					// 		alert("server request; failed");
+	   					// 	}
+	   					// });
 					}
    				}
 
@@ -783,6 +813,7 @@ $(function(){
 
 	var sortableIn = 1;
 	$("#sortable" ).sortable({
+		distance:15,
 		update:function(event,ui){
 			var selectedItem = ui.item;
 			var firstListItem_index = $("#sortable > li:not('.accessory')").first().index();
@@ -842,24 +873,28 @@ $(function(){
 			var selected = $(ui.item);
 			var selected_position = $(ui.item).index();
 			$(selected).css("border","1px solid rgb(200,200,200)");
-			//record the z-index of every itemBox	
+			//change the z-index of every itemBox	
 			for(var k=0;k < $('.layers').length;k++){
 				var itemArray = $('.layers');
 				var itemId = $(itemArray[k]).attr('id');
 				var itemClass = $(itemArray[k]).attr('class');
-				if(!$(itemArray[k]).is(".jacket,.vest,.coat")){
+				if(!$(itemArray[k]).is(".jacket,.vest,.coat,.accessory")){
 					//prevent jacket,coat, vest to be assigned with z-index value
 					$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
+				}else if($(itemArray[k]).is(".accessory")){
+					if($(".layers").is(".vest") && $(".layers.accessory").index() < $(".layers.vest").index()){
+						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1001);
+					}else if($(".layers").is(".jacket") && $(".layers.accessory").index() < $(".layers.jacket").index()){
+						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1002);
+					}else if($(".layers").is(".coat") && $(".layers.accessory").index() < $(".layers.coat").index()){
+						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1003);
+					}else{
+						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
+					}
 				}
 				$("#collage #outfitItems").find('#'+itemId).parent().css('z-index',1000-k);
 			};
-			//modify the z-index of every itemBox
-			var imageId = ui.item.attr('id');				
-			var indexNum = ui.item.index();			
-			var zindexNum = 1000 - indexNum;
-			var num = parseInt(zindexNum);
-			$('#tryclothes #outfitItems').find('#'+imageId).css('z-index',zindexNum);	
-			$('#collage #outfitItems').find('#'+imageId).parent().css('z-index',zindexNum);	
+
 
 			changeImageType(1);
 			
@@ -907,15 +942,15 @@ $(function(){
    		var url = "<a href='#''>test.html</a>"; //Ajax call
    		var price = "$30";//Ajax call
    		var sImage = $(this).children('img').clone(); //to show items on the list(sortable) box
-   		var image_above = $(this).children('img').clone(); //Ajax call - goes onto the model
-   		$(image_above).addClass("above");//all newly selected images are on top of other clothes.
+   		var image_above = $(this).children('img').clone(); //Ajax call - goes onto the model + has category class as well
+   		$(image_above).addClass('above');//the newly selected item is always on top of others
    		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
 		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
 
    		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 
 
-   		filterDuplicate($(this),outfit,id, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
+   		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
    		
    		
 
@@ -924,8 +959,10 @@ $(function(){
 
 //event handler
 	$(".itemBoxImages .items-wrapper").draggable({ 
+		distance:100,
 		appendTo: "body",
-		cursor: "move", 		
+		cursor: "move", 	
+		zIndex: 2000,	
 		helper:function(event,ui){
 			var cloneList = $(this).clone();
 			$(cloneList).find("img").addClass('addStyleListBox');
@@ -947,6 +984,7 @@ $(function(){
 	   		var price = "$30";//Ajax call
 	   		var sImage = $(ui.draggable).children('img').clone(); //to show items on the list box and the item box
 	   		var image_above = $(ui.draggable).children('img').clone(); //Ajax call - goes onto the model		
+	   		$(image_above).addClass('above');//the newly selected item is always on top of others
 	   		var subImgName = $(ui.draggable).children('img').attr('src');// use regular expression to extract only the image name
 			var selectedItem = $(ui.draggable).children('img').clone();//selected sub-images
 	   	
@@ -960,7 +998,7 @@ $(function(){
 
 
 	   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
-	   		filterDuplicate($(ui.draggable),outfit,id, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem, topPosition,leftPosition);
+	   		filterDuplicate($(ui.draggable),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem, topPosition,leftPosition);
 	
 		}
 	});
