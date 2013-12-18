@@ -3,8 +3,10 @@
 //***************************************Size information*************************************//
 //Resizing
 //---------------------- Original size ----------------------//
+//width/height
 //Collage image size -> 550/ 550
-//Model image size -> 550 /678
+//Model image size -> 550 /678 
+//Model size -> 678 * 90% = 610px
 //
 //---------------------- Large size ----------------------//
 //Collage image size -> 475 / 475

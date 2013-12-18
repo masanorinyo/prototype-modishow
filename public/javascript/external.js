@@ -782,7 +782,7 @@ $(function(){
 	   				}
 				}else if(image_type !== "above"){
 					if(!$("#tryclothes #outfitItems #"+image_id).is(".alreadyCalled")){
-						//check whether if this image is already called by ajax
+						// check whether if this image is already called by ajax
 						
 	   					// $.ajax({
 	   					// 	type:"POST",
@@ -883,11 +883,11 @@ $(function(){
 					$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
 				}else if($(itemArray[k]).is(".accessory")){
 					if($(".layers").is(".vest") && $(".layers.accessory").index() < $(".layers.vest").index()){
-						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1001);
-					}else if($(".layers").is(".jacket") && $(".layers.accessory").index() < $(".layers.jacket").index()){
-						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1002);
-					}else if($(".layers").is(".coat") && $(".layers.accessory").index() < $(".layers.coat").index()){
 						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1003);
+					}else if($(".layers").is(".jacket") && $(".layers.accessory").index() < $(".layers.jacket").index()){
+						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1005);
+					}else if($(".layers").is(".coat") && $(".layers.accessory").index() < $(".layers.coat").index()){
+						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1007);
 					}else{
 						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
 					}
@@ -935,7 +935,7 @@ $(function(){
    		//take ID information here & get multiple images for different positions
    		//image for being on top of the other clothes
    		//image for being underneath the other clothes
-
+   		var k=0;
    		var id = $(this).children('img').attr('id');
    		var className = $(this).children('img').attr('class');
    		var title = "<a href='item.html'>test</a>"; //Ajax call
@@ -952,6 +952,12 @@ $(function(){
 
    		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
    		
+   		var itemId;
+		$("#collage .layers").each(function(){
+			itemId = $(this).attr('id');
+			itemIndex = $(this).index();
+			$("#outfitItems #"+itemId).parent().css("z-index",1000-itemIndex);
+		})
    		
 
 	});
@@ -999,6 +1005,13 @@ $(function(){
 
 	   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 	   		filterDuplicate($(ui.draggable),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem, topPosition,leftPosition);
+	
+	   		var itemId;
+			$("#collage .layers").each(function(){
+				itemId = $(this).attr('id');
+				itemIndex = $(this).index();
+				$("#outfitItems #"+itemId).parent().css("z-index",1000-itemIndex);
+			})
 	
 		}
 	});
@@ -1248,8 +1261,9 @@ $(function(){
 
 
 });
-		
 
+
+	
 
 //----------------outfit creation clear function------------------//
 $(function(){
@@ -1258,6 +1272,116 @@ $(function(){
 		$("#sortable").empty();
 	});
 });
+
+
+
+//----------------Collage creation + Storing images into user's database------------------//
+//1 step = get the id of the selcted item
+
+$(function(){
+	$('.button_publish').click(function(){
+		
+		var item_url; // image src 
+		var user_id;//created whom? from session
+		var width;
+		var height;
+		var z_index;
+		var x_position;
+		var y_position;
+		var angle;
+		var itemArray =[];
+		
+		function getDegreesRotation(obj) {
+		    if(obj[0].style['-webkit-transform'] !== undefined) {
+		        return obj[0].style['-webkit-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+		    } else if(obj[0].style['-moz-transform'] !== undefined) {
+		        return obj[0].style['-moz-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+		    } else if(obj[0].style['-ms-transform'] !== undefined) {
+		        return obj[0].style['-ms-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+		    } else if(obj[0].style['-o-transform'] !== undefined) {
+		        return obj[0].style['-o-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+		    } else if(obj[0].style['transform'] !== undefined) {
+		        return obj[0].style['transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+		    } else{ return 0; }
+		}
+
+		$("#tryclothes #outfitItems > img").each(function(){
+			z_index = $(this).css("z-index");
+			item_url = $(this).attr('src');
+		    
+		    itemArray.push({
+		        "zIndex": z_index,
+		        "item_url": item_url
+		    });        
+		
+			
+		});
+		
+		$("#collage #outfitItems > li").each(function(){
+			z_index = $(this).css("z-index");
+			item_url = $(this).children("img").attr('src');
+			x_position = $(this).css("top");
+			y_position = $(this).css("left");
+			angle = getDegreesRotation($(this));
+			height = $(this).css("width");
+			width = $(this).css("height");
+		    
+		    itemArray.push({
+		        "zIndex": z_index,
+		        "item_url": item_url,
+		        "x_position": x_position,
+		        "y_position": y_position,
+		        "angle": angle,
+		        "height": height,
+		        "width": width
+		    });        
+		
+			
+		});
+
+
+		// for(var k=0;k<itemArray.length;k++){
+		// 	console.log(itemArray[k]["zIndex"]+" "+itemArray[k]["item_url"]);
+		// };
+		
+		for(var k=0;k<itemArray.length;k++){
+			console.log(k);
+			console.log("z-index is: "+itemArray[k]["zIndex"]+" url is: "+itemArray[k]["item_url"]);
+			console.log("height is: "+itemArray[k]["height"]+" width is :"+itemArray[k]["width"]);
+			console.log("angle is: "+itemArray[k]["angle"]+" y_position is: "+itemArray[k]["y_position"]);
+			console.log("x position is: "+itemArray[k]["x_position"]);
+		};
+
+		// $.ajax({
+		// 	type:'POST',
+		// 	url:'../../includes/outfit_creation.php',
+		// 	data:{outfit_info:itemArray,userId:user_id},
+		// 	success:function(){
+		// 		console.log("listOfItem_info: "+listOfItem_info);
+		// 	},
+		// 	error:function(){
+		// 		console.log("Ajax call failed: "+listOfItem_info);
+		// 	}
+		// });
+	});
+})
+
+
+//3 step = get the values of width, height, angle,and z-index of each item according to ids
+//4 step = creat a collage
+
+//Collage automatic creation
+//1 step = get the id of the selected item
+//2 step = creat a collage
+
+//Model creation
+//1 step = get the id of the selected model 
+//2 step = get the type of pose
+//4 step = get the id of the selected background image
+//4 step = get the id of each item
+//5 step = get the image type = upper, lower
+//7 step = get the z-index of each item
+//9 step = create a model style.
 
 
 
@@ -2508,67 +2632,7 @@ $(function() {
 
 
 
-//Collage creation
-//1 step = get the id of the selcted item
 
-$(function(){
-	$('.button_publish').click(function(){
-		
-		var item_url; // image url 
-		var user_id;//created whom?
-		var width;
-		var height;
-		var z_index;
-		var x_position;
-		var y_position;
-		var angle;
-
-		var itemArray =$("#outfitItems > img");
-		console.log(itemArray);
-
-		$("#outfitItems > img").each(function(){
-			if($(this).css('z-index') == 1000){
-				//1000 is a default z-index value for selected item
-				//jacket default z-index = 1001
-				//outwear default z-index = 1002
-				console.log($(this).css('z-index') );
-			}else{
-				//if users manually change the order of items
-				console.log($(this).css('z-index') );
-			}
-		});
-		  
-
-		$.ajax({
-			type:'POST',
-			url:'../../includes/outfit_creation.php',
-			data:{outfit_info:listOfItem_info},
-			success:function(){
-				console.log("listOfItem_info: "+listOfItem_info);
-			},
-			error:function(){
-				console.log("Ajax call failed: "+listOfItem_info);
-			}
-		});
-	});
-})
-
-
-//3 step = get the values of width, height, angle,and z-index of each item according to ids
-//4 step = creat a collage
-
-//Collage automatic creation
-//1 step = get the id of the selected item
-//2 step = creat a collage
-
-//Model creation
-//1 step = get the id of the selected model 
-//2 step = get the type of pose
-//4 step = get the id of the selected background image
-//4 step = get the id of each item
-//5 step = get the image type = upper, lower
-//7 step = get the z-index of each item
-//9 step = create a model style.
 
 
 
