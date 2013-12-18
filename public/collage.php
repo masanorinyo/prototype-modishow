@@ -310,17 +310,16 @@
 		</div>
 		<div id="tryonContent" class="tryon-collage fullWidth">
 			<div id="creationCanvas" class="floatLeft">
-				<div class="background_grid fullWidth">
-					<ul id="outfitItems" class="draggable">
-						
+				<ul id="outfitItems" class="draggable">
+					
+				</ul>
+				<div class="submitPanel background_shadow opaque_weak round_medium">
+					<ul>
+						<li class="button_publish">Publish</li>
+						<li class="button_clear ">Clear</li>
 					</ul>
-					<div class="submitPanel background_shadow opaque_weak round_medium">
-						<ul>
-							<li class="button_publish">Publish</li>
-							<li class="button_clear ">Clear</li>
-						</ul>
-					</div>
 				</div>
+				<div class="background_grid fullWidth"></div>
 				<div class="controlPanel">
 					<ul>
 						<li id="remove" class="background_shadow round_medium opaque_weak ">Remove
@@ -682,7 +681,7 @@
 				<div class="popup-box publish_collage">
 					<span class="icon_close opaque_strong"></span>
 					<div class="popup-box-header"><span>Publish</span></div>
-					<a class="noUnloadMessage" href="index.php"><div class="button_medium publish">Publish</div></a>
+					<a class="noUnloadMessage sendInfo" href="index.php"><div class="button_medium publish">Publish</div></a>
 					<div class="button_medium cancel"><span>Cancel</span></div>
 					<span class="label">Share with friends</span> <!--Currently not working-->
 					<div class="button_medium sns_facebook sns"><span>Facebook</span></div>

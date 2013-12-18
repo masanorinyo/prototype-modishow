@@ -924,7 +924,18 @@ $(function(){
 					$(parentList[i]).remove();
 				};
 				
+				console.log($(".layers").length);
+
+
+           		if($(".layers").length == 1){
+       				$(".background_grid").show();
+       			}
+
            };
+
+
+
+           
         }
 	});
     
@@ -959,6 +970,7 @@ $(function(){
 			$("#outfitItems #"+itemId).parent().css("z-index",1000-itemIndex);
 		})
    		
+   		$(".background_grid").hide();
 
 	});
 
@@ -1012,7 +1024,10 @@ $(function(){
 				itemIndex = $(this).index();
 				$("#outfitItems #"+itemId).parent().css("z-index",1000-itemIndex);
 			})
-	
+
+			//get rid of the grid when items are on the canvas
+			$(".background_grid").css("background","none");
+
 		}
 	});
 
@@ -1074,6 +1089,10 @@ $(function(){
 			var parentList = $("#outfitItems").find('#'+sameId).parent();
 			$("#outfitItems").find('#'+sameId).remove();
 			$(parentList).remove();
+
+			if($(".layers").length == 0){
+   				$(".background_grid").show();
+   			}
 		});
 		
 	};
@@ -1185,7 +1204,11 @@ $(function(){
 				};
 			};
 		};
+		if($(".layers").length == 0){
+			$(".background_grid").show();
+		}
 	})
+	
 	$("#clone").on('click',function(e){
 		var itemsOnCanvas = $(".draggable > li");
 		var imageWrapper = "<li></li>"	
@@ -1270,6 +1293,7 @@ $(function(){
 	$(".submitPanel .button_clear").click(function(){
 		$("#outfitItems").empty();
 		$("#sortable").empty();
+		$(".background_grid").show();
 	});
 });
 
@@ -1279,7 +1303,7 @@ $(function(){
 //1 step = get the id of the selcted item
 
 $(function(){
-	$('.button_publish').click(function(){
+	$('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
 		
 		var item_url; // image src 
 		var user_id;//created whom? from session
@@ -1290,6 +1314,8 @@ $(function(){
 		var y_position;
 		var angle;
 		var itemArray =[];
+		var backgroundImg=$("#tryclothes #creationCanvas .backgroundImage").attr("src");
+		var model=$("#tryclothes #creationCanvas .virtualModel").attr("src");
 		
 		function getDegreesRotation(obj) {
 		    if(obj[0].style['-webkit-transform'] !== undefined) {
@@ -1340,9 +1366,9 @@ $(function(){
 		});
 
 
-		// for(var k=0;k<itemArray.length;k++){
-		// 	console.log(itemArray[k]["zIndex"]+" "+itemArray[k]["item_url"]);
-		// };
+		for(var k=0;k<itemArray.length;k++){
+			console.log(itemArray[k]["zIndex"]+" "+itemArray[k]["item_url"]);
+		};
 		
 		for(var k=0;k<itemArray.length;k++){
 			console.log(k);
@@ -1352,17 +1378,17 @@ $(function(){
 			console.log("x position is: "+itemArray[k]["x_position"]);
 		};
 
-		// $.ajax({
-		// 	type:'POST',
-		// 	url:'../../includes/outfit_creation.php',
-		// 	data:{outfit_info:itemArray,userId:user_id},
-		// 	success:function(){
-		// 		console.log("listOfItem_info: "+listOfItem_info);
-		// 	},
-		// 	error:function(){
-		// 		console.log("Ajax call failed: "+listOfItem_info);
-		// 	}
-		// });
+		$.ajax({
+			type:'POST',
+			url:'../../includes/outfit_creation.php',
+			data:{outfit_info:itemArray,userId:user_id,background:backgroundImg,model:model},
+			success:function(){
+				console.log("listOfItem_info: "+listOfItem_info);
+			},
+			error:function(){
+				console.log("Ajax call failed: "+listOfItem_info);
+			}
+		});
 	});
 })
 

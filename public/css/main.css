@@ -855,6 +855,11 @@ li{
 	z-index:30001;
 }
 
+#header .submenu > li:nth-child(odd){
+	background-color:rgb(52,53,63);
+}
+
+
 #header .submenu.userProfile_list{
 	/*the width of the submenu will change 
 	according to the length of username*/
@@ -1932,7 +1937,7 @@ li{
 
 /*middle space*/
 .content-middle{
-	height:500px;
+	height:575px;
 	position: relative;
 }
 
@@ -1995,7 +2000,7 @@ li{
 
 /*collage, model, people button*/
 .content-top{
-	height:60px;
+	height:75px;
 	position:relative;
 }
 
@@ -2004,7 +2009,7 @@ li{
 	border:1px solid rgb(204,204,204);
 	position:absolute;
 	width:220px;
-	top:20px;
+	top:30px;
 }
 
 .button_rectanglar > div{
@@ -2024,8 +2029,12 @@ li{
 
 /*middle space*/
 .content-middle > div > img{
-	height:97%;
+	height:560px;
 	margin:0 auto;
+	position:absolute;
+	left:0;
+	right:0;
+	border:1px solid rgb(200,200,200);
 }
 
 .content_collage,.content_model,.content_people{
@@ -2314,6 +2323,7 @@ li{
 .side_middle-users{
 	overflow-y:scroll;
 	margin:0 auto;
+	text-align: center;
 	height:210px;
 	width:220px;
 	background-color: rgb(240,240,240);
@@ -2326,7 +2336,7 @@ li{
 }
 
 .otherUsers{
-	width:65px;
+	width:63px;
 	border-radius:1px;
 	-webkit-border-radius:1px;
 	-moz-border-radius:1px;
