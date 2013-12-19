@@ -162,15 +162,16 @@
 	// header('Content-type: image/png');
 	// echo $canvas;
 
-
-$receivedArray = array( 
+// collage creation
+	$receivedArray = array( 
 		array( 
 			"src" => "../public/images/items/accessory_1.png", 
-			"zIndex" => 1003,
+			"zIndex" => 1001,
+
 		),
 		array( 
 			"src" => "../public/images/items/inner_1.png", 
-			"zIndex" => 996,
+			"zIndex" => 1001,
 		),
 		array( 
 			"src" => "../public/images/items/jacket_1.png", 
@@ -179,11 +180,8 @@ $receivedArray = array(
 		array( 
 			"src" => "../public/images/items/shirt_1.png", 
 			"zIndex" => 998,
-		),
-		array( 
-			"src" => "../public/images/items/skirt_1.png", 
-			"zIndex" => 997,
 		)
+		
 	);
 	
 

@@ -669,6 +669,7 @@ $(function(){
 	   		if($(event).parent().is(".collageCanvas")){
 	   			var collage = new collageStyle(id, title,url,price,sImage,itemWrapper,subImgName,selectedItems,topPosition,leftPosition);
 	   			console.log(collage);
+	   			pushBackItems();
 	   			collage.createItemList(collage.topPosition,collage.leftPosition);
 	   			collage.adding();
 	   			
@@ -691,6 +692,7 @@ $(function(){
 				if($(event).parent().is(".collageCanvas")){
 		   			var collage = new collageStyle(id, title,url,price,sImage,itemWrapper,subImgName,selectedItems,topPosition,leftPosition);
 	   				console.log(collage);
+	   				pushBackItems();
 	   				collage.createItemList(collage.topPosition,collage.leftPosition);
 	   				collage.adding();
 	   			
@@ -872,12 +874,23 @@ $(function(){
 			sortableIn = 1;
 			var selected = $(ui.item);
 			var selected_position = $(ui.item).index();
-			$(selected).css("border","1px solid rgb(200,200,200)");
+			
+			$(selected).css({
+				border:"1px solid rgb(200,200,200)",
+				backgroundColor:"rgb(34,34,34)",
+			});
+
+			var numOfDynamicVariables = 0;
+			var numOfItems　= 0;
+
 			//change the z-index of every itemBox	
 			for(var k=0;k < $('.layers').length;k++){
+				var loop = 0;
 				var itemArray = $('.layers');
 				var itemId = $(itemArray[k]).attr('id');
 				var itemClass = $(itemArray[k]).attr('class');
+				var thisLoopItem = $("#collage #outfitItems #"+itemId);
+				
 				if(!$(itemArray[k]).is(".jacket,.vest,.coat,.accessory")){
 					//prevent jacket,coat, vest to be assigned with z-index value
 					$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
@@ -892,20 +905,66 @@ $(function(){
 						$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
 					}
 				}
-				$("#collage #outfitItems").find('#'+itemId).parent().css('z-index',1000-k);
+
+				
+				//this counts the num of cloned items so that the position will be in order
+				
+				
+				numOfItems = parseInt(k+numOfDynamicVariables);
+				var numOfClones = 0;
+				
+			
+				
+				if($(thisLoopItem).parents('li').is('.clonedItem')){
+					var cloneArray = $('.clonedItem #'+itemId);
+					console.log("Number of items :"+numOfItems);
+					$(cloneArray).each(function(){
+						$(this).parent().css("z-index",parseInt(1000-numOfClones-numOfItems));
+						//to keep adding the clone num = static variable
+						
+						numOfClones++;
+
+						
+					});
+					
+					numOfDynamicVariables += numOfClones-1;
+					console.log("total numbers :"+numOfDynamicVariables);
+					
+				}else{
+					$(thisLoopItem).parent().css('z-index',parseInt(1000-numOfItems));
+					console.log("total numbers without clones :"+numOfDynamicVariables);
+				}
+
+				$("#outfitItems > li").each(function(){
+					console.log($(this).css("z-index"));
+				});
+				
+				
+				
+				
+
+				
 			};
 
 
 			changeImageType(1);
 			
 		},
+
 		over:function(event,ui){
 			sortableIn = 1;
-			ui.item.css("border","1px solid rgb(200,200,200)");
+			ui.item.css({
+				border:"1px solid rgb(200,200,200)",
+				backgroundColor:"rgb(34,34,34)",
+			});
 		},
+
 		out:function(event,ui){
 			sortableIn = 0;
-			ui.item.css("border","1px solid rgb(255,100,100)");
+			ui.item.css({
+				border:"2px solid rgb(190,80,80)",
+				backgroundColor:"rgb(80,50,50)",
+			});
 		},
 		
 		//beforeStop to remove items and maintain a sentinel based on the over and out to determine whether or not you've moved outside the bounds of the container.
@@ -941,6 +1000,14 @@ $(function(){
     
     $("#sortable").disableSelection();
 
+    //push back the images already on the canvas
+    function pushBackItems (){
+    	$("#collage #outfitItems > li").each(function(){
+			var current_zindex = $(this).css("z-index")-1;
+			$(this).css("z-index",current_zindex);
+		});
+    }
+
 //event handler
 	$('.itemBoxImages').on("click",".items-wrapper",function(event){	
    		//take ID information here & get multiple images for different positions
@@ -958,18 +1025,17 @@ $(function(){
    		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
 		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
 
+
+
+		
+
    		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 
 
    		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
-   		
-   		var itemId;
-		$("#collage .layers").each(function(){
-			itemId = $(this).attr('id');
-			itemIndex = $(this).index();
-			$("#outfitItems #"+itemId).parent().css("z-index",1000-itemIndex);
-		})
-   		
+
+
+
    		$(".background_grid").hide();
 
 	});
@@ -1017,16 +1083,10 @@ $(function(){
 
 	   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 	   		filterDuplicate($(ui.draggable),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem, topPosition,leftPosition);
-	
-	   		var itemId;
-			$("#collage .layers").each(function(){
-				itemId = $(this).attr('id');
-				itemIndex = $(this).index();
-				$("#outfitItems #"+itemId).parent().css("z-index",1000-itemIndex);
-			})
+			
 
 			//get rid of the grid when items are on the canvas
-			$(".background_grid").css("background","none");
+			$(".background_grid").hide();
 
 		}
 	});
@@ -1081,6 +1141,9 @@ $(function(){
 		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
+
+		$(collageItemWrapper).css("z-index","1000");
+		
 		$("#outfitItems").append(collageItemWrapper);
 
 		$('.removeIcon').click(function(event){
@@ -1118,7 +1181,7 @@ $(function(){
 
 	 	});
 		
-		$(".draggable > li").mousedown(function(event){
+		$("#collage #outfitItems > li").mousedown(function(event){
 			$(this).find(".ui-rotatable-handle").css({
 				display:"block",
 			});
@@ -1141,9 +1204,13 @@ $(function(){
 		});
 		
 		//selection border will be removed when users click outside the item
-		$('.background_grid').click(function(event) {
+		$('#creationCanvas').click(function(event) {
 			var clickedImage = $(event.target).parent('li');
+
+
 			if($(clickedImage).is('.selectedImg')){
+				return false;
+			}if($(event.target).is('.ui-draggable')){
 				return false;
 			}else{
 				$(".draggable > li ").find(".ui-rotatable-handle").css({
@@ -1153,6 +1220,8 @@ $(function(){
 				$(".draggable > li").css("border","none").removeClass("selectedImg");
 
 			}
+
+
 		});
 
 		//make the item resizable
@@ -1173,9 +1242,15 @@ $(function(){
 	 };
 
 	 collageStyle.prototype.clone = function(cloneImage){
+	 	
+	 	pushBackItems();
 	 	var collageItemWrapper = $.parseHTML("<li></li>");
 	 	$(collageItemWrapper).append(cloneImage);
+	 	$(collageItemWrapper).css("z-index",1000);
+	 	$(collageItemWrapper).addClass("clonedItem");
 		$("#outfitItems").append(collageItemWrapper);
+
+
 
 		$('.removeIcon').click(function(event){
 			$(this).parent().remove();
@@ -1191,19 +1266,34 @@ $(function(){
 		var itemsOnCanvasArray = $("#outfitItems > li");
 		var selectedImgId = $("#outfitItems > .selectedImg").find("img").attr('id');
 		console.log(selectedImgId);
+		
 		for(var i=0;i<itemsOnCanvasArray.length; i++){
 
 			if($(itemsOnCanvasArray[i]).is(".selectedImg")){
 				$(itemsOnCanvasArray[i]).remove();
 				//if all the images with the same id are deleted, the image list in the sortable list will be deleted
-				
+				var itemId = $(itemsOnCanvasArray[i]).find('img').attr('id');				
 				var itemNum = $("#outfitItems").find("#"+selectedImgId);
 				console.log(itemNum.length);
 				if(itemNum.length == 0){
 					$("#sortable").find("#"+selectedImgId).remove();	
-				};
-			};
+				}
+
+
+				//if there is no other cloned item, then remove a cloneItem class from the last item.
+				if($("#outfitItems #"+itemId).parents(".clonedItem").length <= 1){
+					$("#outfitItems #"+itemId).parent().removeClass('clonedItem');
+				}
+
+				// if($(itemsOnCanvasArray[i]+".clonedItem").length < 1){
+				// 	$(itemsOnCanvasArray[i]).removeClass("clonedItem");
+				// }
+			}
+
 		};
+
+
+
 		if($(".layers").length == 0){
 			$(".background_grid").show();
 		}
@@ -1213,13 +1303,13 @@ $(function(){
 		var itemsOnCanvas = $(".draggable > li");
 		var imageWrapper = "<li></li>"	
 
+
 		for(var i =0; i < itemsOnCanvas.length;i++){
 			if($(itemsOnCanvas[i]).is(".selectedImg")){
 				var originalId =$("#outfitItems > .selectedImg").children('img').attr('id');
-				console.log(originalId);
 				var cloneImage = $(itemsOnCanvas[i]).children("img").clone();
+				$("#outfitItems #"+originalId).parent().addClass("clonedItem");
 				$(cloneImage).attr('id',originalId);
-				console.log($(cloneImage).attr('id'));
 				//console.log("cloneImage");
 				//var wrappedImage = $(imageWrapper).append(cloneImage);
 				var collage = new collageStyle();
@@ -1229,6 +1319,9 @@ $(function(){
 			};
 			
 		};
+
+
+
 	});
 
 
@@ -1248,12 +1341,29 @@ $(function(){
 	});
 
 	$("#front").on('click',function(e){
-		var imageArray = $(".draggable > li");
-		var arrayPosition = 1001;//always on top of everything
-		var k;
-		 
+		
+		var arrayPosition = 1001;//exclude the selected image
 		var selectedId= $(".selectedImg > img").attr("id");
-		$(".selectedImg").css('z-index',arrayPosition);
+		var selected_zindex =parseInt($(".selectedImg").css("z-index"));
+
+		var position=parseInt($("#outfitItems > li").length);
+		
+		$("#outfitItems > li").each(function(){
+			
+			var current_zindex = parseInt($(this).css("z-index"));
+
+			// if the current z-index is smaller than the selected item z-index
+			// then add one to each of the items below the selected item
+			// Just think of it as a pushpop. 
+			if(current_zindex > selected_zindex){
+
+				$(this).css("z-index",current_zindex-1);
+
+			}
+		});
+
+		$(".selectedImg").css('z-index',1000);
+
 		var cloneList = $("#sortable > #"+selectedId).clone();
 		$("#sortable").find("#"+selectedId).remove();
 		$("#sortable").prepend(cloneList);
@@ -1266,15 +1376,31 @@ $(function(){
 	});
 
 	$("#back").on('click',function(e){
-		var imageArray = $(".draggable > li");
-		var arrayPosition = 1001;//exclude the selected image
+		
+		var arrayPosition = 1000;//exclude the selected image
 		var selectedId= $(".selectedImg > img").attr("id");
-		var k;
-		for(k =0; k < imageArray.length;k++){
-			$(imageArray[k]).css('z-index',arrayPosition-k);
-		};
-		console.log(k);
-		$(".selectedImg").css('z-index',arrayPosition - k);
+		var selected_zindex =parseInt($(".selectedImg").css("z-index"));
+
+		var position=parseInt($("#outfitItems > li").length);
+		
+		$("#outfitItems > li").each(function(){
+			
+			var current_zindex = parseInt($(this).css("z-index"));
+			var test = $.isNumeric(current_zindex);
+			
+			console.log(test);
+			console.log("selected :"+selected_zindex);
+
+			if(current_zindex < selected_zindex){
+
+				$(this).css("z-index",current_zindex+1);
+				console.log("Changed");
+			}
+		});
+
+
+		$(".selectedImg").css('z-index',arrayPosition - position+1);
+
 		var cloneList = $("#sortable > #"+selectedId).clone();
 		$("#sortable").find("#"+selectedId).remove();
 		$("#sortable").append(cloneList);
@@ -1303,7 +1429,7 @@ $(function(){
 //1 step = get the id of the selcted item
 
 $(function(){
-	$('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
+	$('#collage .button_publish, #tryclothes .sendInfo').click(function(){
 		
 		var item_url; // image src 
 		var user_id;//created whom? from session
@@ -1330,6 +1456,8 @@ $(function(){
 		        return obj[0].style['transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
 		    } else{ return 0; }
 		}
+
+
 
 		$("#tryclothes #outfitItems > img").each(function(){
 			z_index = $(this).css("z-index");
