@@ -61,6 +61,7 @@
 // 	public $x_value;
 // 	public $y_value;
 // 	public $angle;
+// 	public $flopImage;
 
 // 	public function __construct(){
 // 		$outfitInfo = $_POST['outfit_info'];
@@ -165,25 +166,64 @@
 // collage creation
 	$receivedArray = array( 
 		array( 
-			"src" => "../public/images/items/accessory_1.png", 
-			"zIndex" => 1001,
+			"src" => "../public/images/productItems/inner_1.png", 
+			"zIndex" => 988,
+			"width" => 284,
+			"height" => 284,
+			"y_value" => -1.21875,
+			"x_value" =>1,
+			"angle" =>0,
+			"flopImage" => false,
+		),
 
-		),
 		array( 
-			"src" => "../public/images/items/inner_1.png", 
-			"zIndex" => 1001,
+			"src" => "../public/images/productItems/accessory_1.png", 
+			"zIndex" => 997,
+			"width" => 204,
+			"height" => 204,
+			"y_value" => 167.78125,
+			"x_value" =>446,
+			"angle" =>0,
+			"flopImage" => false,
 		),
+
 		array( 
-			"src" => "../public/images/items/jacket_1.png", 
-			"zIndex" => 1002,
+			"src" => "../public/images/productItems/accessory_1.png", 
+			"zIndex" =>999,
+			"width" => 250,
+			"height" => 250,
+			"y_value" => 296.78125,
+			"x_value" => 422.15625,
+			"angle" =>0,
+			"flopImage" => true,
 		),
+
 		array( 
-			"src" => "../public/images/items/shirt_1.png", 
-			"zIndex" => 998,
+			"src" => "../public/images/productItems/dress_1.png", 
+			"zIndex" => 996,
+			"width" => 350,
+			"height" => 350,
+			"y_value" => 210.2337188720703,
+			"x_value" => -33.61003112792969,
+			"angle" => 0.41338028782402936,
+			"flopImage" => false,
+		),
+
+		array( 
+			"src" => "../public/images/productItems/accessory_1.png", 
+			"zIndex" => 996,
+			"width" => 179,
+			"height" => 179,
+			"y_value" => 50.78125,
+			"x_value" => 450,
+			"angle" => 0,
+			"flopImage" => false,
 		)
 		
 	);
 	
+
+
 
 	function aasort (&$array, $key) {
         $sorter=array();
@@ -206,28 +246,19 @@
 	$canvas->newImage(586,586 , new ImagickPixel('none'));
 	$canvas->setImageFormat('png');
 	
-	$background = new Imagick( "../public/images/embelishment/Outfit_background1.png" );
-	
-	//background images need to be resized to fit the canvas 
-	$background->resizeImage ( 800, 800,  imagick::FILTER_LANCZOS, 1, TRUE);
-	
-	$model = new Imagick( "../public/images/model/raw_natashaModel.png" );
-	$model->resizeImage ( 351, 527,  imagick::FILTER_LANCZOS, 1, TRUE);
-
-
-
-	$canvas->compositeImage( $background, imagick::COMPOSITE_DEFAULT, (((($canvas->getImageWidth()) - ($background->getImageWidth())))/2), 0 );
-
-	$canvas->compositeImage( $model, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($model->getImageWidth())))/2),50);
-
-
-
 	$k = 0;
 	$item = [];
 	foreach($receivedArray as $value => $key){
 		$item[$k]=new Imagick($key["src"]);
-		$item[$k]->resizeImage (351, 527,  imagick::FILTER_LANCZOS, 1, TRUE);
-		$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($item[$k]->getImageWidth())))/2),50);
+		$item[$k]->resizeImage ($key["width"],$key["height"],  imagick::FILTER_LANCZOS, 1, TRUE);
+		
+		if($key["flopImage"]==true){
+			$item[$k]->flopImage();
+		}
+
+		$item[$k]->rotateImage(new ImagickPixel('none'),$key['angle']*180/pi());
+		
+		$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,$key["x_value"],$key["y_value"]);
 		$k++;
 	}
 

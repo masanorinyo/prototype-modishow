@@ -1248,6 +1248,7 @@ $(function(){
 	 	$(collageItemWrapper).append(cloneImage);
 	 	$(collageItemWrapper).css("z-index",1000);
 	 	$(collageItemWrapper).addClass("clonedItem");
+	 	$(collageItemWrapper).css({top:"40%",left:"40%"});
 		$("#outfitItems").append(collageItemWrapper);
 
 
@@ -1432,16 +1433,19 @@ $(function(){
 	$('#collage .button_publish, #tryclothes .sendInfo').click(function(){
 		
 		var item_url; // image src 
-		var user_id;//created whom? from session
+		var user_id = 0;
+		//creator's id. the 0 will be assigned when the collage is automatically created
 		var width;
 		var height;
 		var z_index;
 		var x_position;
 		var y_position;
 		var angle;
+		var flopImage;
 		var itemArray =[];
 		var backgroundImg=$("#tryclothes #creationCanvas .backgroundImage").attr("src");
 		var model=$("#tryclothes #creationCanvas .virtualModel").attr("src");
+
 		
 		function getDegreesRotation(obj) {
 		    if(obj[0].style['-webkit-transform'] !== undefined) {
@@ -1474,11 +1478,16 @@ $(function(){
 		$("#collage #outfitItems > li").each(function(){
 			z_index = $(this).css("z-index");
 			item_url = $(this).children("img").attr('src');
-			x_position = $(this).css("top");
-			y_position = $(this).css("left");
+			x_position = $(this).css("left");
+			y_position = $(this).css("top");
 			angle = getDegreesRotation($(this));
 			height = $(this).css("width");
 			width = $(this).css("height");
+			flopImage = false;
+			
+			if($(this).find("img").is(".reflection")){
+				flopImage = true;
+			}
 		    
 		    itemArray.push({
 		        "zIndex": z_index,
@@ -1487,7 +1496,8 @@ $(function(){
 		        "y_position": y_position,
 		        "angle": angle,
 		        "height": height,
-		        "width": width
+		        "width": width,
+		        "flopImage":flopImage
 		    });        
 		
 			
@@ -1503,18 +1513,18 @@ $(function(){
 			console.log("z-index is: "+itemArray[k]["zIndex"]+" url is: "+itemArray[k]["item_url"]);
 			console.log("height is: "+itemArray[k]["height"]+" width is :"+itemArray[k]["width"]);
 			console.log("angle is: "+itemArray[k]["angle"]+" y_position is: "+itemArray[k]["y_position"]);
-			console.log("x position is: "+itemArray[k]["x_position"]);
+			console.log("x position is: "+itemArray[k]["x_position"]+" Flipped? : "+itemArray[k]["flopImage"]);
 		};
 
 		$.ajax({
 			type:'POST',
 			url:'../../includes/outfit_creation.php',
 			data:{outfit_info:itemArray,userId:user_id,background:backgroundImg,model:model},
-			success:function(){
-				console.log("listOfItem_info: "+listOfItem_info);
+			success:function(data){
+				console.log("listOfItem_info: "+data);
 			},
-			error:function(){
-				console.log("Ajax call failed: "+listOfItem_info);
+			error:function(data){
+				console.log("Ajax call failed: ");
 			}
 		});
 	});
