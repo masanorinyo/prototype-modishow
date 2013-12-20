@@ -69,10 +69,19 @@
 // 	}
 
 //canvas creation = constructor
-//1 step check whether the created style already exists in the database
+//1 step name the image according to the rule
+//	get the product id number first 
+//	sort the product id according to the z-index
+//	get the ids of items used - background, embelishments
+//	sort the item id according to the z-index
+//	get the id of model
+//	get-rounded values (x,y,width,height,angle) from each id - if 0, then no value
+
+//	 
+//2 step check whether the created style already exists in the database
 //	Determine whether the system can find the same source name of the image.
 //	
-//2 step = determine the width and the height of the whole canvas
+//3 step = determine the width and the height of the whole canvas
 //	if it is for collage creation
 //		determin whether the width or the height is bigger 
 //		get the value from the 1st step
@@ -166,62 +175,54 @@
 // collage creation
 	$receivedArray = array( 
 		array( 
-			"src" => "../public/images/productItems/inner_1.png", 
-			"zIndex" => 988,
-			"width" => 284,
-			"height" => 284,
-			"y_value" => -1.21875,
-			"x_value" =>1,
+			"src" => "../public/images/productItems/skirt_1.png", 
+			"zIndex" =>997,
+			"width" => 300,
+			"height" => 300,
+			"y_value" => 0,
+			"x_value" =>-400,
 			"angle" =>0,
 			"flopImage" => false,
 		),
 
 		array( 
-			"src" => "../public/images/productItems/accessory_1.png", 
-			"zIndex" => 997,
-			"width" => 204,
-			"height" => 204,
-			"y_value" => 167.78125,
-			"x_value" =>446,
+			"src" => "../public/images/productItems/skirt_1.png", 
+			"zIndex" => 998,
+			"width" => 300,
+			"height" => 300,
+			"y_value" => 400,
+			"x_value" => 900,
+			"angle" =>-0,
+			"flopImage" => false,
+		),
+
+		array( 
+			"src" => "../public/images/productItems/skirt_1.png", 
+			"zIndex" => 999,
+			"width" => 300,
+			"height" => 300,
+			"y_value" => 800,
+			"x_value" =>800,
 			"angle" =>0,
 			"flopImage" => false,
 		),
 
 		array( 
-			"src" => "../public/images/productItems/accessory_1.png", 
-			"zIndex" =>999,
-			"width" => 250,
-			"height" => 250,
-			"y_value" => 296.78125,
-			"x_value" => 422.15625,
+			"src" => "../public/images/productItems/skirt_1.png", 
+			"zIndex" =>1000,
+			"width" => 300,
+			"height" => 300,
+			"y_value" => 400,
+			"x_value" => 400,
 			"angle" =>0,
-			"flopImage" => true,
-		),
-
-		array( 
-			"src" => "../public/images/productItems/dress_1.png", 
-			"zIndex" => 996,
-			"width" => 350,
-			"height" => 350,
-			"y_value" => 210.2337188720703,
-			"x_value" => -33.61003112792969,
-			"angle" => 0.41338028782402936,
 			"flopImage" => false,
 		),
 
-		array( 
-			"src" => "../public/images/productItems/accessory_1.png", 
-			"zIndex" => 996,
-			"width" => 179,
-			"height" => 179,
-			"y_value" => 50.78125,
-			"x_value" => 450,
-			"angle" => 0,
-			"flopImage" => false,
-		)
 		
 	);
-	
+
+	$canvasWidth = 700;
+    $canvasHeight = 700;
 
 
 
@@ -241,15 +242,113 @@
 
     aasort($receivedArray,"zIndex");
 
-	
+
+
+    
+    
+    //determine whether the canvas needs to be expanded.
+  	$extendedLength_height =0; 
+  	$extendedLength_width =0;
+    $k = 0;
+
+    foreach($receivedArray as $value => $key){
+		
+	  
+    	//to see whether the item x value is minus or larger than the canvas with
+    	
+    	$rightLength = $canvasWidth - ($key["width"] + $receivedArray[$k]["x_value"]);
+    	
+    	//you have to check the modified x value 
+    	if($receivedArray[$k]["x_value"] < 0){
+    		
+    		//if the x value of the item is minus, then adds the positive version of the value to the canvas size
+    		$canvasWidth += $receivedArray[$k]["x_value"] *-1;
+    			
+    		//adds the extended length to x value of every item
+    		$num =0;
+    		foreach($receivedArray as $array => $term){
+    			if($num !=$k){
+    				$receivedArray[$num]["x_value"] +=$receivedArray[$k]["x_value"] *-1;	
+    			}
+	    		
+	    		$num++;
+	    	}
+
+    		$receivedArray[$k]["x_value"] = 0;
+
+    	}else if($rightLength < 0){
+    		
+    		$canvasWidth +=  ($rightLength * -1);
+
+
+    	}
+
+    	//to see whether the item y value is minus or larger than the canvas height
+    	$bottomLength =  $canvasHeight - ($key["height"] + $receivedArray[$k]["y_value"]);
+    	
+    	if($receivedArray[$k]["y_value"]< 0){
+    		
+			$canvasHeight += $receivedArray[$k]["y_value"]*-1;
+    		
+    		$num =0;
+    		foreach($receivedArray as $array => $term){
+	    		$receivedArray[$num]["y_value"] +=$receivedArray[$k]["y_value"]*-1;
+	    		$num++;
+	    	}
+
+			$receivedArray[$k]["y_value"] = 0;
+
+    	}else if($bottomLength < 0){
+
+    		$canvasHeight +=($bottomLength * -1);
+
+    	}
+
+    	
+
+	    $k++;
+
+    }
+    
+	if($canvasWidth > $canvasHeight){
+    	
+    	$num =0;	
+    	$extendedLength_height = ($canvasWidth - $canvasHeight)/2;
+    	
+    	foreach($receivedArray as $array => $term){
+    		
+			$receivedArray[$num]["y_value"] +=$extendedLength_height;
+    	
+    		$num++;
+    	}
+    	
+
+    	$canvasHeight = $canvasWidth;
+    }else if($canvasWidth < $canvasHeight){
+   		$extendedLength_width = 0;
+    	$num =0;	
+    	$extendedLength_width = ($canvasHeight - $canvasWidth)/2;
+   
+    	foreach($receivedArray as $array => $term){
+    		
+			$receivedArray[$num]["x_value"] +=$extendedLength_width;
+			
+			$num++;
+    	}
+
+    	
+    	$canvasWidth = $canvasHeight;
+    }
 	$canvas = new Imagick();
-	$canvas->newImage(586,586 , new ImagickPixel('none'));
+	$canvas->newImage($canvasWidth,$canvasHeight, new ImagickPixel('rgb(80,80,80'));
 	$canvas->setImageFormat('png');
 	
 	$k = 0;
 	$item = [];
+
 	foreach($receivedArray as $value => $key){
-		$item[$k]=new Imagick($key["src"]);
+		$item[$k] = new Imagick($key["src"]);
+		$item[$k]->borderImage(new ImagickPixel('red'),$key["width"],$key["height"]);
 		$item[$k]->resizeImage ($key["width"],$key["height"],  imagick::FILTER_LANCZOS, 1, TRUE);
 		
 		if($key["flopImage"]==true){
@@ -257,10 +356,13 @@
 		}
 
 		$item[$k]->rotateImage(new ImagickPixel('none'),$key['angle']*180/pi());
-		
+
 		$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,$key["x_value"],$key["y_value"]);
 		$k++;
 	}
+
+	$canvas->resizeImage (586,586,  imagick::FILTER_LANCZOS, 1, TRUE);
+	
 
 	header('Content-type: image/png');
 	echo $canvas;
@@ -268,32 +370,32 @@
 
 
 
-//assign size values
-//1 step = get the images
-//2 step = assign them with specified size values
+// // // //assign size values
+// // // //1 step = get the images
+// // // //2 step = assign them with specified size values
 
-//assign angle degree values
-//1 step = get the images
-//2 step = assign them with specified angle degree values
+// // // //assign angle degree values
+// // // //1 step = get the images
+// // // //2 step = assign them with specified angle degree values
 
-//assign position values
-//1 step = get images
-//2 step = assign them with specified x and y values
+// // // //assign position values
+// // // //1 step = get images
+// // // //2 step = assign them with specified x and y values
 
-//layering
-//1 step = get images 
-//2 step = assign them with specified z-index
-
-
-//combine all images 
-//1 step = get images 
-//2 step = combine them tegether based on the canvas size
-//3 step = name it with each of the attribute
-//id of each item,model, and background + each of the z-index values + values of round(x,y,z) into 1st level + width and height. 
+// // // //layering
+// // // //1 step = get images 
+// // // //2 step = assign them with specified z-index
 
 
-// }
+// // // //combine all images 
+// // // //1 step = get images 
+// // // //2 step = combine them tegether based on the canvas size
+// // // //3 step = name it with each of the attribute
+// // // //id of each item,model, and background + each of the z-index values + values of round(x,y,z) into 1st level + width and height. 
+
+
+// // // // }
 
 
 
-?>
+// // ?>
