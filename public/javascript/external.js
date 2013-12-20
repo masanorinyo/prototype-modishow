@@ -1470,10 +1470,15 @@ $(function(){
 //1 step = get the id of the selcted item
 
 
-	$('#collage .button_publish, #tryclothes .sendInfo').click(function(){
+	$('#collage .button_publish, #tryclothes .button_publish').click(function(){
 		
 		var item_url; // image src 
 		var user_id = 0;
+		var product_id;
+		var embelishment_id;
+		var	people_id;
+		var beauty_id;
+		var model_id;
 		//creator's id. the 0 will be assigned when the collage is automatically created
 		var width;
 		var height;
@@ -1483,25 +1488,65 @@ $(function(){
 		var angle;
 		var flopImage;
 		var itemArray =[];
+		var embelishmentArray=[];
+		var background_id = parseInt($("#tryclothes #creationCanvas .backgroundImg").attr("id"));
+		var background_src = $("#tryclothes #creationCanvas .backgroundImg").attr("src");
+		var model_id = parseInt($("#tryclothes #creationCanvas .virtualModel").attr("id"));
+		var model_src = $("#tryclothes #creationCanvas .backgroundImg").attr("src");
 		var canvasWidth = $("#creationCanvas").css("width");
-		var canvasHeight= $("#creationCanvas").css("height");
-		var backgroundImg=$("#tryclothes #creationCanvas .backgroundImage").attr("src");
-		var model=$("#tryclothes #creationCanvas .virtualModel").attr("src");
+		var canvasHeight= $("#creationCanvas").css("height");		
+		
 
+		//model
+		//get the product id,z-index value and src of each item on the model
 		$("#tryclothes #outfitItems > img").each(function(){
 			z_index = $(this).css("z-index");
 			item_url = $(this).attr('src');
-
-		    
+			product_id = parseInt($(this).attr("id"));
 		    itemArray.push({
+		    	"productId":product_id,
 		        "zIndex": z_index,
 		        "item_url": item_url
 		    });        
 		
 			
 		});
+
+
+		//model
+		//get the image id,z-index, and embelishment
+		$("#tryclothes #embelishment > img").each(function(){
+			item_url = $(this).attr('src');
+			z_index=$(this).css("z-index");
+			embelishment_id = parseInt($(this).attr("id"));
+			x_position = parseInt($(this).css("left"));
+			y_position = parseInt($(this).css("top"));
+			angle = getDegreesRotation($(this));
+			height = parseInt($(this).css("width"));
+			width = parseInt($(this).css("height"));
+			flopImage = false;
+		    embelishmentArray.push({
+		        "zIndex": z_index,
+		        "item_url": item_url,
+		        "embelishmentId":embelishment_id,
+		        "x_position": x_position,
+		        "y_position": y_position,
+		        "angle": angle,
+		        "height": height,
+		        "width": width,
+		        "flopImage":flopImage
+		    });        
 		
+			
+		});
+		
+		//collage
+		//get all the information for collage items
 		$("#collage #outfitItems > li").each(function(){
+			product_id = parseInt($(this).find(".product").attr("id"));
+			embelishment_id = parseInt($(this).find(".embelishment").attr("id"));
+			people_id = parseInt($(this).find(".people").attr("id"));
+			beauty_id = parseInt($(this).find(".beauty").attr("id"));
 			z_index = parseInt($(this).css("z-index"));
 			item_url = $(this).children("img").attr('src');
 			x_position = parseInt($(this).css("left"));
@@ -1518,6 +1563,10 @@ $(function(){
 			}
 		    
 		    itemArray.push({
+		    	"productId":product_id,
+		    	"embelishmentId":embelishment_id,
+		    	"peopleId":people_id,
+				"beautyId":beauty_id,
 		        "zIndex": z_index,
 		        "item_url": item_url,
 		        "x_position": x_position,
@@ -1531,23 +1580,22 @@ $(function(){
 			
 		});
 
+console.log(itemArray[1]["embelishmentId"]);
 
-		for(var k=0;k<itemArray.length;k++){
-			console.log(itemArray[k]["zIndex"]+" "+itemArray[k]["item_url"]);
-		};
-		
-		for(var k=0;k<itemArray.length;k++){
-			console.log(k);
-			console.log("z-index is: "+itemArray[k]["zIndex"]+" url is: "+itemArray[k]["item_url"]);
-			console.log("height is: "+itemArray[k]["height"]+" width is :"+itemArray[k]["width"]);
-			console.log("angle is: "+itemArray[k]["angle"]+" y_position is: "+itemArray[k]["y_position"]);
-			console.log("x position is: "+itemArray[k]["x_position"]+" Flipped? : "+itemArray[k]["flopImage"]);
-		};
-
+		// separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
 			url:'../../includes/outfit_creation.php',
-			data:{outfit_info:itemArray,userId:user_id,background:backgroundImg,model:model,canvasWidth:canvasWidth,canvasHeight:canvasHeight},
+			data:{
+				outfit_info:itemArray,
+				userId:user_id,
+				backgroundSrc:background_src,
+				backgroundId:background_id,
+				modelId:model_id,
+				modelId:model_src,
+				canvasWidth:canvasWidth,
+				canvasHeight:canvasHeight,
+				embelishmentArray:embelishmentArray},
 			success:function(data){
 				console.log("listOfItem_info: "+data);
 			},

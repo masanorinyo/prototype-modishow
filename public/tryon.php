@@ -299,10 +299,13 @@
 		</div>
 		<div id="tryonContent" class="fullWidth">
 			<div id="creationCanvas" class="background_black floatLeft overflowHidden">
-				<img class="backgroundImage" src="images/embelishment/Outfit_background1.png"/>
-				<img class="virtualModel center" src="images/model/raw_natashaModel.png"/>
+				<img id="1background" class="embelishment backgroundImage" src="images/embelishment/Outfit_background1.png"/>
+				<img id="1model"class="virtualModel center" src="images/model/raw_natashaModel.png"/>
 				<div id="outfitItems">
 					
+				</div>
+				<div id="embelishmentItems">
+
 				</div>
 				<div class="openLayer center"></div><!--click the virtual model to see item info-->
 				<!--
@@ -1045,11 +1048,11 @@
 						</li>
 					</ul>
 					<ul  class="itemBoxImages">
-						<li class="items-wrapper"><img id="accessory-1" class="accessory" src="images/items/accessory_1.png"/></li>
-						<li class="items-wrapper"><img id="jacket-1" class="jacket" src="images/items/jacket_1.png"/></li>
-						<li class="items-wrapper"><img id="shirt-1" class="top" src="images/items/shirt_1.png"/></li>
-						<li class="items-wrapper"><img id="skirt-1" class="skirt" src="images/items/skirt_1.png"/></li>
-						<li class="items-wrapper"><img id="inner-1" class="top" src="images/items/inner_1.png"/></li>
+						<li class="items-wrapper"><img id="1accessory" class="accessory product" src="images/items/accessory_1.png"/></li>
+						<li class="items-wrapper"><img id="1jacket" class="jacket product" src="images/items/jacket_1.png"/></li>
+						<li class="items-wrapper"><img id="1shirt" class="top product" src="images/items/shirt_1.png"/></li>
+						<li class="items-wrapper"><img id="1skirt" class="skirt product" src="images/items/skirt_1.png"/></li>
+						<li class="items-wrapper"><img id="1inner" class="top product" src="images/items/inner_1.png"/></li>
 
 					</ul>
 				</div>
