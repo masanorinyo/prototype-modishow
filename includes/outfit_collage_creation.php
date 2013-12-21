@@ -256,7 +256,7 @@ $fileName .= ".jpg";
 	$canvas->writeImage($fileName);
 	file_put_contents($fileName, $canvas);
 	
-
+ 	$canvas->destroy();
 
 
 ?>

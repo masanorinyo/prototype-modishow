@@ -132,15 +132,14 @@
 		$k++;
 	}
 
+	header('Content-type: image/jpg');
+	
+	$canvas->writeImage($fileName);
 	
 
-	$canvas->setImageCompression(\Imagick::COMPRESSION_UNDEFINED);
-	$canvas->setImageCompressionQuality(0);
-
-	header('Content-type: image/jpg');
-	$canvas->writeImage($fileName);
 	file_put_contents($fileName, $canvas);
-
+	
+	$canvas->destroy();
 
 
 ?>
