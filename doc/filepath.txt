@@ -1,0 +1,40 @@
+apps/
+	class/
+		model - data base related 
+		view  - userprofile, etc.
+		controller - pushing data to the model
+		helper - functions
+		lib - that you develop for the application
+		layout - footer.php, etc
+	log/
+		server_error.txt
+		access.txt
+		database_error.txt
+	batch/
+		commandline 
+	cache/
+		memcache
+	config/
+		ex).htaccess
+	database/
+	cron/
+		schedule jobs		
+	doc/
+		read.me
+	test/
+		unit test
+resources/
+	products/
+	outfits/
+	beauties/
+	models/
+	embelishments/
+	uploads/
+public
+	index.php 
+	any php pages
+	css
+	images
+		sprite
+	js
+

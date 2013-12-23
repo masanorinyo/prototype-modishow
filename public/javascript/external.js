@@ -1470,7 +1470,7 @@ $(function(){
 //1 step = get the id of the selcted item
 
 
-	$('#collage .button_publish, #tryclothes .button_publish').click(function(){
+	$('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
 		
 		var item_url; // image src 
 		var user_id = 0;
@@ -2120,8 +2120,9 @@ $(function(){
 		var currentTab = $(this).children("span");
 		$(currentBox).show();
 		$(currentTab).attr("id","current");
-		$(".itemDetails-tabs > ul > li > span").not(currentTab).removeAttr('id',"");
-		$(".itemDetails-tabs > ul > li > div").not(currentBox).hide();
+		//in order to separate the main item info box from the quick view item box on the shopitem page
+		$(this).parent().parent().children().children("li").children('span').not(currentTab).removeAttr('id',"");
+		$(this).parent().parent().children().children("li").children("div").not(currentBox).hide();
 	});
 
 });

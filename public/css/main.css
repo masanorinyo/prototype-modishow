@@ -1500,7 +1500,6 @@ li{
 
 #content_wrapper{
 	width:1054px;
-	margin-left:54px;
 }
 
 .content_small{
@@ -1537,8 +1536,8 @@ li{
 	background-color:rgb(255,255,255);
 }
 
-.content_stream > ul > .firstChild{
-	margin:44px 0px 0px 0px;
+.content_stream > ul{
+	margin-left:10px;
 }
 
 /*--Element--*/
@@ -1595,7 +1594,7 @@ li{
 .content_large .heart_empty span,
 .content_large .heart_filled span{
 	font-size:0.9em;
-	margin:20px;
+	margin:20px 10px;
 }
 
 
@@ -2559,6 +2558,7 @@ li{
 .comment-others{
 	width:88%;
 	margin:0 auto;
+	overflow:auto;
 }
 
 .others-commentWrapper {
@@ -3501,17 +3501,21 @@ li{
 
 /*---Content_stream--*/
 .itemBox > ul{
-	top:17%;
-	bottom:0;
-	right:1%;
-	left:2.5%;
-	margin:auto;
+	top: 16.6%;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
 	position: absolute;
 	overflow-y:auto;
 	overflow-x:hidden;
-
-
 }
+
+#tryclothes .itemBox > ul{
+	width:91%;
+}
+
+
 #myItemImages .itemIconsWrapper,
 #itemImages .itemIconsWrapper{
 	display:block;
@@ -3522,16 +3526,16 @@ li{
 }
 
 .itemBox > .itemBoxImages > li{
-	float:left;
-	margin:0px 0px 3px 3px;
-	border-radius:1px;
-	-webkit-border-radius:1px;
-	-moz-border-radius:1px;
-	width:125px;
-	height:120px;
-	background-color:rgb(255,255,255);
-	border:1px solid rgb(230,230,230);
-	cursor:pointer;
+	float: left;
+	margin: 0px 0px 3px 3px;
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	width: 105px;
+	height: 110px;
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(230,230,230);
+	cursor: pointer;
 }
 
 .addStyleListBox{
@@ -3571,22 +3575,15 @@ li{
 	background-position: 50% 50%;
 }
 
-.tryon-collage #embelishmentImages .itemIconsWrapper{
-	margin-top:0;
-	width:100%;	
-	left:10px;
-	top:100px;	
-}
-
 .itemIconsWrapper > li{
-	width:155px;
-	height:155px;
+	width: 130px;
+	height: 140px;
 	position: relative;
-	float:left;
+	float: left;
 	text-align: center;
-	font-size:15px;
-	color:rgb(140,140,140);
-	margin:10px 0px 20px 30px;
+	font-size: 15px;
+	color: rgb(140,140,140);
+	margin: 10px 0px 20px 15px;
 	cursor: pointer;
 }
 
@@ -3648,10 +3645,16 @@ li{
 }
 
 .unavailable{
-	position:absolute;
-	top:250px;
-	left:30px;
-	font-size:1.5em;
+	position: absolute;
+	top: -100px;
+	left: 0;
+	bottom: 0;
+	width: 310px;
+	height: 100px;
+	right: 0;
+	font-size: 2.5em;
+	color:rgb(150,150,150);
+	margin: auto;
 }
 
 .itemIconsWrapper li{
@@ -4364,6 +4367,7 @@ li{
 	bottom:7px;
 	left:0px;
 }
+
 .url > a{
 	color:rgb(100,170,180);
 }
@@ -4371,8 +4375,11 @@ li{
 .shop .singleItemImage,
 .shop .button-tryon,
 .shop .button_heart-item,
-#shopItem .button-tryon,
-#shopItem .button_heart-item{
+#shopItem .singleItemImage,
+#shopItem .top .button-tryon,
+#shopItem .top .button_heart-item,
+#shopItem .bottom .button-tryon,
+#shopItem .bottom .button_heart-item{
 	position: absolute;
 	bottom:68px;
 	right:176px;
@@ -4385,30 +4392,36 @@ li{
 
 }
 
+#shopItem .singleItemImage{
+	bottom: 60px;
+	right: 222px;
+	width: 50px;
+}
+
 .shop .singleItemImage:hover span,
 .shop .button-tryon:hover a > span,
 .shop .button_heart-item:hover span,
+#shopItem .singleItemImage:hover span,
 #shopItem .button-tryon:hover a > span,
 #shopItem .button_heart-item:hover span{
 	color:rgb(50,180,240);
 
 }
-
+#shopItem .singleItemImage,
 #shop .singleItemImage{	
 	background-color: rgb(232,240,240);
 }
 
 .shop  .button-tryon,
 .shop  .button_heart-item,
-#shopItem .button-tryon,
-#shopItem .button_heart-item{
+#shopItem .bottom .button-tryon,
+#shopItem .bottom .button_heart-item{
 	right:60px;
 	width:50px;
 	height:17px;
 }
 
-.shop  .button_heart-item,
-#shopItem .button_heart-item{
+.shop  .button_heart-item{
 	right:-2px;
 }
 
@@ -4678,7 +4691,7 @@ li{
 
 .itemDetails-tabs > ul > li > div{
 	position: absolute;
-	height:215px;
+	height:165px;
 	width:295px;	
 	left:0;
 	overflow: auto;
@@ -4732,9 +4745,8 @@ li{
 	bottom:0;
 }
 
-#setting #footer,
-#signup_modalBox #footer{
-	height:50px;
+#setting #footer{
+	
 	display:block;
 	position: relative;
 	margin-top:40px;
@@ -4789,35 +4801,35 @@ li{
 	z-index:1000;
 }
 
-#shopItem .subHeader .button-tryon,
-#shopItem .subHeader .button_heart-item{
+#shopItem .top .subHeader .button-tryon,
+#shopItem .top .subHeader .button_heart-item{
 	display: block;
 	top:7px;
 	width:65px;
 	height:25px;
 }
 
-#shopItem .subHeader .icon_tryon{
+#shopItem .top .subHeader .icon_tryon{
 	top:6px;
 	left:5px;
 }
-#shopItem .subHeader .button-tryon .right{
+#shopItem .top .subHeader .button-tryon .right{
 	top:5px;
 	right:6px;
 	font-size:1em;
 }
 
-#shopItem .subHeader .button_heart-item .mediumButton-leftside{
+#shopItem .top .subHeader .button_heart-item .mediumButton-leftside{
 	top:2px;
 }
-#shopItem .subHeader .button_heart-item .mediumButton-rightside{
+#shopItem .top .subHeader .button_heart-item .mediumButton-rightside{
 	top:5px;
 	left:25px;
 	font-size:1.1em;
 
 }
 
-#shopItem .subHeader .button_heart-item{
+#shopItem .top .subHeader .button_heart-item{
 	left:110px;
 }
 
@@ -4878,8 +4890,8 @@ li{
 /*---------------main-content---------------*/
 /*----Overall----*/
 /*--structure--*/
-#shopItem .leftSideBox,
-#shopItem .rightSideBox{
+#shopItem .top .leftSideBox,
+#shopItem .top .rightSideBox{
 	position: relative;
 	float:left;
 	top:15px;
@@ -4888,20 +4900,20 @@ li{
 	height:500px;
 }
 
-#shopItem .rightSideBox{
+#shopItem .top .rightSideBox{
 	float:right;
 	width:48%;
 	left:-10px;
 }
 
 
-#shopItem .leftSideBox .itemBox{
+#shopItem .top .leftSideBox .itemBox{
 	position: relative;
 	width:100%;
 }
 
 
-#shopItem .leftSideBox .itemBox .picFrame-inside{
+#shopItem .top .leftSideBox .itemBox .picFrame-inside{
 	height:420px;
 	width:350px;
 	left:100px;
@@ -4910,11 +4922,11 @@ li{
 	background-color: rgb(255,255,255);
 }
 
-#shopItem .leftSideBox .itemBox .picFrame-inside img{
+#shopItem .top .leftSideBox .itemBox .picFrame-inside img{
 	margin:auto;
 }
 
-#shopItem .leftSideBox .itemBox-related{
+#shopItem .top .leftSideBox .itemBox-related{
 	position: absolute;
 	width:70px;
 	left:90px;
@@ -4923,8 +4935,8 @@ li{
 	
 }
 
-#shopItem .leftSideBox .itemBox-related img,
-#shopItem .leftSideBox .itemBox-related div{
+#shopItem .top .leftSideBox .itemBox-related img,
+#shopItem .top .leftSideBox .itemBox-related div{
 	height: 95%;
 	position: absolute;
 	top:0;
@@ -4938,7 +4950,7 @@ li{
 /*----Inner left----*/
 /*--Structure--*/
 
-#shopItem .leftSideBox .itemBox-related li{
+#shopItem .top .leftSideBox .itemBox-related li{
 	border:1px solid rgb(240,240,240);
 	height:80px;
 	margin-bottom:5px;
@@ -4947,21 +4959,21 @@ li{
 	cursor: pointer;
 }
 
-#shopItem .leftSideBox .itemBox-related .lastChild > div{
+#shopItem  .top.leftSideBox .itemBox-related .lastChild > div{
 	width:45px;
 	height:45px;
 	margin-top:15px;
 	background-color: rgb(240,240,240);
 	position:relative;
 }
-#shopItem .leftSideBox .itemBox-related .lastChild:hover div{
+#shopItem .top .leftSideBox .itemBox-related .lastChild:hover div{
 	background-color: rgb(50,180,240);
 }
-#shopItem .leftSideBox .itemBox-related .lastChild:hover span{
+#shopItem .top .leftSideBox .itemBox-related .lastChild:hover span{
 	color:rgb(255,255,255);
 }
 
-#shopItem .leftSideBox .itemBox-related .lastChild span{
+#shopItem .top .leftSideBox .itemBox-related .lastChild span{
 	font-size:1em;
 	color:rgb(200,200,200);
 	position: absolute;
@@ -4973,7 +4985,7 @@ li{
 
 /*----right side----*/
 /*--Structure--*/
-#shopItem .rightSideBox .itemDetails-description{
+#shopItem .top .rightSideBox .itemDetails-description{
 	position:absolute;
 	bottom:0;
 	left:0;
@@ -4983,27 +4995,27 @@ li{
 
 }
 
-#shopItem .rightSideBox  .itemDetails-description .price{
+#shopItem .top .rightSideBox  .itemDetails-description .price{
 	font-size:1.2em;
 }
 
-#shopItem .rightSideBox  .itemDetails-description .url{
+#shopItem .top .rightSideBox  .itemDetails-description .url{
 	margin-bottom:15px;	
 	font-size:1.4em;
 }
 
 
-#shopItem .rightSideBox  .description > .title{
+#shopItem .top .rightSideBox  .description > .title{
 	max-height:76px;
 	width:90%;
 }
 
-#shopItem .rightSideBox .rightSideBox .buy{
+#shopItem .top .rightSideBox .rightSideBox .buy{
 	width:89%;
 }
 
 
-#shopItem .rightSideBox  .itemDetails-tabs > ul > li > div{
+#shopItem .top .rightSideBox  .itemDetails-tabs > ul > li > div{
 	position: absolute;
 	height:220px;
 	width:90%;	
@@ -5044,6 +5056,7 @@ li{
 
 #shopItem .items,
 #userPage .items{
+	width:96%;
 	margin:0 auto;
 }
 
@@ -5131,7 +5144,7 @@ li{
 
 #shopItem .creation > ul,
 #userPage .creation > ul{
-	width:97%;
+	width:96.4%;
 	margin:0 auto;
 }
 
