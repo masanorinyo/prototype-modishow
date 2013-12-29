@@ -1,5 +1,10 @@
-<?php require_once("../../config/initialize.php");?>
-<?php include(LAYOUT_PATH.DS."structure/header.php");?>
+<?php 
+	require_once("../../config/initialize.php");
+	
+	// if(1 == 1){
+	// 	redirect_to(ROOT_PATH."public/index.php");
+	// }
+	include(LAYOUT_PATH.DS."structure/header.php");?>
 		
 <div class="setting">
 	<form>

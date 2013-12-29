@@ -1,7 +1,6 @@
 <?php require_once("../app/config/initialize.php");?>
 <?php include(LAYOUT_PATH.DS."structure/header.php");?>
-<?php include(LAYOUT_PATH.DS."structure/sidenavi.php");?>
-		
+<?php include(LAYOUT_PATH.DS."structure/sidenavi.php");?>	
 <div class="contentBox">
 	<?php include(LAYOUT_PATH.DS."parts/scrollToTop.php");?>
 	<?php include(LAYOUT_PATH.DS."parts/about_button.php");?>

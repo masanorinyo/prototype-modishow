@@ -1,4 +1,10 @@
-<?php require_once("../app/config/initialize.php");?>
+<?php 
+	require_once("../app/config/initialize.php");
+	if(1 == 1){
+		redirect_to(ROOT_PATH."public/index");
+	}
+
+?>
 <?php include(LAYOUT_PATH.DS."structure/header.php");?>
 		
 <div id="tryonContent" class="tryon-collage fullWidth">

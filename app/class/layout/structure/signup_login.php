@@ -6,26 +6,26 @@
 			<span class="icon_close">&#10006;</span>
 		</a>
 		<div id="signup" class="setting">
-			<form>
+			<form  id="signup_form" method="post">
 				<div class="setting-wrapper">
 					<div class="sub-header">
-						<span>Account Information</span>
+						<span>Create Account</span>
 					</div>
 					<ul>
 						<li>
-							<span>Name: </span>
+							<span>Username: </span>
 							<input id="name" type="text" name="name"/>
 						</li>
 						<li>
 							<span>E-mail Address: </span>
-							<input id="email" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+							<input id="email" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
 						</li>
 						<li>
 							<span>Password:</span>
-							<input id="newPassword" type="password" placeholder="Enter your new password"/>
+							<input id="newPassword" type="password" placeholder=" Enter your new password"/>
 						</li>
 						<li>
-							<input id="verifiedPassword" type="password" placeholder="Re-type your new password"/>
+							<input id="verifiedPassword" type="password" placeholder=" Re-type your new password"/>
 						</li>
 						<li>
 							<span>Country:</span>
@@ -292,6 +292,11 @@
 								<input type="radio" name="sex" value="male"  checked="checked"/> Male
 							</label>
 						</li>
+						<li>
+							<span>Profile Picture:</span>
+							<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>"/>
+							<input id="profile_pic" type="file" name="file_upload" />
+						</li>
 						<li class="lastChild">
 							<span class="legalStatement">
 								By creating an account, I accept ModiShow's <a href="terms.php">Terms of Service</a> and <a href="privacy.php">Privacy Policy</a>.
@@ -307,7 +312,7 @@
 						<span>Cancel</span>
 					</div>
 					<div id="confirm" class="round_weak">
-						<span>Confirm</span>
+						<span>NEXT</span>
 					</div>
 				</div>
 				<div class="popup-box moreInformatin">
@@ -327,19 +332,19 @@
 			</form>
 		</div>
 		<div id="login" class="setting">
-			<form>
+			<form id="login_form" method="post">
 				<div class="setting-wrapper">
 					<div class="sub-header ">
 						<span>Log in</span>
 					</div>
 					<ul>
 						<li>
-							<span>E-mail Address: </span>
-							<input id="loginEmail" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+							<span>Username: </span>
+							<input id="username" type="text" value="" placeholder=" ex) Modishow.."/>
 						</li>
 						<li class="lastChild">
 							<span>Password:</span>
-							<input id="loginPassword" type="password" placeholder="Enter your new password"/>
+							<input id="loginPassword" type="password" placeholder=" Enter your new password"/>
 						</li>
 						<div class="round_weak forgotPassword">
 							<span class="pointer">Forgot your password?</a>

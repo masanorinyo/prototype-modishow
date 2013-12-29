@@ -11,6 +11,8 @@
 	//Asset path
 	defined('ROOT_PATH') ? null : define('ROOT_PATH',"http://".$_SERVER['SERVER_NAME']."/~Masanori/ModiShow/");	
 
+	defined('RESOURCE_PATH') ? null : define('RESOURCE_PATH',"http://".$_SERVER['SERVER_NAME']."/~Masanori/ModiShow/resources");	
+
 	//class path 
 	defined('CONT_PATH') ? null : define('CONT_PATH',SITE_ROOT.DS.'app'.DS."class".DS."controller");
 
@@ -40,7 +42,7 @@
 	require_once(LIB_PATH.DS."function.php");
 
 	//load controllers
-	require_once(CONT_PATH.DS."user_authentification.php");
+	require_once(CONT_PATH.DS."header_info_modifier.php");
 	//require_once(CONT_PATH.DS."session.php");
 	//require_once(CONT_PATH.DS."infinite_scroll.php");
 	//require_once(CONT_PATH.DS."phpMailer".DS."class.phpmailer.php");

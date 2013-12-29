@@ -263,7 +263,7 @@
 				</div>
 			</div>
 			<?php 
-				if(basename($_SERVER['REQUEST_URI'])=="shop.php"){
+				if(basename($_SERVER['REQUEST_URI'])=="shop"){
 					include(LAYOUT_PATH.DS."structure/sidenavi_bottom.php");
 				}
 			?>

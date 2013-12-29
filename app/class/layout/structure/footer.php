@@ -1,5 +1,5 @@
 		<div id="footer" class="background_themeColor"> 
-			<div>
+			<div class="top">
 				<ul>
 					<li class="subheader">
 						Company

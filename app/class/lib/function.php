@@ -5,63 +5,68 @@
 		}
 	}
 
-	function find_outfit_category($category){
-		global $connection;
-
-		$query = "SELECT * ";
-		$query .= "FROM outfit ";
-		$query .= "WHERE category = '{$category}' ";
-		$outfit_category = mysqli_query($connection,$query);
-		confirm_query($outfit_category);
-		return $outfit_category;
-
+	function strip_zeros_from_date($marked_string=""){
+		//first remove the marked zeros
+		$no_zeros = str_replace("*0","",$marked_string);
+		//then remove any remainig marks 
+		$cleaned_string = str_replace("*","",$no_zeros);
+		return $cleaned_string;
 	}
 
-//function find_outfit_order($order,$query){
-//	global $connection;
+	function redirect_to($location = NULL){
+		if($location != NULL){
+			header("Location: {$location}");
+			exit;
+		}
+	}
 
-//	$query .= "ORDER BY '{$order}' ASC";
-//	$outfit_order = mysqli_query($connection,$query);
-//	confirm_query($outfit_category);
-//	return $outfit_order, $query;
-
-//}
-
-//function find_outfit_filter($filter,$query){
-//	global $connection;
-
-//	//if canceled, take out the query
-
-//	$query .= "AND filter = '{$filter}' ";
-//	$outfit_filter = mysqli_query($connection,$query);
-//	confirm_query($outfit_category);
-//	return $outfit_filter, $query;
-
-//}
-
-//function find_outfit_creator($category,$creator){
-//	global $connection;
-
-//	//if canceled, take out the query
-
-//	$query .= "WHERE creator = '{$creator}' ";
-//	$outfit_creator = mysqli_query($connection,$query);
-//	confirm_query($outfit_category);
-//	return $$outfit_creator, $query;
-
-//	}
+	function output_message($message=" "){
+		if(!empty($message)){
+			return "<p class=\"message\"> {$message}</p>";
+		}else{
+			return "";
+		}
+	}
 
 
+	function __autoLoad($class_name){//gives instructions what to do in case of class problem
+		$class_name = strtolower($class_name);
+		$path = LIB_PATH.DS."{$class_name}.php";
+		if(file_exists($path)){
+			require_once($path);
+		}else{
+			die("The file {$class_name}.php could not be found");
+		}
+	}
 
-//Resizing
-//1 step = get the image
-//2 step = get the width and the height to resize
-//3 step = resize the image based on the values from the 2nd step
+	function include_layout_template($template=""){
+		include(SITE_ROOT.DS."public".DS."layouts".DS.$template);
+	}
 
-//cropping
-//1 step = get the image
-//2 step = get the width, the height, and the position to crop
-//3 step = crop the image with the value
+	function write_logs($action, $message){
+		$log_file = SITE_ROOT.DS."logs".DS."log.txt";
 
+		if(file_exists($log_file)){
+			
+			if($handler = fopen($log_file,"a")){
+				
+				fwrite($handler,"\nAction: [{$action}] - {$message}");
+				
+				fclose($handler);
+			
+			}else{
+				echo "Sorry we could not open the file";
+			}
+
+		}else{
+			echo "Sorry we could not find the log file.";
+		}		
+	}
+
+	function datetime_to_text($datetime=""){
+		$unixdatetime=strtotime($datetime);
+		return strftime("%B %d, %Y at %I:%M %p", $unixdatetime);
+
+	}
 
 ?>

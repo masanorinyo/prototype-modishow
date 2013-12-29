@@ -3,8 +3,12 @@
 
 <div id="tryonContent" class="fullWidth">
 	<div id="creationCanvas" class="background_black floatLeft overflowHidden">
-		<img id="1background" class="embelishment backgroundImage" src="images/embelishment/Outfit_background1.png"/>
-		<img id="1model"class="virtualModel center" src="images/model/raw_natashaModel.png"/>
+		<img id="1background" class="embelishment backgroundImage" src="<?php echo RESOURCE_PATH;?>/embelishment/background_1.png"/>
+		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/shadow_1.png"/>
+		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/torso_1.png"/>
+		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/legs_1.png"/>
+		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/arms_1.png"/>
+		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/face_natasha.png"/>
 		<div id="outfitItems">
 			
 		</div>
@@ -141,9 +145,6 @@
 							<li>My likes</li>	
 						<!--<li>My uploads</li>-->
 						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>			
-					</li>
-					<li>
-						<?php include(LAYOUT_PATH.DS."parts/searchbox.php");?>		
 					</li>
 				</ul>
 				<!-- item view will be different - bigger item vs smaller item & you can upload your item here
@@ -381,9 +382,6 @@
 								</div>
 							</div>
 						</li>-->
-					<li>
-						<?php include(LAYOUT_PATH.DS."parts/searchbox.php");?>		
-					</li>
 				</ul>
 				<!--
 					<ul class="subHeader-right">						
@@ -406,7 +404,6 @@
 						<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
 							<li>Text</li>
 							<li>Frames & borders</li>
-							<li>Effects</li>
 							<li>Backgrounds</li>	
 						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>	
 					</li>
@@ -509,9 +506,9 @@
 				</li>
 			</ul>
 			<ul  class="itemBoxImages">
-				<li class="items-wrapper"><img id="1accessory" class="accessory product" src="images/items/accessory_1.png"/></li>
+				<li class="items-wrapper"><img id="1accessory" class="accessory product" src="<?php echo RESOURCE_PATH;?>/items/bag_1a.png"/></li>
 				<li class="items-wrapper"><img id="1jacket" class="jacket product" src="images/items/jacket_1.png"/></li>
-				<li class="items-wrapper"><img id="1shirt" class="top product" src="images/items/shirt_1.png"/></li>
+				<li class="items-wrapper"><img id="1shirt" class="top product" src="<?php echo RESOURCE_PATH;?>/items/dress_1t.png"/></li>
 				<li class="items-wrapper"><img id="1skirt" class="skirt product" src="images/items/skirt_1.png"/></li>
 				<li class="items-wrapper"><img id="1inner" class="top product" src="images/items/inner_1.png"/></li>
 

@@ -2120,7 +2120,7 @@ $(function(){
 		var currentTab = $(this).children("span");
 		$(currentBox).show();
 		$(currentTab).attr("id","current");
-		//in order to separate the main item info box from the quick view item box on the shopitem page
+		//in order to separate the main item info box from the quick view item box on the shopitem
 		$(this).parent().parent().children().children("li").children('span').not(currentTab).removeAttr('id',"");
 		$(this).parent().parent().children().children("li").children("div").not(currentBox).hide();
 	});
@@ -2746,7 +2746,7 @@ $(function(){
 		//If everything is written in a right format, the form gets submitted
 		if(validEmail && validPassword &&  samePass && validCityName){
 			//php comes in
-			window.location.href = "userPage.html";
+			window.location.href = "userPage";
 			return false;
 		}else{
 			if(!validName){
@@ -2794,8 +2794,8 @@ $(function(){
 		//If everything is written in a right format, the form gets submitted
 		if(validAge && validHeight && validSkinColor && validSize && validBody){
 			//php comes in
-			window.location.href = "userPage.html";
-			return false;
+			window.location.href = "userPage";
+			
 		}else{
 			if(!validAge){
 				$("#ageGroup").css({'border-color':'red'});
@@ -2835,21 +2835,15 @@ $(function(){
 	//if users click yes in the confirmation page, which leads them to the survey page.
 	$("#signup_modalBox #moveToMoreInfo").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "userInfo.html";
+	  	window.location.href = "../app/class/view/userInfo";
 	  	return false;
 	});
 
 
 
-	$("#setting #cancel").click(function() {   
+	$("#setting #cancel,#userInfo #cancel").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "userPage.html";
-	  	return false;
-	});
-
-	$("#userInfo #cancel").click(function() {   
-		//Should be used PHP in order to send the user back to the previous page
-	  	window.location.href = "index.html";
+	  	window.location.href = "../../../index.php";
 	  	return false;
 	});
 

@@ -1,26 +1,36 @@
-<?php require_once("../../config/initialize.php");?>
-<?php include(LAYOUT_PATH.DS."structure/header.php");?>
+<?php 
+	require_once("../../config/initialize.php");
+	// if(1 == 1){
+	// 	redirect_to(ROOT_PATH."public/index.php");
+	// }
+	include(LAYOUT_PATH.DS."structure/header.php");
+?>
 
 <div class="setting">
-	<form>
-		<div class="setting-wrapper">
+	<form id="setting_form" method="post">
+		<div class="setting-wrapper account">
 			<div class="sub-header accountInfo">
 				<span>Account Information</span>
 			</div>
 			<ul>
 				<li>
 					<span>E-mail Address: </span>
-					<input id="email" type="text" value="" placeholder="ex) modishow@gmail.com"/>
+					<input id="email" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
 				</li>
 				<li>
 					<span>Password:</span>
-					<input id="password" type="password" placeholder="Enter your current password"/>
+					<input id="password" type="password" placeholder=" Enter your current password"/>
 				</li>
 				<li>
-					<input id="newPassword" type="password" placeholder="Enter your new password"/>
+					<input id="newPassword" type="password" placeholder=" Enter your new password"/>
 				</li>
 				<li>
-					<input id="verifiedPassword" type="password" placeholder="Re-type your new password"/>
+					<input id="verifiedPassword" type="password" placeholder=" Re-type your new password"/>
+				</li>
+				<li>
+					<span>Profile Picture:</span>
+					<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>"/>
+					<input id="profile_pic" type="file" name="file_upload" />
 				</li>
 				<li>
 					<span>Language:</span>
@@ -282,7 +292,7 @@
 					</select>
 				</li>
 				<li>
-					<input id="cityName" type="text" placeholder="Please type your city" maxlength="20"/>
+					<input id="cityName" type="text" placeholder=" Please type your city" maxlength="20"/>
 				<li class="lastChild">
 					<span>Gender:</span>
 					<label>
@@ -316,8 +326,14 @@
 			<div class="popup-box-header">
 				<span>Deactivate!? Are you sure?</span>
 			</div>
-			<div class="button_large background-strong firstList round_weak"><a href="index.php">YES</a></div><!--Write PHP code to destroy the user's account-->
-			<div class="button_large background-weak secondList closeBox round_weak"><span>No</span></div>			
+			<div class="button_large background-strong firstList round_weak">
+				<a href="<?php echo ROOT_PATH.DS.'index.php';?>">
+					YES
+				</a>
+			</div><!--Write PHP code to destroy the user's account-->
+			<div class="button_large background-weak secondList closeBox round_weak">
+				<span>No</span>
+			</div>			
 		</div>			
 	</div>
 </div>			

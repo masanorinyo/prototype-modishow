@@ -1,4 +1,4 @@
-<div class="bottom  round_little">
+<div class="sidenavi bottom  round_little">
 	<div class="sideMenu filters">
 		<ul>
 			<li class="titleHeader underscore">

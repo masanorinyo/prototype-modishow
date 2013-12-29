@@ -2,7 +2,7 @@
 	define("DB_SERVER","localhost");
 	define("DB_USER","masanori");
 	define("DB_PASS","osaka777");
-	define("DB_NAME","modishow_prototype");
+	define("DB_NAME","modishow");
 	
 	$connection = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
 
