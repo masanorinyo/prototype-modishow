@@ -1534,6 +1534,7 @@ li{
 	position: relative;
 	padding:0px;
 	background-color:rgb(255,255,255);
+	overflow:hidden;
 }
 
 .content_stream > ul{
@@ -1643,7 +1644,7 @@ li{
 
 .collageBox{
 	width:100%;
-	height:302px;
+	height:100%;
 	background-color:rgb(255,255,255);
 	border-bottom:1px solid rgb(220,220,220);
 	position: absolute;
@@ -1664,8 +1665,16 @@ li{
 	margin:60px 0px 0px 0px;
 }
 
-.content_stream img{
+.content_stream .collageBox img{
 	width:100%;
+}
+
+.content_stream .modelBox img{
+	height:100%;
+	position:absolute;
+	right:-100px;
+	left:-100px;
+	margin:0 auto;
 }
 
 /*content description*/
@@ -2686,8 +2695,16 @@ li{
 }
 
 #feed_content .medium_boxes img,
-#feed_content .large_boxes img{
+#feed_content .large_boxes .collageBox img{
 	width:100%;
+}
+
+#feed_content .modelBox img{
+	height: 100%;
+	position: absolute;
+	margin: 0 auto;
+	right: -100px;
+	left: -100px;;
 }
 
 #feed_content .small_boxes> ul > li{
@@ -4737,16 +4754,7 @@ li{
 }
 
 
-#userInfo #footer,
 #setting #footer{
-	display: block;
-	height:50px;
-	position: absolute;
-	bottom:0;
-}
-
-#setting #footer{
-	height:50px;
 	display:block;
 	position: relative;
 	margin-top:40px;
@@ -5777,6 +5785,14 @@ float:left;
 	width: 638px;
 }
 
+#signup{
+	position:absolute;
+	top:43px;
+	right:0;
+	left:0;
+	margin:0 auto;
+}
+
 #login{
 	margin:0 auto;
 	width:24%;
@@ -5827,8 +5843,12 @@ float:left;
 	height:55px;
 }
 
+#signup .personal{
+	display:none;
+}
+
 #setting .setting-wrapper.account{
-	margin-bottom:30px;
+	margin-bottom:20px;
 }
 
 /*--Element- */
@@ -5857,15 +5877,15 @@ float:left;
 	top:13px;
 }
 
+
 .setting .setting-wrapper input[type="file"]{
 	top:20px;
+	width:280px;
 	border:none;
 }
 
-.setting .setting-wrapper input[type="text"],
-.setting .setting-wrapper input[type="password"],
-.setting .setting-wrapper input[type="file"],{
-	padding:10px;
+#setting .setting-wrapper input[type="file"]{
+	width:340px;
 }
 
 .setting .setting-wrapper select{
@@ -5879,11 +5899,15 @@ float:left;
 	margin:20px 73px 20px 0px;
 }
 
-.setting > form > .confirmation{
+.setting > form .confirmation{
 	height:70px;
 	position: relative;
 	background-color: rgb(230,230,230);
 
+}
+
+#setting .setting > form .confirmation{
+	margin-top:20px;
 }
 
 .setting input[type="submit"]{
@@ -5900,6 +5924,14 @@ float:left;
     top:20px;
     left:70px;
 }
+
+#signup #account_complete{
+	width:130px;
+	top: 18px;
+	left: 50px;
+
+}
+
 .setting #cancel{
 	left:auto;
 	right:200px;
@@ -5920,8 +5952,13 @@ float:left;
 }
 
 .setting #confirm:hover,
-.setting #confirm:active{
+.setting #confirm:active,
+#account_complete:hover{
 	background-color:rgb(80,110,150);
+}
+
+#account_complete:hover{
+	color:rgb(255,255,255);
 }
 
 
@@ -5929,14 +5966,22 @@ float:left;
 /*-------------------------------Register.com-------------------------------*/
 /*----Overall----*/
 /*--Structure--*/
-#signup_modalBox .setting-wrapper ul li .legalStatement{
-	font-size:0.9em;
-	margin:0px 0px 0px 40px;
+#signup_modalBox .setting-wrapper .legalStatement{
+	width: 500px;
+	font-size: 0.75em;
+	color: rgb(150,150,150);
+	position: absolute;
+	left: 218px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	height: 20px;
 }
 
-#signup_modalBox .setting-wrapper ul li .legalStatement a{
-	color:rgb(0,0,0);
-	font-weight: bold;
+
+
+#signup_modalBox .setting-wrapper .legalStatement a{
+	color:rgb(50,50,50);
 }
 
 #signup_modalBox .confirmation > div{
@@ -6075,15 +6120,12 @@ float:left;
 	width:300px;
 }
 
-#login form div ul li{
-	height:40%;
+#login form div ul li:first-child{
+	border-bottom:1px solid rgb(200,200,200);
 }
-
-#moveToPersonal{
-	height:400px;
-	width:500px;
-	margin:60px auto;
-	background-color: rgb(255,255,255);
+#login form div ul li{
+	height:135px;
+	border:none;
 }
 
 /*-------------------------------FOOTER-------------------------------*/
@@ -6108,10 +6150,6 @@ float:left;
 	z-index:9998;
 }
 
-#userInfo #footer .top,
-#setting #footer .top{
-	display:none;
-}
 
 
 #footer > div {

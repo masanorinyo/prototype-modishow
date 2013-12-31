@@ -19,7 +19,7 @@
 </div>
 <div class="modelBox openModal">
 	<a href="#">
-		<img src="images/style/model1.png"/>
+		<img src="../resources/styles/mp2p5p4p3p111e14000.jpg"/>
 	</a>
 </div>
 <div class="peopleBox openModal">

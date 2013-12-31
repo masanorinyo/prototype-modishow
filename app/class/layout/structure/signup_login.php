@@ -6,30 +6,23 @@
 			<span class="icon_close">&#10006;</span>
 		</a>
 		<div id="signup" class="setting">
-			<form  id="signup_form" method="post">
-				<div class="setting-wrapper">
+			<form  id="signup_form" action="<?php echo ROOT_PATH.'app/class/controller/signup';?>" method="post">
+				<div class="setting-wrapper account">
 					<div class="sub-header">
 						<span>Create Account</span>
 					</div>
 					<ul>
 						<li>
-							<span>Username: </span>
-							<input id="name" type="text" name="name"/>
-						</li>
-						<li>
 							<span>E-mail Address: </span>
-							<input id="email" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
+							<input id="email" name="email" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
 						</li>
 						<li>
 							<span>Password:</span>
-							<input id="newPassword" type="password" placeholder=" Enter your new password"/>
-						</li>
-						<li>
-							<input id="verifiedPassword" type="password" placeholder=" Re-type your new password"/>
+							<input id="newPassword" name="password" type="password" placeholder=" Enter your new password"/>
 						</li>
 						<li>
 							<span>Country:</span>
-							<select id="country">
+							<select id="country" name="country">
 								<option value="0">Please select your country</option>
 								<option value="Afganistan">Afghanistan</option>
 								<option value="Albania">Albania</option>
@@ -283,64 +276,60 @@
 						<li>
 							<span>Gender:</span>
 							<label>
-								<input type="radio" name="sex" value="Unspecified"> Unspecified
+								<input type="radio" name="gender" value="Unspecified"> Unspecified
 							</label>
 							<label>
-								<input type="radio" name="sex" value="female"/> Female
+								<input type="radio" name="gender" value="male"/> Male
 							</label>
 							<label>
-								<input type="radio" name="sex" value="male"  checked="checked"/> Male
+								<input type="radio" name="gender" value="female" checked="checked"/> Female
 							</label>
+							
 						</li>
 						<li>
-							<span>Profile Picture:</span>
+							<span>Profile Picture (optional):</span>
 							<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>"/>
 							<input id="profile_pic" type="file" name="file_upload" />
 						</li>
-						<li class="lastChild">
-							<span class="legalStatement">
-								By creating an account, I accept ModiShow's <a href="terms.php">Terms of Service</a> and <a href="privacy.php">Privacy Policy</a>.
-							</span>
-						</li>
+						
 					</ul>
+					<div class="confirmation">
+						<div class="login round_weak">
+							<span>Log In</span>
+						</div>
+						<div class="cancel round_weak"/>
+							<span>Cancel</span>
+						</div>
+						<div id="confirm" class="round_weak">
+							<span>NEXT</span>
+						</div>
+					</div>
 				</div>
-				<div class="confirmation">
-					<div class="login round_weak">
-						<span>Log In</span>
+				
+				<div class="setting-wrapper personal">
+					<div class="sub-header">
+						<span>Create Account</span>
 					</div>
-					<div class="cancel round_weak"/>
-						<span>Cancel</span>
+					<?php require_once(LAYOUT_PATH.DS."structure/personal_info.php");?>
+					<div class="confirmation">
+						<input id="account_complete" type="submit" name="submit" value="Skip this &amp; Finish"/>
+						<p class="legalStatement">
+							By creating an account, I accept ModiShow's <a href="terms.php">Terms of Service</a> and <a href="privacy.php">Privacy Policy</a>.
+						</p>
 					</div>
-					<div id="confirm" class="round_weak">
-						<span>NEXT</span>
-					</div>
-				</div>
-				<div class="popup-box moreInformatin">
-					<div class="popup-box-header">
-						<span class="firstChild">
-							Could you tell us a little bit  about you?
-						</span>
-					</br>
-						<span class="secondChild">
-							You will be able to search for a specific outfit </br>
-							 ex - "A cute outfit created by the people with my body size"
-						</span>
-					</div>
-					<input id="moveToMoreInfo" type="submit" name="yes" value="Sure"/>
-					<input id="backToThePage" type="submit" name="no" value="Maybe later"/>
 				</div>
 			</form>
 		</div>
 		<div id="login" class="setting">
-			<form id="login_form" method="post">
+			<form id="login_form" action="<?php echo ROOT_PATH.DS.'app/class/controller/login';?>" method="post">
 				<div class="setting-wrapper">
 					<div class="sub-header ">
 						<span>Log in</span>
 					</div>
 					<ul>
 						<li>
-							<span>Username: </span>
-							<input id="username" type="text" value="" placeholder=" ex) Modishow.."/>
+							<span>E-mail Address: </span>
+							<input id="loginEmail" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
 						</li>
 						<li class="lastChild">
 							<span>Password:</span>

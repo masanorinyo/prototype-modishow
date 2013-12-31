@@ -32,9 +32,6 @@
 	defined('CONF_PATH') ? null : define('CONF_PATH',SITE_ROOT.DS.'app'.DS."config");
 
 	
-
-	
-
 	//load config file first
 	require_once(CONF_PATH.DS."db_connection.php");
 
@@ -43,16 +40,21 @@
 
 	//load controllers
 	require_once(CONT_PATH.DS."header_info_modifier.php");
-	//require_once(CONT_PATH.DS."session.php");
-	//require_once(CONT_PATH.DS."infinite_scroll.php");
-	//require_once(CONT_PATH.DS."phpMailer".DS."class.phpmailer.php");
-	//require_once(CONT_PATH.DS."phpMailer".DS."class.smtp.php");
+	
+	// require_once(CONT_PATH.DS."session.php");
+	// require_once(CONT_PATH.DS."infinite.php");
+	// require_once(CONT_PATH.DS."phpMailer".DS."class.phpmailer.php");
+	// require_once(CONT_PATH.DS."phpMailer".DS."class.smtp.php");
 	
 
 	//load database-related classes
-	//require_once(MODEL_PATH.DS."database.php");
-	//require_once(MODEL_PATH.DS."database_object.php");
-	//require_once(MODEL_PATH.DS."user.php");
-	//require_once(MODEL_PATH.DS."comment.php");
+	require_once(MODEL_PATH.DS."database.php");
+	require_once(MODEL_PATH.DS."database_object.php");
+	require_once(MODEL_PATH.DS."user.php");
+	require_once(MODEL_PATH.DS."comment.php");
+	// require_once(MODEL_PATH.DS."style.php");
+	// require_once(MODEL_PATH.DS."uploaded_items.php");
+	
+
 
 ?>

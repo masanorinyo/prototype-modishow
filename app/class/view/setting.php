@@ -7,12 +7,21 @@
 ?>
 
 <div class="setting">
-	<form id="setting_form" method="post">
+	<form id="setting_form" action="" method="post">
 		<div class="setting-wrapper account">
 			<div class="sub-header accountInfo">
 				<span>Account Information</span>
 			</div>
 			<ul>
+				<li>
+					<span>Profile Picture:</span>
+					<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>"/>
+					<input id="profile_pic" type="file" name="file_upload" />
+				</li>
+				<li>
+					<span>Username: </span>
+					<input id="name" type="text" value="" placeholder=" ex) modishow"/>
+				</li>
 				<li>
 					<span>E-mail Address: </span>
 					<input id="email" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
@@ -27,11 +36,7 @@
 				<li>
 					<input id="verifiedPassword" type="password" placeholder=" Re-type your new password"/>
 				</li>
-				<li>
-					<span>Profile Picture:</span>
-					<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>"/>
-					<input id="profile_pic" type="file" name="file_upload" />
-				</li>
+				
 				<li>
 					<span>Language:</span>
 					<select id="language">
@@ -307,7 +312,12 @@
 				</li>
 			</ul>
 		</div>
-		<?php include(LAYOUT_PATH.DS."structure/personal_info.php");?>	
+		<div class="setting-wrapper personal">
+			<div class="sub-header">
+				<span>Personal Information</span>
+			</div>
+			<?php include(LAYOUT_PATH.DS."structure/personal_info.php");?>	
+		</div>
 		<div class="confirmation">
 			<div id="deactivate" class="openModal round_weak" name="deactivate" value="deactivate">
 				Deactivate

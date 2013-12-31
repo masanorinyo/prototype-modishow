@@ -44,7 +44,20 @@
 		public $chest_bust;
 		public $hip;
 		public $sex;
+		public $errors = array();
 
+		public static function find_by_email($email) {
+			global $connection;
+			
+			$safe_email = mysqli_real_escape_string($connection, $email);
+			
+			$query  = "SELECT email ";
+			$query .= "FROM user ";
+			$query .= "WHERE email = '{$safe_email}' ";
+			$query .= "LIMIT 1";
+			
+			return $result = self::find_by_sql($query);
+		}
 
 		public static function authenticate($username="",$password=""){
 			global $database;
@@ -60,20 +73,19 @@
 			return !empty($result_array) ? array_shift($result_array) : false;
 		}
 
-
 		public static function password_encrypt($password) {
 	  	$hash_format = "$2y$10$";   // Tells PHP to use Blowfish with a "cost" of 10
 		  $salt_length = 22; 					// Blowfish salts should be 22-characters or more
-		  $salt = generate_salt($salt_length);
+		  $salt = self::generate_salt($salt_length);
 		  $format_and_salt = $hash_format . $salt;
 		  $hash = crypt($password, $format_and_salt);
 			return $hash;
 		}
 		
-		public static  function generate_salt($length) {
+		public static function generate_salt($length) {
 		  // Not 100% unique, not 100% random, but good enough for a salt
 		  // MD5 returns 32 characters
-		  $unique_random_string = md5(uniqid(mt_rand(), true));
+		  $unique_random_string = md5(uniqid(self::randomBytes($length), true));
 		  
 			// Valid characters for a salt are [a-zA-Z0-9./]
 		  $base64_string = base64_encode($unique_random_string);
@@ -86,6 +98,39 @@
 		  
 			return $salt;
 		}
+
+		static function randomBytes($length, $strong = true){
+		    if (function_exists('openssl_random_pseudo_bytes')) {
+		        $secure = false;
+		        $bytes = openssl_random_pseudo_bytes($length, $secure);
+		        if ($secure === true) {
+		            return $bytes;
+		        }
+		    }
+
+		    if (function_exists('mcrypt_create_iv')) {
+		        $bytes = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
+		        return (binary) $bytes;
+		    }
+
+		    if (!$strong) {
+		        $url = sprintf('https://www.random.org/cgi-bin/randbyte?format=f&nbytes=%s', $length);
+		        if (false !== ($bytes = file_get_contents($url))) {
+		            return (binary) $bytes;
+		        }
+
+		        $sha =''; $rnd ='';
+
+		        for ($i=0; $i<$length; $i++) {
+		            $sha = hash('sha256',$sha.mt_rand());
+		            $char = mt_rand(0,62);
+		            $rnd .= chr(hexdec($sha[$char].$sha[$char+1]));
+		        }
+
+		        return (binary) $bytes;
+		    }
+		    return false;
+		}
 		
 		public static function password_check($password, $existing_hash) {
 			// existing hash contains format and salt at start
@@ -97,55 +142,55 @@
 		  }
 		}
 
-		public static function find_admin_by_username($username) {
-			global $connection;
-			
-			$safe_username = mysqli_real_escape_string($connection, $username);
-			
-			$query  = "SELECT password ";
-			$query .= "FROM user ";
-			$query .= "WHERE username = '{$safe_username}' ";
-			$query .= "LIMIT 1";
-			$user_password = mysqli_query($connection, $query);
-			confirm_query($user_password);
-			if($admin = mysqli_fetch_assoc($admin_set)) {
-				return $admin;
-			} else {
-				return null;
+		
+
+		
+
+		public static function fieldname_as_text($fieldname){
+		  $fieldname = str_replace("_", " ", $fieldname);
+		  $fieldname = ucfirst($fieldname);
+		  return $fieldname;
+		}
+
+		// * presence
+		// use trim() so empty spaces don't count
+		// use === to avoid false positives
+		// empty() would consider "0" to be empty
+		public static function has_presence($value) {
+			return isset($value) && $value !== "";
+		}
+
+		public static function validate_presences($required_fields) {
+		  
+		  foreach($required_fields as $field) {
+		    $value = trim($_POST[$field]);
+		  	if (!self::has_presence($value)) {
+		  		return $errors[$field] = self::fieldname_as_text($field);
+		  	}
+		  }
+		}
+
+		// * string length
+		// max length
+		public static function has_max_length($value, $max) {
+			return strlen($value) <= $max;
+		}
+
+		public static function validate_max_lengths($fields_with_max_lengths) {
+			// Expects an assoc. array
+			foreach($fields_with_max_lengths as $field => $max) {
+				$value = trim($_POST[$field]);
+				if (!self::has_max_length($value, $max)) {
+					return $errors[$field] = self::fieldname_as_text($field);
+				}
 			}
 		}
 
-		public function signup($username,$password){
-			// validations
-			$required_fields = array("username", "password");
-			validate_presences($required_fields);
-			  
-			$fields_with_max_lengths = array("username" => 30);
-			validate_max_lengths($fields_with_max_lengths);
-			  
-			if (empty($errors)) {
-				// Perform Create
-
-			    $username = mysql_prep($_POST["username"]);
-			    $hashed_password = password_encrypt($_POST["password"]);
-			    
-			    $query  = "INSERT INTO admins (";
-			    $query .= "  username, hashed_password";
-			    $query .= ") VALUES (";
-			    $query .= "  '{$username}', '{$hashed_password}'";
-			    $query .= ")";
-			    $result = mysqli_query($connection, $query);
-
-			    if ($result) {
-			      // Success
-			      $_SESSION["message"] = "Admin created.";
-			      redirect_to("manage_admins.php");
-			    } else {
-			      // Failure
-			      $_SESSION["message"] = "Admin creation failed.";
-			    }
-			}
+		// * inclusion in a set
+		public static function has_inclusion_in($value, $set) {
+			return in_array($value, $set);
 		}
+
 
 
 		//creating a thumbnail for user profile image
