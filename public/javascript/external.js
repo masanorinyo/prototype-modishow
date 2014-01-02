@@ -778,7 +778,7 @@ $(function(){
 	   				if($("#outfitItems #"+image_id).attr("class").split(" ")[1] !== image_type){
 	   					$.ajax({
 	   						type:"POST",
-	   						url:"../includes/product.php",
+	   						url:"../includes/product",
 	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
 	   						//before data is successfully stored, the canvas gets darken.
 	   						beforeSend: function(){

@@ -6,7 +6,6 @@
 	include(LAYOUT_PATH.DS."structure/header.php");
 
 ?>
-
 <div class="content round_weak">
 	<?php include(LAYOUT_PATH.DS."parts/scrollToTop.php");?>
 	<?php include(LAYOUT_PATH.DS."parts/about_button.php");?>

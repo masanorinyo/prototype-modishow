@@ -69,9 +69,11 @@
 				$_SESSION["message"] = "Update failed.";
 				redirect_to(ROOT_PATH."app/class/view/userPage");
 			}
+	}else if(isset($_POST["cancel"])){
+		redirect_to(ROOT_PATH."app/class/view/userPage");
 	}
 
-	redirect_to(ROOT_PATH."app/class/view/userPage");
+	
 
 
 ?>
