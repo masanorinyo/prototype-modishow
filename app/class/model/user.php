@@ -3,8 +3,29 @@
 	require_once(MODEL_PATH.DS.'database.php');
 
 	class User extends DatabaseObject{
-
-		protected static $table_name = "users";
+		// const table_primaryKey="user_id";
+		public $errors = array();
+		public $user_id;
+		public $model_id=1;
+		public $facebook_loggin=0;
+		public $username;
+		public $email;
+		public $password;
+		public $gender;
+		public $country;
+		public $age;
+		public $user_type;
+		public $thumbnail;
+		public $city;
+		public $bodyshape;
+		public $inseam;
+		public $waist;
+		public $size;
+		public $height;
+		public $chest_bust;
+		public $hip;
+		protected static $table_primaryKey="user_id";
+		protected static $table_name = "user";
 		protected static $db_fields = array(
 			'user_id',
 			'model_id',
@@ -20,6 +41,7 @@
 			'city',
 			'bodyshape',
 			'inseam',
+			'size',
 			'waist',
 			'height',
 			'chest_bust',
@@ -27,38 +49,30 @@
 			'sex'
 		);
 
-		public $user_id;
-		public $model_id;
-		public $facebook_loggin;
-		public $username;
-		public $password;
-		public $thumbnail;
-		public $user_type;
-		public $age;
-		public $country;
-		public $city;
-		public $bodyshape;
-		public $inseam;
-		public $waist;
-		public $height;
-		public $chest_bust;
-		public $hip;
-		public $sex;
-		public $errors = array();
 
-		public static function find_by_email($email) {
-			global $connection;
-			
-			$safe_email = mysqli_real_escape_string($connection, $email);
-			
-			$query  = "SELECT email ";
-			$query .= "FROM user ";
-			$query .= "WHERE email = '{$safe_email}' ";
-			$query .= "LIMIT 1";
-			
-			return $result = self::find_by_sql($query);
+		//******************Account Creation******************//
+		public static function make($username,$email,$password,$thumbnail="default_thumb.png",$country,$gender,$age=0,$bodyshape=0,$size=0,$height=0,$skin_color=0){
+
+			if(!empty($username) && !empty($email) && !empty($password)){
+				$new_user = new User();				
+				$new_user->username = $username;
+				$new_user->email = $email;
+				$new_user->password = $password;
+				$new_user->thumbnail = $thumbnail;
+				$new_user->country = $country;
+				$new_user->gender = $gender;
+				$new_user->age = (int) $age;
+				$new_user->bodyshape = $bodyshape;
+				$new_user->size = (int) $size;
+				$new_user->height= (int) $height;
+				$new_user->skin_color= $skin_color;
+				return $new_user;
+			}else{
+				return false;
+			}
 		}
 
+		//******************Password check******************//
 		public static function authenticate($username="",$password=""){
 			global $database;
 			$username = $database->escape_value($username);
@@ -73,6 +87,17 @@
 			return !empty($result_array) ? array_shift($result_array) : false;
 		}
 
+		public static function password_check($password, $existing_hash) {
+			// existing hash contains format and salt at start
+		  $hash = crypt($password, $existing_hash);
+		  if ($hash === $existing_hash) {
+		    return true;
+		  } else {
+		    return false;
+		  }
+		}
+
+		//************************Password Creation*************************//
 		public static function password_encrypt($password) {
 	  	$hash_format = "$2y$10$";   // Tells PHP to use Blowfish with a "cost" of 10
 		  $salt_length = 22; 					// Blowfish salts should be 22-characters or more
@@ -132,19 +157,19 @@
 		    return false;
 		}
 		
-		public static function password_check($password, $existing_hash) {
-			// existing hash contains format and salt at start
-		  $hash = crypt($password, $existing_hash);
-		  if ($hash === $existing_hash) {
-		    return true;
-		  } else {
-		    return false;
-		  }
+		
+
+		//creating a thumbnail for user profile image
+		public function make_thumbnail(){
+
+
+
+
 		}
-
 		
 
-		
+
+		//*************************validation checks*************************//
 
 		public static function fieldname_as_text($fieldname){
 		  $fieldname = str_replace("_", " ", $fieldname);
@@ -193,13 +218,6 @@
 
 
 
-		//creating a thumbnail for user profile image
-		public function make_thumbnail(){
-
-
-
-
-		}
 		
 	}
 

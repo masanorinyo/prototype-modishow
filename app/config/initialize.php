@@ -40,8 +40,7 @@
 
 	//load controllers
 	require_once(CONT_PATH.DS."header_info_modifier.php");
-	
-	// require_once(CONT_PATH.DS."session.php");
+	require_once(CONT_PATH.DS."session.php");
 	// require_once(CONT_PATH.DS."infinite.php");
 	// require_once(CONT_PATH.DS."phpMailer".DS."class.phpmailer.php");
 	// require_once(CONT_PATH.DS."phpMailer".DS."class.smtp.php");

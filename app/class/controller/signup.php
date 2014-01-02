@@ -8,13 +8,15 @@
 		$email = trim($_POST['email_to_check']);
 		
 		//check database to see if username/password exist;
-		$found_user = User::find_by_email($email);
+		$found_user = User::find_by_attribute($email,"email");
 
+		//validate the data
 		$required_fields = array("email_to_check");
 		$email_presence=User::validate_presences($required_fields);
 		$fields_with_max_lengths = array("email_to_check" => 50);
 		$too_long_email = User::validate_max_lengths($fields_with_max_lengths);
 
+		//return the data 
 		if($found_user){
 			echo $message = "This e-mail is already used.";
 		}else if($email_presence){
@@ -36,34 +38,52 @@
 			if(!($email_presence && $too_long_email)){
 				
 			    $email = $_POST["email"];
-			    $parts = explode("@", $email);
-				$username = $parts[0];
 				$country = $_POST['country'];
 				$gender = $_POST['gender'];
 			    $hashed_password = User::password_encrypt($_POST["password"]);
-			    $thumbnail = isset($_POST['file_upload'])? $_POST['file_upload']:"default";
-			    $skin_color = isset($_POST['skin_color'])? $_POST['skin_color']:NULL;
-			    $age = isset($_POST['age'])? $_POST['age']:NULL;
-			    $bodyshape = isset($_POST['bodyshape'])? $_POST['bodyshape']:NULL;
-			    $size = isset($_POST['size'])? $_POST['size']:NULL;
-			    $height = isset($_POST['height'])? $_POST['height']:NULL;
+			    $thumbnail = isset($_POST['file_upload']) ? $_POST['file_upload']:"default_thumb.png";
+			    $skin_color = $_POST['skin_color'];
+			    $age = $_POST['age'];
+			    $bodyshape = $_POST['bodyshape'];
+			    $size = $_POST['size'];
+			    $height = $_POST['height'];
+			    
+			    //determine if the same username exists in the database
+			    //if any, add numbers
+			    $parts = explode("@", $email);
+				$username = $parts[0];
+				$num=1;
+				while(User::find_by_attribute($username,"username")){
+					$username .=$num;
+					$num++;
+				}
+				
 
-			    $query  = "INSERT INTO user (";
-			    $query .= "  username, email,password,country,gender,thumbnail,skin_color,age,bodyshape,size,height";
-			    $query .= ") VALUES (";
-			    $query .= "'{$username}', '{$email}', '{$hashed_password}', '{$country}'";
-			    $query .= "'{$gender}', '{$thumbnail}', '{$skin_color}', '{$age}'";
-			    $query .= "'{$bodyshape}', '{$size}', '{$height}'\"";
-			    $query .= ")";
-			    $result = mysqli_query($connection, $query);
+				$user = User::make(
+					$username,
+					$email,
+					$hashed_password,
+					$thumbnail,
+					$country,
+					$gender,
+					$age,
+					$bodyshape,
+					$size,
+					$height,
+					$skin_color
+				);
 
+				
+				$result = $user ->save();
+
+			   
 			    if ($result) {
-			      // Success
-			      $_SESSION["message"] = "User created.";
-			      redirect_to(SITE_ROOT."app/class/view/userPage");
+			    // Success
+			    	$_SESSION["message"] = "User created.";
+			      	$session->login($user);
+			     	redirect_to(ROOT_PATH."app/class/view/userPage");
 			    } else {
 			      // Failure
-			      echo "fail";
 			      $_SESSION["message"] = "User creation failed.";
 			    }
 			}else{

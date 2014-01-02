@@ -8,16 +8,16 @@
 			<option value="17">
 				~17
 			</option>
-			<option value="1821">
+			<option value="21">
 				18 ~ 21
 			</option>
-			<option value="2225">
+			<option value="25">
 				22 ~ 25
 			</option>
-			<option value="2630">
+			<option value="30">
 				26 ~ 30
 			</option>
-			<option value="3140">
+			<option value="40">
 				31 ~ 40
 			</option>
 			<option value="41">
@@ -34,16 +34,16 @@
 			<option value="150">
 				~ 4'11' ( 150cm )
 			</option>
-			<option value="151160">
+			<option value="160">
 				4'11.4' ( 151cm ) ~ 5'3' ( 160cm )
 			</option>
-			<option value="161170">
+			<option value="170">
 				5'3.4' ( 161cm ) ~ 5'6.9' ( 170cm )
 			</option>
-			<option value="171180">
+			<option value="180">
 				5'7.3' ( 171cm ) ~ 5'10.9' ( 180cm )
 			</option>
-			<option value="181190">
+			<option value="190">
 				5'11.3' ( 181cm ) ~ 6'2.8' ( 190cm )
 			</option>
 			<option value="191">
@@ -92,19 +92,19 @@
 			<option value="0">
 				Please select your size
 			</option>
-			<option value="3">
+			<option value="xs">
 				~ 3 (XS)
 			</option>
-			<option value="46">
+			<option value="s">
 				4 ~ 6 (S)
 			</option>
-			<option value="79">
+			<option value="m">
 				7 ~ 9 (M)
 			</option>
-			<option value="1012">
+			<option value="l">
 				10 ~ 12 (L)
 			</option>
-			<option value="13">
+			<option value="xl">
 				13 ~  (XL)
 			</option>
 		</select>	

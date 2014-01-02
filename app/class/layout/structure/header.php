@@ -288,7 +288,7 @@
 					<ul id="header_rightOptions">
 						<li class="lastChild">
 							<?php 
-								if(isset($session) && $session){
+								if($session->is_logged_in()){
 									include(LAYOUT_PATH.DS."parts/user_profile.php");
 								}else{
 									echo "<a class='jumpToSignup pointer'>Sign up / Log in</a>";	

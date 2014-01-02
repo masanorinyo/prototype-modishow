@@ -276,13 +276,13 @@
 						<li>
 							<span>Gender:</span>
 							<label>
-								<input type="radio" name="gender" value="Unspecified"> Unspecified
+								<input type="radio" name="gender" value="u"> Unspecified
 							</label>
 							<label>
-								<input type="radio" name="gender" value="male"/> Male
+								<input type="radio" name="gender" value="m"/> Male
 							</label>
 							<label>
-								<input type="radio" name="gender" value="female" checked="checked"/> Female
+								<input type="radio" name="gender" value="f" checked="checked"/> Female
 							</label>
 							
 						</li>

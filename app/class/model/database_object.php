@@ -13,9 +13,30 @@
 
 		public static function find_by_id($id=0){
 			global $database;
-			$result_array = static::find_by_sql("SELECT * FROM ".static::$table_name. " WHERE ".$table_primaryKey."=".$database->escape_value($id)." LIMIT 1");
+
+			$query = "SELECT * ";
+			$query .="FROM ".static::$table_name." ";
+			$query .="WHERE ".static::$table_primaryKey."=".$database->escape_value($id)." ";
+			$query .="LIMIT 1";
+
+			$result_array = static::find_by_sql($query);
 
 			return !empty($result_array) ? array_shift($result_array) : false;
+		}
+
+		//find the user information by attribute
+
+		public static function find_by_attribute($value,$attr) {
+			global $connection;
+			
+			$safe_value = mysqli_real_escape_string($connection, $value);
+			
+			$query  = "SELECT ".$attr." ";
+			$query .= "FROM ".static::$table_name." ";
+			$query .= "WHERE ".$attr." = '".$safe_value."' ";
+			$query .= "LIMIT 1";
+			
+			return $result = static::find_by_sql($query);
 		}
 
 		public static function find_by_sql($sql=""){
@@ -106,7 +127,9 @@
 		}
 
 		public function save(){
-			return isset($this->id) ? $this -> update() : $this -> create();
+			$class_name = get_called_class();
+			$id = $class_name::table_primaryKey;
+			return isset($this->$id)? $this -> update() : $this -> create();
 
 		}
 
@@ -132,6 +155,7 @@
 			// - INSERT INTO table (key, key) VALUES ('value', 'value')
 			// - single-quotes around all values
 			// - escape all values to prevent SQL injection
+			
 			$attributes = $this->sanitized_attributes();
 		  	$sql = "INSERT INTO ".static::$table_name." (";
 			$sql .= join(", ", array_keys($attributes));
@@ -140,7 +164,7 @@
 			$sql .= "')";
 
 		  	if($database->query($sql)) {
-		    	$this->id = $database->insert_id();
+		    	$this->table_primaryKey = $database->insert_id();
 			    return true;
 		  	} else {
 		    	return false;
@@ -160,7 +184,7 @@
 			}
 			$sql = "UPDATE ".static::$table_name." SET ";
 			$sql .= join(", ", $attribute_pairs);
-			$sql .= " WHERE id=". $database->escape_value($this->id);
+			$sql .= " WHERE id=". $database->escape_value($this->table_primaryKey);
 			  $database->query($sql);
 			  return ($database->affected_rows() == 1) ? true : false;
 		}
@@ -172,7 +196,7 @@
 			// - escape all values to prevent SQL injection
 			// - use LIMIT 1
 			$sql = "DELETE FROM ".static::$table_name;
-			$sql .= " WHERE id=". $database->escape_value($this->id);
+			$sql .= " WHERE id=". $database->escape_value($this->table_primaryKey);
 			$sql .= " LIMIT 1";
 			$database->query($sql);
 			return ($database->affected_rows() == 1) ? true : false;

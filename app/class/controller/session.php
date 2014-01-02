@@ -28,10 +28,13 @@
 		public function login($user){
 			//database should find user based on username/password;
 			if($user){
-				$this->user_id = $_SESSION['user_id'] = $user->id;
+
+				
+				$this->user_id = $_SESSION['user_id'] = $user->user_id;
 				//the above is the same as 
 				// $this->user_id = $user->id;
 				//$_SESSION['user_id'] = $user->id;
+				
 				$this->logged_in = true;
 			}
 		}
