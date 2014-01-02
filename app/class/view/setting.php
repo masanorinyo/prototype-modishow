@@ -322,7 +322,7 @@
 			<div id="deactivate" class="openModal round_weak" name="deactivate" value="deactivate">
 				Deactivate
 			</div>
-			<input id="cancel" class="round_weak" type="submit" name="cancel" value="Cancel">
+			<div id="cancel" class="round_weak pointer"><span>Cancel</span></div>
 			<input id="confirm" class="round_weak" type="submit" value="Confirm" name="confirm">
 		</div>
 	</form>
@@ -336,10 +336,10 @@
 			<div class="popup-box-header">
 				<span>Deactivate!? Are you sure?</span>
 			</div>
-			<div class="button_large background-strong firstList round_weak">
-				<a href="<?php echo ROOT_PATH.DS.'index.php';?>">
+			<div id="account_delete" class="button_large background-strong firstList round_weak">
+				<span>
 					YES
-				</a>
+				</span>
 			</div><!--Write PHP code to destroy the user's account-->
 			<div class="button_large background-weak secondList closeBox round_weak">
 				<span>No</span>

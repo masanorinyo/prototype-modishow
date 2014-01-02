@@ -5714,20 +5714,14 @@ float:left;
 	height:380px;
 }
 
-#setting #modalbox .popup-box .firstList{
-	top:130px;
-	left:80px;
-	font-size:0.8em;
-}
-
-
 /*--Element--*/
-#setting #modalbox .popup-box .firstList a{
+#setting #modalbox .popup-box .firstList span{
 	color:rgb(220,220,220);
 }
 
 
-#setting #modalbox .popup-box .secondList{
+#setting #modalbox .popup-box .secondList,
+#setting #modalbox .popup-box .firstList{
 	font-size:5.5em;
 	color:rgb(180,180,180);
 	cursor:pointer;
@@ -5736,7 +5730,7 @@ float:left;
 
 /*--Effect--*/
 #setting #modalbox .popup-box .secondList span:hover,
-#setting #modalbox .popup-box .firstList a:hover{
+#setting #modalbox .popup-box .firstList span:hover{
 	color:rgb(50,180,240);
 }
 
@@ -5939,9 +5933,26 @@ float:left;
 }
 
 .setting #cancel{
-	left:auto;
-	right:200px;
+	background-color: rgb(255,255,255);
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	right: 200px;
+	bottom: 20px;
+	font-size: 1.3em;
+	text-align: center;
 }
+
+.setting #cancel span{
+	color:rgb(155,155,155);
+    font-size: 1em;
+	position:absolute;
+	top:4px;
+	right:0;
+	left:0;
+	
+}
+
 .setting #confirm{
 	left:auto;
 	right:70px;
@@ -5951,6 +5962,9 @@ float:left;
 }
 
 /*--Effect- */
+#cancel:hover span{
+	color:rgb(50,180,240);
+}
 
 .setting button:hover,
 .setting button:active{

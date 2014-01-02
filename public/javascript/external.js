@@ -2836,6 +2836,40 @@ $(function(){
 
 });
 
+
+//--account setting--//
+$(function(){
+	//redirect users
+	$("#setting #cancel").click(function(){
+		window.location.replace("../../../public/index.php");
+	});
+
+
+	//account deletion
+	$("#account_delete").click(function(){
+		$.ajax({
+			type:'POST',
+			url:'../controller/delete',
+			success:function(data){
+				if(data=="true"){
+					window.location.replace("../../../public/index.php");
+				}else{
+					window.location.replace("../../../public/index.php");
+				}
+				console.log(data);	
+			
+			},
+			error:function(data){
+				window.location.replace("../../../public/index.php");
+				console.log(data);	
+				
+			}
+		});
+	});
+
+});
+
+
 //--price range--//
 $(function() {
     $( "#slider-range" ).slider({

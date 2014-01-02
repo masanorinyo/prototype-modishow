@@ -195,10 +195,11 @@
 			$id = $class_name::primaryKey;
 			
 			$sql = "DELETE FROM ".static::$table_name;
-			$sql .= " WHERE id=". $database->escape_value($this->$id);
+			$sql .= " WHERE ".$id."=". $database->escape_value($this->$id);
 			$sql .= " LIMIT 1";
 			$database->query($sql);
 			return ($database->affected_rows() == 1) ? true : false;
+
 		
 			// NB: After deleting, the instance of User still 
 			// exists, even though the database entry does not.
