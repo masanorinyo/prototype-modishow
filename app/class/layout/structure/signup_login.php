@@ -321,7 +321,7 @@
 			</form>
 		</div>
 		<div id="login" class="setting">
-			<form id="login_form" action="<?php echo ROOT_PATH.DS.'app/class/controller/login';?>" method="post">
+			<form id="login_form" action="" method="post">
 				<div class="setting-wrapper">
 					<div class="sub-header ">
 						<span>Log in</span>

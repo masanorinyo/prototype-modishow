@@ -3,7 +3,7 @@
 	require_once(MODEL_PATH.DS.'database.php');
 
 	class User extends DatabaseObject{
-		// const table_primaryKey="user_id";
+		
 		public $errors = array();
 		public $user_id;
 		public $model_id=1;
@@ -24,6 +24,7 @@
 		public $height;
 		public $chest_bust;
 		public $hip;
+		const primaryKey="user_id";
 		protected static $table_primaryKey="user_id";
 		protected static $table_name = "user";
 		protected static $db_fields = array(
@@ -73,18 +74,25 @@
 		}
 
 		//******************Password check******************//
-		public static function authenticate($username="",$password=""){
+		public static function authenticate($email="",$password=""){
 			global $database;
-			$username = $database->escape_value($username);
+			$email = $database->escape_value($email);
 			$password = $database->escape_value($password);
 
-			$sql =  "SELECT * FROM user ";
-			$sql .= "WHERE username ='{$username}' ";
-			$sql .= "&& password='{$password}' ";
-			$result_array = self::find_by_sql($sql);
+			$user = User::find_by_attribute($email,"email");
 
-		
-			return !empty($result_array) ? array_shift($result_array) : false;
+			if($user){
+				// found admin, now check password
+				if (User::password_check($password,$user->password)){
+					// password matches
+					return $user;
+				} else {
+					// password does not match
+					return false;
+				}
+			}else{
+				return false;
+			}
 		}
 
 		public static function password_check($password, $existing_hash) {
@@ -96,6 +104,8 @@
 		    return false;
 		  }
 		}
+
+		
 
 		//************************Password Creation*************************//
 		public static function password_encrypt($password) {

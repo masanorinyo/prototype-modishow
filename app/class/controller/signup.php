@@ -54,7 +54,19 @@
 				$username = $parts[0];
 				$num=1;
 				while(User::find_by_attribute($username,"username")){
-					$username .=$num;
+					if($num == 1){
+						$username .=$num;	
+					}else if($num<10){
+						$username = substr($username,0,-1);
+						$username .=$num;	
+					}else if($num <100){
+						$username = substr($username,0,-2);
+						$username .=$num;	
+					}else{
+						$username = substr($username,0,-3);
+						$username .=$num;	
+					}
+					
 					$num++;
 				}
 				
@@ -75,6 +87,7 @@
 
 				
 				$result = $user ->save();
+
 
 			   
 			    if ($result) {

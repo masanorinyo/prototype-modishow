@@ -1,9 +1,14 @@
 <?php
-	$user = User::find_by_id($_SESSION['user_id']);
-	$username = $user->username;
-	$thumb_file = $user->thumbnail;
-	$thumb_location = RESOURCE_PATH.DS."users".DS;
-	$thumbnail = $thumb_location.$thumb_file;
+	if(isset($_SESSION['user_id'])){
+		$user = User::find_by_id($_SESSION['user_id']);
+		$username = $user->username;
+		$thumb_file = $user->thumbnail;
+		$thumb_location = RESOURCE_PATH.DS."users".DS;
+		$thumbnail = $thumb_location.$thumb_file;	
+	}else{
+		redirect_to(ROOT_PATH.DS."public/index.php");
+	}
+	
 ;?>
 <a class="<?php echo user_page; ?>" href="<?php echo ROOT_PATH.'app/class/view/userPage';?>">
 	<img class="round_circle" src="<?php echo $thumbnail;?>" />

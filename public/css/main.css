@@ -188,7 +188,13 @@ li{
 	color:rgb(100,100,200);
 }
 
+.errorMessage{
+	margin-left:40px;	
+}
 
+.wrongCombo{
+	font-size:0.9em;
+}
 /*----------Font----------*/
 .font_monotype{
 	font-family:"Monotype Corsiva";

@@ -2351,8 +2351,8 @@ $(function(){
 	
 	//if any error occurs, erro box comes out
 	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
-	var errorMessage = "<span class='color_red errorMessage' style='margin-left:40px;'>Please fill out the form </span>";
-	var incorretInputMessage = "<span class='color_red errorMessage' style='margin-left:40px;'>Username/password combination incorrect</span>";
+	var errorMessage = "<span class='color_red errorMessage'>Please fill out the form </span>";
+	var incorretInputMessage = "<span class='color_red errorMessage wrongCombo'>Incorrect combination</span>";
 
 	//regular expression 
 	var regName = /^[a-zA-Z0-9'-]+$/;
@@ -2427,7 +2427,7 @@ $(function(){
 				validCityName = true;
 
 				//this prevents any error popup from showing up for login form. 
-			}else if(!($(inputTag).is("#loginPassword") ||$(inputTag).is("#loginEmail"))){
+			}else if(!$(inputTag).is("#loginEmail")){
 
 				$(inputTag).css({'border-color':'red'});
 				
@@ -2438,12 +2438,14 @@ $(function(){
 				}else if($(inputTag).is("#newPassword")){
 					validPassword = false;
 					$(inputTag).next(".insertBox").remove();
+				}else if($(inputTag).is("#loginPassword")){
+					validLoginPassword = false;
 				};
 			}	
 		//if the string is less than 4 characters
 		}else if($(inputTag).val().length <= 4){
 			//this will prevent the error box from showing up
-			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") || $(inputTag).is("#loginPassword") ||$(inputTag).is("#loginEmail"))){
+			if(!($(inputTag).is("#verifiedPassword") ||$(inputTag).is("#password") ||$(inputTag).is("#loginEmail"))){
 				if($(inputTag).is("#newPassword")){
 					$(inputTag).next(".insertBox").remove();
 				}
@@ -2465,6 +2467,8 @@ $(function(){
 					wrongFormat();
 					$(inputTag).next('.insertBox').children('.insertMessage').text("Your E-mail is not properly formatted");
 					validEmail = false;
+				}else if($(inputTag).is("#loginPassword")){
+					validLoginPassword = false;
 				}else{
 					wrongFormat();
 					$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
@@ -2693,42 +2697,49 @@ $(function(){
 
 	//if every element in the form is written in a right format, the form will be submitted
 	$("#loginConfirm").click(function(){
-		if(!validLoginEmail){
-			validLoginEmail = false;
-		};
-
-		if(!validLoginPassword){
-			validLoginPassword = false;
-		};
-
+		console.log(validLoginEmail+" "+validLoginPassword);
 		if(validLoginEmail && validLoginPassword){
+			var email = $("#loginEmail").val();
+			var password = $("#loginPassword").val();
 			$.ajax({
 					type:'POST',
-					url:'../app/class/model/login',
-					data:{email:$("#loginEmail").val(),password:$("#loginPassword").val()},
+					url:'../app/class/controller/login',
+					data:{email:email,password:password},
 					success:function(data){
-						return true;
+						if(data=="true"){
+							window.location.reload(true);
+						}else{
+							if($("#login .errorMessage").is(":visible")){
+								$("#login  .errorMessage").effect( "highlight", "fast" );
+							}else{
+								$("#login  .sub-header > span").append(incorretInputMessage);
+							}
+							return false;	
+						}
+						
+						
 
 					},
 					error:function(data){
 						if($("#login .errorMessage").is(":visible")){
-							$("#login  .errorMessage").effect( "highlight", "slow" );
+							$("#login  .errorMessage").effect( "highlight", "fast" );
 						}else{
 							$("#login  .sub-header > span").append(incorretInputMessage);
 						}
 						return false;
+						
 					}
 				});
 			return false;
 
 		}else{
 			if($("#login .errorMessage").is(":visible")){
-				$("#login  .errorMessage").effect( "highlight", "slow" );
+				$("#login  .errorMessage").effect( "highlight", "fast" );
 			}else{
 				$("#login  .sub-header > span").append(incorretInputMessage);
 			};
 			return false;
-		};
+		}
 		
 	});
 
