@@ -2353,6 +2353,7 @@ $(function(){
 	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
 	var errorMessage = "<span class='color_red errorMessage'>Please fill out the form </span>";
 	var incorretInputMessage = "<span class='color_red errorMessage wrongCombo'>Incorrect combination</span>";
+	var incorretName = "<span class='color_red errorMessage wrongCombo'>Please put the valid name</span>";
 
 	//regular expression 
 	var regName = /^[a-zA-Z0-9'-]+$/;
@@ -2480,8 +2481,29 @@ $(function(){
 		}else if($(inputTag).val().length > 0){
 			if($(inputTag).is("#name")){
 				if(regName.test(this.username)){
-					correctFormat();
-					validName = true;
+					$.ajax({
+						type:'POST',
+						url:'../controller/setting_modifier',
+						//if you put php extension, it won't work with Post type
+						//because .htaccess is controlling the url now.
+						data: {new_username : this.username},
+
+						success:function(data){
+							if(data == "true"){
+								correctFormat();
+								validName = true;	
+							}else{
+								wrongFormat();
+								$("#name").next('.insertBox').children('.insertMessage').text(data);
+								validName = false;	
+							}
+						},
+
+						error:function(data){				
+							$("#name").next('.insertBox').children('.insertMessage').text(data);
+							validName = false;	
+						}
+					});
 				}else{
 					wrongFormat();
 					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ z],[0 ~ 9],[' and -']");
@@ -2793,6 +2815,21 @@ $(function(){
 	  	
 	});
 
+	$("#modalbox-editProfile #confirm").click(function() {   
+			
+			if(validName){
+				
+			}else{
+				if($("#modalbox-editProfile .errorMessage").is(":visible")){
+					$("#modalbox-editProfile  .errorMessage").effect( "highlight", "fast" );
+				}else{
+					$("#modalbox-editProfile  .popup-box-header").append(incorretName);
+				};
+				return false;
+			}
+		  	
+		});
+
 	function validationSet(password,oPassword,verifiedPass, email,name,logEmail,logPass,cityN){
 		this.password = password;
 		this.oldPassword = oPassword;
@@ -2806,7 +2843,7 @@ $(function(){
 
 
 	//this will create an object 
-		$(".setting input[type='text'],.setting input[type='password']").focusout(function(){
+		$(".setting input[type='text'],.setting input[type='password'],#modalbox-editProfile input[type='text']").focusout(function(){
 			//make variables for each value
 			var focusInput = $(this);
 			if($(this).is("#newPassword")){

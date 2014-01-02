@@ -177,6 +177,16 @@ li{
 	left:200px;
 }
 
+#modalbox-editProfile .insertBox{
+	left: 458px;
+	top: 89px;
+	
+}	
+
+#modalbox-editProfile .insertBox .insertMessage{
+	font-size: 0.9em;
+}
+
 .insertMessage{
 	position: absolute;
 	color:rgb(255,105,150);
@@ -190,6 +200,13 @@ li{
 
 .errorMessage{
 	margin-left:40px;	
+}
+
+.popup-box-header > .errorMessage{
+	font-family: georgia;
+	font-style: normal;
+	color: red;
+	font-size: 1.5em;
 }
 
 .wrongCombo{
@@ -5608,7 +5625,7 @@ float:left;
 	color:rgb(140,140,140);
 }
 
-#userPage .profile > form > div input{
+#userPage .profile > form > div input[type="text"]{
 	width:70%;
 	height:20px;
 	padding:4px;
@@ -5659,11 +5676,12 @@ float:left;
 	margin-right:50px;
 }
 
-#userPage .profile > form > .confirmation button{
+#userPage .profile > form > .confirmation input[type="submit"]{
 	float:right;
-	margin:30px 10px;
+	margin:30px 4px;
 	 -webkit-appearance: none;
     height: 30px;
+    width:70px;
 	background-color:rgb(255,255,255);    
 	color:rgb(155,155,155);
 	border:1px solid rgb(230,230,230);
@@ -5694,8 +5712,8 @@ float:left;
 	background-color:rgb(80,110,150);
 }
 
-#userPage .profile form button:hover,
-#userPage .profile form button:active,
+#userPage .profile form input[type="submit"]:hover,
+#userPage .profile form input[type="submit"]:active,
 #userPage .profile > form > .confirmation > div a:hover,
 #userPage .follow .userName:hover,
 #deactivate:hover,

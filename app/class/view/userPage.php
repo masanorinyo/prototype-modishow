@@ -4,6 +4,7 @@
 	// 	redirect_to(ROOT_PATH."public/index.php");
 	// }
 	include(LAYOUT_PATH.DS."structure/header.php");
+
 ?>
 
 <div class="content round_weak">
@@ -13,7 +14,7 @@
 		<div class="leftSide round_medium">
 			<div class="userProfile">
 				<div>
-					<img class="round_circle" src="images/user/userPhoto.gif"/>
+					<img class="round_circle" src="<?php echo RESOURCE_PATH.DS."users".DS.$user->default_img;?>"/>
 					<div class="round_weak">
 						<span>Change Picture</span>
 					</div>
@@ -23,16 +24,24 @@
 				<div class="userInformation">
 					<ul>
 						<li class="userName">
-							Masanori Sen
+							<?php echo $user->username;?>
 						</li>
 						<li class="location">
 							<span class="location_icon">
 								
 							</span>
-							U.S.
+							<?php echo $user->country; ?>
 						</li>
 						<li class="joinDate">
-							- Joined 10 days ago
+							- Joined 
+							<?php
+								date_default_timezone_set('America/New_York'); 
+								$joined_time = strtotime($user->joined_time);
+								$today = time();
+								$difference = $today - $joined_time;
+								echo floor($difference/(60*60*24));;
+							?> 
+							days ago
 						</li>
 					</ul>
 					<span id="editProfileInfo" class="editIcon opaque_strong pointer"></span>
@@ -40,26 +49,51 @@
 				
 				<div class="introduction clear">
 					<p class="expandable">
-						“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.” - Alexander 
-						“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.” - Alexander 
-						“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.“I think there is beauty in everything. What ‘normal’ people would perceive as ugly, I can usually see something of beauty in it.” - Alexander 
-
+						<?php
+							echo $user->introduction; 
+						?>
 					</p>
 					<span class="moreText pointer">Show More</span>
 				</div>
 				<div class="right-bottom">
 					<ul>
-						<li class="twitter">
-							<a href="#">
-								<img src="images/twitter.png" style="width:20px"/>
-							</a>
-						</li>
-						<li class="facebook">
-							<a href="#">
-								<img src="images/facebook.png" style="width:20px; margin:0 5px;" />
-							</a>
-						</li>
-						<li class="url"><a href-"#">- modishow.com</a></li>
+						<?php 
+							if($user->twitter){
+								$element = '<li class="twitter">';
+								$element .='<a href="#">';
+								$element .='<img src="images/twitter.png" style="width:20px"/>';
+								$element .='</a>';
+								$element .='</li>';
+								echo $element;
+							}
+						
+							if($user->facebook){
+								$element = '<li class="facebook">';
+								$element .='<a href="#">';
+								$element .='<img src="images/facebook.png" style="width:20px"/>';
+								$element .='</a>';
+								$element .='</li>';
+								echo $element;
+							}
+						
+							if($user->pinterest){
+								$element = '<li class="pinterest">';
+								$element .='<a href="#">';
+								$element .='<img src="images/pinterest.png" style="width:20px"/>';
+								$element .='</a>';
+								$element .='</li>';
+								echo $element;
+							}
+					
+							if($user->homepage){
+								$element = '<li class="url">';
+								$element .='<a href="#">';
+								$element .="- ".$user->homepage;
+								$element .='</a>';
+								$element .='</li>';
+								echo $element;
+							}
+						?>
 					</ul>
 				</div>
 				<div class="lastChild">
@@ -263,27 +297,23 @@
 			</div>
 			<div>
 				<div class="profile">
-					<form>
+					<form action="<?php echo ROOT_PATH.'app/class/controller/setting_modifier';?>" method="post">
 						<div>
 							<ul>
 								<li>
 									<span>Name: </span>
-									<input id="name" type="text" value="Masanori Sen"/>
+									<input id="name" name="username" type="text" value="<?php echo $user->username;?>"/>
 								</li>
 								<li class="clear">
 									<span>About:</span>
-									<textarea  value="Please introduce yourself">test</textarea>
+									<textarea  name="introduction" value="Please introduce yourself"><?php echo $user->introduction;?></textarea>
 								</li>
 							</ul>
 						</div>
 						<div class="confirmation clear">
 							<div>To change Account Settings, click <a href="setting.php">Setting</a></div> 
-							<button id="confirm" class="round_weak" type="submit" name="confirm">
-								Confirm
-							</button>
-							<button id="cancel" class="round_weak" type="submit" name="cancel">
-								Cancel
-							</button>
+							<input id="confirm" class="round_weak" type="submit" name="submit" value="confirm"/>
+							<input id="cancel" class="round_weak" type="submit" name="cancel" value="cancel"/>
 						</div>
 					</form>
 				</div>
