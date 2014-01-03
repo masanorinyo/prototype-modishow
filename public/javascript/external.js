@@ -2349,6 +2349,8 @@ $(function(){
 	var samePass = true;
 	var validCountry,validAge,validHeight,validSkinColor,validSize,validBody = false;
 	var validCityName = true;
+	var validNameFor_signup = true;	
+	//this allows users to submit the form without touching the text area.
 	
 	//if any error occurs, erro box comes out
 	var insertBox = "<div class='insertBox'><span class='insertMessage'></span></div>";
@@ -2414,7 +2416,6 @@ $(function(){
 				$(inputTag).css({'border-color':'red'});	
 				$(inputTag).parents('li').append(insertBox);
 				$(inputTag).next(".insertBox").fadeIn();
-				
 			}
 		};
 
@@ -2494,23 +2495,28 @@ $(function(){
 						success:function(data){
 							if(data == "true"){
 								correctFormat();
-								validName = true;	
+								validName = true;
+								validNameFor_signup=true;
+
 							}else{
 								wrongFormat();
 								$("#name").next('.insertBox').children('.insertMessage').text(data);
 								validName = false;	
+								validNameFor_signup=false;
 							}
 						},
 
 						error:function(data){				
 							$("#name").next('.insertBox').children('.insertMessage').text(data);
 							validName = false;	
+							validNameFor_signup=false;
 						}
 					});
 				}else{
 					wrongFormat();
 					$(inputTag).next('.insertBox').children('.insertMessage').text("You are only allowed to use [a ~ z],[0 ~ 9],[' and -']");
 					validName = false
+					validNameFor_signup=false;
 				}
 				
 			}else if($(inputTag).is("#cityName")){
@@ -2657,50 +2663,12 @@ $(function(){
 			}
 	}
 
-	// function selectedGroup(){
-	// 	if($("#ageGroup").val() != "0"){
-	// 			$("#ageGroup").css({'border-color':'rgb(200,200,200)'});
-	// 			validAge =  true;
-	// 		}else{
-	// 			validAge = false;
-	// 		};
-
-	// 	if($("#heightGroup").val() != "0"){
-	// 			$("#heightGroup").css({'border-color':'rgb(200,200,200)'});
-	// 			validHeight =  true;
-	// 		}else{
-	// 			validHeight = false;
-	// 		};
-
-	// 	if($("#skinGroup").val() != "0"){
-	// 			$("#skinGroup").css({'border-color':'rgb(200,200,200)'});
-	// 			validSkinColor =  true;
-	// 		}else{
-	// 			validSkinColor = false;
-	// 		};
-
-	// 	if($("#sizeGroup").val() != "0"){
-	// 			$("#sizeGroup").css({'border-color':'rgb(200,200,200)'});
-	// 			validSize =  true;
-	// 		}else{
-	// 			validSize = false;
-	// 		};
-
-	// 	if($("#bodyTypeGroup").val() != "0"){
-	// 			$("#bodyTypeGroup").css({'border-color':'rgb(200,200,200)'});
-	// 			validBody =  true;
-	// 		}else{
-	// 			validBody = false;
-	// 		};
-	// }
 
 	//if every element in the form is written in a right format, the form will be submitted
 	$("#signup #confirm").click(function(){
 		
 		selectedCountry();
 		
-
-
 		//If everything is written in a right format, the form gets submitted
 		if(!validCountry){
 			$("#country").css({'border-color':'red'});
@@ -2831,7 +2799,7 @@ $(function(){
 
 	$("#modalbox-editProfile #confirm").click(function() {   
 			
-			if(validName){
+			if(validName || validNameFor_signup){
 				return true;
 			}else{
 				if($("#modalbox-editProfile .errorMessage").is(":visible")){

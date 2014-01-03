@@ -24,6 +24,7 @@
 		public $default_img;
 		public $language;
 		public $city;
+		public $skin_color;
 		public $bodyshape;
 		public $inseam;
 		public $waist;
