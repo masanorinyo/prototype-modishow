@@ -3,35 +3,7 @@
 
 
 	$message = "";
-	//Remember to give your form's submit tag a name = "submit" attribute!
-	if(isset($_POST['new_username'])){
-		$name = trim($_POST['new_username']);
-		
-		//check database to see if username/password exist;
-		$found_user = User::find_by_attribute($name,"username");
-
-		//validate the data
-		$required_fields = array("new_username");
-		$name_presence=User::validate_presences($required_fields);
-		$fields_with_max_lengths = array("new_username" => 20);
-		$too_long_name = User::validate_max_lengths($fields_with_max_lengths);
-
-		//return the data 
-		if($found_user){
-			if($found_user->user_id==$_SESSION["user_id"]){
-				echo $message = "true";
-			}else{
-				echo $message = "This name is already used.";
-			}
-		}else if($name_presence){
-			echo $name_presence." cannot be blank.";
-		}else if($too_long_name){
-			echo $too_long_name." must be less than 20 characters.";
-		}else{
-			echo $message = "true";
-		}
-
-	}
+	
 
 	if(isset($_POST['submit'])){
 		$name = trim($_POST['username']);

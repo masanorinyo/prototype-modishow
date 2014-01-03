@@ -2381,7 +2381,6 @@ $(function(){
 		    case 2: message ="The strength of this password is okay"; break;
 		    case 3: message ="The strength of this password is strong"; break;
 		    case 4: message ="The strength of this password is very strong"; break;
-		    default: message ="Something is not right"; break;
 		}
 
 		$("#newPassword").next(".insertBox").remove();
@@ -2397,12 +2396,8 @@ $(function(){
 		
 		//for the input written in a proper format 
 		function correctFormat(){
-				if($(inputTag).is("#newPassword")){
-					//if the input for new password is in a proper format, it will get passed down to the password strenght testing
-					strengthOfPassword($(inputTag).val());
-				}else{
-					$(inputTag).next('.insertBox').fadeOut();
-				}
+				
+				$(inputTag).next('.insertBox').fadeOut();
 
 				$(inputTag).css({'border-color':'rgb(200,200,200)'});
 		};
@@ -2430,12 +2425,16 @@ $(function(){
 				//this prevents any error popup from showing up for login form. 
 			}else if(!$(inputTag).is("#loginEmail")){
 
-				$(inputTag).css({'border-color':'red'});
-				
 				if($(inputTag).is("#name")){
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
 					validName = false;
+					
 				}else if($(inputTag).is("#email")){
+					wrongFormat();
+					$(inputTag).next('.insertBox').children('.insertMessage').text("Please write more than 4 characters");
 					validEmail = false;
+					
 				}else if($(inputTag).is("#newPassword")){
 					validPassword = false;
 					$(inputTag).next(".insertBox").remove();
@@ -2478,12 +2477,12 @@ $(function(){
 				return false
 			}
 		//if the string is more than 4 characters	
-		}else if($(inputTag).val().length > 0){
+		}else if($(inputTag).val().length > 4){
 			if($(inputTag).is("#name")){
 				if(regName.test(this.username)){
 					$.ajax({
 						type:'POST',
-						url:'../controller/setting_modifier',
+						url:'../controller/duplicate_checker',
 						//if you put php extension, it won't work with Post type
 						//because .htaccess is controlling the url now.
 						data: {new_username : this.username},
@@ -2524,7 +2523,14 @@ $(function(){
 				}
 			}else if($(inputTag).is("#newPassword")){
 				if(regPass.test(this.password)){
+					samePassword(inputTag);
+					if(samePass){
+						alert('test');
+						correctFormat();
+					}
 					correctFormat();
+
+					samePass=false;
 					validPassword = true;
 
 				}else{
@@ -2536,9 +2542,17 @@ $(function(){
 				}
 			}else if($(inputTag).is("#email")){
 				if(regEmail.test(this.email)){
+
+					//to determine the right url to the duplicate checker
+					if($(inputTag).is("#setting #email")){
+						var source='../controller/duplicate_checker';
+					}else{
+						var source='../app/class/controller/duplicate_checker';
+					}
+
 					$.ajax({
 						type:'POST',
-						url:'../app/class/controller/signup',
+						url:source,
 						//if you put php extension, it won't work with Post type
 						//because .htaccess is controlling the url now.
 						data: {email_to_check : this.email},
@@ -2586,6 +2600,13 @@ $(function(){
 					validLoginEmail = false;
 				}
 				
+			}else if($(inputTag).is("#verifiedPassword")){
+				samePassword(inputTag);
+				if(samePass){
+					correctFormat();
+				}
+				samePass=false;
+				
 			}else{
 				correctFormat();
 			}
@@ -2606,24 +2627,22 @@ $(function(){
 		};
 	});
 
-	function samePassword(){
+	function samePassword(inputTag){
 		//whether two passwords match
-		if($("#newPassword").val().length >=5){
-			if(regPass.test($("#newPassword").val())){
-				if($("#newPassword").val() === $("#verifiedPassword").val()){
-			    	samePass = true;
-				}else{
-					$("#newPassword").next(".insertBox").remove();
-					$("#newPassword,#verifiedPassword").css({'border-color':'red'});	
-					$("#newPassword").parents('li').append(insertBox);
-					$("#newPassword").next(".insertBox").fadeIn();
-					$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
-					samePass = false;
-				}	
-			}
+		if($("#newPassword").val() === $("#verifiedPassword").val()){
+	    	samePass = true;
+			strengthOfPassword($("#verifiedPassword").val());
 		}else{
-			validPassword, samePass = false;
-		}
+			if($(inputTag).is("#verifiedPassword")){
+				$("#newPassword").next(".insertBox").remove();
+				$("#newPassword,#verifiedPassword").css({'border-color':'red'});	
+				$("#newPassword").parents('li').append(insertBox);
+				$("#newPassword").next(".insertBox").fadeIn();
+				$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+			}
+			samePass = false;
+		}	
+	
 	};
 
 
@@ -2637,42 +2656,42 @@ $(function(){
 			}
 	}
 
-	function selectedGroup(){
-		if($("#ageGroup").val() != "0"){
-				$("#ageGroup").css({'border-color':'rgb(200,200,200)'});
-				validAge =  true;
-			}else{
-				validAge = false;
-			};
+	// function selectedGroup(){
+	// 	if($("#ageGroup").val() != "0"){
+	// 			$("#ageGroup").css({'border-color':'rgb(200,200,200)'});
+	// 			validAge =  true;
+	// 		}else{
+	// 			validAge = false;
+	// 		};
 
-		if($("#heightGroup").val() != "0"){
-				$("#heightGroup").css({'border-color':'rgb(200,200,200)'});
-				validHeight =  true;
-			}else{
-				validHeight = false;
-			};
+	// 	if($("#heightGroup").val() != "0"){
+	// 			$("#heightGroup").css({'border-color':'rgb(200,200,200)'});
+	// 			validHeight =  true;
+	// 		}else{
+	// 			validHeight = false;
+	// 		};
 
-		if($("#skinGroup").val() != "0"){
-				$("#skinGroup").css({'border-color':'rgb(200,200,200)'});
-				validSkinColor =  true;
-			}else{
-				validSkinColor = false;
-			};
+	// 	if($("#skinGroup").val() != "0"){
+	// 			$("#skinGroup").css({'border-color':'rgb(200,200,200)'});
+	// 			validSkinColor =  true;
+	// 		}else{
+	// 			validSkinColor = false;
+	// 		};
 
-		if($("#sizeGroup").val() != "0"){
-				$("#sizeGroup").css({'border-color':'rgb(200,200,200)'});
-				validSize =  true;
-			}else{
-				validSize = false;
-			};
+	// 	if($("#sizeGroup").val() != "0"){
+	// 			$("#sizeGroup").css({'border-color':'rgb(200,200,200)'});
+	// 			validSize =  true;
+	// 		}else{
+	// 			validSize = false;
+	// 		};
 
-		if($("#bodyTypeGroup").val() != "0"){
-				$("#bodyTypeGroup").css({'border-color':'rgb(200,200,200)'});
-				validBody =  true;
-			}else{
-				validBody = false;
-			};
-	}
+	// 	if($("#bodyTypeGroup").val() != "0"){
+	// 			$("#bodyTypeGroup").css({'border-color':'rgb(200,200,200)'});
+	// 			validBody =  true;
+	// 		}else{
+	// 			validBody = false;
+	// 		};
+	// }
 
 	//if every element in the form is written in a right format, the form will be submitted
 	$("#signup #confirm").click(function(){
@@ -2767,30 +2786,19 @@ $(function(){
 
 	$("#setting #confirm").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
-	  	samePassword();
-		selectedCountry();
-		selectedGroup();
-
+		samePassword();
 		//If everything is written in a right format, the form gets submitted
-		if(validEmail && validPassword &&  samePass && validCityName){
-			//php comes in
-			// window.location.href = "userPage";
-			// return false;
+		
+
+
+		if(samePass && validCityName){
+			if((validEmail=="undefined" || validEmail) && (validName=="undefined" || validName)){
+				return true;
+			}else{
+				$(window).scrollTop(0);
+				return false;
+			}
 		}else{
-			if(!validName){
-				$("#name").css({'border-color':'red'});
-				validName = false;
-			}
-
-			if(!validEmail){
-				$("#email").css({'border-color':'red'});
-				validEmail = false;
-			}
-
-			if(!validPassword){
-				$("#newPassword").css({'border-color':'red'});
-				validPassword = false;
-			}
 
 			if($("#cityName").val().length > 0){
 				if(!validCityName){
@@ -2802,6 +2810,8 @@ $(function(){
 				validCityName = true;
 			}
 
+
+
 			if($("#setting .errorMessage").is(":visible")){
 				$("#setting .errorMessage").effect( "highlight", "slow" );
 			}else{
@@ -2812,13 +2822,15 @@ $(function(){
 
 			return false;
 		}	
+		
+
 	  	
 	});
 
 	$("#modalbox-editProfile #confirm").click(function() {   
 			
 			if(validName){
-				
+				return true;
 			}else{
 				if($("#modalbox-editProfile .errorMessage").is(":visible")){
 					$("#modalbox-editProfile  .errorMessage").effect( "highlight", "fast" );

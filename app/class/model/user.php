@@ -22,6 +22,7 @@
 		public $thumbnail;
 		public $introduction;
 		public $default_img;
+		public $language;
 		public $city;
 		public $bodyshape;
 		public $inseam;
@@ -30,6 +31,8 @@
 		public $height;
 		public $chest_bust;
 		public $hip;
+		public $log_in_time;
+		public $log_out_time;
 		public $joined_time;
 		const primaryKey="user_id";
 		protected static $table_primaryKey="user_id";
@@ -51,6 +54,7 @@
 			'skin_color',
 			'country',
 			'city',
+			'language',
 			'age',
 			'bodyshape',
 			'inseam',
@@ -61,6 +65,8 @@
 			'hip',
 			'gender',
 			'user_type',
+			'log_in_time',
+			'log_out_time',
 			'joined_time',
 		);
 

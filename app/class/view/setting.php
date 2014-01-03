@@ -20,33 +20,33 @@
 				</li>
 				<li>
 					<span>Username: </span>
-					<input id="name" type="text" value="" placeholder=" ex) modishow"/>
+					<input id="name" name="username" type="text" value="<?php echo $user->username;?>" placeholder=" ex) modishow"/>
 				</li>
 				<li>
 					<span>E-mail Address: </span>
-					<input id="email" type="text" value="" placeholder=" ex) modishow@gmail.com"/>
+					<input id="email" name="email" type="text" value="<?php echo  $user->email;?>" placeholder=" ex) modishow@gmail.com"/>
 				</li>
 				<li>
 					<span>Password:</span>
-					<input id="password" type="password" placeholder=" Enter your current password"/>
+					<input id="password" name="password" type="password" placeholder=" Enter your current password"/>
 				</li>
 				<li>
-					<input id="newPassword" type="password" placeholder=" Enter your new password"/>
+					<input id="newPassword" name="new_password" type="password" placeholder=" Enter your new password"/>
 				</li>
 				<li>
-					<input id="verifiedPassword" type="password" placeholder=" Re-type your new password"/>
+					<input id="verifiedPassword" name="verified_new_password" type="password" placeholder=" Re-type your new password"/>
 				</li>
 				
 				<li>
 					<span>Language:</span>
-					<select id="language">
+					<select id="language" name="language">
 						<option>English</option>
 						<option>Japanese</option>
 					</select>
 				</li>
 				<li>
 					<span>Country:</span>
-					<select id="country">
+					<select id="country" name="country">
 						<option value="Afganistan">Afghanistan</option>
 						<option value="Albania">Albania</option>
 						<option value="Algeria">Algeria</option>
@@ -297,17 +297,17 @@
 					</select>
 				</li>
 				<li>
-					<input id="cityName" type="text" placeholder=" Please type your city" maxlength="20"/>
+					<input id="cityName" type="text" name="city" placeholder=" Please type your city" maxlength="20"/>
 				<li class="lastChild">
 					<span>Gender:</span>
 					<label>
-						<input type="radio" name="sex" value="Unspecified"> Unspecified
+						<input type="radio" name="gender" value="u"> Unspecified
 					</label>
 					<label>
-						<input type="radio" name="sex" value="female"/> Female
+						<input type="radio" name="gender" value="f"/> Female
 					</label>
 					<label>
-						<input type="radio" name="sex" value="male"  checked="checked"/> Male
+						<input type="radio" name="gender" value="m"  checked="checked"/> Male
 					</label>
 				</li>
 			</ul>
