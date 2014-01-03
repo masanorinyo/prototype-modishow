@@ -7,7 +7,7 @@
 ?>
 
 <div class="setting">
-	<form id="setting_form" action="" method="post">
+	<form id="setting_form" action="<?php echo ROOT_PATH."app/class/controller/setting_controller";?>" method="post">
 		<div class="setting-wrapper account">
 			<div class="sub-header accountInfo">
 				<span>Account Information</span>

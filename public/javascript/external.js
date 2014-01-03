@@ -2344,8 +2344,9 @@ $(function(){
 /*-----------signup page + setting  validation form---------------------*/
 $(function(){
 	//once everything is validated, form will be submitted
-	var validEmail,validLoginEmail=false;
-	var validPassword,samePass,validLoginPassword=false;
+	var validName,validEmail,validLoginEmail=false;
+	var validPassword,validLoginPassword=false;
+	var samePass = true;
 	var validCountry,validAge,validHeight,validSkinColor,validSize,validBody = false;
 	var validCityName = true;
 	
@@ -2396,7 +2397,10 @@ $(function(){
 		
 		//for the input written in a proper format 
 		function correctFormat(){
-				
+				if($(inputTag).is("#verifiedPassword")&&samePass){
+					strengthOfPassword($("#verifiedPassword").val());
+					$("#newPassword").css({'border-color':'rgb(200,200,200)'});
+				}
 				$(inputTag).next('.insertBox').fadeOut();
 
 				$(inputTag).css({'border-color':'rgb(200,200,200)'});
@@ -2523,15 +2527,14 @@ $(function(){
 				}
 			}else if($(inputTag).is("#newPassword")){
 				if(regPass.test(this.password)){
-					samePassword(inputTag);
-					if(samePass){
-						alert('test');
-						correctFormat();
-					}
 					correctFormat();
-
-					samePass=false;
 					validPassword = true;
+					
+					if(!samePass){
+						wrongFormat();
+						$(inputTag).next('.insertBox').children('.insertMessage').text("Mismatch");	
+					}
+					
 
 				}else{
 					$(inputTag).next(".insertBox").remove();
@@ -2604,6 +2607,7 @@ $(function(){
 				samePassword(inputTag);
 				if(samePass){
 					correctFormat();
+
 				}
 				samePass=false;
 				
@@ -2630,17 +2634,14 @@ $(function(){
 	function samePassword(inputTag){
 		//whether two passwords match
 		if($("#newPassword").val() === $("#verifiedPassword").val()){
-	    	samePass = true;
-			strengthOfPassword($("#verifiedPassword").val());
+	    	return samePass = true;
 		}else{
-			if($(inputTag).is("#verifiedPassword")){
-				$("#newPassword").next(".insertBox").remove();
-				$("#newPassword,#verifiedPassword").css({'border-color':'red'});	
-				$("#newPassword").parents('li').append(insertBox);
-				$("#newPassword").next(".insertBox").fadeIn();
-				$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
-			}
-			samePass = false;
+			$("#newPassword").next(".insertBox").remove();
+			$("#newPassword,#verifiedPassword").css({'border-color':'red'});	
+			$("#newPassword").parents('li').append(insertBox);
+			$("#newPassword").next(".insertBox").fadeIn();
+			$("#newPassword").next('.insertBox').children('.insertMessage').text("Please input the same password");
+			return samePass = false;
 		}	
 	
 	};
@@ -2786,14 +2787,15 @@ $(function(){
 
 	$("#setting #confirm").click(function() {   
 		//Should be used PHP in order to send the user back to the previous page
-		samePassword();
+		
 		//If everything is written in a right format, the form gets submitted
 		
-
-
+		samePassword();
+		console.log(validName+" "+validEmail);
+		console.log(samePass+" "+validPassword+" "+validCityName);
 		if(samePass && validCityName){
-			if((validEmail=="undefined" || validEmail) && (validName=="undefined" || validName)){
-				return true;
+			if(validEmail!=false && validName!=false){
+				return true; 
 			}else{
 				$(window).scrollTop(0);
 				return false;
