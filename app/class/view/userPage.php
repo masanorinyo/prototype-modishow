@@ -278,8 +278,10 @@
 				<span>Change your picture</span>
 			</div>
 			<div class="inside">
-				<form action="upload_file.php" method="post" enctype="multipart/form-data" class="round_medium">
-					<input type="file" name="file" id="profile_picture" class="upload-button">
+				<form class="round_medium" action="<?php echo ROOT_PATH."app/class/controller/file_upload";?>" enctype="multipart/form-data"  method="post">
+					<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>"/>
+					<input id="profile_picture" class="upload-button" type="file" name="file_upload"/>
+					<input id="confirm" class="round_weak" type="submit" name="submit" value="submit"/>
 				</form>
 			</div>
 		</div>

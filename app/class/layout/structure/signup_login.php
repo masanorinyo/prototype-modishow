@@ -6,7 +6,7 @@
 			<span class="icon_close">&#10006;</span>
 		</a>
 		<div id="signup" class="setting">
-			<form  id="signup_form" action="<?php echo ROOT_PATH.'app/class/controller/signup';?>" method="post">
+			<form  id="signup_form" action="<?php echo ROOT_PATH.'app/class/controller/signup';?>" enctype="multipart/form-data" method="post">
 				<div class="setting-wrapper account">
 					<div class="sub-header">
 						<span>Create Account</span>

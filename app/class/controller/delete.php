@@ -9,12 +9,25 @@
 
   $user = User::find_by_id($_SESSION['user_id']);
   if($user->delete()) {
+    $usrename=$user->username;
+
+    $default_img=$usrename."_default.jpg";
+    $thumbnail=$usrename."_thumb.gif";
+
+    $target_path=SITE_ROOT.DS."resources/users/";
+
+    unlink($target_path.$default_img);
+    unlink($target_path.$thumbnail);
+
     $session->message("Your account was deactivated.");
     $session->logout($user);
-    echo "true";
+
+    
+
+
   } else {
     $session->message("Your account could not be deleted.");
-    echo "false";
+
   }
   
 ?>

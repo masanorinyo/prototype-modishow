@@ -17,7 +17,6 @@
 				$country = $_POST['country'];
 				$gender = $_POST['gender'];
 			    $hashed_password = User::password_encrypt($_POST["password"]);
-			    $thumbnail = isset($_POST['file_upload']) ? $_POST['file_upload']:"default_thumb.png";
 			    $skin_color = $_POST['skin_color'];
 			    $age = $_POST['age'];
 			    $bodyshape = $_POST['bodyshape'];
@@ -46,6 +45,8 @@
 					$num++;
 				}
 				
+				require_once("file_controller.php");
+
 
 				$user = User::make(
 					$username,
@@ -58,7 +59,9 @@
 					$bodyshape,
 					$size,
 					$height,
-					$skin_color
+					$skin_color,
+					$default_img,
+					$thumbnail
 				);
 
 				

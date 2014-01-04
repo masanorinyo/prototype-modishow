@@ -118,13 +118,5 @@
 			$image->destroy();
 		}
 
-		
-
-
-		public function image_path(){
-			$images = [];
-			$images = SITE_ROOT.DS.$this->upload_dir.DS.$this->filename;
-			$images = SITE_ROOT.DS.$this->upload_dir.DS.$this->thumbnail;
-		}
 	}
 ?>

@@ -4,6 +4,7 @@
 							  //102400 = 100KB
 	  						  //1048576 = 1MB
 							  //10485760 = 10MB
+		
 	
 	$photo = new photo();
 	if(isset($_FILES['file_upload'])){
@@ -31,9 +32,8 @@
 	}else{
 		//failure
 		$message = join("<br />", $photo->errors);//get all the error info from the photgraph class.
-		var_dump($message);
 	}
 
-
+	
 
 ?>

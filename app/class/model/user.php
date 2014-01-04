@@ -73,7 +73,7 @@
 		
 		
 		//******************Account Creation******************//
-		public static function make($username,$email,$password,$thumbnail="default_thumb.png",$country,$gender,$age=0,$bodyshape=0,$size=0,$height=0,$skin_color=0,$default_img="default_img.png",$introduction="",$homepage=Null,$facebook=Null,$pinterest=Null,$twitter=Null){
+		public static function make($username,$email,$password,$thumbnail="default_thumb.png",$country,$gender,$age=0,$bodyshape=0,$size=0,$height=0,$skin_color=0,$default_img="default_img.png",$thumbnail="default_thumb.png"){
 
 			if(!empty($username) && !empty($email) && !empty($password)){
 				$new_user = new User();				
@@ -88,11 +88,8 @@
 				$new_user->size = (int) $size;
 				$new_user->height= (int) $height;
 				$new_user->default_img= $default_img;
-				$new_user->introduction= $introduction;
-				$new_user->homepage= $homepage;
-				$new_user->twitter= $twitter;
-				$new_user->facebook= $facebook;
-				$new_user->pinterest= $pinterest;
+				$new_user->thumbnail= $thumbnail;
+				
 				return $new_user;
 			}else{
 				return false;
