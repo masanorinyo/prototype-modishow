@@ -1,18 +1,19 @@
 <?php require_once("../../config/initialize.php"); ?>
 <?php if (!$session->is_logged_in()) { echo "false"; } ?>
 <?php
-  // must have an ID
+  //must have an ID
   if(empty($_SESSION['user_id'])) {
     $session->message("No comment ID was provided.");
     echo "false";
   }
 
   $user = User::find_by_id($_SESSION['user_id']);
-  if($user->delete()) {
-    $usrename=$user->username;
 
-    $default_img=$usrename."_default.jpg";
-    $thumbnail=$usrename."_thumb.gif";
+  if($user->delete()) {
+    echo $username=$user->username;
+
+    $default_img=$username."_default.jpg";
+    $thumbnail=$username."_thumb.gif";
 
     $target_path=SITE_ROOT.DS."resources/users/";
 

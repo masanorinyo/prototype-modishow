@@ -1623,20 +1623,91 @@ console.log(itemArray[1]["embelishmentId"]);
 //7 step = get the z-index of each item
 //9 step = create a model style.
 
+//-----------------item infinite scroll loading ----------------//
+// $(function(){
+// 	$("#clothingImages > .itemIconsWrapper > li").click(function(event){
+// 		var requested_item = $(this).attr("id");
+// 		console.log($(this).attr("id"));
 
+// 		// $.ajax({
+// 		// 	type:"POST",
+// 		// 	url:'../controller/infinite',
+// 		// 	data:{items:requested_item},
+// 		// 	success:function(data){
+// 		// 		$("#clothingImages > .itemBoxImages").append(data);
+// 		// 	},
+// 		// 	error:function(data){
+// 		// 		alert("something went wrong");
+// 		// 	}
+// 		})
+
+// 		// $('.loader').hide();
+// 		// var totalCount = <?php echo $total_count;?>;
+// 		// var per_page = <?php echo $per_page;?>;
+// 		// if($(window).scrollTop() == $(document).height() - $(window).height()){
+// 		// 		load++;
+// 		// 		$('.loader').show();
+// 		// 		if(load * per_page > totalCount){
+
+// 		// 		}else{
+// 		// 			$.ajax({
+						
+// 		// 			    type: 'POST',
+// 		// 			    // make sure you respect the same origin policy with this url:
+// 		// 			    // http://en.wikipedia.org/wiki/Same_origin_policy
+// 		// 			    url: '../includes/infinite_scroll.php',
+// 		// 			    data: {OFFSET:load},
+// 		// 			    success: function(data){
+// 		// 			    	$("#photos").append(data);
+// 		// 			    	$('.loader').hide();
+// 		// 			    }
+// 		// 			});
+// 		// 		};
+// 		// }
+// 	})
+
+
+// })
 
 //-----------------Modal box ----------------//
 //--open and close modal box--//
 $(function(){
 	$('#tryonContent .button_publish').click(function(event){
 		// popup warning when more than two outfits are not selected
-		if($("#outfitItems img").length <= 2){
-			alert("Please choose at least three items");
-		}else if($("#outfitItems img").length >= 16){
-			alert("You cannot choose more than 16 items");
-		}else{
-			$('#popup_overlay').fadeIn("fast");	
-		}
+		
+		//check to see if users are logged in
+		$.ajax({
+			type:"POST",
+			url:'../app/class/controller/check_login_status.php',
+			success:function(data){
+
+				if(data=="false"){
+					//if users are not logged in
+					$('#registration_modalBox').fadeIn("fast");
+					$("input[type='text'],input[type='password']").val("");
+					$("#signup_modalBox .sub-header > span >span").remove();
+					$("#signup_modalBox .sub-header > span").append("<span class='color_red'>  &nbsp;&nbsp;You need to create your account to proceed</span>");
+					$("#signup_form").append("<input id=\"try_on_checker\" type=\"hidden\" name=\"from_tryon\" value=\"true\"/>");
+					$("input[type='text'],input[type='password']").css({'border-color':'rgb(200,200,200)'});
+					$(".errorMessage,.incorretInputMessage,.insertBox").hide();
+
+				}else{
+					//if users are logged in
+					if($("#outfitItems img").length <= 2){
+						alert("Please choose at least three items");
+					}else if($("#outfitItems img").length >= 16){
+						alert("You cannot choose more than 16 items");
+					}else{
+						$('#popup_overlay').fadeIn("fast");	
+					}
+				}
+			},
+			error:function(data){
+				alert("something went wrong");
+			},
+
+		});
+
 	});
 
 	$("#modalbox").click(function(event){
@@ -1994,9 +2065,9 @@ $(function() {
 $(function(){
 	$("#tryclothes #header a, #collage #header a").click(function(event) {
 		$(window).bind('beforeunload', function(){
-			return 'Your creation will be lost if you do not submit it';
+			return 'Your creation will be lost if you do not publish it';
 		});
-		$('a.noUnloadMessage').on('click', function(e){
+		$('.noUnloadMessage').on('click', function(e){
         	$(window).unbind('beforeunload');
 		});
 	});
@@ -2093,6 +2164,10 @@ $(function(){
 $(function(){
 	$('.jumpToSignup').click(function(event){
 		$('#registration_modalBox').fadeIn("fast");
+
+		//remove all the previous input.
+		$("#signup_modalBox .sub-header > span >span").remove();
+		$("#signup_modalBox #try_on_checker").remove();
 		$("input[type='text'],input[type='password']").val("");
 		$("input[type='text'],input[type='password']").css({'border-color':'rgb(200,200,200)'});
 		$(".errorMessage,.incorretInputMessage,.insertBox").hide();

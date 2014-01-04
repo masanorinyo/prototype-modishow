@@ -73,6 +73,9 @@
 			    // Success
 			    	$_SESSION["message"] = "User created.";
 			      	$session->login($user);
+			      	if($_POST["from_tryon"]){
+			      		redirect_to(ROOT_PATH."public/tryon");	
+			      	}
 			     	redirect_to(ROOT_PATH."app/class/view/userPage");
 			    } else {
 			      // Failure

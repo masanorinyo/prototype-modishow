@@ -31,7 +31,8 @@
 			</div>
 		</div>
 		<?php include(LAYOUT_PATH.DS."parts/submission_panel.php");?>
-		<div class="controlPanel">
+		<!-- This will change the outfit according to the selected cateogry -->
+		<!-- <div class="controlPanel">
 			<ul>
 				<li class="button_category background_shadow round_medium opaque_weak ">
 					<div>All categories</div>
@@ -125,7 +126,7 @@
 					<span class="dragAndDropGuide"><span>
 				</li>
 			</ul>
-		</div>
+		</div> -->
 	</div>
 	<div id="creationToolbox">
 		<div id="itembox_header" class="fullWidth">
@@ -446,64 +447,63 @@
 		</div>
 		<div id="clothingImages" class="itemBox">
 			<ul class="itemIconsWrapper">
-				<!--
-				<li>
+				
+				<li id="dress_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Dress</span>
 				</li>
-				<li>
+				<li id="bag_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Bags</span>
 				</li>
-				<li>
+				<!-- <li id="shoes_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Shoes</span>
-				</li>
-				<li>
+				</li> -->
+				<li id="accessories_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Accessories</span>
 				</li>
-				<li>
+				<li id="jeans_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Jeans</span>
 				</li>
-				<li>
+				<li id="pants_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Pants</span>
 				</li>
-				<li>
+				<li id="shorts_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Shorts</span>
 				</li>
-				<li>
+				<li id="jumpsuits_rompers_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Jumpsuits & Rompers</span>
 				</li>
-				<li>
+				<li id="intimates_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Intimates</span>
 				</li>
-				<li>
+				<!-- <li id="swimwear_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Swimwear</span>
-				</li>
-				-->
-				<li>
+				</li> -->
+				<li id="skirts_icon">
 					<span class="itemIcon skirtImage"></span>		
 					<span class="itemDescription">Skirts</span>
 				</li>
-				<li>
+				<li id="tops_icon">
 					<span class="itemIcon topImage"></span>
 					<span class="itemDescription">Tops</span>
 				</li>
-				<li>
+				<li id="outwear_icon">
 					<span class="itemIcon outwearImage"></span>
 					<span class="itemDescription">Outwears</span>
 				</li>
-				<li>
+				<!-- <li id="jewelries_icon">
 					<span class="itemIcon jewelryImage"></span>
 					<span class="itemDescription">Jewelries</span>
-				</li>
+				</li> -->
 			</ul>
 			<ul  class="itemBoxImages">
 				<li class="items-wrapper"><img id="1accessory" class="accessory product" src="<?php echo RESOURCE_PATH;?>/items/bag_1a.png"/></li>
@@ -556,7 +556,7 @@
 	<div id="transparentBackground">
 	</div>
 	<div id="modalbox">
-		<form>
+		<form type="post" action="">
 			<div class="popup-box publishes">
 				<span class="icon_close opaque_strong"></span>
 				<div class="popup-box-header">
@@ -595,7 +595,8 @@
 							<option>Casual</option>
 							<option>Classic</option>
 							<option>Comfortable</option>
-							<option>Celebrity</option>					<option>Cute</option>
+							<option>Celebrity</option>					
+							<option>Cute</option>
 							<option>Elegant</option>
 							<option>Formal</option>
 							<option>Goth</option>
@@ -647,9 +648,8 @@
 				<div class="popup-box-header">
 					<span>Create a collage for this style?</span>
 				</div>
-				<div class="button_large background-strong round_weak"><a class="noUnloadMessage sendInfo" href="collage.php">YES</a></div>
-				<span>or</span>
-				<div class="button_large background-weak round_weak"><a class="noUnloadMessage sendInfo"href="index.php">Maybe later</a></div>			
+				<div class="button_large background-strong round_weak noUnloadMessage sendInfo">YES</div>
+				<div class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe late</div>			
 			</div>		
 		</form>	
 	</div>

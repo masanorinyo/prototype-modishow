@@ -3633,7 +3633,7 @@ li{
 	margin:10px 0px 20px 9px;
 }
 
-.skirtImage{
+/*.skirtImage{
 	background: url("../images/item1.png") top left no-repeat;
 	background-size: 85% 95%;
 	background-position: 50% 50%;
@@ -3656,7 +3656,7 @@ li{
 	background: url("../images/accessory_1.png") top left no-repeat;
 	background-size: 85% 95%;
 	background-position: 50% 50%;
-}
+}*/
 
 
 
@@ -3837,26 +3837,19 @@ li{
 }
 
 .button_large.background-weak{
-	width:200px;
-	top:157px;
-	right:10px;
-	font-size:0.4em;
+	width: 231px;
+	top: 136px;
+	right: 21px;
+	font-size: 3.4em;
 }
 
-.createCollage > span{
-	position: absolute;
-	top:160px;
-	left:230px;
-	font-size:2em;
-	color:rgb(200,200,200);
-}
 
-.button_large > a{
+.button_large{
 	font-size:5.5em;
 	color:rgb(200,200,200);
 	cursor:pointer;
 }
-.button_large > a:hover{
+.button_large:hover{
 	color:rgb(50,180,240);
 }
 

@@ -106,7 +106,7 @@
 			
 			$image = new Imagick($target_image);
 			
-			$image->cropThumbnailImage(100,100);
+			$image->cropThumbnailImage(50,50);
 
 			$image->setImageFormat('gif');
 			
