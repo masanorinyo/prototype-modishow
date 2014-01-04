@@ -2,6 +2,7 @@
 	require_once("../../config/initialize.php");
 	
 	if(isset($_POST['confirm'])){
+		//get all the data from the form
 		$old_password = htmlentities(trim($_POST["password"]));
 		$new_password = htmlentities(trim($_POST["new_password"]));
 		$username = htmlentities(trim($_POST["username"]));
@@ -9,11 +10,13 @@
 		$country = $_POST["country"];
 		$gender = $_POST["gender"];
 		$language = $_POST["language"];
+		require_once("file_controller.php");
 
 		if(isset($_POST["city"])){
 			$city = htmlentities($_POST["city"]);
 		}
 
+		//if no change was made in the form, the follow variables will be null.
 		$age = $_POST["age"]==0? NULL:$_POST["age"];
 		$height = $_POST["height"]==0? NULL:$_POST["height"];
 		$skin_color = $_POST["skin_color"]=="0"? NULL:$_POST["skin_color"];
@@ -25,7 +28,7 @@
 
 		$authenticated_user = User::authenticate($found_user->email,$old_password);
 
-
+		//Make a new user with the new values.
 		$modified_user = new User;
 		$modified_user->user_id = $_SESSION["user_id"];
 		$modified_user->username = $username;
@@ -40,6 +43,13 @@
 		$modified_user->size = $size;
 		$modified_user->bodyshape = $bodyshape;
 
+		//if the new image is submitted, set them as the user profile image.
+		if(isset($default_img)){
+			$modified_user->default_img = $default_img;
+			$modified_user->thumbnail = $thumbnail;
+		}
+		
+
 		if($old_password){
 			if($authenticated_user){
 				if($new_password){
@@ -47,37 +57,29 @@
 				
 					$modified_user->password= $hashed_password;	
 				}else{
-					$_SESSION["failed_authentication"]="Please input a new password";
-					$_SESSION["update_message"]="";
+					$session->message("Please input a new password");
 				}
 			}else{
-				$_SESSION["failed_authentication"]="Please input the correct password";
-				$_SESSION["update_message"]="";
+				$session->message("Please input the correct password");
 			}
 		}else if($new_password){
-			$_SESSION["failed_authentication"]="Please input the correct password";
-			$_SESSION["update_message"]="";
+			$session->message("Please input the correct password");
 		}else{
-			$_SESSION["failed_authentication"]="";
+			$session->message("");	
 		}
 		
-
 		$result = $modified_user->save();
 
 	    if ($result) {
-	    	// Success
- 	 		$_SESSION["success_message"]= "Your information has been updated.";
- 	 		$_SESSION["failed_authentication"]="";
- 	 		$_SESSION["update_message"] = "";
+	    	$_SESSION["success"]="true";
+ 	 		$session->message("Your information has been updated.");
 
  	 		redirect_to(ROOT_PATH."app/class/view/setting");
-	    } else {
-	      // Failure
-	      if($_SESSION["failed_authentication"]==""){
-			$_SESSION["failed_authentication"]=="";
-			$_SESSION["update_message"] = "Nothing has changed.";
-	      }
-	      redirect_to(ROOT_PATH."app/class/view/setting");
+	    }else{
+	    	// Failure
+	    	$_SESSION["success"]="false";
+	    	$session->message("Update failed");
+	    	redirect_to(ROOT_PATH."app/class/view/setting");
 	    }
 
 
@@ -85,7 +87,7 @@
 
 
 	}else{
-		$_SESSION["update_message"] = "Nothing has changed.";
+		$session->message("Nothing has changed.");
 		redirect_to(ROOT_PATH."app/class/view/setting");
 	}
 

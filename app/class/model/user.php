@@ -68,10 +68,10 @@
 			'user_type',
 			'log_in_time',
 			'log_out_time',
-			'joined_time',
+			'joined_time'
 		);
-
-
+		
+		
 		//******************Account Creation******************//
 		public static function make($username,$email,$password,$thumbnail="default_thumb.png",$country,$gender,$age=0,$bodyshape=0,$size=0,$height=0,$skin_color=0,$default_img="default_img.png",$introduction="",$homepage=Null,$facebook=Null,$pinterest=Null,$twitter=Null){
 
@@ -193,15 +193,6 @@
 		    return false;
 		}
 		
-		
-
-		//creating a thumbnail for user profile image
-		public function make_thumbnail(){
-
-
-
-
-		}
 		
 
 

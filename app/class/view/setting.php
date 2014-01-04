@@ -3,37 +3,25 @@
 	// if(1 == 1){
 	// 	redirect_to(ROOT_PATH."public/index.php");
 	// }
-	$message ="";
-	$success="";
 	include(LAYOUT_PATH.DS."structure/header.php");
-	if(isset($_SESSION['update_message'])){
-		$message = $_SESSION['update_message'];
-	}
 
-	if(isset($_SESSION['failed_authentication'])){
-		$message .= $_SESSION['failed_authentication'];
-	}
-
-	if(isset($_SESSION['success_message'])){
-		$success = $_SESSION['success_message'];
-	}
 ?>
 
 <div class="setting">
-	<form id="setting_form" action="<?php echo ROOT_PATH."app/class/controller/setting_controller";?>" method="post">
+	<form id="setting_form" action="<?php echo ROOT_PATH."app/class/controller/setting_controller";?>" enctype="multipart/form-data"  method="post">
 		<div class="setting-wrapper account">
 			<div class="sub-header accountInfo">
 				<span>
 					Account Information
 					<?php
-						if(isset($message)){
+						
+						if($_SESSION["success"]=="true"){
+							echo "<span class='color_lightBlue errorMessage wrongCombo'>{$message}</span>";
+							$_SESSION['success_message']="";
+						}else if(isset($message)){
 							echo "<span class='color_red errorMessage wrongCombo'>{$message}</span>";
 						}
-						if($success){
-							echo "<span class='color_lightBlue errorMessage wrongCombo'>{$success}</span>";
-							$_SESSION['success_message']="";
-						}
-						;?>
+					;?>
 				</span>
 
 			</div>
