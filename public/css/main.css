@@ -137,7 +137,8 @@ li{
 	background:url("../images/loader.gif") top left no-repeat;
 	width:300px;
 	height:50px; 
-	margin:auto;
+	margin: 5px 30%;
+	float: left;
 	
 }
 
@@ -3549,7 +3550,7 @@ li{
 
 
 /*---Content_stream--*/
-.itemBox > ul{
+.itemBox > ul,#itemLoadingBox{
 	top: 16.6%;
 	bottom: 0;
 	right: 0;
@@ -3560,10 +3561,19 @@ li{
 	overflow-x:hidden;
 }
 
-#tryclothes .itemBox > ul{
-	width:100%;
+#itemLoadingBox .last_item{
+	text-align: center;
+	background-color:rgb(250,250,250);
 }
 
+#itemLoadingBox .last_item span{
+	color: rgb(130,160,190);
+	font-size: 2em;
+	text-align: center;
+	margin-top:25px;
+	
+	
+}
 
 #myItemImages .itemIconsWrapper,
 #itemImages .itemIconsWrapper{
@@ -3574,9 +3584,9 @@ li{
 	display:none;
 }
 
-.itemBox > .itemBoxImages > li{
+#itemLoadingBox > li{
 	float: left;
-	margin: 3px 0px 3px 6px;
+	margin: 3px 0px 3px 3px;
 	border-radius: 1px;
 	-webkit-border-radius: 1px;
 	-moz-border-radius: 1px;
@@ -3596,7 +3606,7 @@ li{
 	opacity:0.5;
 }
 
-.itemBox > .itemBoxImages > li > img{
+#itemLoadingBox > li > img{
 	margin:0 auto;
 	height:90%;
 }

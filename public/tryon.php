@@ -32,9 +32,9 @@
 		</div>
 		<?php include(LAYOUT_PATH.DS."parts/submission_panel.php");?>
 		<!-- This will change the outfit according to the selected cateogry -->
-		<!-- <div class="controlPanel">
+		<div class="controlPanel">
 			<ul>
-				<li class="button_category background_shadow round_medium opaque_weak ">
+				 <li class="button_category background_shadow round_medium opaque_weak "> 
 					<div>All categories</div>
 					<div>
 						<span class="stickynavi_listArrow"></span>
@@ -108,7 +108,7 @@
 									</ul>
 								</div>
 							</li>
-						</ul>
+						</ul> 
 					</div>						
 				</li>
 				<li class="button_layer background_shadow round_medium opaque_weak">
@@ -126,7 +126,7 @@
 					<span class="dragAndDropGuide"><span>
 				</li>
 			</ul>
-		</div> -->
+		</div> 
 	</div>
 	<div id="creationToolbox">
 		<div id="itembox_header" class="fullWidth">
@@ -441,9 +441,7 @@
 					</li>
 				-->
 			</ul>
-			<ul class="itemBoxImages">		
-				<span class="unavailable">Currently unavailable</span>
-			</ul>
+			
 		</div>
 		<div id="clothingImages" class="itemBox">
 			<ul class="itemIconsWrapper">
@@ -500,17 +498,7 @@
 					<span class="itemIcon outwearImage"></span>
 					<span class="itemDescription">Outwears</span>
 				</li>
-				<!-- <li id="jewelries_icon">
-					<span class="itemIcon jewelryImage"></span>
-					<span class="itemDescription">Jewelries</span>
-				</li> -->
-			</ul>
-			<ul  class="itemBoxImages">
-				<?php
-
-				?>
-				<div class="loader"></div>
-
+				
 			</ul>
 		</div>
 		<div id="modelImages" class="itemBox">
@@ -522,9 +510,7 @@
 					<span class="itemDescription">Natasha Little</span>
 				</li>
 			</ul>
-			<ul  class="itemBoxImages">
-				<span class="unavailable">Currently unavailable</span>
-			</ul>
+			
 		</div>
 		<div id="embelishmentImages" class="itemBox">
 			<ul class="itemIconsWrapper">
@@ -545,8 +531,13 @@
 					<span class="itemDescription">Background</span>
 				</li>
 			</ul>					
-			<ul  class="itemBoxImages">
-				<span class="unavailable">Currently unavailable</span>	
+			
+		</div>
+		<div>
+			<ul id="itemLoadingBox" class="itemBoxImages">
+				
+				<div class="loader"></div>
+
 			</ul>
 		</div>
 	</div>

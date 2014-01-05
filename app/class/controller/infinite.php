@@ -10,7 +10,8 @@
 	$per_page = $_POST["per_page"];
 	
 
-	if($attribute="product"){
+	if($attribute=="product"){
+
 		if($item=="accessories"){
 			$clothingType = Clothing_type::find_by_attribute($item,"main_category");	
 		}else{
@@ -51,25 +52,35 @@
 	}else{
 
 	}
-
+	
+	if(empty($product_array)){
+		echo "<li class=\"items-wrapper last_item\"><span>No more items</span></li>";
+	}
 ?>
 
 
 
 
 <?php
-	if($attribute="product"){
+
+
+	if($attribute=="product"){
  		foreach($product_array as $product): ?>
 			<li class="items-wrapper">
 				<img id="<?php echo $product->product_id.$item?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
 			</li>
-<?php endforeach;
+<?php 
+		endforeach;
+
 	}else{
-			foreach($product_array as $product): ?>
+
+?>
 			<li class="items-wrapper">
-				<img id="<?php echo $product->product_id.$item?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
+				<span> Under construction </span>
 			</li>
 <?php 	
-			endforeach;
+			
 	}
+
+
 ?>

@@ -1624,55 +1624,121 @@ console.log(itemArray[1]["embelishmentId"]);
 
 //-----------------item infinite scroll loading ----------------//
 $(function(){
-	$("#clothingImages > .itemIconsWrapper > li,#clothingItemList .firstChild li").click(function(event){
-		$("#clothingImages .itemBoxImages li").remove();
+	
+	$(".itemIconsWrapper > li,.itembox_subHeader > div > ul > .firstChild li").click(function(event){
+		$("#itemLoadingBox > li").remove();
 		var requested_item = $(this).attr("class");
+		var load=1;
 		var num_of_page = 20;
 		var attr = "product"
 		$.ajax({
 		    type:"POST",
 			url:'../app/class/controller/infinite',
 		    data: {
-		    	OFFSET:1,
+		    	OFFSET:load,
 		    	items:requested_item,
 		    	per_page:num_of_page,
 		    	attribute:attr
 		    },
 		    success: function(data){
-		    	$("#clothingImages .itemBoxImages").append(data);
+		    	$("#itemLoadingBox").append(data);
 		    	$('.loader').hide();
 		    },
 		    error:function(){
 		    	alert("something went wrong");
 		    }
 		});
-	})
-})
 
-$(function(){
 		
+		
+		$("#itemLoadingBox").scroll(function(){
+			
+			var view_height = $("#itemLoadingBox").height();
+			var scroll_position = $("#itemLoadingBox").scrollTop();
+			var scroll_to_bottom = view_height + scroll_position;
+			var full_height = $("#itemLoadingBox")[0].scrollHeight-1;
+			
+			
 
-	var per_page=15;
-	if($(window).scrollTop() == $(document).height() - $(window).height()){
-			load++;
-			$('.loader').show();
-			if(load * per_page > totalCount){
+			if(scroll_to_bottom == full_height){
+				console.log("view_height "+view_height);
+				console.log("scroll_position "+scroll_position);
+				console.log("scroll_to_bottom "+scroll_to_bottom);
+				console.log("full_height "+full_height);
 
-			}else{
+				$('.loader').show();
+				load++;
+				console.log(load);
 				$.ajax({
-					
-				    type: 'POST',
-				    // make sure you respect the same origin policy with this url:
-				    // http://en.wikipedia.org/wiki/Same_origin_policy
-				    url: '../includes/infinite_scroll.php',
-				    data: {OFFSET:load},
+				    type:"POST",
+					url:'../app/class/controller/infinite',
+				    data: {
+				    	OFFSET:load,
+				    	items:requested_item,
+				    	per_page:num_of_page,
+				    	attribute:attr
+				    },
 				    success: function(data){
-				    	$("#photos").append(data);
-				    	$('.loader').hide();
+				    	
+				    	if($("#itemLoadingBox > li").is(".last_item")){
+				    		$('.loader').hide();	
+				    		load=1;
+				    		console.log(load);
+				    		
+				    	}else{
+				    		$("#itemLoadingBox").append(data);
+				    		$('.loader').hide();	
+				    	}
+				    	
+				    	
+				    },
+				    error:function(){
+				    	alert("something went wrong");
 				    }
 				});
 			}
-	}
+		})
+	})
+
+
+
+	
+
+	
+	
+	
+
+	
+
+	//scrollTop refers to the top of the scroll position, which will be scrollHeight - offsetHeight
+
+	// function isScrollBottom() { 
+	//   var elementHeight = $(element).height(); 
+	//   var scrollPosition = $(div).height() + $(div).scrollTop(); 
+	//   return (elementHeight == scrollPosition); 
+	// }
+
+	
+	// if($(window).scrollTop() == $(document).height() - $(window).height()){
+	// 		load++;
+	// 		$('.loader').show();
+	// 		if(load * per_page > totalCount){
+
+	// 		}else{
+	// 			$.ajax({
+					
+	// 			    type: 'POST',
+	// 			    // make sure you respect the same origin policy with this url:
+	// 			    // http://en.wikipedia.org/wiki/Same_origin_policy
+	// 			    url: '../includes/infinite_scroll.php',
+	// 			    data: {OFFSET:load},
+	// 			    success: function(data){
+	// 			    	$("#photos").append(data);
+	// 			    	$('.loader').hide();
+	// 			    }
+	// 			});
+	// 		}
+	// }
 })
 //-----------------Modal box ----------------//
 //--open and close modal box--//
@@ -1919,6 +1985,7 @@ $(function(){
 $(function() {
 	//---icon close -- if users click the close icon, back to the oirginal state----//
  	$(".icon_close").click(function(){ 
+ 		$("#itemLoadingBox > li").remove();
         $(".itemBoxImages").hide();
         $(".selectedListItem").remove();
         $(".default").show();
@@ -1941,6 +2008,7 @@ $(function() {
 	}); 
 
     $("#itembox_header ul li").click(function() { 
+    	$("#itemLoadingBox > li").remove();
         $(this).addClass("currently_focus");
         $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
         $(".itemBoxImages").hide();
@@ -1976,12 +2044,12 @@ $(function() {
  	}); 
 
     $(".itemList_beauty").click(function() { 
-        $("#beautyList,#beautyImages > .itemBoxImages").show();
+        $(".itemBoxImages").show();
 		$(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#beautyList,#beautyImages > .itemIconsWrapper").hide();
  	}); 
     
     $(".itemList_people").click(function() { 
-        $("#peopleList,#peopleImages > .itemBoxImages").show();
+        $(".itemBoxImages").show();
         $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#peopleList,#peopleImages > .itemIconsWrapper").hide();
  	}); 
 });
@@ -2006,8 +2074,11 @@ $(function() {
 		$(".icon_close").show();
  	});                                     
     
+    $(".itemIconsWrapper > li").click(function(){
+    	$(".itemBoxImages").show();
+    })
+
     $("#myItemImages > .itemIconsWrapper > li, #myItemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
-        $("#myItemImages > .itemBoxImages").show();
         $("#myItemList .firstChild .subHeader-list > .default").hide();
         
         if($(".firstChild .selectedListItem").is(":visible")){
@@ -2020,7 +2091,6 @@ $(function() {
  	});	
     
     $("#clothingImages > .itemIconsWrapper > li,#clothingItemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
-        $("#clothingImages > .itemBoxImages").show(); 
         $("#clothingItemList .firstChild .subHeader-list > .default").hide();
         
         if($(".firstChild .selectedListItem").is(":visible")){
@@ -2031,7 +2101,6 @@ $(function() {
  	}); 
     
     $("#modelImages > .itemIconsWrapper > li,#modelList .selectionBox .subHeader-submenu > ul > li").click(function() { 
-        $("#modelImages > .itemBoxImages").show(); 
         $("#modelList .firstChild .subHeader-list > .default").hide();
         
         if($(".firstChild .selectedListItem").is(":visible")){
@@ -2042,7 +2111,6 @@ $(function() {
  	}); 
     
     $("#embelishmentImages > .itemIconsWrapper > li,#embelishmentList .selectionBox .subHeader-submenu > ul > li").click(function() { 
-        $("#embelishmentImages > .itemBoxImages").show(); 
         $("#embelishmentList .firstChild .subHeader-list > .default").hide();
         
         if($(".firstChild .selectedListItem").is(":visible")){
@@ -2053,7 +2121,6 @@ $(function() {
  	});   	
     
     $("#itemImages > .itemIconsWrapper > li, #itemList .selectionBox .subHeader-submenu > ul > li").click(function() { 
-        $("#itemImages > .itemBoxImages").show(); 
         $("#itemList .firstChild .subHeader-list > .default").hide();
         
         if($(".firstChild .selectedListItem").is(":visible")){
