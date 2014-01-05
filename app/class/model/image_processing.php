@@ -1,6 +1,6 @@
 <?php 
 
-	require_once(MODEL_PATH.DS.'database.php');
+	// require_once(MODEL_PATH.DS.'database.php');
 	
 	class photo extends DatabaseObject{
 	//once a file is uploaded, it will be stored in a temprary location

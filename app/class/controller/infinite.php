@@ -1,29 +1,75 @@
 <?php
-	require_once("../includes/initialize.php");
+	require_once("../../config/initialize.php");
 
-	$page = $_POST['OFFSET'];
+	$page = isset($_POST['OFFSET'])?$_POST['OFFSET']:false;
 
-	//2. records per page ($per_page)
-	$per_page = 3;
-	
-	//3. Total record count($total_count)
-	$total_count = Photograph::count_all();
+	$item = isset($_POST['items'])?$_POST['items']:false;
 
+	$attribute = isset($_POST['attribute'])?$_POST['attribute']:false;
 
-	$pagination = new Pagination($page,$per_page,$total_count);
+	$per_page = $_POST["per_page"];
 	
 
-	$sql = "SELECT * FROM photographs ";
-	$sql .= "Limit {$per_page} ";
-	$sql .= "OFFSET {$pagination->offset()} ";
-	$photo_array = Photograph::find_by_sql($sql);
+	if($attribute="product"){
+		if($item=="accessories"){
+			$clothingType = Clothing_type::find_by_attribute($item,"main_category");	
+		}else{
+			$clothingType = Clothing_type::find_by_attribute($item,"sub_category");	
+		}
+
+		//put the matching ids into array
+		$id_array =[];
+		
+
+		foreach($clothingType as $clothing){
+			$id_array[] =$clothing->clothingType_id;
+			
+		}
+
+		$ids = join(",",$id_array);
+	
+
+		//Total record count($total_count)
+		$total_count = product::count_all("clothingType_id",$ids);
+		$condition_key="clothingType_id";
+
+	}else{
+
+	}
+	
+	
+
+	$infinite_position = new infinite_scroll($page,$per_page,$total_count);
+	
+	$sql = "SELECT * FROM {$attribute} ";
+	$sql .="WHERE {$condition_key} IN({$ids}) ";
+	$sql .="Limit {$per_page} ";
+	$sql .="OFFSET {$infinite_position->offset()} ";
+	
+	if($attribute="product"){
+		$product_array = product::find_by_sql($sql);
+	}else{
+
+	}
+
 ?>
 
-<?php foreach($photo_array as $photo): ?>
-	<a href="largesize_photo.php?id=<?php echo $photo->id; ?>">
-		<img src="<?php echo $photo->image_path(); ?>" width="400"/>
-		<div><?php echo $photo->caption; ?></div>
-	</a>
-<?php endforeach; ?>
 
 
+
+<?php
+	if($attribute="product"){
+ 		foreach($product_array as $product): ?>
+			<li class="items-wrapper">
+				<img id="<?php echo $product->product_id.$item?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
+			</li>
+<?php endforeach;
+	}else{
+			foreach($product_array as $product): ?>
+			<li class="items-wrapper">
+				<img id="<?php echo $product->product_id.$item?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
+			</li>
+<?php 	
+			endforeach;
+	}
+?>

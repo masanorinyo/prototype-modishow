@@ -41,6 +41,9 @@
 	//load controllers
 	require_once(CONT_PATH.DS."header_info_modifier.php");
 	require_once(CONT_PATH.DS."session.php");
+	require_once(CONT_PATH.DS."infinite_scroll.php");
+
+
 
 	// require_once(CONT_PATH.DS."infinite.php");
 	// require_once(CONT_PATH.DS."phpMailer".DS."class.phpmailer.php");
@@ -52,8 +55,10 @@
 	require_once(MODEL_PATH.DS."database_object.php");
 	require_once(MODEL_PATH.DS."user.php");
 	require_once(MODEL_PATH.DS."comment.php");
-	require_once(CONT_PATH.DS."image_processing.php");
-	// require_once(MODEL_PATH.DS."style.php");
+	require_once(MODEL_PATH.DS."image_processing.php");
+	require_once(MODEL_PATH.DS."product.php");
+	require_once(MODEL_PATH.DS."clothingType.php");
+	
 	// require_once(MODEL_PATH.DS."uploaded_items.php");
 	
 

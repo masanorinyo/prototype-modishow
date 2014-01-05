@@ -132,6 +132,16 @@ li{
 
 .border{border:1px solid rgb(170,220,200)!important;}
 
+/*----------loader----------*/
+.loader{
+	background:url("../images/loader.gif") top left no-repeat;
+	width:300px;
+	height:50px; 
+	margin:auto;
+	
+}
+
+
 /*----------Side Scroll----------*/
 .sideScroll{
 	width:100%;
@@ -3551,7 +3561,7 @@ li{
 }
 
 #tryclothes .itemBox > ul{
-	width:91%;
+	width:100%;
 }
 
 
@@ -3566,12 +3576,12 @@ li{
 
 .itemBox > .itemBoxImages > li{
 	float: left;
-	margin: 0px 0px 3px 3px;
+	margin: 3px 0px 3px 6px;
 	border-radius: 1px;
 	-webkit-border-radius: 1px;
 	-moz-border-radius: 1px;
-	width: 105px;
-	height: 110px;
+	width: 115px;
+	height: 115px;
 	background-color: rgb(255,255,255);
 	border: 1px solid rgb(230,230,230);
 	cursor: pointer;
@@ -3630,7 +3640,7 @@ li{
 	margin-right:40px;
 }
 #clothingImages .itemIconsWrapper  li{
-	margin:10px 0px 20px 9px;
+	margin:10px 0px 20px 16px;
 }
 
 /*.skirtImage{

@@ -172,17 +172,17 @@
 				<ul class="controlBoxes fullWidth">
 					<li class="firstChild">
 						<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
-							<li>Dress</li>
-							<li>Skirts</li>
-							<li>Tops</li>
-							<li>Outwears</li>
-							<li>Jeans</li>
-							<li>Pants</li>
-							<li>Shorts</li>
-							<li>Jumpsuits & Rompers</li>
-							<li>Intimates</li>
-							<li>Swimwear</li>
-							<li>Activewear</li>
+							<li class="dress">Dress</li>
+							<li class="bag">Bags</li>
+							<li class="accessories">Accessories</li>
+							<li class="jeans">Jeans</li>
+							<li class="pants">Pants</li>
+							<li class="shorts">Shorts</li>
+							<li class="jumpsuit_romper">Jumpsuits & Rompers</li>
+							<li class="intimates">Intimates</li>
+							<li class="skirt">Skirts</li>
+							<li class="top">Tops</li>
+							<li class="outerwear">Outwear</li>
 						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>			
 					</li>
 					<li class="filterOrderWrapper">
@@ -448,39 +448,39 @@
 		<div id="clothingImages" class="itemBox">
 			<ul class="itemIconsWrapper">
 				
-				<li id="dress_icon">
-					<span class="itemIcon "></span>
+				<li class="dress">
+					<span class="itemIcon"></span>
 					<span class="itemDescription">Dress</span>
 				</li>
-				<li id="bag_icon">
-					<span class="itemIcon "></span>
+				<li class="bag">
+					<span class="itemIcon"></span>
 					<span class="itemDescription">Bags</span>
 				</li>
 				<!-- <li id="shoes_icon">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Shoes</span>
 				</li> -->
-				<li id="accessories_icon">
+				<li class="accessories">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Accessories</span>
 				</li>
-				<li id="jeans_icon">
+				<li class="jeans">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Jeans</span>
 				</li>
-				<li id="pants_icon">
+				<li class="pants">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Pants</span>
 				</li>
-				<li id="shorts_icon">
+				<li class="shorts">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Shorts</span>
 				</li>
-				<li id="jumpsuits_rompers_icon">
+				<li class="jumpsuit_romper">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Jumpsuits & Rompers</span>
 				</li>
-				<li id="intimates_icon">
+				<li class="intimates">
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Intimates</span>
 				</li>
@@ -488,15 +488,15 @@
 					<span class="itemIcon "></span>
 					<span class="itemDescription">Swimwear</span>
 				</li> -->
-				<li id="skirts_icon">
+				<li class="skirt">
 					<span class="itemIcon skirtImage"></span>		
 					<span class="itemDescription">Skirts</span>
 				</li>
-				<li id="tops_icon">
+				<li class="top">
 					<span class="itemIcon topImage"></span>
 					<span class="itemDescription">Tops</span>
 				</li>
-				<li id="outwear_icon">
+				<li class="outerwear">
 					<span class="itemIcon outwearImage"></span>
 					<span class="itemDescription">Outwears</span>
 				</li>
@@ -506,11 +506,10 @@
 				</li> -->
 			</ul>
 			<ul  class="itemBoxImages">
-				<li class="items-wrapper"><img id="1accessory" class="accessory product" src="<?php echo RESOURCE_PATH;?>/items/bag_1a.png"/></li>
-				<li class="items-wrapper"><img id="1jacket" class="jacket product" src="images/items/jacket_1.png"/></li>
-				<li class="items-wrapper"><img id="1shirt" class="top product" src="<?php echo RESOURCE_PATH;?>/items/dress_1t.png"/></li>
-				<li class="items-wrapper"><img id="1skirt" class="skirt product" src="images/items/skirt_1.png"/></li>
-				<li class="items-wrapper"><img id="1inner" class="top product" src="images/items/inner_1.png"/></li>
+				<?php
+
+				?>
+				<div class="loader"></div>
 
 			</ul>
 		</div>

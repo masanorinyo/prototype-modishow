@@ -1,6 +1,6 @@
 <?php
 
-	require_once(MODEL_PATH.DS.'database.php');
+	//require_once(MODEL_PATH.DS.'database.php');
 
 	class uploaded_items extends DatabaseObject{
 

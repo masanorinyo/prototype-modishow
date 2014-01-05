@@ -1,9 +1,12 @@
 <?php 
 	require_once("../../config/initialize.php");
-	// if(1 == 1){
-	// 	redirect_to(ROOT_PATH."public/index.php");
-	// }
+	
+	if(!$session->is_logged_in()){
+		redirect_to(ROOT_PATH."public/index");
+	}
+	
 	include(LAYOUT_PATH.DS."structure/header.php");
+
 
 ?>
 

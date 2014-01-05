@@ -1,6 +1,6 @@
 <?php 
 	require_once("../app/config/initialize.php");
-	if(1 == 1){
+	if(!$session->is_logged_in()){
 		redirect_to(ROOT_PATH."public/index");
 	}
 

@@ -1,6 +1,6 @@
 <?php
 	//if it's going to need the database, then it's probably smart to require it before we start
-	require_once(MODEL_PATH.DS.'database.php');
+	//require_once(MODEL_PATH.DS.'database.php');
 
 	class DatabaseObject{
 
@@ -34,11 +34,10 @@
 			$query = "SELECT * ";
 			$query .= "FROM ".static::$table_name." ";
 			$query .= "WHERE ".$attr." = '".$safe_value."' ";
-			$query .= "LIMIT 1";
 			
 			$result_array = static::find_by_sql($query);
 
-			return !empty($result_array) ? array_shift($result_array) : false;
+			return !empty($result_array) ? $result_array : false;
 		}
 
 		public static function find_by_sql($sql=""){
@@ -209,9 +208,12 @@
 			// after calling $user->delete().
 		}
 
-		public static function count_all(){
+		public static function count_all($attr=false,$val=false){
 			global $database;
 			$sql = "SELECT COUNT(*) FROM ".static::$table_name;
+			if($attr && $val){
+				$sql .=" WHERE {$attr} IN({$val})";
+			}
 			$result_set = $database->query($sql);
 			$row = $database->fetch_array($result_set);
 			return array_shift($row);

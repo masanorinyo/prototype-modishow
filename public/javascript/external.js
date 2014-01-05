@@ -660,7 +660,6 @@ $(function(){
 		var replacableItems = ".jacket,.coat,.vest,.shoes,.swimwear,.jumpsuits,.shorts";
 			replacableItems +=",.pants,.jeans,.dresses,.skirt,.bras,.camisoles,.chemiss,.hosiery";
 			replacableItems +=",.sleepwear,.panties,.robes,.legwear";
-			console.log(replacableItems);
 
 
 		//if there is no single selected items, first create one
@@ -1624,51 +1623,57 @@ console.log(itemArray[1]["embelishmentId"]);
 //9 step = create a model style.
 
 //-----------------item infinite scroll loading ----------------//
-// $(function(){
-// 	$("#clothingImages > .itemIconsWrapper > li").click(function(event){
-// 		var requested_item = $(this).attr("id");
-// 		console.log($(this).attr("id"));
+$(function(){
+	$("#clothingImages > .itemIconsWrapper > li,#clothingItemList .firstChild li").click(function(event){
+		$("#clothingImages .itemBoxImages li").remove();
+		var requested_item = $(this).attr("class");
+		var num_of_page = 20;
+		var attr = "product"
+		$.ajax({
+		    type:"POST",
+			url:'../app/class/controller/infinite',
+		    data: {
+		    	OFFSET:1,
+		    	items:requested_item,
+		    	per_page:num_of_page,
+		    	attribute:attr
+		    },
+		    success: function(data){
+		    	$("#clothingImages .itemBoxImages").append(data);
+		    	$('.loader').hide();
+		    },
+		    error:function(){
+		    	alert("something went wrong");
+		    }
+		});
+	})
+})
 
-// 		// $.ajax({
-// 		// 	type:"POST",
-// 		// 	url:'../controller/infinite',
-// 		// 	data:{items:requested_item},
-// 		// 	success:function(data){
-// 		// 		$("#clothingImages > .itemBoxImages").append(data);
-// 		// 	},
-// 		// 	error:function(data){
-// 		// 		alert("something went wrong");
-// 		// 	}
-// 		})
+$(function(){
+		
 
-// 		// $('.loader').hide();
-// 		// var totalCount = <?php echo $total_count;?>;
-// 		// var per_page = <?php echo $per_page;?>;
-// 		// if($(window).scrollTop() == $(document).height() - $(window).height()){
-// 		// 		load++;
-// 		// 		$('.loader').show();
-// 		// 		if(load * per_page > totalCount){
+	var per_page=15;
+	if($(window).scrollTop() == $(document).height() - $(window).height()){
+			load++;
+			$('.loader').show();
+			if(load * per_page > totalCount){
 
-// 		// 		}else{
-// 		// 			$.ajax({
-						
-// 		// 			    type: 'POST',
-// 		// 			    // make sure you respect the same origin policy with this url:
-// 		// 			    // http://en.wikipedia.org/wiki/Same_origin_policy
-// 		// 			    url: '../includes/infinite_scroll.php',
-// 		// 			    data: {OFFSET:load},
-// 		// 			    success: function(data){
-// 		// 			    	$("#photos").append(data);
-// 		// 			    	$('.loader').hide();
-// 		// 			    }
-// 		// 			});
-// 		// 		};
-// 		// }
-// 	})
-
-
-// })
-
+			}else{
+				$.ajax({
+					
+				    type: 'POST',
+				    // make sure you respect the same origin policy with this url:
+				    // http://en.wikipedia.org/wiki/Same_origin_policy
+				    url: '../includes/infinite_scroll.php',
+				    data: {OFFSET:load},
+				    success: function(data){
+				    	$("#photos").append(data);
+				    	$('.loader').hide();
+				    }
+				});
+			}
+	}
+})
 //-----------------Modal box ----------------//
 //--open and close modal box--//
 $(function(){
