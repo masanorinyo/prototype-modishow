@@ -57,6 +57,8 @@
 	require_once(MODEL_PATH.DS."comment.php");
 	require_once(MODEL_PATH.DS."image_processing.php");
 	require_once(MODEL_PATH.DS."product.php");
+	require_once(MODEL_PATH.DS."product_image_rel.php");
+	require_once(MODEL_PATH.DS."product_image.php");
 	require_once(MODEL_PATH.DS."clothingType.php");
 	
 	// require_once(MODEL_PATH.DS."uploaded_items.php");

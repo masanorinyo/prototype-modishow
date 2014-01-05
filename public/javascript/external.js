@@ -1050,27 +1050,119 @@ $(function(){
    		var k=0;
    		var id = $(this).children('img').attr('id');
    		var className = $(this).children('img').attr('class');
-   		var title = "<a href='item.html'>test</a>"; //Ajax call
-   		var url = "<a href='#''>test.html</a>"; //Ajax call
-   		var price = "$30";//Ajax call
-   		var sImage = $(this).children('img').clone(); //to show items on the list(sortable) box
-   		var image_above = $(this).children('img').clone(); //Ajax call - goes onto the model + has category class as well
-   		$(image_above).addClass('above');//the newly selected item is always on top of others
-   		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
-		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
+   		var sImage = $(this).children('img').clone();
+   		$.ajax({
+   			type:"POST",
+   			dataType: "json",
+   			url:"../app/class/controller/style_creation",
+   			data:{product_id:id},
+   			success:function(data){
+
+   				
+				var title = "<a href=''>"+data.name+"</a>"; //Ajax call
+   				if(data.url){
+   					var url = "<a href='#'>"+data.url+"</a>"; //Ajax call	
+   				}
+   				if(data.price){
+   					var price = data.price;//Ajax call		
+   				}
+				
+				if(data.acf){
+
+					var image_above = data.above_close_front;
+
+				}else if(data.acb){
+
+					var image_above = data.above_close_back;
+
+				}else if(data.aof){
+
+					var image_above = data.above_open_front;
+
+				}else if(data.aob){
+
+					var image_above = data.above_open_back;
+
+				}else if(data.af){
+
+					var image_above = data.above_front;
+
+				}else if(data.ab){
+
+					var image_above = data.above_back;
+
+				}else if(data.drsf){
+
+					var image_above = data.default_right_shoulder_front;
+
+				}else if(data.drsb){
+
+					var image_above = data.default_right_shoulder_back;
+
+				}else if(data.rsf){
+
+					var image_above = data.right_shoulder_front;
+
+				}else if(data.rsb){
+
+					var image_above = data.right_shoulder_back;
+
+				}else if(data.drhf){
+
+					var image_above = data.default_right_hand_front;
+
+				}else if(data.drhb){
+
+					var image_above = data.default_right_hand_back;
+
+				}else if(data.df){
+					var image_above = data.default_front;
+				}else if(data.db){
+					var image_above = data.default_back;
+				}else if(data.f){
+					var image_above = data.front;
+				}else if(data.b){
+					var image_above = data.back;
+				}
+
+				console.log(title);
+				console.log(url);
+				console.log(price);
+				console.log(image_above);
+
+		   		
+		   		 //to show items on the list(sortable) box
+		   		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
+				var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
+		   		
+		   		//$(image_above).addClass(className);
+		   		$(image_above).addClass('above');//the newly selected item is always on top of others
+		   		
 
 
+
+				
+
+		   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
+
+
+		   		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
+
+
+
+		   		$(".background_grid").hide();
+
+				
+				
+   			},
+   			error:function(){
+   				alert("something weng wrong");
+   			}
+
+
+   		})
 
 		
-
-   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
-
-
-   		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
-
-
-
-   		$(".background_grid").hide();
 
 	});
 

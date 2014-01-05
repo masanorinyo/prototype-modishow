@@ -52,7 +52,7 @@
 	}else{
 
 	}
-	
+
 	if(empty($product_array)){
 		echo "<li class=\"items-wrapper last_item\"><span>No more items</span></li>";
 	}
@@ -67,7 +67,7 @@
 	if($attribute=="product"){
  		foreach($product_array as $product): ?>
 			<li class="items-wrapper">
-				<img id="<?php echo $product->product_id.$item?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
+				<img id="<?php echo $product->product_id.$item?>" class="<?php echo $item;?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
 			</li>
 <?php 
 		endforeach;

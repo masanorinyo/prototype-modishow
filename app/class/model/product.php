@@ -2,7 +2,8 @@
 	//require_once(MODEL_PATH.DS.'database.php');
 
 	class product extends DatabaseObject{
-
+		const primaryKey="product_id";
+		protected static $table_primaryKey="product_id";
 		protected static $table_name = "product";
 		protected static $db_fields = array(
 			'product_id',
