@@ -4,11 +4,11 @@
 <div id="tryonContent" class="fullWidth">
 	<div id="creationCanvas" class="background_black floatLeft overflowHidden">
 		<img id="1background" class="embelishment backgroundImage" src="<?php echo RESOURCE_PATH;?>/embelishment/background_1.png"/>
-		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/shadow_1.png"/>
-		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/torso_1.png"/>
-		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/legs_1.png"/>
-		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/arms_1.png"/>
-		<img id="1model"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/face_natasha.png"/>
+		<img id="1shadow"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/shadow_1.png"/>
+		<img id="1torso"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/torso_1.png"/>
+		<img id="1legs"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/legs_1.png"/>
+		<img id="1arms"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/arms_1.png"/>
+		<img id="1face"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/face_natasha.png"/>
 		<div id="outfitItems">
 			
 		</div>

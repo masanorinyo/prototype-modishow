@@ -89,17 +89,18 @@
 				<span>&copy; 2013 - ModiShow corporation</span>
 			</div>
 		</div>
+		<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery.ui.rotatable.min.js"></script>
+		<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/external.js"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+			<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
+		<![endif]-->
 	</body>
 
-	<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery-ui-1.10.3.custom.min.js"></script>
-	<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery.ui.rotatable.min.js"></script>
-	<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/external.js"></script>
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="includes/stylesheet_ie.css" />
-	<![endif]-->
+	
 </html>
 <?php 
 	if(isset($connection)){

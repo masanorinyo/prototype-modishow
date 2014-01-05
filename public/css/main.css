@@ -3201,14 +3201,14 @@ li{
 	width: 43%;
 	height: 81% !important;
 	border-radius: 150px;
-	left: 24px;
-	margin: 12px 5px;
+	left: 15px;
+	margin:12px 0px 12px 4px;
 	overflow: hidden;
 	z-index: 100;	
 }
 
 .itemDescriptionBox{
-	width:92px;
+	width:105px;
 	top:0;
 	right:0;
 }
@@ -3216,11 +3216,11 @@ li{
 .titleOfProduct{
 	top:15px;
 	left:0px;
-	font-size:1.2em;
 }
 
 .titleOfProduct > a{
 	color:rgb(255,255,255);
+	font-size:0.8em;
 }
 
 .tryonPage .url{

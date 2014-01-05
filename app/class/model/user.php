@@ -104,6 +104,8 @@
 
 			$user = User::find_by_attribute($email,"email");
 
+			$user = empty($user) ? false:array_shift($user);
+
 			if($user){
 				// found admin, now check password
 				if (User::password_check($password,$user->password)){

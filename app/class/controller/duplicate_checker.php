@@ -12,6 +12,8 @@
 		//check database to see if username/password exist;
 		$found_user = User::find_by_attribute($name,"username");
 
+		$found_user=empty($found_user) ?  false:array_shift($found_user);
+
 		//validate the data
 		$required_fields = array("new_username");
 		$name_presence=User::validate_presences($required_fields);
@@ -38,6 +40,7 @@
 		
 		//check database to see if username/password exist;
 		$found_user = User::find_by_attribute($email,"email");
+		$found_user=empty($found_user) ?  false:array_shift($found_user);
 
 		//validate the data
 		$required_fields = array("email_to_check");

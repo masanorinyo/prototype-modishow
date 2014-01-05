@@ -646,8 +646,9 @@ $(function(){
 		$('.removeIcon').click(function(event){
 			$(this).parent().remove();
 			var sameId = $(this).parent().attr('id');
-			var parentList = $("#outfitItems").find('#'+sameId).parent();
-			$("#outfitItems").find('#'+sameId).remove();
+			var outfit_image_id = parseInt(sameId);
+			var parentList = $("#outfitItems").find('#'+outfit_image_id).parent();
+			$("#outfitItems").find('#'+outfit_image_id).remove();
 			
 		});
 	}
@@ -772,54 +773,54 @@ $(function(){
 	   			console.log(image_type+" and "+ itemCategory);
 	   			
 	   			//callForAboveImage -> if the function is called from manually changing layers
-	   			if(callForAboveImage==1){
-	   				// if the position class (above,middle,below) changes, then call for a new image
-	   				if($("#outfitItems #"+image_id).attr("class").split(" ")[1] !== image_type){
-	   					$.ajax({
-	   						type:"POST",
-	   						url:"../includes/product",
-	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
-	   						//before data is successfully stored, the canvas gets darken.
-	   						beforeSend: function(){
-	   							$("#creationCanvas").append("<div id='darkenDiv'></div>");
-	   							$("#darkenDiv").fadeIn("slow");
-	   						},
-	   						//assign each item with imageType class = classes of above, middle, and below.
-	   						success:function(data){
-	   							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
-	   							$("#darkenDiv").fadeOut("slow");
-	   							//add class "alreadyCalled" in order to prevent multiple ajax call
-	   						},
-	   						fail:function(){
-	   							alert("server request; failed");
-	   						}
-	   					});
-	   				}
-				}else if(image_type !== "above"){
-					if(!$("#tryclothes #outfitItems #"+image_id).is(".alreadyCalled")){
-						// check whether if this image is already called by ajax
+	   // 			if(callForAboveImage==1){
+	   // 				// if the position class (above,middle,below) changes, then call for a new image
+	   // 				if($("#outfitItems #"+image_id).attr("class").split(" ")[1] !== image_type){
+	   // 					$.ajax({
+	   // 						type:"POST",
+	   // 						url:"../includes/product",
+	   // 						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
+	   // 						//before data is successfully stored, the canvas gets darken.
+	   // 						beforeSend: function(){
+	   // 							$("#creationCanvas").append("<div id='darkenDiv'></div>");
+	   // 							$("#darkenDiv").fadeIn("slow");
+	   // 						},
+	   // 						//assign each item with imageType class = classes of above, middle, and below.
+	   // 						success:function(data){
+	   // 							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
+	   // 							$("#darkenDiv").fadeOut("slow");
+	   // 							//add class "alreadyCalled" in order to prevent multiple ajax call
+	   // 						},
+	   // 						fail:function(){
+	   // 							alert("server request; failed");
+	   // 						}
+	   // 					});
+	   // 				}
+				// }else if(image_type !== "above"){
+				// 	if(!$("#tryclothes #outfitItems #"+image_id).is(".alreadyCalled")){
+				// 		// check whether if this image is already called by ajax
 						
-	   					$.ajax({
-	   						type:"POST",
-	   						url:"../includes/product.php",
-	   						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
-	   						//before data is successfully stored, the canvas gets darken.
-	   						beforeSend: function(){
-	   							$("#creationCanvas").append("<div id='darkenDiv'></div>");
-	   							$("#darkenDiv").fadeIn("slow");
-	   						},
-	   						//assign each item with imageType class = classes of above, middle, and below.
-	   						success:function(data){
-	   							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
-	   							//add class "alreadyCalled" in order to prevent multiple ajax call
-	   							$("#darkenDiv").fadeOut("slow");
-	   						},
-	   						fail:function(){
-	   							alert("server request; failed");
-	   						}
-	   					});
-					}
-   				}
+	   // 					$.ajax({
+	   // 						type:"POST",
+	   // 						url:"../includes/product.php",
+	   // 						data:{productID:image_id, imageType:image_type,zIndex:zIndexOfItem,itemCate:itemCategory},
+	   // 						//before data is successfully stored, the canvas gets darken.
+	   // 						beforeSend: function(){
+	   // 							$("#creationCanvas").append("<div id='darkenDiv'></div>");
+	   // 							$("#darkenDiv").fadeIn("slow");
+	   // 						},
+	   // 						//assign each item with imageType class = classes of above, middle, and below.
+	   // 						success:function(data){
+	   // 							$("#tryclothes #outfitItems #"+image_id).replaceWith(data);
+	   // 							//add class "alreadyCalled" in order to prevent multiple ajax call
+	   // 							$("#darkenDiv").fadeOut("slow");
+	   // 						},
+	   // 						fail:function(){
+	   // 							alert("server request; failed");
+	   // 						}
+	   // 					});
+				// 	}
+   	// 			}
 
 	   		});
 		}
@@ -922,6 +923,7 @@ $(function(){
 				var loop = 0;
 				var itemArray = $('.layers');
 				var itemId = $(itemArray[k]).attr('id');
+				var itemId = parseInt(itemId);
 				var itemClass = $(itemArray[k]).attr('class');
 				var thisLoopItem = $("#collage #outfitItems #"+itemId);
 				
@@ -1007,8 +1009,10 @@ $(function(){
             	ui.item.remove();
 
 				var sameId = ui.item.attr('id');
-				var parentList = $("#collage #outfitItems #"+sameId).parent();
-				var itemArray = $("#outfitItems #"+sameId);					
+				var outfit_image_id = parseInt(sameId);
+				
+				var parentList = $("#collage #outfitItems #"+outfit_image_id).parent();
+				var itemArray = $("#outfitItems #"+outfit_image_id);					
 
 				console.log("image length:"+itemArray.length + "" + "parent length:" + parentList.length);
 
@@ -1047,10 +1051,15 @@ $(function(){
    		//take ID information here & get multiple images for different positions
    		//image for being on top of the other clothes
    		//image for being underneath the other clothes
-   		var k=0;
+   		
    		var id = $(this).children('img').attr('id');
+   		var int_id = parseInt(id);
    		var className = $(this).children('img').attr('class');
    		var sImage = $(this).children('img').clone();
+   		var image_above = $.parseHTML("<img />");
+		$(image_above).addClass('above');
+   		$(image_above).attr('id',int_id);
+   		
    		$.ajax({
    			type:"POST",
    			dataType: "json",
@@ -1069,76 +1078,72 @@ $(function(){
 				
 				if(data.acf){
 
-					var image_above = data.above_close_front;
+					 $(image_above).attr("src",data.above_close_front);
 
 				}else if(data.acb){
 
-					var image_above = data.above_close_back;
+					 $(image_above).attr("src",data.above_close_back);
 
 				}else if(data.aof){
 
-					var image_above = data.above_open_front;
+					 $(image_above).attr("src",data.above_open_front);
 
 				}else if(data.aob){
 
-					var image_above = data.above_open_back;
+					$(image_above).attr("src",data.above_open_back);
 
 				}else if(data.af){
 
-					var image_above = data.above_front;
+					$(image_above).attr("src",data.above_front);
 
 				}else if(data.ab){
 
-					var image_above = data.above_back;
+					$(image_above).attr("src",data.above_back);
 
 				}else if(data.drsf){
 
-					var image_above = data.default_right_shoulder_front;
+					$(image_above).attr("src",data.default_right_shoulder_front);
 
 				}else if(data.drsb){
 
-					var image_above = data.default_right_shoulder_back;
+					$(image_above).attr("src",data.default_right_shoulder_back);
 
 				}else if(data.rsf){
 
-					var image_above = data.right_shoulder_front;
+					$(image_above).attr("src",data.right_shoulder_front);
 
 				}else if(data.rsb){
 
-					var image_above = data.right_shoulder_back;
+					$(image_above).attr("src",data.right_shoulder_back);
 
 				}else if(data.drhf){
 
-					var image_above = data.default_right_hand_front;
+					$(image_above).attr("src",data.default_right_hand_front);
 
 				}else if(data.drhb){
 
-					var image_above = data.default_right_hand_back;
+					$(image_above).attr("src",data.default_right_hand_back);
 
 				}else if(data.df){
-					var image_above = data.default_front;
+					$(image_above).attr("src",data.default_front);
 				}else if(data.db){
-					var image_above = data.default_back;
+					$(image_above).attr("src",data.default_back);
 				}else if(data.f){
-					var image_above = data.front;
+					$(image_above).attr("src",data.front);
 				}else if(data.b){
-					var image_above = data.back;
+					$(image_above).attr("src", data.back);
 				}
 
-				console.log(title);
-				console.log(url);
-				console.log(price);
-				console.log(image_above);
+				
 
 		   		
 		   		 //to show items on the list(sortable) box
 		   		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
 				var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
 		   		
-		   		//$(image_above).addClass(className);
-		   		$(image_above).addClass('above');//the newly selected item is always on top of others
 		   		
-
+		   		
+				
 
 
 				
@@ -1148,8 +1153,7 @@ $(function(){
 
 		   		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
 
-
-
+		   		
 		   		$(".background_grid").hide();
 
 				
@@ -1161,7 +1165,7 @@ $(function(){
 
 
    		})
-
+		
 		
 
 	});
@@ -1397,7 +1401,7 @@ $(function(){
 	$("#remove").on('click',function(e){
 		var itemsOnCanvasArray = $("#outfitItems > li");
 		var selectedImgId = $("#outfitItems > .selectedImg").find("img").attr('id');
-		console.log(selectedImgId);
+
 		
 		for(var i=0;i<itemsOnCanvasArray.length; i++){
 
