@@ -535,9 +535,7 @@
 		</div>
 		<div>
 			<ul id="itemLoadingBox" class="itemBoxImages">
-				
 				<div class="loader"></div>
-
 			</ul>
 		</div>
 	</div>
