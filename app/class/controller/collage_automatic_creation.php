@@ -1,44 +1,32 @@
 <?php
-
-	$receivedArray = array("3","2","1","4");
+	require_once("../../config/initialize.php");
+	$receivedArray = isset($_POST['ids'])?$_POST['ids']:NULL;
 	sort($receivedArray);
 
 
-	$filelist=array(
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-		"../public/images/productItems/skirt_1.png",
-	);
+	 $filelist=isset($_POST['fileList'])?$_POST['fileList']:NULL;
+
+
 
 	$fileName = "ca"; 
 	//ca stands for collage automatic
 	
 
-
-	foreach($receivedArray as $key){
+	$k = 0;
+	foreach($receivedArray as $key =>$value){
 		
-		$fileName .="p".$key;
-		
+		$fileName .="p".$value;
+		$k++;
 	}
 
 	//add the extra information to the file name 
 	//so that the file name becomes unique.
 
-	$fileName .= ".jpg";
+	$fileName_sml = $fileName;
+	$fileName_sml .="_sml";
 
+ 	$fileName .= ".jpg";
+ 	$fileName_sml .=".jpg";
 
 
 
@@ -95,11 +83,30 @@
 
 	header('Content-type: image/jpg');
 
-	$canvas->writeImage($fileName);
-	file_put_contents($fileName, $canvas);
+	$canvas->writeImage(SITE_ROOT.DS."resources/styles".DS.$fileName);
 	
- 	$canvas->destroy();
-		
+
+
+	file_put_contents(SITE_ROOT.DS."resources/styles".DS.$fileName,$canvas);
+	
+
+	$canvas->destroy();
+
+
+	copy(SITE_ROOT.DS."resources/styles/".$fileName,SITE_ROOT.DS."resources/styles/".$fileName_sml);			
+
+
+	$image = new Imagick(SITE_ROOT.DS."resources/styles/".$fileName_sml);
+	
+	$image->cropThumbnailImage(400,400);
+
+	$image->setImageFormat('jpg');
+	
+	$image->writeImage();
+	
+	file_put_contents(SITE_ROOT.DS."resources/styles/".$fileName_sml,$image);
+
+	$image->destroy();
 
 		
 

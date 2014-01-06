@@ -637,7 +637,7 @@
 					<span>Create a collage for this style?</span>
 				</div>
 				<input type="submit" name="submit" class="background-strong round_weak noUnloadMessage sendInfo" value="Yes"/>
-				<input type="submit" name="cancel" class="background-weak round_weak noUnloadMessage sendInfo" value="Maybe later"/>
+				<div id="cancel" class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe late</div>			
 			</div>		
 		</form>	
 	</div>

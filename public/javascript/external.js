@@ -1849,8 +1849,13 @@ $(function(){
 
 
 $('#style_creation_form').submit(function(e){
+		$("#style_creation_form")
+
 		e.preventDefault();
 
+
+
+		console.log($(this));
 		var item_url; // image src 
 		var user_id = 0;
 		var product_id;
@@ -1906,7 +1911,7 @@ $('#style_creation_form').submit(function(e){
 		// separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
-			url:'../app/class/controller/outfit_model_creation',
+			url:'../app/class/controller/guide_to_collage',
 			data:{
 				outfit_info:itemArray,
 				background:background,
@@ -1924,7 +1929,10 @@ $('#style_creation_form').submit(function(e){
 				//embelishmentArray:embelishmentArray
 			},
 			success:function(data){
-				window.location.replace("http://localhost/~Masanori/ModiShow/app/class/contoller/guide_to_collage");
+				
+				console.log(data);
+
+				//window.location.replace("http://localhost/~Masanori/ModiShow/app/class/contoller/guide_to_collage");
 
 					
 			},
@@ -1932,6 +1940,42 @@ $('#style_creation_form').submit(function(e){
 				console.log("Ajax call failed: ");
 			}
 		});
+	});
+})
+
+$("#style_creation_form #cancel").click(function(){
+	var urls =[];
+	
+	$("#tryclothes #outfitItems > img").each(function(){
+			item_url = $(this).attr('src');
+		   	urls.push(item_url);   
+	});
+
+	var ids=[];
+	$("#tryclothes #outfitItems > img").each(function(){
+			product_id = parseInt($(this).attr("id"));
+		   ids.push(product_id);       
+	});
+
+	$.ajax({
+		type:'POST',
+		url:'../app/class/controller/collage_automatic_creation',
+		data:{
+			fileList:urls,
+			ids:ids
+			//embelishmentArray:embelishmentArray
+		},
+		success:function(data){
+			
+			console.log(data);
+
+			//window.location.replace("http://localhost/~Masanori/ModiShow/public/index");
+
+				
+		},
+		error:function(data){
+			console.log("Ajax call failed: ");
+		}
 	});
 })
 

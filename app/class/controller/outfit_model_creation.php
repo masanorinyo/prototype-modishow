@@ -148,8 +148,8 @@
 	$image->destroy();
 
 
-	
-	echo '<div class="test"></div>';
+
+	echo "data";
 
 			
 			
