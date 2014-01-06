@@ -668,9 +668,70 @@ $(function(){
 				$(wrapper).insertAfter(last_element_on_list);
 				$(this.largeImageInfo_above).insertAfter(last_element_on_model);
 				
+			}else if($(this.largeImageInfo_above).is(".skirt")){
 
+				//if skirt always stays on top of shorts, pants, and jeans
+				if($("#sortable li").is(".shorts")){
+					$(wrapper).insertBefore("#sortable > .shorts");
+					$(this.largeImageInfo_above).insertAfter("#tryclothes #outfitItems .shorts");
+				}else if($("#sortable li").is(".pants")){
+					$(wrapper).insertBefore("#sortable > .pants");
+					$(this.largeImageInfo_above).insertAfter("#tryclothes #outfitItems .pants");
+				}else if($("#sortable li").is(".jeans")){
+					$(wrapper).insertBefore("#sortable > .jeans");
+					$(this.largeImageInfo_above).insertAfter("#outfitItems .jeans");
+				}else{
+					$("#sortable").prepend(wrapper);
+					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
+				}
+			}else if($(this.largeImageInfo_above).is(".shorts")){
 
+				//shorts will be put above pants or jeans but below skirt
+				if($("#sortable li").hasClass("pants")){
+					$(wrapper).insertBefore("#sortable > .pants");
+					$(this.largeImageInfo_above).insertAfter("#tryclothes #outfitItems .pants");
+				}else if($("#sortable li").hasClass("jeans")){
+					$(wrapper).insertBefore("#sortable > .jeans");
+					$(this.largeImageInfo_above).insertAfter("#outfitItems .jeans");
+				}else if($("#sortable li").hasClass("skirt")){
 
+					$(wrapper).insertAfter("#sortable > .skirt");
+					$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .skirt");
+				}else{
+					$("#sortable").prepend(wrapper);
+					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
+				}
+			}else if($(this.largeImageInfo_above).is(".pants")){
+
+				//pants will be put below skirt and shorts and replaces with jeans
+				if($("#sortable li").is(".shorts")){
+					$(wrapper).insertAfter("#sortable > .shorts");
+					$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .shorts");
+				}else if($("#sortable li").is(".skirt")){
+					$(wrapper).insertAfter("#sortable > .skirt");
+					$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .skirt");
+				}else if($("#sortable li").is(".jeans")){
+					$(wrapper).replaceWith("#sortable > .jeans");
+					$(this.largeImageInfo_above).replaceWith("#outfitItems .jeans");
+				}else{
+					$("#sortable").prepend(wrapper);
+					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
+				}
+			}else if($(this.largeImageInfo_above).is(".jeans")){
+				//jeans will be put below skirt and shorts and replaces with pants
+				if($("#sortable li").is(".shorts")){
+					$(wrapper).insertAfter("#sortable > .shorts");
+					$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .shorts");
+				}else if($("#sortable li").is(".pants")){
+					$(wrapper).replaceWith("#sortable > .pants");
+					$(this.largeImageInfo_above).replaceWith("#tryclothes #outfitItems .pants");
+				}else if($("#sortable li").is(".skirt")){
+					$(wrapper).insertAfter("#sortable > .skirt");
+					$(this.largeImageInfo_above).insertBefore("#outfitItems .skirt");
+				}else{
+					$("#sortable").prepend(wrapper);
+					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
+				}
 			}else{
 				$("#sortable").prepend(wrapper);
 				$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
@@ -991,6 +1052,38 @@ $(function(){
 					alert("You can only put accessories above outerwear");
 				}
 			}
+
+			if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".skirt")){
+				if(selectedItem.index() >= $("#sortable > .shorts,#sortable > .pants,#sortable > .jeans").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put skirt under shorts, jeans, or pants");
+				}
+			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".shorts")){
+				if(selectedItem.index() <= $("#sortable > .skirt").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put shorts above skirt");
+				}else if(selectedItem.index() >= $("#sortable > .pants,#sortable > .jeans").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put shorts inside pants or jeans");
+				}
+			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".pants")){
+				if(selectedItem.index() <= $("#sortable > .skirt").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put pants above skirt");
+				}else if(selectedItem.index() <= $("#sortable > .shorts").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put pants above shorts");
+				}
+			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".jeans")){
+				if(selectedItem.index() <= $("#sortable > .skirt").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put jeans above skirt");
+				}else if(selectedItem.index() <= $("#sortable > .shorts").index()){
+					$(this).sortable('cancel');
+					alert("You cannot put jeans above shorts");
+				}
+			}
+
 
 
 			
