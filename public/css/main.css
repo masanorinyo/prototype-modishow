@@ -3831,7 +3831,8 @@ li{
 
 }
 
-#signup_modalBox .setting .popup-box.moreInformatin input[type="submit"]{
+#signup_modalBox .setting .popup-box.moreInformatin input[type="submit"],
+#tryonContent .createCollage .input[type="submit"]{
 	top:140px;
 	height:80px;
 	width:150px;
@@ -3989,7 +3990,8 @@ li{
 	background-color:rgb(60,190,250);
 }
 
-#signup_modalBox .setting .popup-box.moreInformatin input[type="submit"]:hover{
+#signup_modalBox .setting .popup-box.moreInformatin input[type="submit"]:hover,
+#tryonContent .createCollage .input[type="submit"]{
 	color:rgb(255,255,255);
 	background-color:rgb(80,110,150);
 }
@@ -5941,7 +5943,8 @@ float:left;
 	margin-top:20px;
 }
 
-.setting input[type="submit"]{
+.setting input[type="submit"],
+.createCollage .input[type="submit"]{
 	 -webkit-appearance: none;
 	 /*Mozila is not working*/
     height: 30px;

@@ -24,6 +24,15 @@
 
 	$productImages = empty($productImages) ?  false:array_shift($productImages);
 
+	if(!$productImages){
+		$sql ="SELECT * FROM product_image ";
+		$sql.="WHERE productImage_id IN({$product_image_id}) AND image_type='bottom'";
+
+		$productImages = Product_image::find_by_sql($sql);
+
+		$productImages = empty($productImages) ?  false:array_shift($productImages);		
+	}
+
 	//the source of the selected image
 	$src=RESOURCE_PATH.DS."items".DS.$productImages->default_filename;
 

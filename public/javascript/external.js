@@ -645,30 +645,7 @@ $(function(){
 			
 		}else{
 
-			if($("#sortable li").is(".vest")){
-				$(wrapper).insertAfter("#sortable > .vest");
-				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .vest");
-			}else if($("#sortable li").is(".jacket")){
-				$(wrapper).insertAfter("#sortable > .jacket");
-				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .jacket");
-			}else if($("#sortable li").is(".coat")){
-				$(wrapper).insertAfter("#sortable > .coat");
-				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .coat");
-			}else if($("#sortable li").is(".outerwear")){
-				$(wrapper).insertAfter("#sortable > .outerwear");
-				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .outerwear");
-			}else if($("#sortable li").is(".dress")){
-				$(wrapper).insertAfter("#sortable > .dress");
-				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .dress");
-			}else if($("#sortable li").is(".bag,.accessories")){
-				
-				var last_element_on_list=$("#sortable > .bag,#sortable > .accessories").last();
-				var last_element_on_model = $("#tryclothes #outfitItems .bag,#tryclothes #outfitItems .accessories").last();
-
-				$(wrapper).insertAfter(last_element_on_list);
-				$(this.largeImageInfo_above).insertAfter(last_element_on_model);
-				
-			}else if($(this.largeImageInfo_above).is(".skirt")){
+			if($(this.largeImageInfo_above).is(".skirt")){
 
 				//if skirt always stays on top of shorts, pants, and jeans
 				if($("#sortable li").is(".shorts")){
@@ -732,6 +709,29 @@ $(function(){
 					$("#sortable").prepend(wrapper);
 					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
 				}
+			}else if($("#sortable li").is(".vest")){
+				$(wrapper).insertAfter("#sortable > .vest");
+				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .vest");
+			}else if($("#sortable li").is(".jacket")){
+				$(wrapper).insertAfter("#sortable > .jacket");
+				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .jacket");
+			}else if($("#sortable li").is(".coat")){
+				$(wrapper).insertAfter("#sortable > .coat");
+				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .coat");
+			}else if($("#sortable li").is(".outerwear")){
+				$(wrapper).insertAfter("#sortable > .outerwear");
+				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .outerwear");
+			}else if($("#sortable li").is(".dress")){
+				$(wrapper).insertAfter("#sortable > .dress");
+				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .dress");
+			}else if($("#sortable li").is(".bag,.accessories")){
+				
+				var last_element_on_list=$("#sortable > .bag,#sortable > .accessories").last();
+				var last_element_on_model = $("#tryclothes #outfitItems .bag,#tryclothes #outfitItems .accessories").last();
+
+				$(wrapper).insertAfter(last_element_on_list);
+				$(this.largeImageInfo_above).insertAfter(last_element_on_model);
+				
 			}else{
 				$("#sortable").prepend(wrapper);
 				$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
@@ -1047,38 +1047,44 @@ $(function(){
 				}
 
 			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".outerwear")){
-				if(selectedItem.index() > $(".layers").not(".accessories,.bag").first().index() && $(".layers").not(".accessories,.bag").first().index()!=-1){
+				if(selectedItem.index() > $(".layers").not(".accessories,.bag").first().index()){
 					$(this).sortable("cancel");
 					alert("You can only put accessories above outerwear");
 				}
 			}
 
 			if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".skirt")){
+				
 				if(selectedItem.index() >= $("#sortable > .shorts,#sortable > .pants,#sortable > .jeans").index()){
 					$(this).sortable('cancel');
 					alert("You cannot put skirt under shorts, jeans, or pants");
 				}
+
 			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".shorts")){
-				if(selectedItem.index() <= $("#sortable > .skirt").index()){
+				
+				if(selectedItem.index() <= $("#sortable > .skirt").index() && $("#sortable > .skirt").length!=1){
 					$(this).sortable('cancel');
 					alert("You cannot put shorts above skirt");
 				}else if(selectedItem.index() >= $("#sortable > .pants,#sortable > .jeans").index()){
 					$(this).sortable('cancel');
 					alert("You cannot put shorts inside pants or jeans");
 				}
-			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".pants")){
-				if(selectedItem.index() <= $("#sortable > .skirt").index()){
+
+			}else if($(selectedItem).parent().is(".tryon_list")){
+				
+				if(selectedItem.index() <= $("#sortable > .skirt").index()&&$("#sortable > .skirt").length!=1){
 					$(this).sortable('cancel');
 					alert("You cannot put pants above skirt");
-				}else if(selectedItem.index() <= $("#sortable > .shorts").index()){
+				}else if(selectedItem.index() <= $("#sortable > .shorts").index() && $("#sortable > .shorts").length!=1){
 					$(this).sortable('cancel');
 					alert("You cannot put pants above shorts");
 				}
-			}else if($(selectedItem).parent().is(".tryon_list") && $(selectedItem).is(".jeans")){
-				if(selectedItem.index() <= $("#sortable > .skirt").index()){
+
+			}else if($(selectedItem).parent().is(".tryon_list")){
+				if(selectedItem.index() <= $("#sortable > .skirt").index() && $("#sortable > .skirt").length!=1){
 					$(this).sortable('cancel');
 					alert("You cannot put jeans above skirt");
-				}else if(selectedItem.index() <= $("#sortable > .shorts").index()){
+				}else if(selectedItem.index() <= $("#sortable > .shorts").index()&&$("#sortable > .shorts").length!=1){
 					$(this).sortable('cancel');
 					alert("You cannot put jeans above shorts");
 				}
@@ -1842,8 +1848,9 @@ $(function(){
 //1 step = get the id of the selcted item
 
 
-$('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
-		
+$('#style_creation_form').submit(function(e){
+		e.preventDefault();
+
 		var item_url; // image src 
 		var user_id = 0;
 		var product_id;
@@ -1866,9 +1873,21 @@ $('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
 		var model_id = parseInt($("#tryclothes #creationCanvas .virtualModel").attr("id"));
 		var model_src = $("#tryclothes #creationCanvas .backgroundImg").attr("src");
 		var canvasWidth = $("#creationCanvas").css("width");
-		var canvasHeight= $("#creationCanvas").css("height");		
+		var canvasHeight= $("#creationCanvas").css("height");
+		var title = $("#titleName").val();
+		var main_category = $("#categorySelect").val();
+		var sub_category = $("#subCategorySelect").val();		
+		var description = $("#message").val();		
+		var background_id = $("#creationCanvas .backgroundImage").attr('id');
+		var background = $("#creationCanvas .backgroundImage").attr('src');
+		var shadow = $("#creationCanvas .shadow").attr('src');
+		var torso = $("#creationCanvas .torso").attr('src');
+		var legs = $("#creationCanvas .legs").attr('src');
+		var arms = $("#creationCanvas .arms").attr('src');
+		var face = $("#creationCanvas .face").attr('src');
+		var modelId = $("#creationCanvas .face").attr('id');
 		
-
+		
 		//model
 		//get the product id,z-index value and src of each item on the model
 		$("#tryclothes #outfitItems > img").each(function(){
@@ -1884,36 +1903,39 @@ $('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
 			
 		});
 
+		// separate the calls - one for collage, tryon + tryon embelishment
+		$.ajax({
+			type:'POST',
+			url:'../app/class/controller/outfit_model_creation',
+			data:{
+				outfit_info:itemArray,
+				background:background,
+				backgroundId:background_id,
+				shadow:shadow,
+				face:face,
+				modelId:modelId,
+				torso:torso,
+				legs:legs,
+				arms:arms,
+				description:description,
+				sub_category:sub_category,
+				main_category:main_category,
+				title:title
+				//embelishmentArray:embelishmentArray
+			},
+			success:function(data){
+				window.location.replace("http://localhost/~Masanori/ModiShow/app/class/contoller/guide_to_collage");
 
-		//model
-		//get the image id,z-index, and embelishment
-		$("#tryclothes #embelishment > img").each(function(){
-			item_url = $(this).attr('src');
-			z_index=$(this).css("z-index");
-			embelishment_id = parseInt($(this).attr("id"));
-			x_position = parseInt($(this).css("left"));
-			y_position = parseInt($(this).css("top"));
-			angle = getDegreesRotation($(this));
-			height = parseInt($(this).css("width"));
-			width = parseInt($(this).css("height"));
-			flopImage = false;
-		    embelishmentArray.push({
-		        "zIndex": z_index,
-		        "item_url": item_url,
-		        "embelishmentId":embelishment_id,
-		        "x_position": x_position,
-		        "y_position": y_position,
-		        "angle": angle,
-		        "height": height,
-		        "width": width,
-		        "flopImage":flopImage
-		    });        
-		
-			
+					
+			},
+			error:function(data){
+				console.log("Ajax call failed: ");
+			}
 		});
-		
-		//collage
-		//get all the information for collage items
+	});
+})
+
+$('#collage .sendInfo').click(function(){
 		$("#collage #outfitItems > li").each(function(){
 			product_id = parseInt($(this).find(".product").attr("id"));
 			embelishment_id = parseInt($(this).find(".embelishment").attr("id"));
@@ -1952,33 +1974,29 @@ $('#collage .sendInfo, #tryclothes .sendInfo').click(function(){
 			
 		});
 
-	console.log(itemArray[1]["embelishmentId"]);
-
-		// separate the calls - one for collage, tryon + tryon embelishment
+// separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
-			url:'../../includes/outfit_creation.php',
+			url:'../app/class/controller/outfit_creation.php',
 			data:{
 				outfit_info:itemArray,
-				userId:user_id,
-				backgroundSrc:background_src,
-				backgroundId:background_id,
-				modelId:model_id,
-				modelId:model_src,
+				//userId:user_id,
+				//backgroundSrc:background_src,
+				//backgroundId:background_id,
+				//modelId:model_id,
+				//modelId:model_src,
 				canvasWidth:canvasWidth,
 				canvasHeight:canvasHeight,
-				embelishmentArray:embelishmentArray},
+				//embelishmentArray:embelishmentArray
+			},
 			success:function(data){
-				console.log("listOfItem_info: "+data);
+				console.log(data);
 			},
 			error:function(data){
-				console.log("Ajax call failed: ");
+				alert("something went wrong");
 			}
 		});
-	});
 })
-
-
 //3 step = get the values of width, height, angle,and z-index of each item according to ids
 //4 step = creat a collage
 

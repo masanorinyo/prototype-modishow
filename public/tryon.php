@@ -4,11 +4,11 @@
 <div id="tryonContent" class="fullWidth">
 	<div id="creationCanvas" class="background_black floatLeft overflowHidden">
 		<img id="1background" class="embelishment backgroundImage" src="<?php echo RESOURCE_PATH;?>/embelishment/background_1.png"/>
-		<img id="1shadow"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/shadow_1.png"/>
-		<img id="1torso"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/torso_1.png"/>
-		<img id="1legs"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/legs_1.png"/>
-		<img id="1arms"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/arms_1.png"/>
-		<img id="1face"class="virtualModel center" src="<?php echo RESOURCE_PATH;?>/model/face_natasha.png"/>
+		<img id="1shadow"class="virtualModel shadow center" src="<?php echo RESOURCE_PATH;?>/model/shadow_1.png"/>
+		<img id="1torso"class="virtualModel torso center" src="<?php echo RESOURCE_PATH;?>/model/torso_1.png"/>
+		<img id="1legs"class="virtualModel legs center" src="<?php echo RESOURCE_PATH;?>/model/legs_1.png"/>
+		<img id="1arms"class="virtualModel arms center" src="<?php echo RESOURCE_PATH;?>/model/arms_1.png"/>
+		<img id="1face"class="virtualModel face center" src="<?php echo RESOURCE_PATH;?>/model/face_natasha.png"/>
 		<div id="outfitItems">
 			
 		</div>
@@ -544,7 +544,7 @@
 	<div id="transparentBackground">
 	</div>
 	<div id="modalbox">
-		<form type="post" action="">
+		<form id="style_creation_form" class="style_creation" type="post" action="">
 			<div class="popup-box publishes">
 				<span class="icon_close opaque_strong"></span>
 				<div class="popup-box-header">
@@ -636,8 +636,8 @@
 				<div class="popup-box-header">
 					<span>Create a collage for this style?</span>
 				</div>
-				<div class="button_large background-strong round_weak noUnloadMessage sendInfo">YES</div>
-				<div class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe late</div>			
+				<input type="submit" name="submit" class="background-strong round_weak noUnloadMessage sendInfo" value="Yes"/>
+				<input type="submit" name="cancel" class="background-weak round_weak noUnloadMessage sendInfo" value="Maybe later"/>
 			</div>		
 		</form>	
 	</div>
