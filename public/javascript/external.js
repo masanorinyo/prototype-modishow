@@ -766,6 +766,7 @@ $(function(){
 
 
 	function changeImageType(callForAboveImage){
+			var found_layers = $("#sortable").find(".layers");
 	   		$("#tryclothes .layers").each(function(){
 	   			
 	   			var image_id = $(this).attr("id");
@@ -782,18 +783,18 @@ $(function(){
 		   				image_type = "above";
 		   			
 		   			//if there is any outerwear, everything besides accessories becomes below
-		   			}else if($("#tryclothes ").has(".outerwear")){
-		   				alert("test");
+		   			}else if($(found_layers).hasClass("outerwear")){
+		   				console.log("there is an outerwear");
 	   					image_type="below";//for tops above pants, skirts, etc.
 	   				
 	   				//if there is no outerwear and this is a dress
-	   				}if($(this).is(".dress")){
+	   				}else if($(this).is(".dress")){
 	   				
 	   					image_type = "above";
 	   				
 	   				//if there is any dress, everything besides accessories and outerwear becomes below
-	   				}else if($("#tryclothes ").has(".dress") && !($(this).is(".dress"))){
-		   			
+	   				}else if($(found_layers).hasClass("dress") && !($(this).is(".dress"))){
+		   				console.log("there is a dress");
 	   					image_type="below";//for tops above pants, skirts, etc.
 	   				
 	   				}else{ 	
@@ -801,7 +802,7 @@ $(function(){
 
 		   				//if there is no outerwear nor dress and if there is bottom clothes below this item,
 		   				//then this will become middle
-		   				if($(this).is(".top,.jumpsuit_rompers,.dress") && ($(this).index() > $("#sortable").children(".pants,.shorts,.jeans,.skirt").first().index())){
+		   				if($(this).is(".top,.jumpsuit_romper,.dress") && ($(this).index() > $("#sortable").children(".pants,.shorts,.jeans,.skirt").first().index())){
 		   					image_type="middle";//for tops above pants, skirts, etc.
 		   					//ajax = if there is no middle -> get the bottom
 		   				
@@ -1118,7 +1119,7 @@ $(function(){
    		var className = $(this).children('img').attr('class');
    		var sImage = $(this).children('img').clone();
    		var image_above = $.parseHTML("<img />");
-		$(image_above).addClass('above');
+		$(sImage).addClass('above');
 		$(image_above).addClass(className);
    		$(image_above).attr('id',int_id);
    		 //to show items on the list(sortable) box
@@ -2308,7 +2309,7 @@ $(function() {
 		$(".icon_close").show();
  	});                                     
     
-    $(".itemIconsWrapper > li").click(function(){
+    $(".itemIconsWrapper > li,.subHeader-submenu li").click(function(){
     	$("#itemLoadingBox").show();
     })
 
