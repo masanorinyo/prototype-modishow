@@ -544,7 +544,8 @@
 	<div id="transparentBackground">
 	</div>
 	<div id="modalbox">
-		<form id="style_creation_form" class="style_creation" type="post" action="">
+		
+		<form id="style_creation_form" name="style_form" method="POST" action="<?php echo ROOT_PATH.'app/class/controller/guide_to_collage'; ?>" >
 			<div class="popup-box publishes">
 				<span class="icon_close opaque_strong"></span>
 				<div class="popup-box-header">
@@ -562,7 +563,7 @@
 						<span class="required">*</span>
 					</span>
 					<div class="firstChild">
-						<select id="categorySelect">
+						<select id="categorySelect" name="main_category">
 							<option value="0">Please choose a category</option>
 							<option value='style'>Style</option>
 							<option value='Occassion'>Occassion</option>
@@ -575,51 +576,51 @@
 						</select>
 					</div>
 					<div class="lastChild">
-						<select class="style_select">
-							<option>Active</option>
-							<option>Basic</option>
-							<option>Business Casual</option>
-							<option>Bohemian</option>
-							<option>Casual</option>
-							<option>Classic</option>
-							<option>Comfortable</option>
-							<option>Celebrity</option>					
-							<option>Cute</option>
-							<option>Elegant</option>
-							<option>Formal</option>
-							<option>Goth</option>
-							<option>Preppy</option>
-							<option>Punk</option>
-							<option>Runway</option>
-							<option>Sexy</option>
-							<option>Swimwear</option>
-							<option>Vintage</option>
+						<select class="style_select" name="sub_category" >
+							<option value="active">Active</option>
+							<option value="basic">Basic</option>
+							<option value="business_casual">Business Casual</option>
+							<option value="bohemian">Bohemian</option>
+							<option value="Casual">Casual</option>
+							<option value="Classic">Classic</option>
+							<option value="Comfortable">Comfortable</option>
+							<option value="Celebrity">Celebrity</option>					
+							<option value="Cute">Cute</option>
+							<option value="Elegant">Elegant</option>
+							<option value="Formal">Formal</option>
+							<option value="Goth">Goth</option>
+							<option value="Preppy">Preppy</option>
+							<option value="Punk">Punk</option>
+							<option value="Runway">Runway</option>
+							<option value="Sexy">Sexy</option>
+							<option value="Swimwear">Swimwear</option>
+							<option value="Vintage">Vintage</option>
 						</select>
-						<select class="occassion_select">
-							<option>Casual date</option>
-							<option>Classy date</option>
-							<option>Everyday</option>
-							<option>Formal events</option>
-							<option>Night out</option>
-							<option>Outdoor activities</option>
-							<option>Work</option>						
+						<select class="occassion_select" name="sub_category" >
+							<option value="Casual_date">Casual date</option>
+							<option value="Classy_date">Classy date</option>
+							<option value="Everyday">Everyday</option>
+							<option value="Formal_events">Formal events</option>
+							<option value="Night_out">Night out</option>
+							<option value="Outdoor_activities">Outdoor activities</option>
+							<option value="Work">Work</option>						
 						</select>
-						<select class="season_select">
-							<option>Spring</option>
-							<option>Mid-Spring</option>
-							<option>Summer</option>
-							<option>Fall</option>
-							<option>Mid-Fall</option>
-							<option>Winters</option>
+						<select class="season_select" name="sub_category" >
+							<option value="Spring">Spring</option>
+							<option value="Mid-Spring">Mid-Spring</option>
+							<option value="Summer">Summer</option>
+							<option value="Fall">Fall</option>
+							<option value="Mid-Fall">Mid-Fall</option>
+							<option value="Winters">Winters</option>
 						</select>
-						<select class="weather_select">
-							<option>Warm</option>
-							<option>Freezing</option>
-							<option>Cold</option>
-							<option>Raining</option>
-							<option>Hot</option>
-							<option>Snowing</option>
-							<option>Tropical</option>
+						<select class="weather_select" name="sub_category" >
+							<option value="Warm">Warm</option>
+							<option value="Freezing">Freezing</option>
+							<option value="Cold">Cold</option>
+							<option value="Raining">Raining</option>
+							<option value="Hot">Hot</option>
+							<option value="Snowing">Snowing</option>
+							<option value="Tropical">Tropical</option>
 						</select>
 					</div>
 				</div>
@@ -627,7 +628,7 @@
 					<span>
 						Description: <span class="optional"></span>
 					</span>
-					<textarea id="message" placeholder="400 words left"></textarea>
+					<textarea id="message" placeholder="400 words left" name="description"></textarea>
 				</div>
 				<div class="button_medium publish"><span>Publish</span></div>
 				<div class="button_medium cancel"><span>Cancel</span></div>
@@ -636,8 +637,9 @@
 				<div class="popup-box-header">
 					<span>Create a collage for this style?</span>
 				</div>
-				<input type="submit" name="submit" class="background-strong round_weak noUnloadMessage sendInfo" value="Yes"/>
-				<div id="cancel" class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe late</div>			
+				<!-- <input type="submit" name="submit" id="confirm_button"  value="YES"/> -->
+				<div id="confirm" class="button_large background-strong round_weak noUnloadMessage sendInfo">YES</div>
+-				<div id="cancel" class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe late</div>	
 			</div>		
 		</form>	
 	</div>

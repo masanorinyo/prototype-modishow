@@ -1,12 +1,8 @@
 <?php
-
-	require_once("../../config/initialize.php");
 	
+	require_once("../../config/initialize.php");
+	header("Content-Type: application/json", true);
 	$receivedArray = isset($_POST["outfit_info"]) ? $_POST["outfit_info"]:NULL;
-	$description = isset($_POST["description"]) ? $_POST["description"]:NULL;
-	$main_category = isset($_POST["main_category"]) ? $_POST["main_category"]:NULL;
-	$sub_category = isset($_POST["sub_category"]) ? $_POST["sub_category"]:NULL;
-	$title = isset($_POST["title"]) ? $_POST["title"]:NULL;
 	$face = isset($_POST["face"]) ? $_POST["face"]:NULL;
 	$arms = isset($_POST["arms"]) ? $_POST["arms"]:NULL;
 	$legs = isset($_POST["legs"]) ? $_POST["legs"]:NULL;
@@ -33,7 +29,7 @@
     }
 
     aasort($receivedArray,"zIndex");
-    aasort($embelishmentArray,"zIndex");
+ //    aasort($embelishmentArray,"zIndex");
 
     
 	$fileName = "m";
@@ -98,7 +94,7 @@
 
 
 
-	$canvas->compositeImage( $background, imagick::COMPOSITE_DEFAULT, (((($canvas->getImageWidth()) - ($background->getImageWidth())))/2), 0 );
+	$canvas->compositeImage( $background, imagick::COMPOSITE_DEFAULT, (((($canvas->getImageWidth()) - ($background->getImageWidth())))/2), -20 );
 	$canvas->compositeImage( $shadow, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($shadow->getImageWidth())))/2),-20);
 	$canvas->compositeImage( $torso, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($torso->getImageWidth())))/2),-20);
 	$canvas->compositeImage( $arms, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($arms->getImageWidth())))/2),-20);
@@ -112,8 +108,8 @@
 	$item = [];
 	foreach($receivedArray as $value => $key){
 		$item[$k]=new Imagick($key["item_url"]);
-		$item[$k]->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
-		$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($item[$k]->getImageWidth())))/2),8);
+		$item[$k]->resizeImage (582, 582,  imagick::FILTER_LANCZOS, 1, TRUE);
+		$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($item[$k]->getImageWidth())))/2)+1,16);
 		$k++;
 	}
 	
@@ -147,12 +143,20 @@
 
 	$image->destroy();
 
+	$json=array(
+		"small_url"=>$fileName_sml,
+		'default_url'=>$fileName
+	);
 
-
-	echo "data";
-
+	if(!empty($json)){
+		echo json_encode($json);	
+	}else{
+		echo false;
+	}
+	
 			
-			
+
+
 			
 		
 

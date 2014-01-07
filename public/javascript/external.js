@@ -1846,15 +1846,19 @@ $(function(){
 
 //----------------Collage creation + Storing images into user's database------------------//
 //1 step = get the id of the selcted item
-
-
-$('#style_creation_form').submit(function(e){
-		$("#style_creation_form")
-
-		e.preventDefault();
+$( "#form_id button" ).click(function( event ) {
+  
+});
 
 
 
+$('.sendInfo').click(function(event){
+		
+
+		//event.preventDefault();
+
+		
+		
 		console.log($(this));
 		var item_url; // image src 
 		var user_id = 0;
@@ -1879,10 +1883,7 @@ $('#style_creation_form').submit(function(e){
 		var model_src = $("#tryclothes #creationCanvas .backgroundImg").attr("src");
 		var canvasWidth = $("#creationCanvas").css("width");
 		var canvasHeight= $("#creationCanvas").css("height");
-		var title = $("#titleName").val();
-		var main_category = $("#categorySelect").val();
-		var sub_category = $("#subCategorySelect").val();		
-		var description = $("#message").val();		
+			
 		var background_id = $("#creationCanvas .backgroundImage").attr('id');
 		var background = $("#creationCanvas .backgroundImage").attr('src');
 		var shadow = $("#creationCanvas .shadow").attr('src');
@@ -1891,6 +1892,8 @@ $('#style_creation_form').submit(function(e){
 		var arms = $("#creationCanvas .arms").attr('src');
 		var face = $("#creationCanvas .face").attr('src');
 		var modelId = $("#creationCanvas .face").attr('id');
+
+		var cancel = $(this).attr("id")=="cancel"?true:false;
 		
 		
 		//model
@@ -1911,7 +1914,8 @@ $('#style_creation_form').submit(function(e){
 		// separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
-			url:'../app/class/controller/guide_to_collage',
+			dataType:"json",
+			url:'../app/class/controller/outfit_model_creation',
 			data:{
 				outfit_info:itemArray,
 				background:background,
@@ -1922,28 +1926,34 @@ $('#style_creation_form').submit(function(e){
 				torso:torso,
 				legs:legs,
 				arms:arms,
-				description:description,
-				sub_category:sub_category,
-				main_category:main_category,
-				title:title
+				
 				//embelishmentArray:embelishmentArray
 			},
 			success:function(data){
+				console.log(data.small_url);
+				console.log(data.default_url);
+				if(data){
+					d_url = data.default_url;
+					s_url = data.small_url;
+					$("#style_creation_form").append("<input type='hidden' name='default_url' value="+d_url+" />");
+					$("#style_creation_form").append("<input type='hidden' name='small_url' value="+d_url+" />");
+					if(cancel){
+						$("#style_creation_form").append("<input type='hidden' name='cancel' value="+cancel+" />");
+					}
+					document.getElementById("style_creation_form").submit();
+				}
 				
-				console.log(data);
-
-				//window.location.replace("http://localhost/~Masanori/ModiShow/app/class/contoller/guide_to_collage");
-
 					
 			},
 			error:function(data){
 				console.log("Ajax call failed: ");
 			}
 		});
+	
 	});
 })
 
-$("#style_creation_form #cancel").click(function(){
+$("#style_creation_form #cancel_button").click(function(){
 	var urls =[];
 	
 	$("#tryclothes #outfitItems > img").each(function(){
