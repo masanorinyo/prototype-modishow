@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2013 at 05:42 PM
--- Server version: 5.6.14
+-- Generation Time: Jan 08, 2014 at 09:01 PM
+-- Server version: 5.6.15
 -- PHP Version: 5.5.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `brand` (
-  `brand_id` int(11) NOT NULL AUTO_INCREMENT,
+  `brand_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `url` varchar(50) DEFAULT NULL,
   `added_date` date NOT NULL,
@@ -51,7 +51,7 @@ INSERT INTO `brand` (`brand_id`, `name`, `url`, `added_date`, `added_time`, `edi
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
-  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `main_category` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `sub_category` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`category_id`),
@@ -110,7 +110,7 @@ INSERT INTO `category` (`category_id`, `main_category`, `sub_category`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `clothing_type` (
-  `clothingType_id` int(11) NOT NULL AUTO_INCREMENT,
+  `clothingType_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `main_category` varchar(30) NOT NULL,
   `sub_category` varchar(30) NOT NULL,
   `sub_sub_category` varchar(30) DEFAULT NULL,
@@ -447,6 +447,19 @@ CREATE TABLE IF NOT EXISTS `follower` (
   `added_time` time NOT NULL,
   PRIMARY KEY (`user_id`),
   KEY `follower_id` (`follower_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items_uploaded_by_user`
+--
+
+CREATE TABLE IF NOT EXISTS `items_uploaded_by_user` (
+  `user_id` int(11) NOT NULL,
+  `uploadedItems_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`uploadedItems_id`),
+  KEY `uploadedItems_id` (`uploadedItems_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1502,6 +1515,7 @@ CREATE TABLE IF NOT EXISTS `style` (
   `category_id` int(11) NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `num_of_views` smallint(5) unsigned NOT NULL DEFAULT '0',
   `visibility` tinyint(1) NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
@@ -1517,36 +1531,74 @@ CREATE TABLE IF NOT EXISTS `style` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `uploaded_items`
+--
+
+CREATE TABLE IF NOT EXISTS `uploaded_items` (
+  `uploadedItems_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `main_category` varchar(50) NOT NULL,
+  `sub_category` varchar(50) DEFAULT NULL,
+  `filename` varchar(100) NOT NULL,
+  PRIMARY KEY (`uploadedItems_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `model_id` int(11) NOT NULL,
-  `faceboo_loggin` tinyint(1) NOT NULL,
+  `model_id` int(11) NOT NULL DEFAULT '1',
+  `gender` char(1) NOT NULL DEFAULT 'u',
+  `facebook_loggin` tinyint(1) NOT NULL DEFAULT '0',
   `username` varchar(40) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `thumbnail` varchar(255) DEFAULT NULL,
-  `user_type` varchar(10) DEFAULT NULL,
-  `skin_color` varchar(20) DEFAULT NULL,
-  `age` tinyint(2) unsigned DEFAULT NULL,
-  `country` varchar(30) DEFAULT NULL,
-  `city` varchar(60) DEFAULT NULL,
-  `bodyshape` varchar(30) DEFAULT NULL,
-  `inseam` tinyint(3) unsigned DEFAULT NULL,
-  `waist` tinyint(3) unsigned DEFAULT NULL,
-  `weight` tinyint(3) unsigned DEFAULT NULL,
+  `introduction` text,
+  `language` varchar(100) DEFAULT NULL,
+  `thumbnail` varchar(200) NOT NULL DEFAULT 'default_thumb.png',
+  `default_img` varchar(150) NOT NULL DEFAULT 'default_img.png',
+  `homepage` varchar(100) DEFAULT NULL,
+  `twitter` varchar(100) DEFAULT NULL,
+  `pinterest` varchar(100) DEFAULT NULL,
+  `facebook` varchar(100) DEFAULT NULL,
+  `country` varchar(30) NOT NULL,
+  `city` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `age` tinyint(3) unsigned DEFAULT NULL,
+  `skin_color` char(3) DEFAULT NULL,
+  `bodyshape` char(2) DEFAULT NULL,
+  `size` char(2) DEFAULT NULL,
   `height` tinyint(3) unsigned DEFAULT NULL,
+  `inseam` tinyint(3) unsigned DEFAULT NULL,
   `chest_bust` tinyint(3) unsigned DEFAULT NULL,
+  `waist` tinyint(3) unsigned DEFAULT NULL,
   `hip` tinyint(3) unsigned DEFAULT NULL,
-  `face_img_filename` varchar(255) DEFAULT NULL,
-  `sex` char(1) NOT NULL,
+  `user_type` varchar(10) DEFAULT NULL,
+  `joined_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `logged_in_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `logged_out_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
-  KEY `model_id` (`model_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `model_id` (`model_id`),
+  KEY `email_2` (`email`),
+  KEY `username_2` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `user`
+--
+
+-- INSERT INTO `user` (`user_id`, `model_id`, `gender`, `facebook_loggin`, `username`, `email`, `password`, `introduction`, `language`, `thumbnail`, `default_img`, `homepage`, `twitter`, `pinterest`, `facebook`, `country`, `city`, `age`, `skin_color`, `bodyshape`, `size`, `height`, `inseam`, `chest_bust`, `waist`, `hip`, `user_type`, `joined_time`, `logged_in_time`, `logged_out_time`) VALUES
+-- (24, 1, 'u', 0, 'test', 'test@gmail.com', '$2y$10$MDJhNTQ3OGU4NmU2OThlYes8KQiefd90XE/hdHIqMybdgWEqfkiDW', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Afganistan', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:25:51', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
+-- (34, 1, 'u', 0, 'testb', 'testb@gmail.com', '$2y$10$OTQ5MzNkODY5NDE5N2Y0N.97MSYzon.Aie7vI69hlzpkHKlf9lKNG', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Afganistan', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:35:01', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
+-- (36, 1, 'u', 0, 'masanorinyo', 'masanorinyo@gmail.com', '$2y$10$YzNiYjFiZjQ1NWRiYmI2YOsVHvxQb8MY45oDgaJM7G6Fdd9Ot/vdG', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Albania', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:46:49', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
+-- (39, 1, 'u', 0, 'test1', 'test@gd.com', '$2y$10$MDVkNzRmYzliN2ExMzcxMO2Zv4TNr44RY/Uxfs6vGXM2b7NTHNBHK', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Albania', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:48:35', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
+-- (40, 1, 'u', 0, 'masanorinyo1', 'masanorinyo@g.com', '$2y$10$YzRjYmU0OGY0Zjc5M2IxZ.ukZhW4Z3v2xv8mvwoEt0r5.zIt9Pii6', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Afganistan', NULL, 30, 'paf', 'in', '0', 150, NULL, NULL, NULL, NULL, NULL, '2014-01-02 03:07:32', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
+-- (41, 1, 'm', 0, 'masanori2', 'masanorinyo@gmail.comm', '$2y$10$NmM4NzQyNjkxNjY5YWIyOOh4LLonXLAkTncAXQjIj/vYA05iYtUIW', 'testing', 'jp', 'masanori2_thumb.gif', 'masanori2_default.jpg', NULL, NULL, NULL, NULL, 'JP', 'Osaka', 30, 'mas', 'in', 'm', 190, NULL, NULL, NULL, NULL, NULL, '2014-01-08 18:24:59', '2014-01-08 20:52:53', '2014-01-08 20:52:53');
 
 -- --------------------------------------------------------
 
@@ -1689,6 +1741,13 @@ ALTER TABLE `follower`
   ADD CONSTRAINT `follower_ibfk_3` FOREIGN KEY (`follower_id`) REFERENCES `user` (`user_id`);
 
 --
+-- Constraints for table `items_uploaded_by_user`
+--
+ALTER TABLE `items_uploaded_by_user`
+  ADD CONSTRAINT `items_uploaded_by_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  ADD CONSTRAINT `items_uploaded_by_user_ibfk_2` FOREIGN KEY (`uploadedItems_id`) REFERENCES `uploaded_items` (`uploadedItems_id`);
+
+--
 -- Constraints for table `material_in_style`
 --
 ALTER TABLE `material_in_style`
@@ -1751,116 +1810,6 @@ ALTER TABLE `pattern_in_style`
 ALTER TABLE `pattern_of_product`
   ADD CONSTRAINT `pattern_of_product_ibfk_1` FOREIGN KEY (`pattern_id`) REFERENCES `pattern` (`pattern_id`),
   ADD CONSTRAINT `pattern_of_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
--- Constraints for table `product`
---
-ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`brand_id`),
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`clothingType_id`) REFERENCES `clothing_type` (`clothingType_id`),
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`clothingType_id`) REFERENCES `clothing_type` (`clothingType_id`);
-
---
--- Constraints for table `product_collage_rel`
---
-ALTER TABLE `product_collage_rel`
-  ADD CONSTRAINT `product_collage_rel_ibfk_1` FOREIGN KEY (`collage_id`) REFERENCES `collage` (`collage_id`),
-  ADD CONSTRAINT `product_collage_rel_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
--- Constraints for table `product_image_rel`
---
-ALTER TABLE `product_image_rel`
-  ADD CONSTRAINT `product_image_rel_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  ADD CONSTRAINT `product_image_rel_ibfk_2` FOREIGN KEY (`productImage_id`) REFERENCES `product_image` (`productImage_id`);
-
---
--- Constraints for table `product_on_model`
---
-ALTER TABLE `product_on_model`
-  ADD CONSTRAINT `product_on_model_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  ADD CONSTRAINT `product_on_model_ibfk_2` FOREIGN KEY (`outfitOnModel_id`) REFERENCES `outfit_on_model` (`outfitOnModel_id`);
-
---
--- Constraints for table `product_size_range`
---
-ALTER TABLE `product_size_range`
-  ADD CONSTRAINT `product_size_range_ibfk_3` FOREIGN KEY (`productSize_id`) REFERENCES `product_size` (`productSize_id`),
-  ADD CONSTRAINT `product_size_range_ibfk_1` FOREIGN KEY (`productSize_id`) REFERENCES `product_size` (`productSize_id`),
-  ADD CONSTRAINT `product_size_range_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
--- Constraints for table `purchased_product`
---
-ALTER TABLE `purchased_product`
-  ADD CONSTRAINT `purchased_product_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `purchased_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
-
---
--- Constraints for table `reports`
---
-ALTER TABLE `reports`
-  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `reports_ibfk_2` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`);
-
---
--- Constraints for table `style`
---
-ALTER TABLE `style`
-  ADD CONSTRAINT `style_ibfk_1` FOREIGN KEY (`collage_id`) REFERENCES `collage` (`collage_id`),
-  ADD CONSTRAINT `style_ibfk_2` FOREIGN KEY (`outfitOnModel_id`) REFERENCES `outfit_on_model` (`outfitOnModel_id`),
-  ADD CONSTRAINT `style_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
-  ADD CONSTRAINT `style_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `model` (`model_id`);
-
---
--- Constraints for table `user_preference_category`
---
-ALTER TABLE `user_preference_category`
-  ADD CONSTRAINT `user_preference_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
-  ADD CONSTRAINT `user_preference_category_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `user_preference_category_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `user_preference_category_ibfk_4` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
-
---
--- Constraints for table `user_preference_color`
---
-ALTER TABLE `user_preference_color`
-  ADD CONSTRAINT `user_preference_color_ibfk_1` FOREIGN KEY (`color_id`) REFERENCES `color` (`color_id`),
-  ADD CONSTRAINT `user_preference_color_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `user_preference_material`
---
-ALTER TABLE `user_preference_material`
-  ADD CONSTRAINT `user_preference_material_ibfk_1` FOREIGN KEY (`material_id`) REFERENCES `material` (`material_id`),
-  ADD CONSTRAINT `user_preference_material_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `user_preference_pattern`
---
-ALTER TABLE `user_preference_pattern`
-  ADD CONSTRAINT `user_preference_pattern_ibfk_1` FOREIGN KEY (`pattern_id`) REFERENCES `pattern` (`pattern_id`),
-  ADD CONSTRAINT `user_preference_pattern_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `viewed_product`
---
-ALTER TABLE `viewed_product`
-  ADD CONSTRAINT `viewed_product_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  ADD CONSTRAINT `viewed_product_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `viewed_style`
---
-ALTER TABLE `viewed_style`
-  ADD CONSTRAINT `viewed_style_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `viewed_style_ibfk_2` FOREIGN KEY (`style_id`) REFERENCES `style` (`style_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
