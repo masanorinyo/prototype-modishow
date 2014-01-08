@@ -1,6 +1,8 @@
 <?php
 	require_once("../../config/initialize.php");
 	
+	$message = "";
+
 	if(isset($_POST['confirm'])){
 		//get all the data from the form
 		$old_password = htmlentities(trim($_POST["password"]));
@@ -10,6 +12,7 @@
 		$country = $_POST["country"];
 		$gender = $_POST["gender"];
 		$language = $_POST["language"];
+		$default_img=htmlentities(trim($_POST['file']))? $_POST['file']:NULL;
 		require_once("file_controller.php");
 
 		if(isset($_POST["city"])){
@@ -45,8 +48,8 @@
 
 		//if the new image is submitted, set them as the user profile image.
 		if(isset($default_img)){
-			$modified_user->default_img = $default_img;
-			$modified_user->thumbnail = $thumbnail;
+			$modified_user->default_img = $username."_default.jpg";
+			$modified_user->thumbnail = $username."_thumb.gif";
 		}
 		
 
@@ -76,10 +79,16 @@
 
  	 		redirect_to(ROOT_PATH."app/class/view/setting");
 	    }else{
-	    	// Failure
-	    	$_SESSION["success"]="false";
-	    	$session->message("Update failed");
-	    	redirect_to(ROOT_PATH."app/class/view/setting");
+	    	if(isset($default_img)){
+	    		$_SESSION["success"]="true";
+		    	$session->message("Your informaiton has been updated.");
+		    	redirect_to(ROOT_PATH."app/class/view/setting");
+	    	}else{
+	    		// Failure
+		    	$_SESSION["success"]="false";
+		    	$session->message("Nothing has changed");
+		    	redirect_to(ROOT_PATH."app/class/view/setting");
+	    	}
 	    }
 
 

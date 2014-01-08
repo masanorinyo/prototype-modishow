@@ -17,12 +17,18 @@
 				<span>
 					Account Information
 					<?php
-						
-						if($_SESSION["success"]=="true"){
-							echo "<span class='color_lightBlue errorMessage wrongCombo'>{$message}</span>";
-							$_SESSION['success_message']="";
+						if(isset($_SESSION["success"])){
+							if($_SESSION["success"]=="true"){
+								echo "<span class='color_lightBlue errorMessage wrongCombo'>{$message}</span>";
+								$_SESSION['message']="";
+							}else{
+								echo "<span class='color_red errorMessage wrongCombo'>{$message}</span>";	
+								$_SESSION['message']="";
+							}
 						}else if(isset($message)){
 							echo "<span class='color_red errorMessage wrongCombo'>{$message}</span>";
+							$_SESSION['message']="";
+
 						}
 					;?>
 				</span>
