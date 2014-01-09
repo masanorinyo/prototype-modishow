@@ -1,5 +1,5 @@
 <?php
-	class collage extends DatabaseObject{
+	class Collage extends DatabaseObject{
 		public $collage_id;
 		public $default_filename;
 		public $m_size_filename;

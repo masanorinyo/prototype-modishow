@@ -1,11 +1,14 @@
 <?php
 	require_once("../../config/initialize.php");
-	$receivedArray = isset($_POST['ids'])?$_POST['ids']:NULL;
-	sort($receivedArray);
+	sort($product_id);
 
-
-	 $filelist=isset($_POST['fileList'])?$_POST['fileList']:NULL;
-
+	$n=0;
+	$filelist = [];
+	foreach($product_id as $id){
+		$found_product = Product::find_by_id($id);
+		$filelist[$n]=SITE_ROOT.DS."resources/items/".$found_product->default_filename;
+		$n++;
+	}
 
 
 	$fileName = "ca"; 
@@ -13,7 +16,7 @@
 	
 
 	$k = 0;
-	foreach($receivedArray as $key =>$value){
+	foreach($product_id as $key =>$value){
 		
 		$fileName .="p".$value;
 		$k++;
@@ -107,8 +110,6 @@
 	file_put_contents(SITE_ROOT.DS."resources/styles/".$fileName_sml,$image);
 
 	$image->destroy();
-
-		
 
 
 

@@ -9,9 +9,7 @@
 		public $description;
 		public $num_of_views;
 		public $visibility;
-		public $added_date;
 		public $added_time;
-		public $edited_time;
 		const primaryKey="style_id";
 		protected static $table_primaryKey="style_id";
 		protected static $table_name = "style";
@@ -25,9 +23,7 @@
 			'description',
 			'num_of_views',
 			'visibility',
-			'added_date',
-			'added_time',
-			'edited_time'
+			'added_time'
 		);
 		
 
