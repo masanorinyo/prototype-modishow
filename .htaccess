@@ -31,3 +31,4 @@ RewriteRule ^(.+)$ index.php?$1 [PT,L,QSA]
 
 Options -Indexes
 IndexIgnore *
+

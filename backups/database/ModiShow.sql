@@ -1578,8 +1578,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `hip` tinyint(3) unsigned DEFAULT NULL,
   `user_type` varchar(10) DEFAULT NULL,
   `joined_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `logged_in_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `logged_out_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),

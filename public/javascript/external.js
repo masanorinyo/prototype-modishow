@@ -1891,7 +1891,7 @@ $('.sendInfo').click(function(event){
 		var legs = $("#creationCanvas .legs").attr('src');
 		var arms = $("#creationCanvas .arms").attr('src');
 		var face = $("#creationCanvas .face").attr('src');
-		var modelId = $("#creationCanvas .face").attr('id');
+		var modelId = 1;//write a script to generate a model id in the future
 
 		var cancel = $(this).attr("id")=="cancel"?true:false;
 		
@@ -1914,7 +1914,6 @@ $('.sendInfo').click(function(event){
 		// separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
-			dataType:"json",
 			url:'../app/class/controller/outfit_model_creation',
 			data:{
 				outfit_info:itemArray,
@@ -1930,17 +1929,15 @@ $('.sendInfo').click(function(event){
 				//embelishmentArray:embelishmentArray
 			},
 			success:function(data){
-				console.log(data.small_url);
-				console.log(data.default_url);
-				if(data){
-					d_url = data.default_url;
-					s_url = data.small_url;
-					$("#style_creation_form").append("<input type='hidden' name='default_url' value="+d_url+" />");
-					$("#style_creation_form").append("<input type='hidden' name='small_url' value="+d_url+" />");
+				console.log(data);
+				if(data){				
+					$("#style_creation_form").append("<input type='hidden' name='outfit_on_model_id' value="+data+" />");
 					if(cancel){
 						$("#style_creation_form").append("<input type='hidden' name='cancel' value="+cancel+" />");
 					}
 					document.getElementById("style_creation_form").submit();
+				}else{
+					alert("something went wrong");
 				}
 				
 					

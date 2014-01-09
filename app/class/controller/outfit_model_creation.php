@@ -1,7 +1,7 @@
 <?php
 	
 	require_once("../../config/initialize.php");
-	header("Content-Type: application/json", true);
+	
 	$receivedArray = isset($_POST["outfit_info"]) ? $_POST["outfit_info"]:NULL;
 	$face = isset($_POST["face"]) ? $_POST["face"]:NULL;
 	$arms = isset($_POST["arms"]) ? $_POST["arms"]:NULL;
@@ -38,12 +38,19 @@
 	//first adds each id number 
 	//when the file system is searching for an image,
 	//it can quickly ignore if the order of id numbers are different.
-	
+	$product_id_array=[];
+	$k=0;
 	foreach($receivedArray as $value => $key){
 		
 		$fileName .="p".$key["productId"];
-		
+		$product_id_array[$k]= $key["productId"];		
+		$k++;
 	}
+
+	//too pass information to the collage.
+	
+	$_SESSION["product_id"]="";
+	$_SESSION["product_id"]=$product_id_array;
 	
 	$fileName .=$backgroundId;
 	$fileName .=$modelId;
@@ -143,17 +150,35 @@
 
 	$image->destroy();
 
-	$json=array(
-		"small_url"=>$fileName_sml,
-		'default_url'=>$fileName
-	);
 
-	if(!empty($json)){
-		echo json_encode($json);	
+
+	if(!empty($fileName) && !empty($fileName_sml)){
+		//echo json_encode($json);	
+
+		$found_model = Outfit_on_model::find_by_attribute($fileName,"default_filename");
+		$found_model = empty($found_model)?false:array_shift($found_model);
+		
+		if($found_model){
+			echo $id = $found_model->outfitOnModel_id;	
+		}else{
+			$new_model=new Outfit_on_model;
+			$new_model->default_filename=$fileName;
+			$new_model->m_size_filename=$fileName_sml;
+			$result = $new_model->save();
+
+			if($result){
+				echo $new_model->outfitOnModel_id;				
+			
+			}else{
+			
+				echo $message="Failed to create a style";
+			}
+		}
 	}else{
-		echo false;
+		echo $message="Failed to create a style";
 	}
 	
+
 			
 
 

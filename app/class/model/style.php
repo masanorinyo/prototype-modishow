@@ -1,5 +1,5 @@
 <?php
-	class style extends DatabaseObject{
+	class Style extends DatabaseObject{
 		public $style_id;
 		public $outfitOnModel_id;
 		public $collage_id;

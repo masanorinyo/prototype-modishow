@@ -65,7 +65,6 @@
 	require_once(MODEL_PATH.DS."clothingType.php");
 	require_once(MODEL_PATH.DS."outfit_on_model.php");
 	require_once(MODEL_PATH.DS."collage.php");
-	require_once(MODEL_PATH.DS."style.php");
 	
 	// require_once(MODEL_PATH.DS."uploaded_items.php");
 	
