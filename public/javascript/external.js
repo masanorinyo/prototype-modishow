@@ -1295,11 +1295,13 @@ $(function(){
    		var int_id = parseInt(id);
    		var className = $(this).children('img').attr('class');
    		var sImage = $(this).children('img').clone();
+		var image_above = $.parseHTML("<img　/>");
+
 		$(sImage).removeAttr('id');
-		$(sImage).removeAttr('class');
+		//$(sImage).removeAttr('class');
    		var clicked_object = $(this);
 
-   		var image_above = $.parseHTML("<img　/>");
+   		
 
 		if(!$(this).parent().is(".collageCanvas")){
 			$(sImage).addClass('top');
@@ -1386,8 +1388,12 @@ $(function(){
 				}
 
 				
-				var selectedItem = $(image_above).attr("src",data.default_filename);//Ajax call for a larger image - collage creation
-				var subImgName = $(selectedItem).attr('src');// use regular expression to extract only the image name
+
+				var img_tag = $.parseHTML("<img　/>");
+				var selectedItem = $(img_tag).attr("src",data.default_filename);//Ajax call for a larger image - collage creation
+				var subImgName = $(selectedItem).attr('src');// use regular expression to extract only the image name	
+
+				
 				
 
 		   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
@@ -1413,22 +1419,39 @@ $(function(){
 
 
 
+	$("#itemLoadingBox .items-wrapper").draggable({
+        distance:100,
+        appendTo: "body",
+        cursor: "move",         
+        zIndex: 2000,   
+        helper:function(event,ui){
+                var cloneList = $(this).clone();
+                $(cloneList).find("img").addClass('addStyleListBox');
 
+                return cloneList;
+        }
+	});
 
 	$("#creationCanvas").droppable({
 		accept:".items-wrapper",
 		drop:function(event,ui){
+
 			var id = $(ui.draggable).children('img').attr('id');
 	   		var int_id = parseInt(id);
 	   		var className = $(ui.draggable).children('img').attr('class');
 	   		var sImage = $(ui.draggable).children('img').clone();
 	   		var image_above = $.parseHTML("<img />");
-	   		$(sImage).addClass('top');
-	   		$(image_above).addClass(className);
+	   		var clicked_object = $(ui.draggable);
+
+	   		$(sImage).removeAttr('id');
+
+	   		if(!$(ui.draggable).parent().is(".collageCanvas")){
+				$(sImage).addClass('top');
+				$(image_above).addClass(className);
+			}	
+
 	   		$(image_above).attr('id',int_id);
-	   		 //to show items on the list(sortable) box
-	   		var selectedItem = $(ui.draggable).children('img').clone();//Ajax call for a larger image - collage creation
-			var subImgName = $(ui.draggable).children('img').attr('src');// use regular expression to extract only the image name
+	   		
 		   		
 
 
@@ -1506,20 +1529,30 @@ $(function(){
 						$(image_above).attr("src", data.back);
 					}
 
+
+					
+					var img_tag = $.parseHTML("<img　/>");
+					var selectedItem = $(img_tag).attr("src",data.default_filename);//Ajax call for a larger image - collage creation
+					var subImgName = $(selectedItem).attr('src');// use regular expression to extract only the image name	
+				
+
+
+
 					droppableOffset =  $('#creationCanvas').offset();
 					console.log("droppable is "+droppableOffset.top);
 		        	topPosition = ui.position.top - droppableOffset.top;
 			        leftPosition = ui.position.left - droppableOffset.left;
-				
+					
+
 
 
 			   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 
 
-			   		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
+			   		filterDuplicate(clicked_object,outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem,topPosition,leftPosition);
 
 			   		
-			   		$(".background_grid").hide();
+			   		$("#collage .background_grid").hide();
 
 				
 				
