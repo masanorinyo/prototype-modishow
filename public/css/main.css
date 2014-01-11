@@ -3584,6 +3584,11 @@ li{
 	display:none;
 }
 
+.itemBoxImages.collageCanvas{
+	display:block;
+}
+
+
 #itemLoadingBox > li{
 	float: left;
 	margin: 3px 0px 3px 3px;
@@ -3595,6 +3600,11 @@ li{
 	background-color: rgb(255,255,255);
 	border: 1px solid rgb(230,230,230);
 	cursor: pointer;
+}
+
+#itemLoadingBox.collageCanvas > li{
+	width:150px;
+	height:150px;
 }
 
 .addStyleListBox{

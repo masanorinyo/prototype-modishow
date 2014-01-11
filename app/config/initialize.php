@@ -68,6 +68,7 @@
 	require_once(MODEL_PATH.DS."collage.php");
 	require_once(MODEL_PATH.DS."style.php");
 	require_once(MODEL_PATH.DS."category.php");
+	require_once(MODEL_PATH.DS."product_collage_rel.php");
 	
 	// require_once(MODEL_PATH.DS."uploaded_items.php");
 	

@@ -639,7 +639,7 @@
 				</div>
 				<!-- <input type="submit" name="submit" id="confirm_button"  value="YES"/> -->
 				<div id="confirm" class="button_large background-strong round_weak noUnloadMessage sendInfo">YES</div>
--				<div id="cancel" class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe late</div>	
+-				<div id="cancel" class="button_large background-weak round_weak noUnloadMessage sendInfo">Maybe later</div>	
 			</div>		
 		</form>	
 	</div>

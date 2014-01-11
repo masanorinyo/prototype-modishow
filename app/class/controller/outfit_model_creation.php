@@ -67,78 +67,6 @@
 		$fileName .=".jpg";
 		$fileName_sml.=".jpg";
 		
-		$canvas = new Imagick();
-		$canvas->newImage(600,600, new ImagickPixel('none'));
-		$canvas->setImageFormat('jpg');
-		
-		$background = new Imagick($background_src);
-		
-		//background images need to be resized to fit the canvas 
-		$background->resizeImage ( 800, 800,  imagick::FILTER_LANCZOS, 1, TRUE);
-		
-		$face = new Imagick($face);
-		$face->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
-		$torso = new Imagick($torso);
-		$torso->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
-		$arms = new Imagick($arms);
-		$arms->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
-		$legs = new Imagick($legs);
-		$legs->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
-		$shadow = new Imagick($shadow);
-		$shadow->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
-
-
-
-		$canvas->compositeImage( $background, imagick::COMPOSITE_DEFAULT, (((($canvas->getImageWidth()) - ($background->getImageWidth())))/2), -20 );
-		$canvas->compositeImage( $shadow, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($shadow->getImageWidth())))/2),-20);
-		$canvas->compositeImage( $torso, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($torso->getImageWidth())))/2),-20);
-		$canvas->compositeImage( $arms, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($arms->getImageWidth())))/2),-20);
-		$canvas->compositeImage( $legs, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($legs->getImageWidth())))/2),-20);
-		$canvas->compositeImage( $face, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($face->getImageWidth())))/2),-20);
-		
-
-
-
-		$k = 0;
-		$item = [];
-		foreach($receivedArray as $value => $key){
-			$item[$k]=new Imagick($key["item_url"]);
-			$item[$k]->resizeImage (582, 582,  imagick::FILTER_LANCZOS, 1, TRUE);
-			$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($item[$k]->getImageWidth())))/2)+1,16);
-			$k++;
-		}
-		
-		header('Content-type: image/jpg');
-		
-
-
-
-		$canvas->writeImage(SITE_ROOT.DS."resources/styles".DS.$fileName);
-		
-
-
-		file_put_contents(SITE_ROOT.DS."resources/styles".DS.$fileName,$canvas);
-		
-
-		$canvas->destroy();
-
-
-		copy(SITE_ROOT.DS."resources/styles/".$fileName,SITE_ROOT.DS."resources/styles/".$fileName_sml);			
-
-
-		$image = new Imagick(SITE_ROOT.DS."resources/styles/".$fileName_sml);
-		
-		$image->cropThumbnailImage(400,400);
-
-		$image->setImageFormat('jpg');
-		
-		$image->writeImage();
-		
-		file_put_contents(SITE_ROOT.DS."resources/styles/".$fileName_sml,$image);
-
-		$image->destroy();
-
-
 
 		if(!empty($fileName) && !empty($fileName_sml)){
 			//echo json_encode($json);	
@@ -147,8 +75,86 @@
 			$found_model = empty($found_model)?false:array_shift($found_model);
 			
 			if($found_model){
+				//if there is an image with the same file name, there is no need to recreate the file.
 				echo $id = $found_model->outfitOnModel_id;	
+
 			}else{
+
+				$canvas = new Imagick();
+				$canvas->newImage(600,600, new ImagickPixel('none'));
+				$canvas->setImageFormat('jpg');
+				
+				$background = new Imagick($background_src);
+				
+				//background images need to be resized to fit the canvas 
+				$background->resizeImage ( 800, 800,  imagick::FILTER_LANCZOS, 1, TRUE);
+				
+				$face = new Imagick($face);
+				$face->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
+				$torso = new Imagick($torso);
+				$torso->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
+				$arms = new Imagick($arms);
+				$arms->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
+				$legs = new Imagick($legs);
+				$legs->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
+				$shadow = new Imagick($shadow);
+				$shadow->resizeImage (650, 650,  imagick::FILTER_LANCZOS, 1, TRUE);
+
+
+
+				$canvas->compositeImage( $background, imagick::COMPOSITE_DEFAULT, (((($canvas->getImageWidth()) - ($background->getImageWidth())))/2), -20 );
+				$canvas->compositeImage( $shadow, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($shadow->getImageWidth())))/2),-20);
+				$canvas->compositeImage( $torso, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($torso->getImageWidth())))/2),-20);
+				$canvas->compositeImage( $arms, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($arms->getImageWidth())))/2),-20);
+				$canvas->compositeImage( $legs, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($legs->getImageWidth())))/2),-20);
+				$canvas->compositeImage( $face, imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($face->getImageWidth())))/2),-20);
+				
+
+
+
+				$k = 0;
+				$item = [];
+				foreach($receivedArray as $value => $key){
+					$item[$k]=new Imagick($key["item_url"]);
+					$item[$k]->resizeImage (582, 582,  imagick::FILTER_LANCZOS, 1, TRUE);
+					$canvas->compositeImage($item[$k], imagick::COMPOSITE_DEFAULT,(((($canvas->getImageWidth()) - ($item[$k]->getImageWidth())))/2)+1,16);
+					$k++;
+				}
+				
+				header('Content-type: image/jpg');
+				
+
+
+
+				$canvas->writeImage(SITE_ROOT.DS."resources/styles".DS.$fileName);
+				
+
+
+				file_put_contents(SITE_ROOT.DS."resources/styles".DS.$fileName,$canvas);
+				
+
+				$canvas->destroy();
+
+
+				copy(SITE_ROOT.DS."resources/styles/".$fileName,SITE_ROOT.DS."resources/styles/".$fileName_sml);			
+
+
+				$image = new Imagick(SITE_ROOT.DS."resources/styles/".$fileName_sml);
+				
+				$image->cropThumbnailImage(400,400);
+
+				$image->setImageFormat('jpg');
+				
+				$image->writeImage();
+				
+				file_put_contents(SITE_ROOT.DS."resources/styles/".$fileName_sml,$image);
+
+				$image->destroy();
+
+
+
+		
+		
 				$new_model=new Outfit_on_model;
 				$new_model->default_filename=$fileName;
 				$new_model->m_size_filename=$fileName_sml;
@@ -166,6 +172,10 @@
 						$found = $database->query($sql);
 					}
 
+					if(!$found){
+						echo $message="Failed to insert information into product on model table";
+					}
+
 				}else{
 				
 					echo $message="Failed to create a style";
@@ -175,10 +185,6 @@
 			echo $message="Failed to create a style";
 		}
 		
-
-
-
-
 
 	}else{
 		echo $message="Failed to make a style";

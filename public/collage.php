@@ -1,10 +1,18 @@
 <?php 
 	require_once("../app/config/initialize.php");
-	if(!$session->is_logged_in()){
+	
+	if(!$session->is_logged_in() && !empty($_SESSION['style_info'])){
 		redirect_to(ROOT_PATH."public/index");
 	}
 
+	$title = $_SESSION['style_info']['title'];
+	$outfitOnModel_id = $_SESSION['style_info']['outfitOnModel_id'];
+	$category_id = $_SESSION['style_info']['category_id'];
+	$product_array = $_SESSION['style_info']['product_id'];
+	
 ?>
+
+
 <?php include(LAYOUT_PATH.DS."structure/header.php");?>
 		
 <div id="tryonContent" class="tryon-collage fullWidth">
@@ -46,22 +54,22 @@
 <div id="creationToolbox">
 	<div id="itembox_header" class="fullWidth">
 		<ul>
-			<li class="itemList_items currently_focus">Items</li> 
+			<!-- <li class="itemList_items currently_focus">Items</li> 
 			<li class="itemList_beauty">Beauty</li>
 			<li class="itemList_people">People</li>
-			<li class="itemList_Embelishment">Embelishment</li>
+			<li class="itemList_Embelishment">Embelishment</li> -->
 		</ul>
 	</div>		
 	<div class="itembox_subHeader fullWidth background_white">
 		<div id="itemList">	
 			<ul class="controlBoxes fullWidth">
-				<li class="firstChild">
-					<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
+				<!-- <li class="firstChild">
+					<?php //include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
 						<li>Inner</li>	
 						<li>Inner</li>
 						<li>Jacket</li>
-					<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>					
-				</li>
+					<?php //include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>					
+				</li> -->
 			</ul>
 			<!--
 				<ul class="subHeader-right">					
@@ -80,55 +88,53 @@
 		<div id="beautyList">
 			<ul class="controlBoxes fullWidth">
 				<li class="firstChild">
-					<?php include(LAYOUT_PATH.DS."parts/searchbox.php");?>	
+					<?php //include(LAYOUT_PATH.DS."parts/searchbox.php");?>	
 				</li>	
 				<li class="filterOrderWrapper">
-					<?php include(LAYOUT_PATH.DS."parts/order.php");?>	
+					<?php// include(LAYOUT_PATH.DS."parts/order.php");?>	
 				</li>	
 			</ul>
-			<!--
-				<ul class="subHeader-right">					
-					<li>
-						<div class="changeView">
-							<span class="smallerBox"></span>
-						</div>
-					</li>
-					<li>
-						<div class="changeView">
-							<span class="biggerBox"></span>
-						</div>
-					</li>
-				</ul>
-			-->
+			<ul class="subHeader-right">					
+				<li>
+					<div class="changeView">
+						<span class="smallerBox"></span>
+					</div>
+				</li>
+				<li>
+					<div class="changeView">
+						<span class="biggerBox"></span>
+					</div>
+				</li>
+			</ul>
+			
 		</div>
 		<div id="peopleList">
 			<ul class="controlBoxes fullWidth">
 				<li class="firstChild">
-					<?php include(LAYOUT_PATH.DS."parts/searchbox.php");?>	
+					<?php //include(LAYOUT_PATH.DS."parts/searchbox.php");?>	
 				</li>	
 				<li class="filterOrderWrapper">
-					<?php include(LAYOUT_PATH.DS."parts/order.php");?>	
+					<?php// include(LAYOUT_PATH.DS."parts/order.php");?>	
 				</li>		
 			</ul>
-			<!--
-				<ul class="subHeader-right">					
-					<li>
-						<div class="changeView">
-							<span class="smallerBox"></span>
-						</div>
-					</li>
-					<li>
-						<div class="changeView">
-							<span class="biggerBox"></span>
-						</div>
-					</li>
-				</ul>
-			-->
+			<ul class="subHeader-right">					
+				<li>
+					<div class="changeView">
+						<span class="smallerBox"></span>
+					</div>
+				</li>
+				<li>
+					<div class="changeView">
+						<span class="biggerBox"></span>
+					</div>
+				</li>
+			</ul>
+			
 		</div>
 		<div id="embelishmentList">
 			<ul class="controlBoxes fullWidth">
 				<li class="firstChild">
-					<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>	
+					<?php //include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>	
 						<li>Text</li>
 						<li>Frames & borders</li>
 						<li>Effects</li>
@@ -137,130 +143,45 @@
 						<li>Articles</li>
 						<li>Patterns</li>
 						<li>Others</li>
-					<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>	
+					<?php //include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>	
 				</li>		
 			</ul>
-			<!--
-				<ul class="subHeader-right">						
-					<li>
-						<div class="changeView">
-							<span class="smallerBox"></span>
-						</div>
-					</li>
-					<li>
-						<div class="changeView">
-							<span class="biggerBox"></span>
-						</div>
-					</li>				
-				</ul>
-			-->
+			<ul class="subHeader-right">						
+				<li>
+					<div class="changeView">
+						<span class="smallerBox"></span>
+					</div>
+				</li>
+				<li>
+					<div class="changeView">
+						<span class="biggerBox"></span>
+					</div>
+				</li>				
+			</ul>
 		</div>
-	</div>
-	<div id="itemImages" class="itemBox">
-		<ul class="itemIconsWrapper">
-			<li>
-				<img src="images/productItems/inner_1.png"/>
-				<span class="itemDescription">Inner</span>
-			</li>
-			<li>
-				<img src="images/productItems/item1.png"/>
-				<span class="itemDescription">Inner</span>
-			</li>
-			<li>
-				<img src="images/productItems/item3.png"/>
-				<span class="itemDescription">Jacket</span>
-			</li>
-
-		</ul>
-		<ul class="itemBoxImages collageCanvas">	
-			<li class="items-wrapper">
-				<img id="1accessory" class="accessory product" src="images/productItems/accessory_1.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="3item" class="inner product" src="images/productItems/item3.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="1item" class="inner product" src="images/productItems/item1.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="1inner" class="inner product" src="images/productItems/inner_1.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="1skirt" class="skirt product" src="images/productItems/skirt_1.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="2skirt" class="skirt product" src="images/productItems/skirt_2.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="1dress" class="dress product" src="images/productItems/dress_1.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="2top" class="top product" src="images/productItems/top_2.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="1shirt" class="shirt product" src="images/productItems/shirt_1.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="3top" class="top product" src="images/productItems/top_3.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="4top" class="top product" src="images/productItems/top_4.png"/>
-			</li>
-			<li class="items-wrapper">
-				<img id="5top" class="top product" src="images/productItems/top_5.png"/>
-			</li>
-		</ul>
 	</div>
 	<div id="beautyImages" class="itemBox">
 		<ul class="itemBoxImages">
-			<span class="unavailable">Currently unavailable</span>
+			<span class="unavailable">Currently unavailable</span> 
 		</ul>
 	</div>
-	<div id="peopleImages" class="itemBox">
-		<ul class="itemBoxImages">
-			<span class="unavailable">Currently unavailable</span>
-		</ul>
-	</div>
-	<div id="embelishmentImages" class="itemBox">
-		<ul class="itemIconsWrapper">
-			<li>
-				<span class="itemIcon textImage"></span>
-				<span class="itemDescription">Text</span>
-			</li>
-			<li>
-				<span class="itemIcon frameImage"></span>		
-				<span class="itemDescription">Frames & borders</span>
-			</li>
-			
-			<li>
-				<span class="itemIcon backgroundImage"></span>
-				<span class="itemDescription">Backgrounds</span>
-			</li>
-			<!--
-			<li>
-				<span class="itemIcon"></span>
-				<span class="itemDescription">Effect</span>
-			</li>
-			<li>
-				<span class="itemIcon"></span>
-				<span class="itemDescription">Colors</span>
-			</li>
-			<li>
-				<span class="itemIcon"></span>
-				<span class="itemDescription">Articles</span>
-			</li>
-			<li>
-				<span class="itemIcon"></span>
-				<span class="itemDescription">Patterns</span>
-			</li>
-			<li>
-				<span class="itemIcon"></span>
-				<span class="itemDescription">Others</span>
-			</li>
-			-->
-		</ul>					
-		<ul class="itemBoxImages">		
-			<span class="unavailable">Currently unavailable</span>	
+	<div>
+		<ul id="itemLoadingBox" class="itemBoxImages collageCanvas">	
+			<?php 
+				foreach($product_array as $p_id){
+					$found_product = Product::find_by_id($p_id);
+					$small_img = $found_product->small_filename;
+					$clothingType_id = $found_product->clothingType_id;
+					$clothingType = Clothing_type::find_by_id($clothingType_id);
+					$clothing_category =$clothingType->sub_category;
+
+					$output ="<li class='items-wrapper'>";
+					$output .="<img id='".$p_id.$clothing_category."' class='".$clothing_category."' src='".ROOT_PATH."resources/items/".$small_img."' alt='".$small_img."'/>";
+					$output.="</li>";
+
+					echo $output;
+				}
+			?>
 		</ul>
 	</div>
 </div>

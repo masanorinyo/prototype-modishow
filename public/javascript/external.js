@@ -1274,14 +1274,18 @@ $(function(){
    		var int_id = parseInt(id);
    		var className = $(this).children('img').attr('class');
    		var sImage = $(this).children('img').clone();
-   		var image_above = $.parseHTML("<img />");
+   		
+
+   		var image_above = $.parseHTML("<img　/>");
 		$(sImage).addClass('top');
 		$(image_above).addClass(className);
    		$(image_above).attr('id',int_id);
    		 //to show items on the list(sortable) box
    		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
 		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
-	   		
+	   	
+
+
    		$.ajax({
    			type:"POST",
    			dataType: "json",
@@ -2463,7 +2467,7 @@ $(function() {
 	}); 
 
     $("#itembox_header ul li").click(function() { 
-    	$("#itemLoadingBox > li").remove();
+    	$("#tryclothes #itemLoadingBox > li").remove();
         $(this).addClass("currently_focus");
         $("#itembox_header > ul > li").not(this).removeClass("currently_focus");
         $(".itemBoxImages").hide();
@@ -2495,6 +2499,7 @@ $(function() {
 
     $(".itemList_items").click(function() { 
         $("#itemList,#itemImages > .itemIconsWrapper").show();
+
         $(".itembox_subHeader > div,.itemBox > .itemIconsWrapper").not("#itemList,#itemImages > .itemIconsWrapper").hide();
  	}); 
 

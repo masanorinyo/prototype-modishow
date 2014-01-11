@@ -16,18 +16,13 @@
 	$found_category = !empty($found_category)? array_shift($found_category):false;
 
 	$category_id=$found_category->category_id;
-
+	
 
 	if($product_id && $m_category && $s_category && $outfit_on_model_id && $title){
 		
 		if($cancel){
 
 			require_once("collage_automatic_creation.php");
-
-			$new_collage = new Collage;
-			$new_collage->default_filename=$fileName;
-			$new_collage->m_size_filename=$fileName_sml;
-			$collage_id = $new_collage->save();
 
 			$new_style = new Style;
 			$new_style->outfitOnModel_id=$outfit_on_model_id;
@@ -38,8 +33,9 @@
 			$new_style->description=$description;
 			$new_style->num_of_views=0;
 			$new_style->visibility=0;
-			// $new_style->added_date=date('Y-m-d H:i:s', strtotime('2010-10-12 15:09:00'));
-			// $new_style->added_time=date('Y-m-d H-i-s');
+			date_default_timezone_set('America/New_York');
+			$new_style->added_date=date('Y-m-d H:i:s', strtotime('2010-10-12 15:09:00'));
+			$new_style->added_time=date('Y-m-d H-i-s');
 
 			$result = $new_style->save();
 			
@@ -62,7 +58,7 @@
 
 			$_SESSION["style_info"]=$style_info;
 
-			redirect_to(SITE_ROOT.DS."public/collage");
+			redirect_to("../../../public/collage.php");
 		}
 
 		
