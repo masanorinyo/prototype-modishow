@@ -625,12 +625,12 @@ $(function(){
 	
 	
 
-		if($(this.largeImageInfo_above).is(".accessories,.bag")){
+		if($(this.largeImageInfo_above).is("#tryclothes .accessories,#tryclothes .bag")){
 			$("#sortable").prepend(wrapper);
 			$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
-		}else if($(this.largeImageInfo_above).is(".outerwear")){
+		}else if($(this.largeImageInfo_above).is("#tryclothes .outerwear")){
 			//if there is any accessories on the model
-			if($("#sortable li").is(".accessories,.bag")){
+			if($("#sortable li").is("#tryclothes .accessories,#tryclothes .bag")){
 				
 				var last_element_on_list=$("#sortable > .accessories,#sortable > .bag").last();
 				var last_element_on_model = $("#tryclothes #outfitItems .accessories,#tryclothes #outfitItems .bag").first();
@@ -645,7 +645,7 @@ $(function(){
 			
 		}else{
 
-			if($(this.largeImageInfo_above).is(".skirt")){
+			if($(this.largeImageInfo_above).is("#tryclothes .skirt")){
 
 				//if skirt always stays on top of shorts, pants, and jeans
 				if($("#sortable li").is(".shorts")){
@@ -661,7 +661,7 @@ $(function(){
 					$("#sortable").prepend(wrapper);
 					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
 				}
-			}else if($(this.largeImageInfo_above).is(".shorts")){
+			}else if($(this.largeImageInfo_above).is("#tryclothes .shorts")){
 
 				//shorts will be put above pants or jeans but below skirt
 				if($("#sortable li").hasClass("pants")){
@@ -678,7 +678,7 @@ $(function(){
 					$("#sortable").prepend(wrapper);
 					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
 				}
-			}else if($(this.largeImageInfo_above).is(".pants")){
+			}else if($(this.largeImageInfo_above).is("#tryclothes .pants")){
 
 				//pants will be put below skirt and shorts and replaces with jeans
 				if($("#sortable li").is(".shorts")){
@@ -694,7 +694,7 @@ $(function(){
 					$("#sortable").prepend(wrapper);
 					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
 				}
-			}else if($(this.largeImageInfo_above).is(".jeans")){
+			}else if($(this.largeImageInfo_above).is("#tryclothes .jeans")){
 				//jeans will be put below skirt and shorts and replaces with pants
 				if($("#sortable li").is(".shorts")){
 					$(wrapper).insertAfter("#sortable > .shorts");
@@ -709,22 +709,32 @@ $(function(){
 					$("#sortable").prepend(wrapper);
 					$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
 				}
-			}else if($("#sortable li").is(".vest")){
+			}else if($("#sortable li").is("#tryclothes .vest")){
+
 				$(wrapper).insertAfter("#sortable > .vest");
 				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .vest");
-			}else if($("#sortable li").is(".jacket")){
+
+			}else if($("#sortable li").is("#tryclothes .jacket")){
+				
 				$(wrapper).insertAfter("#sortable > .jacket");
 				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .jacket");
-			}else if($("#sortable li").is(".coat")){
+
+			}else if($("#sortable li").is("#tryclothes .coat")){
+				
 				$(wrapper).insertAfter("#sortable > .coat");
 				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .coat");
-			}else if($("#sortable li").is(".outerwear")){
+			
+			}else if($("#sortable li").is("#tryclothes .outerwear")){
+				
 				$(wrapper).insertAfter("#sortable > .outerwear");
 				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .outerwear");
-			}else if($("#sortable li").is(".dress")){
+			
+			}else if($("#sortable li").is("#tryclothes .dress")){
+				
 				$(wrapper).insertAfter("#sortable > .dress");
 				$(this.largeImageInfo_above).insertBefore("#tryclothes #outfitItems .dress");
-			}else if($("#sortable li").is(".bag,.accessories")){
+			
+			}else if($("#sortable li").is("#tryclothes .bag,#tryclothes .accessories")){
 				
 				var last_element_on_list=$("#sortable > .bag,#sortable > .accessories").last();
 				var last_element_on_model = $("#tryclothes #outfitItems .bag,#tryclothes #outfitItems .accessories").last();
@@ -733,8 +743,10 @@ $(function(){
 				$(this.largeImageInfo_above).insertAfter(last_element_on_model);
 				
 			}else{
-				$("#sortable").prepend(wrapper);
-				$("#tryclothes #outfitItems").append(this.largeImageInfo_above);
+				//try on page
+				$("  #sortable").prepend(wrapper);
+				$(" #outfitItems").append(this.largeImageInfo_above);
+				
 			}
 		}
 
@@ -774,9 +786,11 @@ $(function(){
 		//if there is no single selected items, first create one
    		if($(".layers").length == 0){
    			//if the item image was selected on the collage creation page
+		
+   			
 	   		if($(event).parent().is(".collageCanvas")){
 	   			var collage = new collageStyle(id, title,url,price,sImage,itemWrapper,subImgName,selectedItems,topPosition,leftPosition);
-	   			console.log(collage);
+	   			console.log(id);
 	   			pushBackItems();
 	   			collage.createItemList(collage.topPosition,collage.leftPosition);
 	   			collage.adding();
@@ -790,9 +804,11 @@ $(function(){
    		}else{
    			//check to see if the item is already selected
 			for(var i=0 ;i < $(".layers").length;i++){
-				if(outfit.idNum == $(layerItems[i]).find("img").attr('id')){
+				if(outfit.idNum == $(layerItems[i]).attr('id')){
 					alreadySelected = 1;
-				};
+				}else if(parseInt(outfit.idNum) == parseInt($(layerItems[i]).attr('id'))){
+					alreadySelected = 1;
+				}
 			};
 
 			//if there is no selected items in the list, add it
@@ -1155,8 +1171,10 @@ $(function(){
 				var itemId = parseInt(itemId);
 				var itemClass = $(itemArray[k]).attr('class');
 				var thisLoopItem = $("#collage #outfitItems #"+itemId);
+				var thisLoopItem_clone = $("#collage #outfitItems ."+itemId);
 				
-				$("#tryclothes #outfitItems").find('#'+itemId).css('z-index',1000-k);
+				
+				$("#outfitItems").find('#'+itemId).css('z-index',1000-k);
 
 
 
@@ -1169,11 +1187,12 @@ $(function(){
 				
 			
 				
-				if($(thisLoopItem).parents('li').is('.clonedItem')){
-					var cloneArray = $('.clonedItem #'+itemId);
-					console.log("Number of items :"+numOfItems);
+				if($(thisLoopItem_clone).is('.clonedItem')){
+					var cloneArray = $('.clonedItem.'+itemId);
+					console.log(cloneArray);
 					$(cloneArray).each(function(){
-						$(this).parent().css("z-index",parseInt(1000-numOfClones-numOfItems));
+						
+						$(this).css("z-index",parseInt(1000-numOfClones-numOfItems));
 						//to keep adding the clone num = static variable
 						
 						numOfClones++;
@@ -1185,7 +1204,7 @@ $(function(){
 					console.log("total numbers :"+numOfDynamicVariables);
 					
 				}else{
-					$(thisLoopItem).parent().css('z-index',parseInt(1000-numOfItems));
+					$(thisLoopItem).css('z-index',parseInt(1000-numOfItems));
 					console.log("total numbers without clones :"+numOfDynamicVariables);
 				}
 
@@ -1229,16 +1248,15 @@ $(function(){
 				var sameId = ui.item.attr('id');
 				var outfit_image_id = parseInt(sameId);
 				
-				var parentList = $("#collage #outfitItems #"+outfit_image_id).parent();
-				var itemArray = $("#outfitItems #"+outfit_image_id);					
+				$("#collage #outfitItems #"+outfit_image_id).remove();
+				$("#outfitItems #"+outfit_image_id).remove();					
 
-				console.log("image length:"+itemArray.length + "" + "parent length:" + parentList.length);
-
-				for(var i=0;i<itemArray.length; i++){
-					$(itemArray[i]).remove();
-					$(parentList[i]).remove();
-				};
+				// for(var i=0;i<itemArray.length; i++){
+				// 	$(itemArray[i]).remove();
+				// 	$(parentList[i]).remove();
+				// };
 				
+				$("#collage #outfitItems ."+outfit_image_id).remove();
 				console.log($(".layers").length);
 
 
@@ -1274,17 +1292,25 @@ $(function(){
    		var int_id = parseInt(id);
    		var className = $(this).children('img').attr('class');
    		var sImage = $(this).children('img').clone();
-   		
+		$(sImage).removeAttr('id');
+		$(sImage).removeAttr('class');
+   		var clicked_object = $(this);
 
    		var image_above = $.parseHTML("<img　/>");
-		$(sImage).addClass('top');
-		$(image_above).addClass(className);
+		if(!$(this).parent().is(".collageCanvas")){
+			$(sImage).addClass('top');
+			$(image_above).addClass(className);
+		}
+   		
+
+
    		$(image_above).attr('id',int_id);
+
    		 //to show items on the list(sortable) box
    		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
 		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
 	   	
-
+		
 
    		$.ajax({
    			type:"POST",
@@ -1363,7 +1389,8 @@ $(function(){
 		   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
 
 
-		   		filterDuplicate($(this),outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
+
+		   		filterDuplicate(clicked_object,outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
 
 		   		
 		   		$(".background_grid").hide();
@@ -1516,6 +1543,7 @@ $(function(){
 //Collage creation	
 //sub class of the outfitStyle class - there are duplicate codes - learn how to inherit properties from parent class
 	function collageStyle(id, title,url,price,smallImg,layer,subName,selectedItem,top_pos,left_pos){
+	 	
 	 	this.idNum = id;
 	    this.titleInfo = title;
 	    this.urlInfo = url;
@@ -1538,6 +1566,10 @@ $(function(){
 		
 		var wrapper = $.parseHTML(this.layerWrapper);
 		var collageItemWrapper = $.parseHTML("<li></li>");
+
+
+
+
 		console.log(this.top_position);
 
 		//if the item is not dragged into the canvas, the cloned items will be generated at the center of the canvas. 
@@ -1553,22 +1585,32 @@ $(function(){
 
 		$("#sortable").prepend(wrapper);
 		//assign the same id as selected image to the whole list wrapper
-		$(wrapper).attr('id',this.idNum);
+		
+		$(wrapper).attr('id',parseInt(this.idNum));
+
+
+		$(wrapper).addClass();
 		$(wrapper).find(".imageIconBox").children("a").append(this.smallImageInfo);
 		$(wrapper).find(".titleOfProduct").append(this.titleInfo);
 		$(wrapper).find(".url").append(this.urlInfo);
 		$(wrapper).find(".price").append(this.priceInfo);
 
 		$(collageItemWrapper).css("z-index","1000");
-		
+
+		var id_num = parseInt(this.idNum);
+		$(collageItemWrapper).attr("id",id_num);
+
+
 		$("#outfitItems").append(collageItemWrapper);
+		$("#outfitItems img").removeAttr("id");
+		$("#outfitItems img").removeAttr("class");
 
 		$('.removeIcon').click(function(event){
 			$(this).parent().remove();
 			var sameId = $(this).parent().attr('id');
-			var parentList = $("#outfitItems").find('#'+sameId).parent();
-			$("#outfitItems").find('#'+sameId).remove();
-			$(parentList).remove();
+			sameId = parseInt(sameId);
+			$("#outfitItems #"+sameId).remove();
+			$("#outfitItems ."+sameId).remove();
 
 			if($(".layers").length == 0){
    				$(".background_grid").show();
@@ -1663,13 +1705,15 @@ $(function(){
 		 });	
 	 };
 
-	 collageStyle.prototype.clone = function(cloneImage){
+	 collageStyle.prototype.clone = function(cloneImage,ori_id){
 	 	
 	 	pushBackItems();
 	 	var collageItemWrapper = $.parseHTML("<li></li>");
 	 	$(collageItemWrapper).append(cloneImage);
 	 	$(collageItemWrapper).css("z-index",1000);
 	 	$(collageItemWrapper).addClass("clonedItem");
+	
+	 	$(collageItemWrapper).addClass(ori_id);
 	 	$(collageItemWrapper).css({top:"40%",left:"40%"});
 		$("#outfitItems").append(collageItemWrapper);
 
@@ -1678,16 +1722,16 @@ $(function(){
 		$('.removeIcon').click(function(event){
 			$(this).parent().remove();
 			var sameId = $(this).parent().attr('id');
-			var parentList = $("#outfitItems").find('#'+sameId).parent();
-			$("#outfitItems").find('#'+sameId).remove();
-			$(parentList).remove();
+			sameId = parseInt(sameId);
+			$("#outfitItems #"+sameId).remove();
+			$("#outfitItems ."+sameId).remove();
 		});
 	 };
 
 //control panel functions
 	$("#remove").on('click',function(e){
 		var itemsOnCanvasArray = $("#outfitItems > li");
-		var selectedImgId = $("#outfitItems > .selectedImg").find("img").attr('id');
+		var selectedImgId = $("#outfitItems > .selectedImg").attr('id');
 
 		
 		for(var i=0;i<itemsOnCanvasArray.length; i++){
@@ -1695,17 +1739,24 @@ $(function(){
 			if($(itemsOnCanvasArray[i]).is(".selectedImg")){
 				$(itemsOnCanvasArray[i]).remove();
 				//if all the images with the same id are deleted, the image list in the sortable list will be deleted
-				var itemId = $(itemsOnCanvasArray[i]).find('img').attr('id');				
-				var itemNum = $("#outfitItems").find("#"+selectedImgId);
+				var itemId = $(itemsOnCanvasArray[i]).attr('id');				
+				var itemNum = $("#outfitItems #"+selectedImgId);
+				var itemNum_clone = $("#outfitItems ."+selectedImgId);
 				console.log(itemNum.length);
-				if(itemNum.length == 0){
-					$("#sortable").find("#"+selectedImgId).remove();	
+				
+				if(itemNum.length == 0 && itemNum_clone.length==0){
+					$("#sortable #"+selectedImgId).remove();	
+					console.log("test");
 				}
 
 
 				//if there is no other cloned item, then remove a cloneItem class from the last item.
-				if($("#outfitItems #"+itemId).parents(".clonedItem").length <= 1){
-					$("#outfitItems #"+itemId).parent().removeClass('clonedItem');
+				if($(itemNum_clone).length == 1 && $(itemNum).length==0){
+					$("#outfitItems ."+itemId).attr('id',itemId);
+					$("#outfitItems ."+itemId).removeClass('clonedItem');
+					$("#outfitItems ."+itemId).removeClass(itemId);
+					
+					console.log("test 2");
 				}
 
 				// if($(itemsOnCanvasArray[i]+".clonedItem").length < 1){
@@ -1713,11 +1764,10 @@ $(function(){
 				// }
 			}
 
-		};
-
-
+		}
 
 		if($(".layers").length == 0){
+			console.log("test3");
 			$(".background_grid").show();
 		}
 	})
@@ -1729,15 +1779,11 @@ $(function(){
 
 		for(var i =0; i < itemsOnCanvas.length;i++){
 			if($(itemsOnCanvas[i]).is(".selectedImg")){
-				var originalId =$("#outfitItems > .selectedImg").children('img').attr('id');
+				var originalId =$("#outfitItems > .selectedImg").attr('id');
 				var cloneImage = $(itemsOnCanvas[i]).children("img").clone();
-				$("#outfitItems #"+originalId).parent().addClass("clonedItem");
-				$(cloneImage).attr('id',originalId);
-				//console.log("cloneImage");
-				//var wrappedImage = $(imageWrapper).append(cloneImage);
+				
 				var collage = new collageStyle();
-				console.log(collage);
-				collage.clone(cloneImage);
+				collage.clone(cloneImage,originalId);
 				collage.adding();
 			};
 			
@@ -1766,7 +1812,7 @@ $(function(){
 	$("#front").on('click',function(e){
 		
 		var arrayPosition = 1001;//exclude the selected image
-		var selectedId= $(".selectedImg > img").attr("id");
+		var selectedId= $(".selectedImg").attr("id");
 		var selected_zindex =parseInt($(".selectedImg").css("z-index"));
 
 		var position=parseInt($("#outfitItems > li").length);
@@ -1801,7 +1847,11 @@ $(function(){
 	$("#back").on('click',function(e){
 		
 		var arrayPosition = 1000;//exclude the selected image
-		var selectedId= $(".selectedImg > img").attr("id");
+		var selectedId= $(".selectedImg").attr("id");
+		var selectedClass= $(".selectedImg").attr("class");
+
+		selectedClass = parseInt(selectedClass);
+
 		var selected_zindex =parseInt($(".selectedImg").css("z-index"));
 
 		var position=parseInt($("#outfitItems > li").length);
