@@ -7,6 +7,9 @@
 
 
 	$product = Product::find_by_id($product_id);
+
+	$product_url = $product->default_filename;
+
 	$product_img_rel = Product_image_rel::find_by_attribute($product_id,"product_id");
 
 	$id_array =[];
@@ -330,7 +333,9 @@
 		"front"=>RESOURCE_PATH.DS."items".DS.$front,
 		"f"=>$f,
 		"back"=>RESOURCE_PATH.DS."items".DS.$back,
-		"b"=>$b
+		"b"=>$b,
+		"default_filename"=>RESOURCE_PATH.DS."items".DS.$product_url,
+
 	);
 
 	echo json_encode($json);

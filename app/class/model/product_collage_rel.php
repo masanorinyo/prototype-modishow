@@ -8,6 +8,7 @@
 		public $width;
 		public $height;
 		public $angle;
+		public $mirrored;
 		protected static $table_name = "product_collage_rel";
 		protected static $db_fields = array(
 			'collage_id',
@@ -17,7 +18,8 @@
 			'y_value',
 			'width',
 			'height',
-			'angle'
+			'angle',
+			'mirrored'
 		);
 	
 	}

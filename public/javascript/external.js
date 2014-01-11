@@ -567,6 +567,21 @@ $(function(){
 	});
 });
 
+function getDegreesRotation(obj) {
+    if(obj[0].style['-webkit-transform'] !== undefined) {
+        return obj[0].style['-webkit-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+    } else if(obj[0].style['-moz-transform'] !== undefined) {
+        return obj[0].style['-moz-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+    } else if(obj[0].style['-ms-transform'] !== undefined) {
+        return obj[0].style['-ms-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+    } else if(obj[0].style['-o-transform'] !== undefined) {
+        return obj[0].style['-o-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+    } else if(obj[0].style['transform'] !== undefined) {
+        return obj[0].style['transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
+    } else{ return 0; }
+}
+
+
 //------------------- outfit creation layering ----------------//
 $(function(){
 	
@@ -849,19 +864,7 @@ $(function(){
    		};
 	};
 
-	function getDegreesRotation(obj) {
-	    if(obj[0].style['-webkit-transform'] !== undefined) {
-	        return obj[0].style['-webkit-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
-	    } else if(obj[0].style['-moz-transform'] !== undefined) {
-	        return obj[0].style['-moz-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
-	    } else if(obj[0].style['-ms-transform'] !== undefined) {
-	        return obj[0].style['-ms-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
-	    } else if(obj[0].style['-o-transform'] !== undefined) {
-	        return obj[0].style['-o-transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
-	    } else if(obj[0].style['transform'] !== undefined) {
-	        return obj[0].style['transform'].substr(7, obj[0].style['-webkit-transform'].length - 11);
-	    } else{ return 0; }
-	}
+	
 
 
 
@@ -1297,6 +1300,7 @@ $(function(){
    		var clicked_object = $(this);
 
    		var image_above = $.parseHTML("<img　/>");
+
 		if(!$(this).parent().is(".collageCanvas")){
 			$(sImage).addClass('top');
 			$(image_above).addClass(className);
@@ -1306,11 +1310,6 @@ $(function(){
 
    		$(image_above).attr('id',int_id);
 
-   		 //to show items on the list(sortable) box
-   		var selectedItem = $(this).children('img').clone();//Ajax call for a larger image - collage creation
-		var subImgName = $(this).children('img').attr('src');// use regular expression to extract only the image name
-	   	
-		
 
    		$.ajax({
    			type:"POST",
@@ -1386,9 +1385,12 @@ $(function(){
 					$(image_above).attr("src", data.back);
 				}
 
+				
+				var selectedItem = $(image_above).attr("src",data.default_filename);//Ajax call for a larger image - collage creation
+				var subImgName = $(selectedItem).attr('src');// use regular expression to extract only the image name
+				
+
 		   		var outfit = new outfitStyle(id, className,title,url,price,sImage,image_above,itemWrapper);
-
-
 
 		   		filterDuplicate(clicked_object,outfit,id,className, title,url,price,sImage,image_above,itemWrapper,subImgName,selectedItem);
 
@@ -1795,7 +1797,7 @@ $(function(){
 
 
 	$("#mirror").on('click',function(e){
-		var itemsOnCanvas = $(".draggable > li");
+		var itemsOnCanvas = $("#outfitItems > li");
 		for(var i =0; i < itemsOnCanvas.length;i++){
 			if($(itemsOnCanvas[i]).is(".selectedImg")){
 				var selectedImage = $(itemsOnCanvas[i]).children('img'); 
@@ -1900,13 +1902,9 @@ $(function(){
 
 //----------------Collage creation + Storing images into user's database------------------//
 //1 step = get the id of the selcted item
-$( "#form_id button" ).click(function( event ) {
-  
-});
 
 
-
-$('.sendInfo').click(function(event){
+$('#tryclothes .sendInfo').click(function(event){
 		
 
 		//event.preventDefault();
@@ -1935,8 +1933,6 @@ $('.sendInfo').click(function(event){
 		var background_src = $("#tryclothes #creationCanvas .backgroundImg").attr("src");
 		var model_id = parseInt($("#tryclothes #creationCanvas .virtualModel").attr("id"));
 		var model_src = $("#tryclothes #creationCanvas .backgroundImg").attr("src");
-		var canvasWidth = $("#creationCanvas").css("width");
-		var canvasHeight= $("#creationCanvas").css("height");
 			
 		var background_id = $("#creationCanvas .backgroundImage").attr('id');
 		var background = $("#creationCanvas .backgroundImage").attr('src');
@@ -2040,62 +2036,70 @@ $("#style_creation_form #cancel_button").click(function(){
 	});
 })
 
-$('#collage .sendInfo').click(function(){
-		$("#collage #outfitItems > li").each(function(){
-			product_id = parseInt($(this).find(".product").attr("id"));
-			embelishment_id = parseInt($(this).find(".embelishment").attr("id"));
-			people_id = parseInt($(this).find(".people").attr("id"));
-			beauty_id = parseInt($(this).find(".beauty").attr("id"));
-			z_index = parseInt($(this).css("z-index"));
-			item_url = $(this).children("img").attr('src');
-			x_position = parseInt($(this).css("left"));
-			y_position = parseInt($(this).css("top"));
-			angle = getDegreesRotation($(this));
-			height = parseInt($(this).css("width"));
-			width = parseInt($(this).css("height"));
-			flopImage = false;
-			
+$('#collage  .button_medium.publish').click(function(){
+		
+		var productArray =[];
+		var canvasWidth = $("#creationCanvas").css("width");
+		var canvasHeight= $("#creationCanvas").css("height");
 
+		$("#collage #outfitItems > li").each(function(){
+			var product_id = parseInt($(this).attr("id"));
+			// embelishment_id = parseInt($(this).find(".embelishment").attr("id"));
+			// people_id = parseInt($(this).find(".people").attr("id"));
+			// beauty_id = parseInt($(this).find(".beauty").attr("id"));
+			var z_index = parseInt($(this).css("z-index"));
+			var item_url = $(this).children("img").attr('src');
+			var x_position = parseInt($(this).css("left"));
+			var y_position = parseInt($(this).css("top"));
+			var angle = getDegreesRotation($(this));
+			var height = parseInt($(this).css("width"));
+			var width = parseInt($(this).css("height"));
+			var flopImage = false;
 
 			if($(this).find("img").is(".reflection")){
-				flopImage = true;
+				flopImage = 1;
 			}
 		    
-		    itemArray.push({
+		    productArray.push({
 		    	"productId":product_id,
-		    	"embelishmentId":embelishment_id,
-		    	"peopleId":people_id,
-				"beautyId":beauty_id,
+		    	//"embelishmentId":embelishment_id,
+		    	//"peopleId":people_id,
+				//"beautyId":beauty_id,
 		        "zIndex": z_index,
-		        "item_url": item_url,
-		        "x_position": x_position,
-		        "y_position": y_position,
+		        "src": item_url,
+		        "x_value": x_position,
+		        "y_value": y_position,
 		        "angle": angle,
 		        "height": height,
 		        "width": width,
-		        "flopImage":flopImage
+		        "flopImage":flopImage,
 		    });        
 		
-			
+
 		});
+
+
+		
 
 // separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
-			url:'../app/class/controller/outfit_creation.php',
+			dataType:'json',
+			url:'../app/class/controller/outfit_collage_creation',
 			data:{
-				outfit_info:itemArray,
-				//userId:user_id,
-				//backgroundSrc:background_src,
-				//backgroundId:background_id,
-				//modelId:model_id,
-				//modelId:model_src,
+				outfit_info:productArray,
 				canvasWidth:canvasWidth,
-				canvasHeight:canvasHeight,
-				//embelishmentArray:embelishmentArray
+				canvasHeight:canvasHeight
 			},
 			success:function(data){
-				console.log(data);
+				if(data && !isNaN(data)){				
+					$("#collage_creation_form").append("<input type='hidden' name='collage_id' value="+data+" />");
+					console.log(data);
+
+					document.getElementById("collage_creation_form").submit();
+				}else{
+					alert("unsuccesful");
+				}
 			},
 			error:function(data){
 				alert("something went wrong");

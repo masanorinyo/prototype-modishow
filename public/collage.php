@@ -1,14 +1,17 @@
 <?php 
 	require_once("../app/config/initialize.php");
-	
-	if(!$session->is_logged_in() && !empty($_SESSION['style_info'])){
+	//|| empty($_SESSION['style_info'])
+	if(!$session->is_logged_in()){
 		redirect_to(ROOT_PATH."public/index");
+	}else{
+		$title = $_SESSION['style_info']['title'];
+		$outfitOnModel_id = $_SESSION['style_info']['outfitOnModel_id'];
+		$category_id = $_SESSION['style_info']['category_id'];
+		$product_array = $_SESSION['style_info']['product_id'];
+		$description = $_SESSION['style_info']['description'];
+		$user_id = $_SESSION['user_id'];
+		//$_SESSION['style_info']="";
 	}
-
-	$title = $_SESSION['style_info']['title'];
-	$outfitOnModel_id = $_SESSION['style_info']['outfitOnModel_id'];
-	$category_id = $_SESSION['style_info']['category_id'];
-	$product_array = $_SESSION['style_info']['product_id'];
 	
 ?>
 
@@ -191,14 +194,21 @@
 	</div>
 	<div id="modalbox">
 		<div class="popup-box publish_collage">
-			<span class="icon_close opaque_strong"></span>
-			<div class="popup-box-header"><span>Publish</span></div>
-			<a class="noUnloadMessage sendInfo" href="index.php"><div class="button_medium publish">Publish</div></a>
-			<div class="button_medium cancel"><span>Cancel</span></div>
-			<span class="label">Share with friends</span> <!--Currently not working-->
-			<div class="button_medium sns_facebook sns"><span>Facebook</span></div>
-			<div class="button_medium sns_twitter sns"><span>Twitter</span></div>
-			<div class="button_medium sns_pinterest sns"><span>Pinterest</span></div>
+			<form id="collage_creation_form" name="collage_creation_form" method="POST" action="<?php echo ROOT_PATH.'app/class/controller/submit_collage'; ?>" >
+				<input type="hidden" name="title" value="<?php echo $title; ?>"/>
+				<input type="hidden" name="outfitOnModel_id" value="<?php echo $outfitOnModel_id;?>"/>
+				<input type="hidden" name="category_id" value="<?php echo $category_id;?>"/>
+				<input type="hidden" name="description" value="<?php echo $description;?>"/>
+				<input type="hidden" name="user_id" value="<?php echo $user_id;?>"/>
+				<span class="icon_close opaque_strong"></span>
+				<div class="popup-box-header"><span>Publish</span></div>
+				<div class="noUnloadMessage sendInfo button_medium publish">Publish</div>
+				<div class="button_medium cancel"><span>Cancel</span></div>
+				<span class="label">Share with friends</span> <!--Currently not working-->
+				<div class="button_medium sns_facebook sns"><span>Facebook</span></div>
+				<div class="button_medium sns_twitter sns"><span>Twitter</span></div>
+				<div class="button_medium sns_pinterest sns"><span>Pinterest</span></div>
+			</form>
 		</div>
 	</div>
 </div>	

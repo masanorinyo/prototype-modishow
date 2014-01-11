@@ -3980,7 +3980,7 @@ li{
 	right:15px;
 }
 
-.popup-box > .label{
+.popup-box .label{
 	position: absolute;
 	right:125px;
 	bottom:60px;

@@ -159,8 +159,7 @@
 			$sql .= "')";
 
 		  	if($database->query($sql)) {
-		    	$this->$id = $database->insert_id();
-			    return true;
+		    	return$this->$id = $database->insert_id();
 		  	} else {
 		    	return false;
 		  	}

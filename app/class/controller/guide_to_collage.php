@@ -34,7 +34,7 @@
 			$new_style->num_of_views=0;
 			$new_style->visibility=0;
 			date_default_timezone_set('America/New_York');
-			$new_style->added_date=date('Y-m-d H:i:s', strtotime('2010-10-12 15:09:00'));
+			$new_style->added_date=date('Y-m-d H:i:s');
 			$new_style->added_time=date('Y-m-d H-i-s');
 
 			$result = $new_style->save();
