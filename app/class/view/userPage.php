@@ -208,7 +208,7 @@
 			</ul>
 		</div>
 		<div class="inside">
-			<span class="hidden">No Items</span>
+			<!-- <span class="hidden">No Items</span> -->
 			<!-- <div class="overall">
 				<div id="feed_content">
 					<div class="clear left">

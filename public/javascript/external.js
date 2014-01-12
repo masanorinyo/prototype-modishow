@@ -2175,7 +2175,7 @@ $(function(){
 		var attr = "product";
 		$.ajax({
 		    type:"POST",
-			url:'../app/class/controller/infinite',
+			url:'../app/class/controller/infinite_for_items',
 		    data: {
 		    	OFFSET:load,
 		    	items:requested_item,
@@ -2215,7 +2215,7 @@ $(function(){
 			
 			
 
-			if(scroll_to_bottom == full_height){
+			if(scroll_to_bottom == full_height && !($("#itemLoadingBox >li").hasClass('last_item'))){
 				console.log("view_height "+view_height);
 				console.log("scroll_position "+scroll_position);
 				console.log("scroll_to_bottom "+scroll_to_bottom);
@@ -2226,7 +2226,7 @@ $(function(){
 				console.log(load);
 				$.ajax({
 				    type:"POST",
-					url:'../app/class/controller/infinite',
+					url:'../app/class/controller/infinite_for_items',
 				    data: {
 				    	OFFSET:load,
 				    	items:requested_item,
@@ -2235,15 +2235,9 @@ $(function(){
 				    },
 				    success: function(data){
 				    	
-				    	if($("#itemLoadingBox > li").is(".last_item")){
-				    		$('.loader').hide();	
-				    		load=1;
-				    		console.log(load);
-				    		
-				    	}else{
-				    		$("#itemLoadingBox").append(data);
-				    		$('.loader').hide();	
-				    	}
+				    	$("#itemLoadingBox").append(data);
+				    	$('.loader').hide();	
+				    	
 				    	
 				    	
 				    },
@@ -2251,6 +2245,9 @@ $(function(){
 				    	alert("something went wrong");
 				    }
 				});
+			}else if($("#itemLoadingBox >li").hasClass('last_item')){
+				$('.loader').hide();	
+				load=1;
 			}
 		})
 	})
@@ -3613,33 +3610,21 @@ $(function() {
 
 //for index - scroll down
 
-
 		
 $(function(){
 	var load=1;
-	var num_of_page = 8;
+	var num_of_page = 5;
 	var attr = "style";
-	$("body").scroll(function(){
+	$(window).scroll(function(){
 		
-		var view_height = $("body").height();
-		var scroll_position = $("#itemLoadingBox").scrollTop();
-		var scroll_to_bottom = view_height + scroll_position;
-		var full_height = $("#itemLoadingBox")[0].scrollHeight-1;
-		
-		
-
-		if(scroll_to_bottom == full_height){
-			console.log("view_height "+view_height);
-			console.log("scroll_position "+scroll_position);
-			console.log("scroll_to_bottom "+scroll_to_bottom);
-			console.log("full_height "+full_height);
-
-			$('.loader').show();
+		if ($(window).scrollTop() + $(window).height() >= $(document).height() && !($("#content_wrapper > .content_stream > ul > li").hasClass("last_item")) ) { 
+			$('#loader_wrapper').show();
 			load++;
 			console.log(load);
+			
 			$.ajax({
 			    type:"POST",
-				url:'../app/class/controller/infinite',
+				url:'../app/class/controller/infinite_for_styles',
 			    data: {
 			    	OFFSET:load,
 			    	per_page:num_of_page,
@@ -3647,14 +3632,14 @@ $(function(){
 			    },
 			    success: function(data){
 			    	
-			    	if($("#itemLoadingBox > li").is(".last_item")){
-			    		$('.loader').hide();	
+			    	if($("#content_wrapper .content_stream > ul > li").is(".last_item")){
+			    		$('#loader_wrapper').hide();	
 			    		load=1;
 			    		console.log(load);
 			    		
 			    	}else{
-			    		$("#itemLoadingBox").append(data);
-			    		$('.loader').hide();	
+			    		$("#content_wrapper .content_stream > ul").append(data);
+			    		$('#loader_wrapper').hide();	
 			    	}
 			    	
 			    	
@@ -3663,7 +3648,15 @@ $(function(){
 			    	alert("something went wrong");
 			    }
 			});
-		}
+
+
+
+		} 
+
+
+		
+		
+		
 	})
 
 })

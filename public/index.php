@@ -28,7 +28,7 @@
 						</li>';	
 				}
 			?>
-			<li id="stickynavi_category">
+			<!-- <li id="stickynavi_category">
 				<div class="stickynavi_list_wrapper">
 					<ul>
 						<li class="stickynavi_list">
@@ -45,13 +45,11 @@
 					<li class="titleBox">
 						Category
 					</li>
-					<!-- 					
-						<a href="#">
-							<li>
-								Featured
-							</li>
-						</a> 
-					-->
+					<a href="#">
+						<li>
+							Featured
+						</li>
+					</a> 
 					<a href="#">
 						<li>
 							Everything
@@ -166,7 +164,7 @@
 										</li>
 									</a>
 								</ul>
-								<!--<img src="images/category_style.png" style="position:absolute; bottom:0px; right:5px; height:70%;"/>-->
+								<img src="images/category_style.png" style="position:absolute; bottom:0px; right:5px; height:70%;"/>
 							</div>
 						</li>
 						<li>
@@ -211,7 +209,7 @@
 										</li>
 									</a>
 								</ul> 
-								<!--<img src="images/occassion.png" style="position:absolute; bottom:20px; right:25px; width:55%;"/>-->
+								<img src="images/occassion.png" style="position:absolute; bottom:20px; right:25px; width:55%;"/>
 							</div>
 						</li>
 						<li>
@@ -250,7 +248,7 @@
 										</li>
 									</a>
 								</ul>
-								<!--<img src="images/season.png" style="position:absolute; bottom:0px; right:0px;width:100%;"/>-->
+								<img src="images/season.png" style="position:absolute; bottom:0px; right:0px;width:100%;"/>
 							</div>
 						</li>
 						<li>
@@ -294,12 +292,12 @@
 										</li>
 									</a>
 								</ul>
-								<!--<img src="images/weather.png" style="position:absolute; bottom:0px; right:25px;width:50%"/>-->
+								<img src="images/weather.png" style="position:absolute; bottom:0px; right:25px;width:50%"/>
 							</div>
 						</li>
 					</div>
 				</ul>
-			</li>
+			</li> -->
 			<!-- <li id="stickynavi_order">
 				<div class="stickynavi_list_wrapper">
 					<ul>
@@ -1077,7 +1075,6 @@
 					
 			?>
 				
-					
 						<!-- 
 							<div class="button_heart">
 								<span class="heart_empty">
@@ -1133,12 +1130,13 @@
 							</div>
 						</div>
 					</li>
-
+				
 			<?php 
 					$num++;
-					if($num==9){break;}
+					if($num==6){break;}
 				endforeach;
 			?>
+			<div id="loader_wrapper" class="clear"><span  class="loader"></span></div>
 			</ul>
 		</div>	
 	</div>
