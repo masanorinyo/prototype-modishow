@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2014 at 07:05 AM
+-- Generation Time: Jan 12, 2014 at 06:17 AM
 -- Server version: 5.6.15
 -- PHP Version: 5.5.7
 
@@ -101,7 +101,7 @@ INSERT INTO `category` (`category_id`, `main_category`, `sub_category`) VALUES
 (36, 'weather', 'hot'),
 (37, 'weather', 'snowing'),
 (38, 'weather', 'tropical '),
-(39, 'featured', '');
+(39, 'featured', 'sub_featured');
 
 -- --------------------------------------------------------
 
@@ -209,46 +209,19 @@ CREATE TABLE IF NOT EXISTS `collage` (
   `default_filename` text NOT NULL,
   `m_size_filename` text NOT NULL,
   PRIMARY KEY (`collage_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `collage`
 --
 
 INSERT INTO `collage` (`collage_id`, `default_filename`, `m_size_filename`) VALUES
-(1, 'cap19p20p26p49.jpg', 'cap19p20p26p49_sml.jpg'),
-(2, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(3, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(4, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(5, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(6, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(7, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(8, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(9, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(10, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(11, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(12, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(13, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(14, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(15, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(16, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(17, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(18, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(19, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(20, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(21, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(22, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(23, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(24, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(25, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(26, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(27, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(28, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(29, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(30, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(31, 'cap38p39p40p53.jpg', 'cap38p39p40p53_sml.jpg'),
-(32, 'cap1p11p27.jpg', 'cap1p11p27_sml.jpg'),
-(33, 'cap1p23p24p26.jpg', 'cap1p23p24p26_sml.jpg');
+(1, 'cmp40p39p38p406103746511317237136380.jpg', 'cmp40p39p38p406103746511317237136380_sml.jpg'),
+(2, 'cmp39p30p11p395312641083335-6954174.jpg', 'cmp39p30p11p395312641083335-6954174_sml.jpg'),
+(3, 'cap10p30p39p40.jpg', 'cap10p30p39p40_sml.jpg'),
+(4, 'cap31p40p56.jpg', 'cap31p40p56_sml.jpg'),
+(5, 'cmp32p62p1070019926222075259.jpg', 'cmp32p62p1070019926222075259_sml.jpg'),
+(6, 'cmp39p30p22p21p1p22pNaNpNaNpNaN338299339116091901072704268601-746227572031083590.jpg', 'cmp39p30p22p21p1p22pNaNpNaNpNaN338299339116091901072704268601-746227572031083590_sml.jpg');
 
 -- --------------------------------------------------------
 
@@ -873,45 +846,19 @@ CREATE TABLE IF NOT EXISTS `outfit_on_model` (
   `m_size_filename` text NOT NULL,
   PRIMARY KEY (`outfitOnModel_id`),
   KEY `model_id` (`model_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `outfit_on_model`
 --
 
 INSERT INTO `outfit_on_model` (`outfitOnModel_id`, `model_id`, `default_filename`, `m_size_filename`) VALUES
-(1, 1, 'mp10p56p61p48.jpg', 'mp10p56p61p48_sml.jpg'),
-(2, 1, 'mp10p56p61p48.jpg', 'mp10p56p61p48_sml.jpg'),
-(3, 1, 'mp24p10p56p42.jpg', 'mp24p10p56p42_sml.jpg'),
-(4, 1, 'mp56p24p10p60.jpg', 'mp56p24p10p60_sml.jpg'),
-(5, 1, 'mp39p38p40.jpg', 'mp39p38p40_sml.jpg'),
-(6, 1, 'mp40p39p38.jpg', 'mp40p39p38_sml.jpg'),
-(8, 1, 'mp40p39p38p30.jpg', 'mp40p39p38p30_sml.jpg'),
-(9, 1, 'mp32p40p39p38.jpg', 'mp32p40p39p38_sml.jpg'),
-(10, 1, 'mp40p39p38p31.jpg', 'mp40p39p38p31_sml.jpg'),
-(11, 1, 'mp40p31p24.jpg', 'mp40p31p24_sml.jpg'),
-(12, 1, 'mp39p38p40p45p50p47.jpg', 'mp39p38p40p45p50p47_sml.jpg'),
-(13, 1, 'mp40p7p1.jpg', 'mp40p7p1_sml.jpg'),
-(14, 1, 'mp20p19p8.jpg', 'mp20p19p8_sml.jpg'),
-(15, 1, 'mp39p40p58p62.jpg', 'mp39p40p58p62_sml.jpg'),
-(16, 1, 'mp45p10p56p48.jpg', 'mp45p10p56p48_sml.jpg'),
-(17, 1, 'mp40p39p19p20p21.jpg', 'mp40p39p19p20p21_sml.jpg'),
-(18, 1, 'mp39p30p13.jpg', 'mp39p30p13_sml.jpg'),
-(19, 1, 'mp39p24p13.jpg', 'mp39p24p13_sml.jpg'),
-(20, 1, 'mp39p31p11.jpg', 'mp39p31p11_sml.jpg'),
-(21, 1, 'mp27p30p38.jpg', 'mp27p30p38_sml.jpg'),
-(22, 1, 'mp30p19p21.jpg', 'mp30p19p21_sml.jpg'),
-(23, 1, 'mp27p31p13.jpg', 'mp27p31p13_sml.jpg'),
-(24, 1, 'mp31p40p39p38.jpg', 'mp31p40p39p38_sml.jpg'),
-(25, 1, 'mp40p39p38p26.jpg', 'mp40p39p38p26_sml.jpg'),
-(26, 1, 'mp40p39p38p13.jpg', 'mp40p39p38p13_sml.jpg'),
-(27, 1, 'mp40p39p30p13.jpg', 'mp40p39p30p13_sml.jpg'),
-(28, 1, 'mp49p24p41.jpg', 'mp49p24p41_sml.jpg'),
-(29, 1, 'mp26p39p38p40p35.jpg', 'mp26p39p38p40p35_sml.jpg'),
-(30, 1, 'mp26p49p20p19.jpg', 'mp26p49p20p19_sml.jpg'),
-(31, 1, 'mp40p39p38p53.jpg', 'mp40p39p38p53_sml.jpg'),
-(32, 1, 'mp11p1p27.jpg', 'mp11p1p27_sml.jpg'),
-(33, 1, 'mp24p23p1p26.jpg', 'mp24p23p1p26_sml.jpg');
+(1, 1, 'mp40p39p38.jpg', 'mp40p39p38_sml.jpg'),
+(2, 1, 'mp39p30p11.jpg', 'mp39p30p11_sml.jpg'),
+(3, 1, 'mp39p40p30p10.jpg', 'mp39p40p30p10_sml.jpg'),
+(4, 1, 'mp40p31p56.jpg', 'mp40p31p56_sml.jpg'),
+(5, 1, 'mp32p62p10.jpg', 'mp32p62p10_sml.jpg'),
+(6, 1, 'mp39p30p22p21p1.jpg', 'mp39p30p22p21p1_sml.jpg');
 
 -- --------------------------------------------------------
 
@@ -1148,17 +1095,33 @@ INSERT INTO `product` (`product_id`, `brand_id`, `clothingType_id`, `name`, `url
 --
 
 CREATE TABLE IF NOT EXISTS `product_collage_rel` (
+  `productCollage_id` int(11) NOT NULL AUTO_INCREMENT,
   `collage_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `z_index` tinyint(4) unsigned NOT NULL,
-  `x_position` tinyint(4) NOT NULL,
-  `y_position` tinyint(4) NOT NULL,
-  `width` tinyint(4) unsigned NOT NULL,
-  `height` tinyint(4) unsigned NOT NULL,
-  `angle` decimal(5,1) NOT NULL,
-  PRIMARY KEY (`collage_id`,`product_id`),
-  KEY `product_id` (`product_id`)
+  `z_index` smallint(4) unsigned DEFAULT NULL,
+  `x_value` smallint(4) DEFAULT NULL,
+  `y_value` smallint(4) DEFAULT NULL,
+  `width` smallint(4) unsigned DEFAULT NULL,
+  `height` smallint(4) unsigned DEFAULT NULL,
+  `angle` decimal(5,1) DEFAULT NULL,
+  `mirrored` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`productCollage_id`),
+  KEY `collage_id` (`collage_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_collage_rel`
+--
+
+INSERT INTO `product_collage_rel` (`collage_id`, `product_id`, `z_index`, `x_value`, `y_value`, `width`, `height`, `angle`, `mirrored`) VALUES
+(4, 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 40, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 56, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 1, 996, 45, 75, 300, 300, '0.0', 0),
+(6, 21, 995, 110, 277, 300, 300, '0.0', 0),
+(6, 22, 994, 612, 197, 300, 300, '0.0', 0),
+(6, 30, 993, 342, 18, 300, 300, '0.0', 0),
+(6, 39, 992, 341, 306, 300, 300, '0.0', 0);
 
 -- --------------------------------------------------------
 
@@ -1517,6 +1480,27 @@ CREATE TABLE IF NOT EXISTS `product_on_model` (
 --
 
 INSERT INTO `product_on_model` (`product_id`, `outfitOnModel_id`, `z_index`) VALUES
+(1, 38, 1000),
+(1, 39, 999),
+(1, 40, 998),
+(2, 11, 1000),
+(2, 30, 999),
+(2, 39, 998),
+(3, 10, 1000),
+(3, 30, 999),
+(3, 39, 997),
+(3, 40, 998),
+(4, 31, 999),
+(4, 40, 998),
+(4, 56, 1000),
+(5, 10, 1000),
+(5, 32, 998),
+(5, 62, 999),
+(6, 1, 1000),
+(6, 21, 999),
+(6, 22, 998),
+(6, 30, 997),
+(6, 39, 996),
 (27, 13, 1000),
 (27, 30, 999),
 (27, 39, 998),
@@ -1636,7 +1620,16 @@ CREATE TABLE IF NOT EXISTS `style` (
   KEY `title` (`title`),
   KEY `category_id` (`category_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `style`
+--
+
+INSERT INTO `style` (`style_id`, `outfitOnModel_id`, `collage_id`, `user_id`, `category_id`, `title`, `description`, `num_of_views`, `visibility`, `added_date`, `added_time`, `edited_time`) VALUES
+(1, 1, 1, 1, 2, 'Testing', 'Testing description', 0, 0, '2014-01-12', '01:01:06', '2014-01-12 06:01:06'),
+(2, 4, 4, 1, 4, 'tesas', '', 0, 0, '2014-01-12', '01:13:42', '2014-01-12 06:13:42'),
+(3, 5, 5, 1, 21, 'tomodachi tshirt', '', 0, 0, '2014-01-12', '01:15:33', '2014-01-12 06:15:33');
 
 -- --------------------------------------------------------
 
@@ -1696,20 +1689,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `model_id` (`model_id`),
   KEY `email_2` (`email`),
   KEY `username_2` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `model_id`, `gender`, `facebook_loggin`, `username`, `email`, `password`, `introduction`, `language`, `thumbnail`, `default_img`, `homepage`, `twitter`, `pinterest`, `facebook`, `country`, `city`, `age`, `skin_color`, `bodyshape`, `size`, `height`, `inseam`, `chest_bust`, `waist`, `hip`, `user_type`, `joined_time`, `logged_in_time`, `logged_out_time`) VALUES
-(24, 1, 'u', 0, 'test', 'test@gmail.com', '$2y$10$MDJhNTQ3OGU4NmU2OThlYes8KQiefd90XE/hdHIqMybdgWEqfkiDW', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Afganistan', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:25:51', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
-(34, 1, 'u', 0, 'testb', 'testb@gmail.com', '$2y$10$OTQ5MzNkODY5NDE5N2Y0N.97MSYzon.Aie7vI69hlzpkHKlf9lKNG', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Afganistan', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:35:01', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
-(36, 1, 'u', 0, 'masanorinyo', 'masanorinyo@gmail.com', '$2y$10$YzNiYjFiZjQ1NWRiYmI2YOsVHvxQb8MY45oDgaJM7G6Fdd9Ot/vdG', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Albania', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:46:49', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
-(39, 1, 'u', 0, 'test1', 'test@gd.com', '$2y$10$MDVkNzRmYzliN2ExMzcxMO2Zv4TNr44RY/Uxfs6vGXM2b7NTHNBHK', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Albania', NULL, 0, '0', '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-02 01:48:35', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
-(40, 1, 'u', 0, 'masanorinyo1', 'masanorinyo@g.com', '$2y$10$YzRjYmU0OGY0Zjc5M2IxZ.ukZhW4Z3v2xv8mvwoEt0r5.zIt9Pii6', NULL, NULL, 'default_thumb.png', 'default_img.png', NULL, NULL, NULL, NULL, 'Afganistan', NULL, 30, 'paf', 'in', '0', 150, NULL, NULL, NULL, NULL, NULL, '2014-01-02 03:07:32', '2014-01-08 20:21:08', '2014-01-08 20:21:08'),
-(41, 1, 'm', 0, 'Masanori', 'masanorinyo@gmail.comm', '$2y$10$NmM4NzQyNjkxNjY5YWIyOOh4LLonXLAkTncAXQjIj/vYA05iYtUIW', 'Welcome to ModiShow. I hope you enjoy using the site. Please let me know if you have any questions or feedback for the site.\r\n\r\nMy E-mail address: masanorinyo@gmail.com\r\n\r\nThank you!\r\n', 'jp', 'masanori2_thumb.gif', 'masanori2_default.jpg', NULL, NULL, NULL, NULL, 'JP', 'Osaka', 30, 'mas', 'in', 'm', 190, NULL, NULL, NULL, NULL, NULL, '2014-01-08 18:24:59', '2014-01-08 21:22:04', '2014-01-08 21:22:04'),
-(42, 1, 'm', 0, 'masanorinyo2', 'masanorinyo@gmail.co', '$2y$10$MjdiNjUyZTE3MWIzYWFkYOfggJ./5v55N/XXAnZ2oc/MN3r6ZlHVm', NULL, NULL, 'masanorinyo2_thumb.gif', 'masanorinyo2_default.jpg', NULL, NULL, NULL, NULL, 'JM', NULL, 17, NULL, '0', '0', 0, NULL, NULL, NULL, NULL, NULL, '2014-01-09 03:01:25', '2014-01-09 03:01:25', '2014-01-09 03:01:25');
+(1, 1, 'm', 0, 'masanorinyo', 'masanorinyo@gmail.com', '$2y$10$NmJjYzJlZDQwNDljMDAwNutRN/5nuJ7g8uqR.QSW6kx/UIgD/sI.6', NULL, NULL, 'masanorinyo_thumb.gif', 'masanorinyo_default.jpg', NULL, NULL, NULL, NULL, 'US', NULL, 30, NULL, 'in', '0', 180, NULL, NULL, NULL, NULL, NULL, '2014-01-12 05:59:27', '2014-01-12 05:59:27', '2014-01-12 05:59:27');
 
 -- --------------------------------------------------------
 

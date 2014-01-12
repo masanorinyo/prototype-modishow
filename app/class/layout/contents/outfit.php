@@ -1,10 +1,10 @@
 <div class="button_heart">
-	<span class="heart_empty">
+	<!-- <span class="heart_empty">
 		<span>40000</span>
 	</span>
 	<span class="heart_filled">
 		<span>40000</span>
-	</span>			
+	</span>	 -->		
 </div>
 <div class="button_flip">
 	<span class="icon_flip_grey"></span>	
@@ -22,10 +22,10 @@
 		<img src="../resources/styles/mp2p5p4p3p111e14000.jpg"/>
 	</a>
 </div>
-<div class="peopleBox openModal">
+<!-- <div class="peopleBox openModal">
 	<a href="#">
 	</a>
-</div>
+</div> -->
 <div class="descriptionBox_wrapper">
 	<div class="descriptionBox">
 		<div class="styleTitle ">
@@ -50,3 +50,81 @@
 		</div>
 	</div>
 </div>
+
+
+<ul>
+				<li class="content_small firstChild">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_large firstChild">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_large">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_small firstChild">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_large firstChild">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_large">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_small firstChild">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_large firstChild">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_large">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_small firstChild">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_small">
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>
+			<ul>
+				<li class="content_large firstChild">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+				<li class="content_large">	
+					<?php include(LAYOUT_PATH.DS."contents/outfit.php");?>
+				</li>
+			</ul>

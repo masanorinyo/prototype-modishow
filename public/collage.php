@@ -10,7 +10,7 @@
 		$product_array = $_SESSION['style_info']['product_id'];
 		$description = $_SESSION['style_info']['description'];
 		$user_id = $_SESSION['user_id'];
-		//$_SESSION['style_info']="";
+		$_SESSION['style_info']="";
 	}
 	
 ?>

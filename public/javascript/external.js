@@ -1943,7 +1943,9 @@ $('#tryclothes .sendInfo').click(function(event){
 		//event.preventDefault();
 
 		
-		
+		//the form does not submit the selected sub category, therefore for now put shi val
+		//into a hidden input and pass it to the guide_to_collage page
+		var subCategory = $("#subCategorySelect").val();
 		console.log($(this));
 		var item_url; // image src 
 		var user_id = 0;
@@ -2014,6 +2016,7 @@ $('#tryclothes .sendInfo').click(function(event){
 			success:function(data){
 				console.log(data);
 				if(data){				
+					$("#style_creation_form").append("<input type='hidden' name='subCategory' value="+subCategory+" />");
 					$("#style_creation_form").append("<input type='hidden' name='outfit_on_model_id' value="+data+" />");
 					if(cancel){
 						$("#style_creation_form").append("<input type='hidden' name='cancel' value="+cancel+" />");
@@ -2074,9 +2077,16 @@ $('#collage  .button_medium.publish').click(function(){
 		var productArray =[];
 		var canvasWidth = $("#creationCanvas").css("width");
 		var canvasHeight= $("#creationCanvas").css("height");
-
 		$("#collage #outfitItems > li").each(function(){
-			var product_id = parseInt($(this).attr("id"));
+			
+			if($(this).attr('id')){
+				var product_id = parseInt($(this).attr("id"));	
+			}else{
+				//for cloned products without any id but class which represents the product id
+				var product_id = parseInt($(this).attr("class").split(" ")[1]);
+
+
+			}
 			// embelishment_id = parseInt($(this).find(".embelishment").attr("id"));
 			// people_id = parseInt($(this).find(".people").attr("id"));
 			// beauty_id = parseInt($(this).find(".beauty").attr("id"));
@@ -2107,17 +2117,16 @@ $('#collage  .button_medium.publish').click(function(){
 		        "width": width,
 		        "flopImage":flopImage,
 		    });        
-		
 
 		});
 
 
+
 		
 
-// separate the calls - one for collage, tryon + tryon embelishment
+		// separate the calls - one for collage, tryon + tryon embelishment
 		$.ajax({
 			type:'POST',
-			dataType:'json',
 			url:'../app/class/controller/outfit_collage_creation',
 			data:{
 				outfit_info:productArray,
@@ -2131,7 +2140,7 @@ $('#collage  .button_medium.publish').click(function(){
 
 					document.getElementById("collage_creation_form").submit();
 				}else{
-					alert("unsuccesful");
+					alert(data);
 				}
 			},
 			error:function(data){
@@ -3602,5 +3611,59 @@ $(function() {
 
 
 
+//for index - scroll down
 
 
+		
+$(function(){
+	var load=1;
+	var num_of_page = 8;
+	var attr = "style";
+	$("body").scroll(function(){
+		
+		var view_height = $("body").height();
+		var scroll_position = $("#itemLoadingBox").scrollTop();
+		var scroll_to_bottom = view_height + scroll_position;
+		var full_height = $("#itemLoadingBox")[0].scrollHeight-1;
+		
+		
+
+		if(scroll_to_bottom == full_height){
+			console.log("view_height "+view_height);
+			console.log("scroll_position "+scroll_position);
+			console.log("scroll_to_bottom "+scroll_to_bottom);
+			console.log("full_height "+full_height);
+
+			$('.loader').show();
+			load++;
+			console.log(load);
+			$.ajax({
+			    type:"POST",
+				url:'../app/class/controller/infinite',
+			    data: {
+			    	OFFSET:load,
+			    	per_page:num_of_page,
+			    	attribute:attr
+			    },
+			    success: function(data){
+			    	
+			    	if($("#itemLoadingBox > li").is(".last_item")){
+			    		$('.loader').hide();	
+			    		load=1;
+			    		console.log(load);
+			    		
+			    	}else{
+			    		$("#itemLoadingBox").append(data);
+			    		$('.loader').hide();	
+			    	}
+			    	
+			    	
+			    },
+			    error:function(){
+			    	alert("something went wrong");
+			    }
+			});
+		}
+	})
+
+})

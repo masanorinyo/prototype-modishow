@@ -9,12 +9,11 @@
 	$user_id = isset($_SESSION["user_id"])? $_SESSION["user_id"]: false;
 	$product_id=isset($_SESSION["product_id"])?$_SESSION["product_id"]:false;
 	$m_category=isset($_POST["main_category"])? $_POST["main_category"]: false;
-	$s_category=isset($_POST["sub_category"])? $_POST["sub_category"]: false;
+	$s_category=isset($_POST["subCategory"])? $_POST["subCategory"]: false;
 	$description=isset($_POST["description"])? $_POST["description"]: false;
-	
+	$description=empty($description)?false:$description;
 	$found_category = Category::find_by_attribute($s_category,"sub_category");
 	$found_category = !empty($found_category)? array_shift($found_category):false;
-
 	$category_id=$found_category->category_id;
 	
 

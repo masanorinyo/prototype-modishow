@@ -96,14 +96,14 @@
 						?>
 					</ul>
 				</div>
-				<div class="lastChild">
+				<!-- <div class="lastChild">
 					<ul class="leftSide">
 						<li class="follow round_medium">Follow</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</div>
-		<div class="rightSide round_medium">
+		<!-- <div class="rightSide round_medium">
 			<ul class="award">
 				<li>
 					<span class="award_icon"></span>
@@ -178,12 +178,12 @@
 					</div>
 				</li>
 			</ul>
-		</div>
+		</div> -->
 	</div>
 	<div class="bottom round_medium">
 		<div class="subHeader">
 			<ul>
-				<li id="all">	
+				<!-- <li id="all">	
 					<span class="blue-color">All</span>
 				</li>
 				<li id="creation">
@@ -204,67 +204,67 @@
 				</li>
 				<li id="comment">
 					<span>Message</span>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<div class="inside">
 			<span class="hidden">No Items</span>
-			<div class="overall">
+			<!-- <div class="overall">
 				<div id="feed_content">
 					<div class="clear left">
-						<?php include(LAYOUT_PATH.DS."presentation/all.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/all.php");?>
 					</div>
 					<div class="clear right">
-						<?php include(LAYOUT_PATH.DS."presentation/all.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/all.php");?>
 					</div>
 					<div class="clear left">
-						<?php include(LAYOUT_PATH.DS."presentation/smalls_mediums.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/smalls_mediums.php");?>
 					</div>
 					<div class="clear right">
-						<?php include(LAYOUT_PATH.DS."presentation/larges_smalls.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/larges_smalls.php");?>
 					</div>
 					<div class="clear left">
-						<?php include(LAYOUT_PATH.DS."presentation/allMediums.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/allMediums.php");?>
 					</div>
 					<div class="clear right">
-						<?php include(LAYOUT_PATH.DS."presentation/allSmalls.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/allSmalls.php");?>
 					</div>
 				</div>
-			</div>
-			<?php include(LAYOUT_PATH.DS."structure/creations.php");?>
-			<div class="likes">
+			</div> -->
+			<?php //include(LAYOUT_PATH.DS."structure/creations.php");?>
+			<!-- <div class="likes">
 				<div id="feed_content">
 					<div class="clear left">
-						<?php include(LAYOUT_PATH.DS."presentation/all.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/all.php");?>
 					</div>
 					<div class="clear right">
-						<?php include(LAYOUT_PATH.DS."presentation/all.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/all.php");?>
 					</div>
 					<div class="clear left">
-						<?php include(LAYOUT_PATH.DS."presentation/smalls_mediums.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/smalls_mediums.php");?>
 					</div>
 					<div class="clear right">
-						<?php include(LAYOUT_PATH.DS."presentation/larges_smalls.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/larges_smalls.php");?>
 					</div>
 					<div class="clear left">
-						<?php include(LAYOUT_PATH.DS."presentation/allMediums.php");?>
+						<?php //include(LAYOUT_PATH.DS."presentation/allMediums.php");?>
 					</div>
 					<div class="clear right">
-						<?php include(LAYOUT_PATH.DS."presentation/allSmalls.php");?>
+						<?php// include(LAYOUT_PATH.DS."presentation/allSmalls.php");?>
 					</div>
 				</div>
-			</div>
-			<div class="follower follow">
-				<?php include(LAYOUT_PATH.DS."structure/followers.php");?>
+			</div> -->
+			<!-- <div class="follower follow">
+				<?php //include(LAYOUT_PATH.DS."structure/followers.php");?>
 			</div>
 			<div class="following follow">
-				<?php include(LAYOUT_PATH.DS."structure/followers.php");?>
+				<?php //include(LAYOUT_PATH.DS."structure/followers.php");?>
 			</div>
 			<div class="comment">
 				<div class="round_weak">
-					<?php include(LAYOUT_PATH.DS."structure/comments.php");?>
+					<?php //include(LAYOUT_PATH.DS."structure/comments.php");?>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>	
 	<div id="subFooter" class="clear"><span>Loading...</span></div>
