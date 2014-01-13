@@ -13,15 +13,18 @@
 
 	$infinite_position = new infinite_scroll($page,$per_page,$total_count);
 	
+	$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:false;
+
+	$sql = "SELECT * FROM style ";
 	
-	$sql = "SELECT * FROM {$attribute} ";
+	if($attribute=="userPage"){
+		$sql .="WHERE user_id={$user_id} ";	
+	}
+	
 	$sql .="Limit {$per_page} ";
 	$sql .="OFFSET {$infinite_position->offset()} ";
-	
-	
-	$found_style = Style::find_by_sql($sql);
-	
 
+	$found_style = Style::find_by_sql($sql);
 	
 
 	if(empty($found_style)){
@@ -31,9 +34,11 @@
 
 <?php 
 	$num=1;
+	if($attribute=="index"){
+		$loop_for_large_first=4;
+		$loop_for_large_second=5;
+	}
 	
-	$loop_for_large_first=4;
-	$loop_for_large_second=5;
 	foreach($found_style as $array_name): 
 		
 		$outfitOnModel_object = Outfit_on_model::find_by_id($array_name->outfitOnModel_id);
@@ -50,13 +55,16 @@
 		
 		$title=$array_name->title;
 
-
-		if($num==$loop_for_large_first){
-			echo "<li class='content_large'>";
-			$loop_for_large_first +=5;
-		}else if($num==$loop_for_large_second){
-			echo "<li class='content_large'>";
-			$loop_for_large_second +=5; 
+		if($attribute=="index"){
+			if($num==$loop_for_large_first){
+				echo "<li class='content_large'>";
+				$loop_for_large_first +=5;
+			}else if($num==$loop_for_large_second){
+				echo "<li class='content_large'>";
+				$loop_for_large_second +=5; 
+			}else{
+				echo "<li class='content_small'>";
+			}
 		}else{
 			echo "<li class='content_small'>";
 		}
@@ -111,7 +119,11 @@
 
 <?php 
 $num++;
-if($num==6){break;}
+if($attribute=="index" && $num==6){
+	break;
+}else if($attribute=="userPage" && $num==7){
+	break;
+}
 endforeach;
 ?>
 

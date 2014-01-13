@@ -1,5 +1,17 @@
 <?php	
-	switch (basename($_SERVER['REQUEST_URI'])){
+	$full_url=$_SERVER['REQUEST_URI'];
+	//when a page receives a url with ? command for $_GET[]
+	
+	$url_original = substr($full_url, 0, strrpos($full_url, '?'));
+	$url_pathname = substr($full_url, 1, strrpos($full_url, '?'));
+
+	if(empty($url_pathname)){
+		$url_basename=$full_url;
+	}else{
+		$url_basename=$url_original;
+	}
+
+	switch (basename($url_basename)){
 		case 'index':
 			$header_title = "Home - ModiShow";
 			$body_id = "index";

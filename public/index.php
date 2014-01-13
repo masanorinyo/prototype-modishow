@@ -1114,7 +1114,7 @@
 									</span>
 								</div>
 								<div class="styleInfo">
-									<a class="artist_name" href="userPage.php">
+									<a class="artist_name" href="../app/class/view/userPage.php?username=<?php echo urlencode($username);?>">
 										By 
 										<span>
 												<?php echo $username;?>
@@ -1136,7 +1136,9 @@
 					if($num==6){break;}
 				endforeach;
 			?>
-			<div id="loader_wrapper" class="clear"><span  class="loader"></span></div>
+				<div id="loader_wrapper" class="clear">
+					<span  class="loader"></span>
+				</div>
 			</ul>
 		</div>	
 	</div>

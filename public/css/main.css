@@ -142,7 +142,8 @@ li{
 	
 }
 
-#index .loader{
+#index .loader,
+#userPage .loader{
 	width: 420px;
 	margin: 38px 384px;
 }
@@ -155,6 +156,25 @@ li{
 	float: left;
 	display:none;
 }
+
+
+/*----------Message if items list are empty----------*/
+
+#userPage #noItem{
+	width: 80%;
+	height: 100px;
+	margin: 100px auto;
+}
+
+#userPage #noItem span{
+	text-align: center;
+	font-size: 4em;
+	font-family: georgia;
+	color: rgb(150,150,150);
+	margin: 30px;
+}
+
+
 
 /*----------Side Scroll----------*/
 .sideScroll{
@@ -2644,7 +2664,8 @@ li{
 	font-size:1.1em;
 }
 
-#index .last_item{
+#index .last_item,
+#userPage .last_item{
 	width: 100%;
 	height: 100px;
 	margin: 60px 20px 0px;
@@ -2653,7 +2674,8 @@ li{
 	background-color: rgb(250,250,250);
 }
 
-#index .last_item span{
+#index .last_item span,
+#userPage .last_item span{
 	text-align: center;
 	font-size: 3em;
 	font-family: georgia;
@@ -5122,9 +5144,14 @@ li{
 /*--Structure--*/
 #shopItem .bottom .creation,
 #shopItem .bottom .comment,
-#userPage .bottom .creation,
+/*#userPage .bottom .creation,*/
 #userPage .bottom .comment{
 	display:none;
+}
+
+/*temporary procedure*/
+#userPage .bottom .creation{
+	display:block;
 }
 
 #shopItem .bottom .inside,
@@ -5415,7 +5442,9 @@ li{
 
 #userPage .leftSide > .rightSide .introduction p{
 	margin:25px 15px;
-	width:480px;
+	/*width:480px;*/
+	/*temporary procedure*/
+	width:600px;
 	font-size:13px;
 	color:rgb(85,85,85);
 	min-height:75px;

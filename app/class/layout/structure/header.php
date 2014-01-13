@@ -19,17 +19,17 @@
 						</a>
 					</div>
 					<ul id="header_leftOptions">
-						<li class="firstChild">
+						<!-- <li class="firstChild">
 							<a class="<?php echo $feed_page; ?>" href="<?php echo ROOT_PATH."public";?>/feed.php">
 								<h2>FEED</h2>
 							</a>
-						</li>
+						</li> -->
 						<li>
 							<a class="<?php echo $index_page; ?>" href="<?php echo ROOT_PATH."public";?>/index.php">
 								<h2>EXPLORE</h2>
 							</a>
 						</li>					
-						<li>
+						<!-- <li>
 							<a class="<?php echo $shop_page; ?>" href="<?php echo ROOT_PATH."public";?>/shopOverall.php">
 								<h2>SHOP</h2>
 							</a>
@@ -268,7 +268,7 @@
 									</div>							
 								</li>
 							</ul>
-						</li>
+						</li> -->
 						<li>
 							<a class="tryon" href="<?php echo ROOT_PATH."public";?>/tryon.php">
 								<ul>
@@ -282,9 +282,9 @@
 							</a>
 						</li>
 					</ul>
-					<form id="searchBox">
+					<!-- <form id="searchBox">
 						<input class="round_weak background_grey color_lightWhite" type="text" name="search_name" placeholder="Search..."/>
-					</form>
+					</form> -->
 					<ul id="header_rightOptions">
 						<li class="lastChild">
 							<?php 
@@ -296,9 +296,9 @@
 							?>
 						</li>
 					</ul>					
-					<div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
-							<?php echo "0"; ?>
-					</div>
+					<!-- <div id="notificationBox" class="round_weak background_grey color_lightWhite pointer">
+							<?php //echo "0"; ?>
+					</div> -->
 				</div>
 			</div>
 		</div>

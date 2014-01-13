@@ -4,7 +4,24 @@
 		redirect_to(ROOT_PATH."public/index");
 	}
 	include(LAYOUT_PATH.DS."structure/header.php");
+
+	$username = isset($_GET["username"])? $_GET["username"]:false;
+
+	if($username){
+		$user=User::find_by_attribute($username,"username");
+		$user=!empty($user)? array_shift($user):false;
+		$id=$user->user_id;
+	}else{
+		$thisPage_user_id=false;
+		$id = isset($_SESSION['user_id'])?$_SESSION['user_id']:false;
+	}
 	
+	$logged_in_user_id=isset($_SESSION["user_id"])?$_SESSION["user_id"]:false;
+
+	$sql = "SELECT * FROM style ";
+	$sql .="WHERE user_id={$id} ";
+
+	$found_style = Style::find_by_sql($sql);
 
 ?>
 <div class="content round_weak">
@@ -15,9 +32,14 @@
 			<div class="userProfile">
 				<div>
 					<img class="round_circle" src="<?php echo RESOURCE_PATH.DS."users".DS.$user->default_img;?>"/>
-					<div class="round_weak">
-						<span>Change Picture</span>
-					</div>
+					<?php
+						if($logged_in_user_id==$user->user_id){
+							$change_picture  = "<div class='round_weak'>";
+							$change_picture .= "<span>Change Picture</span>";
+							$change_picture .= "</div>";
+							echo $change_picture;
+						}
+					?>
 				</div>
 			</div>
 			<div class="rightSide">
@@ -44,7 +66,11 @@
 							days ago
 						</li>
 					</ul>
-					<span id="editProfileInfo" class="editIcon opaque_strong pointer"></span>
+					<?php 
+						if($logged_in_user_id==$user->user_id){
+							echo "<span id='editProfileInfo' class='editIcon opaque_strong pointer'></span>";
+						}
+					?>
 				</div>
 				
 				<div class="introduction clear">
@@ -182,8 +208,9 @@
 	</div>
 	<div class="bottom round_medium">
 		<div class="subHeader">
-			<ul>
-				<!-- <li id="all">	
+			<!-- <span id="creation_text">Creations</span> -->
+			<!--<ul>
+				 <li id="all">	
 					<span class="blue-color">All</span>
 				</li>
 				<li id="creation">
@@ -204,12 +231,105 @@
 				</li>
 				<li id="comment">
 					<span>Message</span>
-				</li> -->
-			</ul>
+				</li> 
+			</ul>-->
 		</div>
 		<div class="inside">
+			<div class="creation content_stream">
+				<ul>
+					<?php 
+					$num=1;
+					
+					foreach($found_style as $array_name): 
+						
+
+
+						$outfitOnModel_object = Outfit_on_model::find_by_id($array_name->outfitOnModel_id);
+						$outfitOnModel_url = $outfitOnModel_object->m_size_filename;
+
+						$collage_object = Collage::find_by_id($array_name->collage_id);
+						
+						$collage_url = $collage_object->m_size_filename;
+						$user_object = User::find_by_id($array_name->user_id);
+						$username = $user_object->username;
+						
+						$category_object = Category::find_by_id($array_name->category_id);
+						$category = $category_object->sub_category;
+						
+						$title=$array_name->title;
+						
+				?>
+						<li class='content_small'>
+							<!-- 
+								<div class="button_heart">
+									<span class="heart_empty">
+										<span>40000</span>
+									</span>
+									<span class="heart_filled">
+										<span>40000</span>
+									</span>	 		
+								</div>
+							-->
+							<div class="button_flip">
+								<span class="icon_flip_grey"></span>	
+								<span class="icon_flip_dark"></span>				
+							</div>
+							<div class="collageBox openModal">
+								<a href="#"> <!--Use PHP-->
+									<div class="collageBox-inside">
+										<img src="<?php echo ROOT_PATH."resources/styles/".$collage_url;?>"/>
+									</div>
+								</a>
+							</div>
+							<div class="modelBox openModal">
+								<a href="#">
+									<img src="<?php echo ROOT_PATH."resources/styles/".$outfitOnModel_url;?>"/>
+								</a>
+							</div>
+							<!-- <div class="peopleBox openModal">
+								<a href="#">
+								</a>
+							</div> -->
+							<div class="descriptionBox_wrapper">
+								<div class="descriptionBox">
+									<div class="styleTitle ">
+										<span class="openModal"> 	<a href="#">
+												<?php echo $title;?>
+											</a>
+										</span>
+									</div>
+									<div class="styleInfo">
+										<a class="artist_name" href="userPage.php">
+											By 
+											<span>
+													<?php echo $username;?>
+											</span>
+										</a>
+										<a class="styleCategory" href="#">
+											Category
+											<span>
+											 - <?php echo $category; ?>
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					
+				<?php 
+						$num++;
+						if($num==7){break;}
+					endforeach;
+				?>
+					
+						
+				</ul>	
+			</div>
+
+
 			<!-- <span class="hidden">No Items</span> -->
-			<!-- <div class="overall">
+			<!-- 
+			<div class="overall">
 				<div id="feed_content">
 					<div class="clear left">
 						<?php //include(LAYOUT_PATH.DS."presentation/all.php");?>

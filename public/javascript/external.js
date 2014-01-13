@@ -3608,55 +3608,94 @@ $(function() {
 
 
 
-//for index - scroll down
+//for index and userpage - scroll down
 
 		
 $(function(){
 	var load=1;
-	var num_of_page = 5;
-	var attr = "style";
-	$(window).scroll(function(){
+	var url = document.location.origin;
+	var pathname = document.location.pathname;
+	var loader = "<div id='loader_wrapper' class='clear'>";
+		loader += "<span class='loader'></span></div>";
+
+	var noItem="<div id='noItem'><span>You have not created anything yet</span></div>";
+
+	if($("body").is("#index")){
+		var num_of_page = 5;	
+		var attr = "index";
+		var url = "../app/class/controller/infinite_for_styles"
+	}else{
+		var num_of_page = 6;
+		var attr = "userPage";
+		var url = "../controller/infinite_for_styles"
+	}
+	
+	console.log($(".content_stream ul li").length);
+	if($(".content_stream ul li").length==0){
 		
-		if ($(window).scrollTop() + $(window).height() >= $(document).height() && !($("#content_wrapper > .content_stream > ul > li").hasClass("last_item")) ) { 
-			$('#loader_wrapper').show();
-			load++;
-			console.log(load);
+		$(".content_stream > ul").append(noItem);
+
+
+
+	}else{
+		
+
+		//$(".content_stream > ul").append(loader);
+		
+		if($("body").is("#index,#userPage")){
 			
-			$.ajax({
-			    type:"POST",
-				url:'../app/class/controller/infinite_for_styles',
-			    data: {
-			    	OFFSET:load,
-			    	per_page:num_of_page,
-			    	attribute:attr
-			    },
-			    success: function(data){
-			    	
-			    	if($("#content_wrapper .content_stream > ul > li").is(".last_item")){
-			    		$('#loader_wrapper').hide();	
-			    		load=1;
-			    		console.log(load);
-			    		
-			    	}else{
-			    		$("#content_wrapper .content_stream > ul").append(data);
-			    		$('#loader_wrapper').hide();	
-			    	}
-			    	
-			    	
-			    },
-			    error:function(){
-			    	alert("something went wrong");
-			    }
-			});
+			$(window).scroll(function(){
+				
+				if ($(window).scrollTop() + $(window).height() >= $(document).height() && !($(".content_stream > ul > li").hasClass("last_item")) ) { 
+
+					$('#loader_wrapper').show();
+					load++;
+					console.log(load);
+					
+					$.ajax({
+					    type:"POST",
+						url:url,
+					    data: {
+					    	OFFSET:load,
+					    	per_page:num_of_page,
+					    	attribute:attr
+					    },
+					    success: function(data){
+					    	
+					    	if($(".content_stream > ul > li").is(".last_item")){
+					    		$('#loader_wrapper').hide();	
+					    		load=1;
+					    		console.log(load);
+					    		
+					    	}else{
+					    		$(".content_stream > ul").append(data);
+					    		$('#loader_wrapper').hide();	
+					    	}
+					    	
+					    	
+					    },
+					    error:function(){
+					    	alert("something went wrong");
+					    }
+					});
 
 
 
-		} 
+				} 
+
+			})
+		}
+
+	}
+
+	//if users have not created anything
+	
 
 
-		
-		
-		
-	})
+
+
+
 
 })
+
+
