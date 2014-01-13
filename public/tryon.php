@@ -1,5 +1,19 @@
-<?php require_once("../app/config/initialize.php");?>
-<?php include(LAYOUT_PATH.DS."structure/header.php");?>
+<?php 
+	
+	require_once("../app/config/initialize.php");
+
+	//this deletes the outfitCollage information which did not get stored with collage 
+	//this happens when users skip the process of creating collages.
+	if(!empty($_SESSION['style_info'])){
+		$style_array = $_SESSION['style_info'];
+		$outfitOnModel_id = $style_array['outfitOnModel_id'];
+		$_SESSION['style_info']="";
+		$found_outfitOnModel = Outfit_on_model::find_by_id($outfitOnModel_id);
+		$result = $found_outfitOnModel->delete();
+	}
+
+	include(LAYOUT_PATH.DS."structure/header.php");
+?>
 
 <div id="tryonContent" class="fullWidth">
 	<div id="creationCanvas" class="background_black floatLeft overflowHidden">
@@ -20,7 +34,7 @@
 		<div class="leftArrow_subSlideshow_two opaque_strong pointer hide"></div>
 		<div class="rightArrow_subSlideshow_two opaque_strong pointer hide"></div>
 		-->
-		<div class="userPreference hide">
+		<!-- <div class="userPreference hide">
 			<div class="opaque_medium button_heart broken">
 				<span class="brokenHeart_empty"></span>
 				<span class="brokenHeart_filled"></span>
@@ -29,7 +43,7 @@
 				<span class="heart_empty"></span>
 				<span class="heart_filled"></span>
 			</div>
-		</div>
+		</div> -->
 		<?php include(LAYOUT_PATH.DS."parts/submission_panel.php");?>
 		<!-- This will change the outfit according to the selected cateogry -->
 		<div class="controlPanel">

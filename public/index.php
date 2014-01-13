@@ -3,7 +3,15 @@
 
 	$found_style = Style::find_all();
 
-
+	//this deletes the outfitCollage information which did not get stored with collage 
+	//this happens when users skip the process of creating collages.
+	if(!empty($_SESSION['style_info'])){
+		$style_array = $_SESSION['style_info'];
+		$outfitOnModel_id = $style_array['outfitOnModel_id'];
+		$_SESSION['style_info']="";
+		$found_outfitOnModel = Outfit_on_model::find_by_id($outfitOnModel_id);
+		$result = $found_outfitOnModel->delete();
+	}
 
 
 
@@ -1090,14 +1098,14 @@
 							<span class="icon_flip_dark"></span>				
 						</div>
 						<div class="collageBox openModal">
-							<a href="#"> <!--Use PHP-->
+							<a> <!--Use PHP-->
 								<div class="collageBox-inside">
 									<img src="<?php echo ROOT_PATH."resources/styles/".$collage_url;?>"/>
 								</div>
 							</a>
 						</div>
 						<div class="modelBox openModal">
-							<a href="#">
+							<a>
 								<img src="<?php echo ROOT_PATH."resources/styles/".$outfitOnModel_url;?>"/>
 							</a>
 						</div>
@@ -1108,7 +1116,8 @@
 						<div class="descriptionBox_wrapper">
 							<div class="descriptionBox">
 								<div class="styleTitle ">
-									<span class="openModal"> 	<a href="#">
+									<span class="openModal"> 	
+										<a>
 											<?php echo $title;?>
 										</a>
 									</span>
@@ -1120,7 +1129,7 @@
 												<?php echo $username;?>
 										</span>
 									</a>
-									<a class="styleCategory" href="#">
+									<a class="styleCategory">
 										Category
 										<span>
 										 - <?php echo $category; ?>
@@ -1145,6 +1154,6 @@
 </div>
 
 
-<?php include(LAYOUT_PATH.DS."structure/outfit_modal.php");?>	
+<?php //include(LAYOUT_PATH.DS."structure/outfit_modal.php");?>	
 <?php include(LAYOUT_PATH.DS."structure/signup_login.php");?>	
 <?php include(LAYOUT_PATH.DS."structure/footer.php");?>

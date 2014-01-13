@@ -1,9 +1,18 @@
 <?php 
 	require_once("../../config/initialize.php");
-	if(!$session->is_logged_in()){
-		redirect_to(ROOT_PATH."public/index");
-	}
+	
 	include(LAYOUT_PATH.DS."structure/header.php");
+
+	//this deletes the outfitCollage information which did not get stored with collage 
+	//this happens when users skip the process of creating collages.
+	if(!empty($_SESSION['style_info'])){
+		$style_array = $_SESSION['style_info'];
+		$outfitOnModel_id = $style_array['outfitOnModel_id'];
+		$_SESSION['style_info']="";
+		$found_outfitOnModel = Outfit_on_model::find_by_id($outfitOnModel_id);
+		$result = $found_outfitOnModel->delete();
+	}
+
 
 	$username = isset($_GET["username"])? $_GET["username"]:false;
 
@@ -299,7 +308,7 @@
 										</span>
 									</div>
 									<div class="styleInfo">
-										<a class="artist_name" href="userPage.php">
+										<a class="artist_name" href="<?php echo ROOT_PATH.DS.'app/class/view/userPage.php?username='.urlencode($username);?>">
 											By 
 											<span>
 													<?php echo $username;?>
@@ -445,6 +454,10 @@
 </div>	
 
 <?php include(LAYOUT_PATH.DS."structure/quickview_modal.php");?>		
-<?php include(LAYOUT_PATH.DS."structure/outfit_modal.php");?>	
-
+<?php include(LAYOUT_PATH.DS."structure/outfit_modal.php");?>
+<?php 
+	if(!$session->is_logged_in()){
+		include(LAYOUT_PATH.DS."structure/signup_login.php");
+	}
+?>	
 <?php include(LAYOUT_PATH.DS."structure/footer.php");?>

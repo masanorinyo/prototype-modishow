@@ -1,7 +1,7 @@
 <?php 
 	require_once("../app/config/initialize.php");
 	//|| empty($_SESSION['style_info'])
-	if(!$session->is_logged_in()){
+	if(!$session->is_logged_in()||empty($_SESSION['style_info'])){
 		redirect_to(ROOT_PATH."public/index");
 	}else{
 		$title = $_SESSION['style_info']['title'];
@@ -10,7 +10,6 @@
 		$product_array = $_SESSION['style_info']['product_id'];
 		$description = $_SESSION['style_info']['description'];
 		$user_id = $_SESSION['user_id'];
-		$_SESSION['style_info']="";
 	}
 	
 ?>

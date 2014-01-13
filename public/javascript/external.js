@@ -211,50 +211,50 @@ if (typeof jQuery != "undefined")
 
 //---------------------Modal box---------------------//
 //--Open and close modal box--//
-$(function(){
-	$('.openModal').click(function(event){
-		$('#popup_overlay').show();
-	});
-	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div, .editIcon,.jumpToSignup').click(function(event){
-		$('html').css("overflow", "hidden");
-	});
+// $(function(){
+// 	$('.openModal').click(function(event){
+// 		$('#popup_overlay').show();
+// 	});
+// 	$('.openModal,.singleItemImage,.editIcon,.userProfile > div > div, .editIcon,.jumpToSignup').click(function(event){
+// 		$('html').css("overflow", "hidden");
+// 	});
 
-	$('.openModal').click(function(event){
-		$('.backToTop').css("display", "none");
-	});
+// 	$('.openModal').click(function(event){
+// 		$('.backToTop').css("display", "none");
+// 	});
 	
-	$('.openModal').click(function(event){
-		$('#modalbox').scrollTop(0);
-	});
-	$("#modalbox").click(function(event){
-		$('#popup_overlay').hide();
-	});	
-	$('.closeBox').click(function(event){
-		$('#popup_overlay').hide();
-	});
-	$('.closeBox,.closeBox .icon_close,.confirmation .cancel').click(function(event){
-		$('html').css("overflow","visible"); 
-	});
-	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic,#signup_modalBox').click(function(event){
-		//if users did not choose either options in the more information popup and clicked the outside box
-		if($('#signup .popup-box.moreInformatin').is(':visible')){
-			return false;
+// 	$('.openModal').click(function(event){
+// 		$('#modalbox').scrollTop(0);
+// 	});
+// 	$("#modalbox").click(function(event){
+// 		$('#popup_overlay').hide();
+// 	});	
+// 	$('.closeBox').click(function(event){
+// 		$('#popup_overlay').hide();
+// 	});
+// 	$('.closeBox,.closeBox .icon_close,.confirmation .cancel').click(function(event){
+// 		$('html').css("overflow","visible"); 
+// 	});
+// 	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic,#signup_modalBox').click(function(event){
+// 		//if users did not choose either options in the more information popup and clicked the outside box
+// 		if($('#signup .popup-box.moreInformatin').is(':visible')){
+// 			return false;
 			
-		}else{
-			$('html').css("overflow","visible"); 
-		};
-	});
+// 		}else{
+// 			$('html').css("overflow","visible"); 
+// 		};
+// 	});
 
-	$('#modalbox').click(function(event){
-		$('.backToTop').css("display", "none");
-	});
-	$('#modalbox').click(function(event){
-		$('#modalbox-backToTop').css("display", "none");
-	});
-	$('.preventClose_modalBox').click(function(event){
-		event.stopPropagation();
-	});
-});
+// 	$('#modalbox').click(function(event){
+// 		$('.backToTop').css("display", "none");
+// 	});
+// 	$('#modalbox').click(function(event){
+// 		$('#modalbox-backToTop').css("display", "none");
+// 	});
+// 	$('.preventClose_modalBox').click(function(event){
+// 		event.stopPropagation();
+// 	});
+// });
 
 //--back to top button--//
 $(function(){
@@ -355,29 +355,38 @@ $(function(){
 //---------------------Contents ---------------------//
 //--hover effect for contents--//
 $(function(){
-	$(".content_small,.content_large,.items > li,.small_boxes > ul > li,.medium_boxes > ul > li,.large_boxes,#content > div > div > ul > li").hover(function(){
-		$(this).children(".button_heart,.button_flip").fadeIn("fast");},function(){
-		$(this).children(".button_heart,.button_flip").fadeOut("fast");
+	$(".content_stream ul").on("mouseover","li",function(event){
+		$(this).children(".button_heart,.button_flip").fadeIn("fast");
+		
 	});
+
+	$(".content_stream ul").on("mouseleave","li",function(event){
+		$(this).children(".button_heart,.button_flip").fadeOut("fast");
+		
+	});
+
+	// $(".content_small,.content_large,.items > li,.small_boxes > ul > li,.medium_boxes > ul > li,.large_boxes, li").hover(function(){
+		
+	// });
 });
 
 //--flip individual effect--//
 $(function(){
-	$('.button_flip').on("click", function(){
-  		var modelImage = $(this).next().next(".modelBox");
-  		var collageImage = $(this).next(".collageBox");
+	$(".content_stream ul").on("click",".button_flip", function(event){
+		var modelImage = $(this).next().next(".modelBox");
+		var collageImage = $(this).next(".collageBox");
 
-	  if(collageImage.css('display') == "block"){
-	     collageImage.fadeOut();
-	     modelImage.fadeIn();
-	     $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeOut();
-	     $(this).next().next().next().next().children().children(".styleTitle").fadeOut();
-	  } else{
-	     modelImage.fadeOut();
-	     collageImage.fadeIn();
-	     $(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeIn();
-	    $(this).next().next().next().next().children().children(".styleTitle").fadeIn();
-	  };	  
+	  	if(collageImage.css('display') == "block"){
+	     	collageImage.fadeOut();
+	     	modelImage.fadeIn();
+	     	$(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeOut();
+	     	$(this).next().next().next().next().children().children(".styleTitle").fadeOut();
+	  	}else{
+	     	modelImage.fadeOut();
+	     	collageImage.fadeIn();
+	     	$(this).next().next().next().next().children().children().next().children().next('.styleCategory').fadeIn();
+	    	$(this).next().next().next().next().children().children(".styleTitle").fadeIn();
+	  	};	  
 	});
 });
 
@@ -2175,18 +2184,22 @@ $(function(){
 
 		var boxHeight = $("#itemLoadingBox").height();
 		//the reason for -10 is for the case that scroll bar shows up.
-		var boxWidth = $("#itemLoadingBox").width()-10;
-		
+		var boxWidth = $("#itemLoadingBox").width();
+		console.log(boxHeight);
+		console.log(boxWidth);
 		
 		//width of each list box in the item box on Try on page
-		var itemWidth = 117;
-		var itemHeight = 117;
+		//6 comprises of 3 left and right margin
+		var itemHeight = 120;
+		var itemWidth = 120;
 
 		//num of items that can show up in the window change according to the width of the itemloadingbox
 		var num_of_rows = parseInt(boxHeight/itemHeight);
 		var num_of_columns = parseInt(boxWidth/itemWidth);
 		var num_of_page = parseInt(num_of_rows*num_of_columns);
-		
+		console.log(num_of_rows);
+		console.log(num_of_columns);
+		console.log(num_of_page);
 		
 		var attr = "product";
 		$.ajax({
@@ -2320,7 +2333,7 @@ $(function(){
 					$('#registration_modalBox').fadeIn("fast");
 					$("input[type='text'],input[type='password']").val("");
 					$("#signup_modalBox .sub-header > span >span").remove();
-					$("#signup_modalBox .sub-header > span").append("<span class='color_red'>  &nbsp;&nbsp;You need to create your account to proceed</span>");
+					$("#signup_modalBox .sub-header > span").append("<span class='color_red'>  &nbsp;&nbsp;create your account to proceed</span>");
 					$("#signup_form").append("<input id=\"try_on_checker\" type=\"hidden\" name=\"from_tryon\" value=\"true\"/>");
 					$("input[type='text'],input[type='password']").css({'border-color':'rgb(200,200,200)'});
 					$(".errorMessage,.incorretInputMessage,.insertBox").hide();
@@ -3619,10 +3632,24 @@ $(function() {
 
 
 
-//for index and userpage - scroll down
+//this will get a value from url
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
 
-		
+//for index and userpage - scroll down		
 $(function(){
+	var url = getUrlVars();
+	var username = url["username"];
 	var load=1;
 	var loader = "<div id='loader_wrapper' class='clear'>";
 		loader += "<span class='loader'></span></div>";
@@ -3667,7 +3694,8 @@ $(function(){
 					    data: {
 					    	OFFSET:load,
 					    	per_page:num_of_page,
-					    	attribute:attr
+					    	attribute:attr,
+					    	username:username
 					    },
 					    success: function(data){
 					    	

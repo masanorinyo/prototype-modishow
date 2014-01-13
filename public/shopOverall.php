@@ -1,6 +1,19 @@
-<?php require_once("../app/config/initialize.php");?>
-<?php include(LAYOUT_PATH.DS."structure/header.php");?>
-<?php include(LAYOUT_PATH.DS."structure/sidenavi.php");?>
+<?php 
+	require_once("../app/config/initialize.php");
+	
+	//this deletes the outfitCollage information which did not get stored with collage 
+	//this happens when users skip the process of creating collages.
+	if(!empty($_SESSION['style_info'])){
+		$style_array = $_SESSION['style_info'];
+		$outfitOnModel_id = $style_array['outfitOnModel_id'];
+		$_SESSION['style_info']="";
+		$found_outfitOnModel = Outfit_on_model::find_by_id($outfitOnModel_id);
+		$result = $found_outfitOnModel->delete();
+	}
+
+	include(LAYOUT_PATH.DS."structure/header.php");
+	include(LAYOUT_PATH.DS."structure/sidenavi.php");
+?>
 		
 
 

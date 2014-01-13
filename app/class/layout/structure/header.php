@@ -13,7 +13,7 @@
 			<div class="inner background_themeColor center">
 				<div class="inner-inside center" >
 					<div id="logo">
-						<a href="<?php echo ROOT_PATH."public";?>">
+						<a href="<?php echo ROOT_PATH."public/index.php";?>">
 							<h1 id="logo_modi">Modi</h1>
 							<h1 id="logo_show">Show</h1>
 						</a>

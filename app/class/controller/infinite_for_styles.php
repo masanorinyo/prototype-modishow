@@ -7,13 +7,35 @@
 
 	$attribute = isset($_POST['attribute'])?$_POST['attribute']:false;
 
-	$per_page = $_POST["per_page"];
-		
-	$total_count = Style::count_all();
+	$per_page = isset($_POST["per_page"])?$_POST['per_page']:false;
+
+	$username = isset($_POST["username"])?$_POST['username']:false;
+	
+	
+	if($attribute=="index"){
+
+		$total_count = Style::count_all();
+
+	}else if($attribute=="userPage"){
+
+		if($username){
+			$user_object=User::find_by_attribute($username,"username");
+			$user_object=!empty($user_object)? array_shift($user_object):false;
+			$user_id=$user_object->user_id;
+
+			$num_of_styles = Style::find_by_attribute($user_id,"user_id");
+
+			$total_count = count($num_of_styles);
+		}else{
+			$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:false;	
+			$num_of_styles = Style::find_by_attribute($user_id,"user_id");
+			$total_count = count($num_of_styles);
+		}
+
+	}
 
 	$infinite_position = new infinite_scroll($page,$per_page,$total_count);
 	
-	$user_id = isset($_SESSION['user_id'])?$_SESSION['user_id']:false;
 
 	$sql = "SELECT * FROM style ";
 	
@@ -76,14 +98,14 @@
 		<span class="icon_flip_dark"></span>				
 	</div>
 	<div class="collageBox openModal">
-		<a href="#"> <!--Use PHP-->
+		<a> <!--Use PHP-->
 			<div class="collageBox-inside">
 				<img src="<?php echo ROOT_PATH."resources/styles/".$collage_url;?>"/>
 			</div>
 		</a>
 	</div>
 	<div class="modelBox openModal">
-		<a href="#">
+		<a>
 			<img src="<?php echo ROOT_PATH."resources/styles/".$outfitOnModel_url;?>"/>
 		</a>
 	</div>
@@ -94,19 +116,20 @@
 	<div class="descriptionBox_wrapper">
 		<div class="descriptionBox">
 			<div class="styleTitle ">
-				<span class="openModal"> 	<a href="#">
+				<span class="openModal"> 	
+					<a>
 						<?php echo $title;?>
 					</a>
 				</span>
 			</div>
 			<div class="styleInfo">
-				<a class="artist_name" href="userPage.php">
+				<a class="artist_name" href="<?php echo ROOT_PATH.DS.'app/class/view/userPage.php?username='.urlencode($username);?>">
 					By 
 					<span>
 							<?php echo $username;?>
 					</span>
 				</a>
-				<a class="styleCategory" href="#">
+				<a class="styleCategory">
 					Category
 					<span>
 					 - <?php echo $category; ?>
