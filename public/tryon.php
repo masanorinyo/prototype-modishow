@@ -34,7 +34,7 @@
 		<!-- This will change the outfit according to the selected cateogry -->
 		<div class="controlPanel">
 			<ul>
-				 <li class="button_category background_shadow round_medium opaque_weak "> 
+				<!--  <li class="button_category background_shadow round_medium opaque_weak "> 
 					<div>All categories</div>
 					<div>
 						<span class="stickynavi_listArrow"></span>
@@ -110,7 +110,7 @@
 							</li>
 						</ul> 
 					</div>						
-				</li>
+				</li> -->
 				<li class="button_layer background_shadow round_medium opaque_weak">
 					<div>
 						<span class="layer_item_icon"></span>
@@ -129,7 +129,7 @@
 		</div> 
 	</div>
 	<div id="creationToolbox">
-		<div id="itembox_header" class="fullWidth">
+		<!-- <div id="itembox_header" class="fullWidth">
 			<ul>
 				<li class="itemList_myItems currently_focus">My Items</li> 
 				<li class="itemList_clothing">Clothing & Accessories
@@ -137,18 +137,18 @@
 				<li class="itemList_model ">Models</li>
 				<li class="itemList_Embelishment">Embelishment</li>
 			</ul>
-		</div>		
+		</div>		 -->
 		<div class="itembox_subHeader fullWidth background_white">
-			<div id="myItemList">	
+			<!-- <div id="myItemList">	
 				<ul class="controlBoxes fullWidth">
 					<li class="firstChild">
-						<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
+						<?php //include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
 							<li>My likes</li>	
-						<!--<li>My uploads</li>-->
-						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>			
+							<li>My uploads</li>
+						<?php //include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>			
 					</li>
 				</ul>
-				<!-- item view will be different - bigger item vs smaller item & you can upload your item here
+				 item view will be different - bigger item vs smaller item & you can upload your item here
 					<ul class="subHeader-right">
 						<li>
 							<div class="uploadPic">Upload</div>
@@ -166,8 +166,8 @@
 							</div>
 						</li>				
 					</ul>
-				--> 
-			</div>
+				 
+			</div> -->
 			<div id="clothingItemList">
 				<ul class="controlBoxes fullWidth">
 					<li class="firstChild">
@@ -185,15 +185,15 @@
 							<li class="outerwear">Outwear</li>
 						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>			
 					</li>
-					<li class="filterOrderWrapper">
-						<?php include(LAYOUT_PATH.DS."parts/filters.php");?>		
+					<!-- <li class="filterOrderWrapper">
+						<?php //include(LAYOUT_PATH.DS."parts/filters.php");?>		
 					</li>
 					<li class="filterOrderWrapper">
-						<?php include(LAYOUT_PATH.DS."parts/order.php");?>
+						<?php //include(LAYOUT_PATH.DS."parts/order.php");?>
 					</li>
 					<li>
-						<?php include(LAYOUT_PATH.DS."parts/searchbox.php");?>		
-					</li>
+						<?php //include(LAYOUT_PATH.DS."parts/searchbox.php");?>		
+					</li> -->
 				</ul>
 				<!--
 					<ul class="subHeader-right">					
@@ -210,15 +210,15 @@
 					</ul>	
 				-->				
 			</div>
-			<div id="modelList">
+			<!-- <div id="modelList">
 				<ul class="controlBoxes fullWidth">
 					<li class="firstChild">
-						<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
+						<?php //include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
 							<li>Natasha</li>	
-							<!--<li>My uploads</li>-->
-						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>
+							<li>My uploads</li>
+						<?php //include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>
 					</li>
-					<!--<div class="subHeader-submenu">
+					<div class="subHeader-submenu">
 								<ul>			
 									<li>
 										Skin Color	
@@ -357,8 +357,8 @@
 										</div>	
 									</li>
 								</ul>
-					</div>-->
-					<!--<li class="shape">
+					</div>
+					<li class="shape">
 							<div class="subHeader-list selectionBox background_white font_calistro">
 								shape
 								<div class="iconWrapper">
@@ -382,67 +382,64 @@
 									</ul>
 								</div>
 							</div>
-						</li>-->
-				</ul>
-				<!--
-					<ul class="subHeader-right">						
-						<li>
-							<div class="changeView">
-								<span class="smallerBox"></span>
-							</div>
 						</li>
-						<li>
-							<div class="changeView">
-								<span class="biggerBox"></span>
-							</div>
-						</li>				
-					</ul>
-				-->
-			</div>
-			<div id="embelishmentList">
+				</ul>
+				<ul class="subHeader-right">						
+					<li>
+						<div class="changeView">
+							<span class="smallerBox"></span>
+						</div>
+					</li>
+					<li>
+						<div class="changeView">
+							<span class="biggerBox"></span>
+						</div>
+					</li>				
+				</ul>
+				
+			</div> -->
+			<!-- <div id="embelishmentList">
 				<ul class="controlBoxes fullWidth">
 					<li class="firstChild">
-						<?php include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
+						<?php //include(LAYOUT_PATH.DS."parts/categorybox_head.php");?>
 							<li>Text</li>
 							<li>Frames & borders</li>
 							<li>Backgrounds</li>	
-						<?php include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>	
+						<?php //include(LAYOUT_PATH.DS."parts/categorybox_foot.php");?>	
 					</li>
 					<li>
-						<?php include(LAYOUT_PATH.DS."parts/searchbox.php");?>	
+						<?php //include(LAYOUT_PATH.DS."parts/searchbox.php");?>	
 					</li>
 				</ul>
-				<!--
-					<ul class="subHeader-right">						
-						<li>
-							<div class="changeView">
-								<span class="smallerBox"></span>
-							</div>
-						</li>
-						<li>
-							<div class="changeView">
-								<span class="biggerBox"></span>
-							</div>
-						</li>				
-					</ul>
-				-->
-			</div>
+				<ul class="subHeader-right">						
+					<li>
+						<div class="changeView">
+							<span class="smallerBox"></span>
+						</div>
+					</li>
+					<li>
+						<div class="changeView">
+							<span class="biggerBox"></span>
+						</div>
+					</li>				
+				</ul>
+			</div> -->
 		</div>
-		<div id="myItemImages" class="itemBox">	
+		<!-- <div id="myItemImages" class="itemBox">	
 			<ul class="itemIconsWrapper">
 				<li>
 					<span class="itemIcon heart_filled"></span>
 					<span class="itemDescription">My likes</span>
 				</li>
-				<!--  Users can see their own uploaded items here
-					<li>
-						<span class="itemIcon"></span>
-						<span class="itemDescription">My uploads</span>
-					</li>
-				-->
+				  Users can see their own uploaded items here
+				<li>
+					<span class="itemIcon"></span>
+					<span class="itemDescription">My uploads</span>
+				</li>
+				
 			</ul>
 			
-		</div>
+		</div> -->
 		<div id="clothingImages" class="itemBox">
 			<ul class="itemIconsWrapper">
 				
@@ -501,7 +498,7 @@
 				
 			</ul>
 		</div>
-		<div id="modelImages" class="itemBox">
+		<!-- <div id="modelImages" class="itemBox">
 			<ul class="itemIconsWrapper">
 				<li>	
 					<span class="itemIcon">
@@ -522,17 +519,17 @@
 					<span class="itemIcon frameImage"></span>		
 					<span class="itemDescription">Frames & borders</span>
 				</li>
-				<!--<li>
+				<li>
 					<span class="itemIcon"></span>
 					<span class="itemDescription">Effect</span>
-				</li>-->
+				</li>
 				<li>
 					<span class="itemIcon backgroundImage"></span>
 					<span class="itemDescription">Background</span>
 				</li>
 			</ul>					
 			
-		</div>
+		</div>-->
 		<div>
 			<ul id="itemLoadingBox" class="itemBoxImages">
 				<div class="loader"></div>

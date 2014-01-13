@@ -48,39 +48,30 @@
 	$sql .="OFFSET {$infinite_position->offset()} ";
 	
 	if($attribute="product"){
+		unset($product_array);
 		$product_array = product::find_by_sql($sql);
 	}else{
 
 	}
 
-	if(empty($product_array)){
+	$num_of_found_items = count($product_array);
+
+	
+?>
+
+
+
+
+<?php 	if($attribute=="product"){
+ 			foreach($product_array as $product): ?>
+				<li class="items-wrapper">
+					<img id="<?php echo $product->product_id.$item?>" class="<?php echo $item;?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
+				</li>
+<?php 		endforeach; 
+		}
+
+	if(empty($product_array) || $num_of_found_items < $per_page){
 		echo "<li class=\"items-wrapper last_item\"><span>No more items</span></li>";
 	}
-?>
-
-
-
-
-<?php
-
-
-	if($attribute=="product"){
- 		foreach($product_array as $product): ?>
-			<li class="items-wrapper">
-				<img id="<?php echo $product->product_id.$item?>" class="<?php echo $item;?>" src="<?php echo ROOT_PATH."resources/items/".$product->small_filename; ?>"/>
-			</li>
-<?php 
-		endforeach;
-
-	}else{
-
-?>
-			<li class="items-wrapper">
-				<span> Under construction </span>
-			</li>
-<?php 	
-			
-	}
-
 
 ?>

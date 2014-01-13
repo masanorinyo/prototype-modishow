@@ -3113,7 +3113,9 @@ li{
 .hiddenBox{
 	width:230px;
 	top:30px;
-	left:0px;
+	/*left:0px;*/
+	/*temporary procedure*/
+	right:-62px;
 	display:none;
 }
 
@@ -3437,7 +3439,8 @@ li{
 	bottom:20%;
 }
 
-#clothingItemList,
+/*#clothingItemList,*/
+#myItemList,
 #modelList,
 #backgroundList,
 #embelishmentList,
@@ -3618,6 +3621,7 @@ li{
 	text-align: center;
 	background-color:rgb(250,250,250);
 	position: relative;
+	cursor:default;
 }
 
 #itemLoadingBox .last_item span{
@@ -3634,7 +3638,7 @@ li{
 	
 }
 
-#myItemImages .itemIconsWrapper,
+#clothingImages .itemIconsWrapper,
 #itemImages .itemIconsWrapper{
 	display:block;
 }

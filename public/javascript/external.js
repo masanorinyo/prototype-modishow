@@ -232,7 +232,7 @@ $(function(){
 	$('.closeBox').click(function(event){
 		$('#popup_overlay').hide();
 	});
-	$('.closeBox,.icon_close,.confirmation .cancel').click(function(event){
+	$('.closeBox,.closeBox .icon_close,.confirmation .cancel').click(function(event){
 		$('html').css("overflow","visible"); 
 	});
 	$('#modalbox,#modalbox-quick,#modalbox-editProfile,#modalbox-changePic,#signup_modalBox').click(function(event){
@@ -1286,7 +1286,7 @@ $(function(){
     }
 
 //event handler
-	$('.itemBoxImages').on("click",".items-wrapper",function(event){	
+	$('.itemBoxImages').on("click",".items-wrapper:not('.last_item')",function(event){	
    		//take ID information here & get multiple images for different positions
    		//image for being on top of the other clothes
    		//image for being underneath the other clothes
@@ -1419,13 +1419,13 @@ $(function(){
 
 
 
-	$("#itemLoadingBox .items-wrapper").draggable({
+	$("#itemLoadingBox .items-wrapper").not('.last_item').draggable({
         distance:100,
         appendTo: "body",
         cursor: "move",         
         zIndex: 2000,   
         helper:function(event,ui){
-                var cloneList = $(this).clone();
+                var cloneList = $(this).not('.last_item').clone();
                 $(cloneList).find("img").addClass('addStyleListBox');
 
                 return cloneList;
@@ -1433,7 +1433,7 @@ $(function(){
 	});
 
 	$("#creationCanvas").droppable({
-		accept:".items-wrapper",
+		accept:".items-wrapper:not('.last_item')",
 		drop:function(event,ui){
 
 			var id = $(ui.draggable).children('img').attr('id');
@@ -2170,14 +2170,30 @@ $(function(){
 	$(".itemIconsWrapper > li,.itembox_subHeader .firstChild li").click(function(event){
 		$("#itemLoadingBox > li").remove();
 		var requested_item = $(this).attr("class");
-		var load=1;
-		var num_of_page = 20;
+		
+		var noItem="<div id='noItem'><span>We do not have this category items yet</span></div>";
+
+		var boxHeight = $("#itemLoadingBox").height();
+		//the reason for -10 is for the case that scroll bar shows up.
+		var boxWidth = $("#itemLoadingBox").width()-10;
+		
+		
+		//width of each list box in the item box on Try on page
+		var itemWidth = 117;
+		var itemHeight = 117;
+
+		//num of items that can show up in the window change according to the width of the itemloadingbox
+		var num_of_rows = parseInt(boxHeight/itemHeight);
+		var num_of_columns = parseInt(boxWidth/itemWidth);
+		var num_of_page = parseInt(num_of_rows*num_of_columns);
+		
+		
 		var attr = "product";
 		$.ajax({
 		    type:"POST",
 			url:'../app/class/controller/infinite_for_items',
 		    data: {
-		    	OFFSET:load,
+		    	OFFSET:1,
 		    	items:requested_item,
 		    	per_page:num_of_page,
 		    	attribute:attr
@@ -2205,24 +2221,19 @@ $(function(){
 		});
 
 		
-		
+		var load=2;
 		$("#itemLoadingBox").scroll(function(){
 			
+
+
 			var view_height = $("#itemLoadingBox").height();
 			var scroll_position = $("#itemLoadingBox").scrollTop();
 			var scroll_to_bottom = view_height + scroll_position;
 			var full_height = $("#itemLoadingBox")[0].scrollHeight-1;
-			
-			
+
 
 			if(scroll_to_bottom == full_height && !($("#itemLoadingBox >li").hasClass('last_item'))){
-				console.log("view_height "+view_height);
-				console.log("scroll_position "+scroll_position);
-				console.log("scroll_to_bottom "+scroll_to_bottom);
-				console.log("full_height "+full_height);
-
 				$('.loader').show();
-				load++;
 				console.log(load);
 				$.ajax({
 				    type:"POST",
@@ -2234,7 +2245,7 @@ $(function(){
 				    	attribute:attr
 				    },
 				    success: function(data){
-				    	
+				    	load++;
 				    	$("#itemLoadingBox").append(data);
 				    	$('.loader').hide();	
 				    	
@@ -2247,7 +2258,7 @@ $(function(){
 				});
 			}else if($("#itemLoadingBox >li").hasClass('last_item')){
 				$('.loader').hide();	
-				load=1;
+				load=2;
 			}
 		})
 	})
@@ -2343,7 +2354,7 @@ $(function(){
 			$(".description_box textarea").val("");
 		});	
 
-	$('.icon_close,.button_medium.cancel').click(function(event){
+	$('.closeBox .icon_close,.button_medium.cancel').click(function(event){
 		$('#popup_overlay').hide();
 		$(".title_box input").val("");
 		$("#categorySelect").val("0");
@@ -2497,7 +2508,7 @@ $(function(){
 		}
 	});
 
-	$('html,.icon_close').click(function(event){
+	$('html,.iconWrapper .icon_close').click(function(event){
         $('.subHeader-submenu').hide();
     });
 
@@ -2536,15 +2547,15 @@ $(function(){
 //sub header changes according to a selected header//
 $(function() {
 	//---icon close -- if users click the close icon, back to the oirginal state----//
- 	$(".icon_close").click(function(){ 
- 		$("#itemLoadingBox > li").remove();
+ 	$(".iconWrapper .icon_close").click(function(){ 
+ 		$("#itemLoadingBox").scrollTop(0);
+ 		$("#itemLoadingBox li").remove();
         $(".itemBoxImages").hide();
         $(".selectedListItem").remove();
         $(".default").show();
         $(".filledDownArrow").show();
 		$(".icon_close").hide();
 
-        console.log($(this).parent().parent().parent().parent().parent().attr('id'));
 	    switch ($(this).parent().parent().parent().parent().parent().attr('id')){
 		    case 'myItemList': $("#myItemImages > .itemIconsWrapper").show();break;
 		    case 'clothingItemList': $("#clothingImages > .itemIconsWrapper").show();break;
@@ -3613,8 +3624,6 @@ $(function() {
 		
 $(function(){
 	var load=1;
-	var url = document.location.origin;
-	var pathname = document.location.pathname;
 	var loader = "<div id='loader_wrapper' class='clear'>";
 		loader += "<span class='loader'></span></div>";
 

@@ -86,7 +86,7 @@
 				</ul>
 			</div>
 			<div class="clear lastChild">
-				<span>&copy; 2013 - ModiShow corporation</span>
+				<span>&copy; 2013-<?php date_default_timezone_set('America/New_York'); echo date("Y"); ?> ModiShow corporation</span>
 			</div>
 		</div>
 		<script type="text/javascript" src="http://localhost/~Masanori/ModiShow/public/javascript/jquery-1.10.2.min.js"></script>
