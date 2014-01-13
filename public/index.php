@@ -10,9 +10,18 @@
 		$outfitOnModel_id = $style_array['outfitOnModel_id'];
 		$_SESSION['style_info']="";
 		$found_outfitOnModel = Outfit_on_model::find_by_id($outfitOnModel_id);
+		
+		$d_url = $found_outfitOnModel->default_filename;
+		$s_url = $found_outfitOnModel->m_size_filename;
+
+		$full_d_url = SITE_ROOT.DS."resources/styles/".$d_url;
+		$full_s_url = SITE_ROOT.DS."resources/styles/".$s_url;
+
+		unlink($full_d_url);
+		unlink($full_s_url);
+
 		$result = $found_outfitOnModel->delete();
 	}
-
 
 
 ?>
