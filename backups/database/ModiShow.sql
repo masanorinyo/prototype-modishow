@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ModiShow`
+-- Database: `modirakq_prototype`
 --
 
 -- --------------------------------------------------------
@@ -205,23 +205,12 @@ INSERT INTO `clothing_type` (`clothingType_id`, `main_category`, `sub_category`,
 --
 
 CREATE TABLE IF NOT EXISTS `collage` (
-  `collage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `collage_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `default_filename` text NOT NULL,
   `m_size_filename` text NOT NULL,
   PRIMARY KEY (`collage_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `collage`
---
-
-INSERT INTO `collage` (`collage_id`, `default_filename`, `m_size_filename`) VALUES
-(1, 'cmp40p39p38p406103746511317237136380.jpg', 'cmp40p39p38p406103746511317237136380_sml.jpg'),
-(2, 'cmp39p30p11p395312641083335-6954174.jpg', 'cmp39p30p11p395312641083335-6954174_sml.jpg'),
-(3, 'cap10p30p39p40.jpg', 'cap10p30p39p40_sml.jpg'),
-(4, 'cap31p40p56.jpg', 'cap31p40p56_sml.jpg'),
-(5, 'cmp32p62p1070019926222075259.jpg', 'cmp32p62p1070019926222075259_sml.jpg'),
-(6, 'cmp39p30p22p21p1p22pNaNpNaNpNaN338299339116091901072704268601-746227572031083590.jpg', 'cmp39p30p22p21p1p22pNaNpNaNpNaN338299339116091901072704268601-746227572031083590_sml.jpg');
 
 -- --------------------------------------------------------
 
@@ -230,8 +219,8 @@ INSERT INTO `collage` (`collage_id`, `default_filename`, `m_size_filename`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `collage_misc_rel` (
-  `misc_id` int(11) NOT NULL,
-  `collage_id` int(11) NOT NULL,
+  `misc_id` int(11) unsigned NOT NULL,
+  `collage_id` int(11) unsigned NOT NULL,
   `z_index` tinyint(4) unsigned NOT NULL,
   `x_position` tinyint(4) NOT NULL,
   `y_position` tinyint(4) NOT NULL,
@@ -249,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `collage_misc_rel` (
 --
 
 CREATE TABLE IF NOT EXISTS `color` (
-  `color_id` int(11) NOT NULL AUTO_INCREMENT,
+  `color_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`color_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
@@ -282,8 +271,8 @@ INSERT INTO `color` (`color_id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `color_in_style` (
-  `color_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
+  `color_id` int(11) unsigned NOT NULL,
+  `style_id` int(11) unsigned NOT NULL,
   KEY `color_id` (`color_id`),
   KEY `style_id` (`style_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -295,8 +284,8 @@ CREATE TABLE IF NOT EXISTS `color_in_style` (
 --
 
 CREATE TABLE IF NOT EXISTS `color_of_product` (
-  `product_id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `color_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`product_id`,`color_id`),
   KEY `color_id` (`color_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -404,9 +393,9 @@ INSERT INTO `color_of_product` (`product_id`, `color_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `comment` (
-  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
+  `comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `style_id` int(11) unsigned NOT NULL,
   `contents` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
@@ -423,8 +412,8 @@ CREATE TABLE IF NOT EXISTS `comment` (
 --
 
 CREATE TABLE IF NOT EXISTS `favorited_product` (
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
   PRIMARY KEY (`product_id`,`user_id`),
@@ -438,8 +427,8 @@ CREATE TABLE IF NOT EXISTS `favorited_product` (
 --
 
 CREATE TABLE IF NOT EXISTS `favorited_style` (
-  `user_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `style_id` int(11) unsigned NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
   PRIMARY KEY (`user_id`,`style_id`),
@@ -453,8 +442,8 @@ CREATE TABLE IF NOT EXISTS `favorited_style` (
 --
 
 CREATE TABLE IF NOT EXISTS `follower` (
-  `user_id` int(11) NOT NULL,
-  `follower_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `follower_id` int(11) unsigned NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
   PRIMARY KEY (`user_id`),
@@ -468,8 +457,8 @@ CREATE TABLE IF NOT EXISTS `follower` (
 --
 
 CREATE TABLE IF NOT EXISTS `items_uploaded_by_user` (
-  `user_id` int(11) NOT NULL,
-  `uploadedItems_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `uploadedItems_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`user_id`,`uploadedItems_id`),
   KEY `uploadedItems_id` (`uploadedItems_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -481,7 +470,7 @@ CREATE TABLE IF NOT EXISTS `items_uploaded_by_user` (
 --
 
 CREATE TABLE IF NOT EXISTS `material` (
-  `material_id` int(11) NOT NULL AUTO_INCREMENT,
+  `material_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`material_id`),
   KEY `name` (`name`)
@@ -511,8 +500,8 @@ INSERT INTO `material` (`material_id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `material_in_style` (
-  `material_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
+  `material_id` int(11) unsigned NOT NULL,
+  `style_id` int(11) unsigned NOT NULL,
   KEY `material_id` (`material_id`),
   KEY `style_id` (`style_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -524,8 +513,8 @@ CREATE TABLE IF NOT EXISTS `material_in_style` (
 --
 
 CREATE TABLE IF NOT EXISTS `material_of_product` (
-  `product_id` int(11) NOT NULL,
-  `material_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `material_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`material_id`,`product_id`),
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -605,7 +594,7 @@ INSERT INTO `material_of_product` (`product_id`, `material_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `misc` (
-  `misc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `misc_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `main_category` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `sub_category` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -632,12 +621,12 @@ INSERT INTO `misc` (`misc_id`, `main_category`, `sub_category`, `name`, `default
 --
 
 CREATE TABLE IF NOT EXISTS `model` (
-  `model_id` int(11) NOT NULL AUTO_INCREMENT,
-  `modelFace_id` int(11) NOT NULL,
-  `modelLegs_id` int(11) NOT NULL,
-  `modelTorso_id` int(11) NOT NULL,
-  `modelArms_id` int(11) NOT NULL,
-  `modelHair_id` int(11) NOT NULL,
+  `model_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `modelFace_id` int(11) unsigned NOT NULL,
+  `modelLegs_id` int(11) unsigned NOT NULL,
+  `modelTorso_id` int(11) unsigned NOT NULL,
+  `modelArms_id` int(11) unsigned NOT NULL,
+  `modelHair_id` int(11) unsigned NOT NULL,
   PRIMARY KEY (`model_id`),
   KEY `modelFace_id` (`modelFace_id`),
   KEY `modelTorso_id` (`modelTorso_id`),
@@ -660,7 +649,7 @@ INSERT INTO `model` (`model_id`, `modelFace_id`, `modelLegs_id`, `modelTorso_id`
 --
 
 CREATE TABLE IF NOT EXISTS `model_arms` (
-  `modelArms_id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelArms_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sex` char(1) NOT NULL,
   `width` tinyint(3) DEFAULT NULL,
   `pose` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -683,7 +672,7 @@ INSERT INTO `model_arms` (`modelArms_id`, `sex`, `width`, `pose`, `skin_color`, 
 --
 
 CREATE TABLE IF NOT EXISTS `model_face` (
-  `modelFace_id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelFace_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `skin_color` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `default_filename` varchar(100) NOT NULL,
@@ -708,7 +697,7 @@ INSERT INTO `model_face` (`modelFace_id`, `name`, `skin_color`, `default_filenam
 --
 
 CREATE TABLE IF NOT EXISTS `model_hair` (
-  `modelHair_id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelHair_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `color` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `default_filename` varchar(100) NOT NULL,
@@ -731,7 +720,7 @@ INSERT INTO `model_hair` (`modelHair_id`, `name`, `color`, `default_filename`, `
 --
 
 CREATE TABLE IF NOT EXISTS `model_legs` (
-  `modelLegs_id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelLegs_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `inseam` tinyint(3) DEFAULT NULL,
   `waist` tinyint(3) DEFAULT NULL,
   `skin_color` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -756,7 +745,7 @@ INSERT INTO `model_legs` (`modelLegs_id`, `inseam`, `waist`, `skin_color`, `defa
 --
 
 CREATE TABLE IF NOT EXISTS `model_shadow` (
-  `modelShadow_id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelShadow_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pose` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `default_filename` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `sex` char(1) COLLATE utf8_unicode_ci NOT NULL,
@@ -777,7 +766,7 @@ INSERT INTO `model_shadow` (`modelShadow_id`, `pose`, `default_filename`, `sex`)
 --
 
 CREATE TABLE IF NOT EXISTS `model_torso` (
-  `modelTorso_id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelTorso_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `length` tinyint(3) DEFAULT NULL,
   `waist` tinyint(3) DEFAULT NULL,
   `skin_color` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -802,10 +791,10 @@ INSERT INTO `model_torso` (`modelTorso_id`, `length`, `waist`, `skin_color`, `po
 --
 
 CREATE TABLE IF NOT EXISTS `notification` (
-  `user_id` int(11) NOT NULL,
-  `comment_id` int(11) NOT NULL DEFAULT '0',
-  `style_id` int(11) NOT NULL DEFAULT '0',
-  `follower_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) unsigned NOT NULL,
+  `comment_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `style_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `follower_id` int(11) unsigned NOT NULL DEFAULT '0',
   `viewed` tinyint(1) NOT NULL,
   `added_time` datetime NOT NULL,
   PRIMARY KEY (`user_id`,`comment_id`,`style_id`,`follower_id`),
@@ -821,8 +810,8 @@ CREATE TABLE IF NOT EXISTS `notification` (
 --
 
 CREATE TABLE IF NOT EXISTS `outfitOnModel_misc_rel` (
-  `outfitOnModel_id` int(11) NOT NULL,
-  `misc_id` int(11) NOT NULL,
+  `outfitOnModel_id` int(11) unsigned NOT NULL,
+  `misc_id` int(11) unsigned NOT NULL,
   `z_index` tinyint(4) unsigned NOT NULL,
   `x_position` tinyint(4) NOT NULL,
   `y_position` tinyint(4) NOT NULL,
@@ -840,26 +829,15 @@ CREATE TABLE IF NOT EXISTS `outfitOnModel_misc_rel` (
 --
 
 CREATE TABLE IF NOT EXISTS `outfit_on_model` (
-  `outfitOnModel_id` int(11) NOT NULL AUTO_INCREMENT,
-  `model_id` int(11) NOT NULL,
+  `outfitOnModel_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `model_id` int(11) unsigned NOT NULL,
   `default_filename` text NOT NULL,
   `m_size_filename` text NOT NULL,
   PRIMARY KEY (`outfitOnModel_id`),
   KEY `model_id` (`model_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `outfit_on_model`
---
-
-INSERT INTO `outfit_on_model` (`outfitOnModel_id`, `model_id`, `default_filename`, `m_size_filename`) VALUES
-(1, 1, 'mp40p39p38.jpg', 'mp40p39p38_sml.jpg'),
-(2, 1, 'mp39p30p11.jpg', 'mp39p30p11_sml.jpg'),
-(3, 1, 'mp39p40p30p10.jpg', 'mp39p40p30p10_sml.jpg'),
-(4, 1, 'mp40p31p56.jpg', 'mp40p31p56_sml.jpg'),
-(5, 1, 'mp32p62p10.jpg', 'mp32p62p10_sml.jpg'),
-(6, 1, 'mp39p30p22p21p1.jpg', 'mp39p30p22p21p1_sml.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -867,7 +845,7 @@ INSERT INTO `outfit_on_model` (`outfitOnModel_id`, `model_id`, `default_filename
 --
 
 CREATE TABLE IF NOT EXISTS `pattern` (
-  `pattern_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pattern_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`pattern_id`),
   KEY `name` (`name`)
@@ -899,8 +877,8 @@ INSERT INTO `pattern` (`pattern_id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `pattern_in_style` (
-  `pattern_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
+  `pattern_id` int(11) unsigned NOT NULL,
+  `style_id` int(11) unsigned NOT NULL,
   KEY `pattern_id` (`pattern_id`),
   KEY `style_id` (`style_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -912,8 +890,8 @@ CREATE TABLE IF NOT EXISTS `pattern_in_style` (
 --
 
 CREATE TABLE IF NOT EXISTS `pattern_of_product` (
-  `product_id` int(11) NOT NULL,
-  `pattern_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `pattern_id` int(11) unsigned NOT NULL,
   KEY `pattern_id` (`pattern_id`),
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1001,9 +979,9 @@ INSERT INTO `pattern_of_product` (`product_id`, `pattern_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `product` (
-  `product_id` int(11) NOT NULL AUTO_INCREMENT,
-  `brand_id` int(11) NOT NULL,
-  `clothingType_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `brand_id` int(11) unsigned NOT NULL,
+  `clothingType_id` int(11) unsigned NOT NULL,
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `url` text,
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
@@ -1095,9 +1073,9 @@ INSERT INTO `product` (`product_id`, `brand_id`, `clothingType_id`, `name`, `url
 --
 
 CREATE TABLE IF NOT EXISTS `product_collage_rel` (
-  `productCollage_id` int(11) NOT NULL AUTO_INCREMENT,
-  `collage_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `productCollage_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `collage_id` int(11) unsigned NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
   `z_index` smallint(4) unsigned DEFAULT NULL,
   `x_value` smallint(4) DEFAULT NULL,
   `y_value` smallint(4) DEFAULT NULL,
@@ -1110,18 +1088,6 @@ CREATE TABLE IF NOT EXISTS `product_collage_rel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `product_collage_rel`
---
-
-INSERT INTO `product_collage_rel` (`collage_id`, `product_id`, `z_index`, `x_value`, `y_value`, `width`, `height`, `angle`, `mirrored`) VALUES
-(4, 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 40, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 56, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 1, 996, 45, 75, 300, 300, '0.0', 0),
-(6, 21, 995, 110, 277, 300, 300, '0.0', 0),
-(6, 22, 994, 612, 197, 300, 300, '0.0', 0),
-(6, 30, 993, 342, 18, 300, 300, '0.0', 0),
-(6, 39, 992, 341, 306, 300, 300, '0.0', 0);
 
 -- --------------------------------------------------------
 
@@ -1130,7 +1096,7 @@ INSERT INTO `product_collage_rel` (`collage_id`, `product_id`, `z_index`, `x_val
 --
 
 CREATE TABLE IF NOT EXISTS `product_image` (
-  `productImage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `productImage_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `image_type` char(14) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `position` char(20) DEFAULT NULL,
   `action` char(5) DEFAULT NULL,
@@ -1301,8 +1267,8 @@ INSERT INTO `product_image` (`productImage_id`, `image_type`, `position`, `actio
 --
 
 CREATE TABLE IF NOT EXISTS `product_image_rel` (
-  `product_id` int(11) NOT NULL,
-  `productImage_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `productImage_id` int(11) unsigned NOT NULL,
   KEY `product_id` (`product_id`),
   KEY `productImage_id` (`productImage_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1468,8 +1434,8 @@ INSERT INTO `product_image_rel` (`product_id`, `productImage_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `product_on_model` (
-  `product_id` int(11) NOT NULL,
-  `outfitOnModel_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `outfitOnModel_id` int(11) unsigned NOT NULL,
   `z_index` smallint(4) unsigned NOT NULL,
   PRIMARY KEY (`product_id`,`outfitOnModel_id`),
   KEY `outfitOnModel_id` (`outfitOnModel_id`)
@@ -1479,64 +1445,13 @@ CREATE TABLE IF NOT EXISTS `product_on_model` (
 -- Dumping data for table `product_on_model`
 --
 
-INSERT INTO `product_on_model` (`product_id`, `outfitOnModel_id`, `z_index`) VALUES
-(1, 38, 1000),
-(1, 39, 999),
-(1, 40, 998),
-(2, 11, 1000),
-(2, 30, 999),
-(2, 39, 998),
-(3, 10, 1000),
-(3, 30, 999),
-(3, 39, 997),
-(3, 40, 998),
-(4, 31, 999),
-(4, 40, 998),
-(4, 56, 1000),
-(5, 10, 1000),
-(5, 32, 998),
-(5, 62, 999),
-(6, 1, 1000),
-(6, 21, 999),
-(6, 22, 998),
-(6, 30, 997),
-(6, 39, 996),
-(27, 13, 1000),
-(27, 30, 999),
-(27, 39, 998),
-(27, 40, 997),
-(28, 24, 999),
-(28, 41, 1000),
-(28, 49, 998),
-(29, 26, 996),
-(29, 35, 1000),
-(29, 38, 998),
-(29, 39, 997),
-(29, 40, 999),
-(30, 19, 1000),
-(30, 20, 999),
-(30, 26, 997),
-(30, 49, 998),
-(31, 38, 999),
-(31, 39, 998),
-(31, 40, 997),
-(31, 53, 1000),
-(32, 1, 999),
-(32, 11, 998),
-(32, 27, 1000),
-(33, 1, 999),
-(33, 23, 998),
-(33, 24, 997),
-(33, 26, 1000);
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `product_size`
 --
 
 CREATE TABLE IF NOT EXISTS `product_size` (
-  `productSize_id` int(11) NOT NULL AUTO_INCREMENT,
+  `productSize_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `bust` tinyint(3) DEFAULT NULL,
   `waist` tinyint(3) DEFAULT NULL,
   `hip` tinyint(3) DEFAULT NULL,
@@ -1560,7 +1475,7 @@ CREATE TABLE IF NOT EXISTS `product_size` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_size_range` (
-  `productSize_id` int(11) NOT NULL,
+  `productSize_id` int(11) unsigned NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`productSize_id`,`product_id`),
   KEY `product_id` (`product_id`)
@@ -1573,8 +1488,8 @@ CREATE TABLE IF NOT EXISTS `product_size_range` (
 --
 
 CREATE TABLE IF NOT EXISTS `purchased_product` (
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
   PRIMARY KEY (`user_id`,`product_id`),
@@ -1588,8 +1503,8 @@ CREATE TABLE IF NOT EXISTS `purchased_product` (
 --
 
 CREATE TABLE IF NOT EXISTS `reports` (
-  `user_id` int(11) NOT NULL,
-  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `comment_id` int(11) unsigned NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   PRIMARY KEY (`user_id`,`comment_id`),
   KEY `comment_id` (`comment_id`)
@@ -1602,11 +1517,11 @@ CREATE TABLE IF NOT EXISTS `reports` (
 --
 
 CREATE TABLE IF NOT EXISTS `style` (
-  `style_id` int(11) NOT NULL AUTO_INCREMENT,
-  `outfitOnModel_id` int(11) NOT NULL,
-  `collage_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `style_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `outfitOnModel_id` int(11) unsigned NOT NULL,
+  `collage_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) unsigned NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `num_of_views` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -1620,16 +1535,9 @@ CREATE TABLE IF NOT EXISTS `style` (
   KEY `title` (`title`),
   KEY `category_id` (`category_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `style`
---
-
-INSERT INTO `style` (`style_id`, `outfitOnModel_id`, `collage_id`, `user_id`, `category_id`, `title`, `description`, `num_of_views`, `visibility`, `added_date`, `added_time`, `edited_time`) VALUES
-(1, 1, 1, 1, 2, 'Testing', 'Testing description', 0, 0, '2014-01-12', '01:01:06', '2014-01-12 06:01:06'),
-(2, 4, 4, 1, 4, 'tesas', '', 0, 0, '2014-01-12', '01:13:42', '2014-01-12 06:13:42'),
-(3, 5, 5, 1, 21, 'tomodachi tshirt', '', 0, 0, '2014-01-12', '01:15:33', '2014-01-12 06:15:33');
 
 -- --------------------------------------------------------
 
@@ -1638,7 +1546,7 @@ INSERT INTO `style` (`style_id`, `outfitOnModel_id`, `collage_id`, `user_id`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `uploaded_items` (
-  `uploadedItems_id` int(11) NOT NULL AUTO_INCREMENT,
+  `uploadedItems_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `main_category` varchar(50) NOT NULL,
   `sub_category` varchar(50) DEFAULT NULL,
@@ -1653,8 +1561,8 @@ CREATE TABLE IF NOT EXISTS `uploaded_items` (
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `model_id` int(11) NOT NULL DEFAULT '1',
+  `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `model_id` int(11) unsigned NOT NULL DEFAULT '1',
   `gender` char(1) NOT NULL DEFAULT 'u',
   `facebook_loggin` tinyint(1) NOT NULL DEFAULT '0',
   `username` varchar(40) NOT NULL,
@@ -1681,23 +1589,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `hip` tinyint(3) unsigned DEFAULT NULL,
   `user_type` varchar(10) DEFAULT NULL,
   `joined_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `logged_in_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `logged_out_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  -- `logged_in_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  -- `logged_out_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   KEY `model_id` (`model_id`),
   KEY `email_2` (`email`),
   KEY `username_2` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `model_id`, `gender`, `facebook_loggin`, `username`, `email`, `password`, `introduction`, `language`, `thumbnail`, `default_img`, `homepage`, `twitter`, `pinterest`, `facebook`, `country`, `city`, `age`, `skin_color`, `bodyshape`, `size`, `height`, `inseam`, `chest_bust`, `waist`, `hip`, `user_type`, `joined_time`, `logged_in_time`, `logged_out_time`) VALUES
-(1, 1, 'm', 0, 'masanorinyo', 'masanorinyo@gmail.com', '$2y$10$NmJjYzJlZDQwNDljMDAwNutRN/5nuJ7g8uqR.QSW6kx/UIgD/sI.6', NULL, NULL, 'masanorinyo_thumb.gif', 'masanorinyo_default.jpg', NULL, NULL, NULL, NULL, 'US', NULL, 30, NULL, 'in', '0', 180, NULL, NULL, NULL, NULL, NULL, '2014-01-12 05:59:27', '2014-01-12 05:59:27', '2014-01-12 05:59:27');
-
 -- --------------------------------------------------------
 
 --
@@ -1705,8 +1607,8 @@ INSERT INTO `user` (`user_id`, `model_id`, `gender`, `facebook_loggin`, `usernam
 --
 
 CREATE TABLE IF NOT EXISTS `user_preference_category` (
-  `user_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) unsigned NOT NULL,
   `points` tinyint(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`,`category_id`),
   KEY `category_id` (`category_id`)
@@ -1719,8 +1621,8 @@ CREATE TABLE IF NOT EXISTS `user_preference_category` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_preference_color` (
-  `color_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `color_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
   `points` tinyint(5) NOT NULL,
   PRIMARY KEY (`color_id`,`user_id`),
   KEY `user_id` (`user_id`)
@@ -1733,8 +1635,8 @@ CREATE TABLE IF NOT EXISTS `user_preference_color` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_preference_material` (
-  `material_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `material_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
   `points` tinyint(5) NOT NULL,
   PRIMARY KEY (`material_id`,`user_id`),
   KEY `user_id` (`user_id`)
@@ -1747,8 +1649,8 @@ CREATE TABLE IF NOT EXISTS `user_preference_material` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_preference_pattern` (
-  `pattern_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `pattern_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
   `points` tinyint(5) NOT NULL,
   PRIMARY KEY (`pattern_id`,`user_id`),
   KEY `user_id` (`user_id`)
@@ -1761,8 +1663,8 @@ CREATE TABLE IF NOT EXISTS `user_preference_pattern` (
 --
 
 CREATE TABLE IF NOT EXISTS `viewed_product` (
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
   `added_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`product_id`,`user_id`),
   KEY `user_id` (`user_id`)
@@ -1775,8 +1677,8 @@ CREATE TABLE IF NOT EXISTS `viewed_product` (
 --
 
 CREATE TABLE IF NOT EXISTS `viewed_style` (
-  `user_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `style_id` int(11) unsigned NOT NULL,
   `added_date` date NOT NULL,
   `added_time` time NOT NULL,
   PRIMARY KEY (`user_id`,`style_id`),
