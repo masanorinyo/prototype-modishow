@@ -2995,8 +2995,8 @@ li{
 
 .draggable > li{
 	position:absolute;
-	width: 300px; 
-	height: 300px; 
+	width: 400px; 
+	height: 400px; 
 	cursor: move;
 }
 
@@ -3931,7 +3931,7 @@ li{
 }
 
 .button_large.background-weak{
-	width: 231px;
+	width: 250px;
 	top: 136px;
 	right: 21px;
 	font-size: 3.4em;
